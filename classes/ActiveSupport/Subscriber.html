@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -132,14 +152,9 @@
 </li>
 <li class="toc-entry toc-h2"><a href="#instance-public-methods">Instance Public methods</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#method-i-finish">
+<li class="toc-entry toc-h3"><a href="#method-i-call">
             
-              finish(name, id, payload)
-            
-          </a></li>
-<li class="toc-entry toc-h3"><a href="#method-i-start">
-            
-              start(name, id, payload)
+              call(event)
             
           </a></li>
 </ul>
@@ -151,7 +166,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -175,7 +190,9 @@
   
     <div class="description">
       
-<p><a href="Subscriber.html"><code>ActiveSupport::Subscriber</code></a> is an object set to consume <a href="Notifications.html"><code>ActiveSupport::Notifications</code></a>. The subscriber dispatches notifications to a registered object based on its given namespace.</p>
+<h1 id="class-ActiveSupport::Subscriber-label-Active+Support+Subscriber">Active Support Subscriber</h1>
+
+<p><code>ActiveSupport::Subscriber</code> is an object set to consume <a href="Notifications.html"><code>ActiveSupport::Notifications</code></a>. The subscriber dispatches notifications to a registered object based on its given namespace.</p>
 
 <p>An example would be an Active Record subscriber responsible for collecting statistics about queries:</p>
 
@@ -190,7 +207,7 @@
 end
 </code></pre>
 
-<p>After configured, whenever a “sql.active_record” notification is published, it will properly dispatch the event (<a href="Notifications/Event.html"><code>ActiveSupport::Notifications::Event</code></a>) to the <code>sql</code> method.</p>
+<p>After configured, whenever a <code>&quot;sql.active_record&quot;</code> notification is published, it will properly dispatch the event (<a href="Notifications/Event.html"><code>ActiveSupport::Notifications::Event</code></a>) to the <code>sql</code> method.</p>
 
 <p>We can detach a subscriber as well:</p>
 
@@ -221,11 +238,11 @@ end
         </li>
       
         <li>
-          <a href="#method-c-detach_from">detach_from</a>
+          <a href="#method-i-call">call</a>
         </li>
       
         <li>
-          <a href="#method-i-finish">finish</a>
+          <a href="#method-c-detach_from">detach_from</a>
         </li>
       
         <li>
@@ -238,10 +255,6 @@ end
       
         <li>
           <a href="#method-c-remove_event_subscriber">remove_event_subscriber</a>
-        </li>
-      
-        <li>
-          <a href="#method-i-start">start</a>
         </li>
       
         <li>
@@ -292,7 +305,7 @@ end
                 
               </p>
               <div id="method-c-attach_to_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/subscriber.rb, line 33</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/subscriber.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">attach_to</span>(<span class="ruby-identifier">namespace</span>, <span class="ruby-identifier">subscriber</span> = <span class="ruby-identifier">new</span>, <span class="ruby-identifier">notifier</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Notifications</span>, <span class="ruby-value">inherit_all:</span> <span class="ruby-keyword">false</span>)
   <span class="ruby-ivar">@namespace</span>  = <span class="ruby-identifier">namespace</span>
   <span class="ruby-ivar">@subscriber</span> = <span class="ruby-identifier">subscriber</span>
@@ -337,7 +350,7 @@ end
                 
               </p>
               <div id="method-c-detach_from_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/subscriber.rb, line 48</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/subscriber.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">detach_from</span>(<span class="ruby-identifier">namespace</span>, <span class="ruby-identifier">notifier</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Notifications</span>)
   <span class="ruby-ivar">@namespace</span>  = <span class="ruby-identifier">namespace</span>
   <span class="ruby-ivar">@subscriber</span> = <span class="ruby-identifier">find_attached_subscriber</span>
@@ -386,7 +399,7 @@ end
                 
               </p>
               <div id="method-c-method_added_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/subscriber.rb, line 67</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/subscriber.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">method_added</span>(<span class="ruby-identifier">event</span>)
   <span class="ruby-comment"># Only public methods are added as subscribers, and only if a notifier</span>
   <span class="ruby-comment"># has been set up. This means that subscribers will only be set up for</span>
@@ -426,9 +439,8 @@ end
                 
               </p>
               <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/subscriber.rb, line 128</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/subscriber.rb, line 130</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
-  <span class="ruby-ivar">@queue_key</span> = [<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">object_id</span>].<span class="ruby-identifier">join</span> <span class="ruby-string">&quot;-&quot;</span>
   <span class="ruby-ivar">@patterns</span>  = {}
   <span class="ruby-keyword">super</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -463,7 +475,7 @@ end
                 
               </p>
               <div id="method-c-subscribers_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/subscriber.rb, line 76</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/subscriber.rb, line 78</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">subscribers</span>
   <span class="ruby-identifier">@@subscribers</span> <span class="ruby-operator">||=</span> []
 <span class="ruby-keyword">end</span></code></pre>
@@ -501,7 +513,7 @@ end
                 
               </p>
               <div id="method-c-add_event_subscriber_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/subscriber.rb, line 83</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/subscriber.rb, line 85</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_event_subscriber</span>(<span class="ruby-identifier">event</span>) <span class="ruby-comment"># :doc:</span>
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">invalid_event?</span>(<span class="ruby-identifier">event</span>)
 
@@ -543,7 +555,7 @@ end
                 
               </p>
               <div id="method-c-remove_event_subscriber_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/subscriber.rb, line 94</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/subscriber.rb, line 96</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_event_subscriber</span>(<span class="ruby-identifier">event</span>) <span class="ruby-comment"># :doc:</span>
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">invalid_event?</span>(<span class="ruby-identifier">event</span>)
 
@@ -564,9 +576,9 @@ end
       <h2 id="instance-public-methods">Instance Public methods</h2>
       
         <div class="method">
-          <h3 id="method-i-finish">
+          <h3 id="method-i-call">
             
-              finish(name, id, payload)
+              call(event)
             
           </h3>
 
@@ -588,55 +600,11 @@ end
                 Source:
                 
               </p>
-              <div id="method-i-finish_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/subscriber.rb, line 143</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">finish</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">payload</span>)
-  <span class="ruby-identifier">event</span> = <span class="ruby-identifier">event_stack</span>.<span class="ruby-identifier">pop</span>
-  <span class="ruby-identifier">event</span>.<span class="ruby-identifier">finish!</span>
-  <span class="ruby-identifier">event</span>.<span class="ruby-identifier">payload</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">payload</span>)
-
-  <span class="ruby-identifier">method</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>).<span class="ruby-identifier">first</span>
+              <div id="method-i-call_source">
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/subscriber.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call</span>(<span class="ruby-identifier">event</span>)
+  <span class="ruby-identifier">method</span> = <span class="ruby-identifier">event</span>.<span class="ruby-identifier">name</span>[<span class="ruby-value">0</span>, <span class="ruby-identifier">event</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">index</span>(<span class="ruby-string">&quot;.&quot;</span>)]
   <span class="ruby-identifier">send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">event</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
-        
-        <div class="method">
-          <h3 id="method-i-start">
-            
-              start(name, id, payload)
-            
-          </h3>
-
-          
-            <div class="description">
-              
-            </div>
-          
-
-          
-
-          
-
-          
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-start_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/subscriber.rb, line 134</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">payload</span>)
-  <span class="ruby-identifier">event</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">Event</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">payload</span>)
-  <span class="ruby-identifier">event</span>.<span class="ruby-identifier">start!</span>
-  <span class="ruby-identifier">parent</span> = <span class="ruby-identifier">event_stack</span>.<span class="ruby-identifier">last</span>
-  <span class="ruby-identifier">parent</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">event</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">parent</span>
-
-  <span class="ruby-identifier">event_stack</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">event</span>
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -658,11 +626,10 @@ end
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

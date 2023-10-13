@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -158,7 +178,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -182,6 +202,8 @@
   
     <div class="description">
       
+<h1 id="class-ActiveSupport::Inflector::Inflections-label-Active+Support+Inflections">Active Support Inflections</h1>
+
 <p>A singleton instance of this class is yielded by <a href="../Inflector.html#method-i-inflections"><code>Inflector.inflections</code></a>, which can then be used to specify additional inflection rules. If passed an optional locale, rules for other languages can be specified. The default locale is <code>:en</code>. Only rules for English are provided.</p>
 
 <pre><code>ActiveSupport::Inflector.inflections(:en) do |inflect|
@@ -354,7 +376,7 @@ end
                 
               </p>
               <div id="method-c-instance_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 63</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 65</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">instance</span>(<span class="ruby-identifier">locale</span> = <span class="ruby-value">:en</span>)
   <span class="ruby-ivar">@__instance__</span>[<span class="ruby-identifier">locale</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -389,7 +411,7 @@ end
                 
               </p>
               <div id="method-c-instance_or_fallback_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 67</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">instance_or_fallback</span>(<span class="ruby-identifier">locale</span>)
   <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">fallbacks</span>[<span class="ruby-identifier">locale</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">return</span> <span class="ruby-ivar">@__instance__</span>[<span class="ruby-identifier">k</span>] <span class="ruby-keyword">if</span> <span class="ruby-ivar">@__instance__</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">k</span>)
@@ -427,7 +449,7 @@ end
                 
               </p>
               <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 78</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 80</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
   <span class="ruby-ivar">@plurals</span>, <span class="ruby-ivar">@singulars</span>, <span class="ruby-ivar">@uncountables</span>, <span class="ruby-ivar">@humans</span>, <span class="ruby-ivar">@acronyms</span> = [], [], <span class="ruby-constant">Uncountables</span>.<span class="ruby-identifier">new</span>, [], {}
   <span class="ruby-identifier">define_acronym_regex_patterns</span>
@@ -508,7 +530,7 @@ camelize &#39;mcdonald&#39;   # =&gt; &#39;McDonald&#39;
                 
               </p>
               <div id="method-i-acronym_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 140</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 142</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">acronym</span>(<span class="ruby-identifier">word</span>)
   <span class="ruby-ivar">@acronyms</span>[<span class="ruby-identifier">word</span>.<span class="ruby-identifier">downcase</span>] = <span class="ruby-identifier">word</span>
   <span class="ruby-identifier">define_acronym_regex_patterns</span>
@@ -548,7 +570,7 @@ clear :plurals
                 
               </p>
               <div id="method-i-clear_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 229</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 231</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clear</span>(<span class="ruby-identifier">scope</span> = <span class="ruby-value">:all</span>)
   <span class="ruby-keyword">case</span> <span class="ruby-identifier">scope</span>
   <span class="ruby-keyword">when</span> <span class="ruby-value">:all</span>
@@ -580,7 +602,7 @@ clear :plurals
 
           
             <div class="description">
-              <p>Specifies a humanized form of a string by a regular expression rule or by a string mapping. When using a regular expression based replacement, the normal humanize formatting is called after the replacement. When a string is used, the human form should be specified as desired (example: &#39;The name&#39;, not &#39;the_name&#39;).</p>
+              <p>Specifies a humanized form of a string by a regular expression rule or by a string mapping. When using a regular expression based replacement, the normal humanize formatting is called after the replacement. When a string is used, the human form should be specified as desired (example: ‘The name’, not ‘the_name’).</p>
 
 <pre><code>human /_cnt$/i, &#39;\1_count&#39;
 human &#39;legacy_col_person_name&#39;, &#39;Name&#39;
@@ -601,7 +623,7 @@ human &#39;legacy_col_person_name&#39;, &#39;Name&#39;
                 
               </p>
               <div id="method-i-human_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 218</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 220</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">human</span>(<span class="ruby-identifier">rule</span>, <span class="ruby-identifier">replacement</span>)
   <span class="ruby-ivar">@humans</span>.<span class="ruby-identifier">prepend</span>([<span class="ruby-identifier">rule</span>, <span class="ruby-identifier">replacement</span>])
 <span class="ruby-keyword">end</span></code></pre>
@@ -640,7 +662,7 @@ irregular &#39;person&#39;, &#39;people&#39;
                 
               </p>
               <div id="method-i-irregular_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 172</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 174</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">irregular</span>(<span class="ruby-identifier">singular</span>, <span class="ruby-identifier">plural</span>)
   <span class="ruby-ivar">@uncountables</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">singular</span>)
   <span class="ruby-ivar">@uncountables</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">plural</span>)
@@ -700,7 +722,7 @@ irregular &#39;person&#39;, &#39;people&#39;
                 
               </p>
               <div id="method-i-plural_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 149</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 151</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">plural</span>(<span class="ruby-identifier">rule</span>, <span class="ruby-identifier">replacement</span>)
   <span class="ruby-ivar">@uncountables</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">rule</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">rule</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
   <span class="ruby-ivar">@uncountables</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">replacement</span>)
@@ -737,7 +759,7 @@ irregular &#39;person&#39;, &#39;people&#39;
                 
               </p>
               <div id="method-i-singular_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 159</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 161</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">singular</span>(<span class="ruby-identifier">rule</span>, <span class="ruby-identifier">replacement</span>)
   <span class="ruby-ivar">@uncountables</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">rule</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">rule</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
   <span class="ruby-ivar">@uncountables</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">replacement</span>)
@@ -779,7 +801,7 @@ uncountable %w( money information rice )
                 
               </p>
               <div id="method-i-uncountable_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 206</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 208</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">uncountable</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">words</span>)
   <span class="ruby-ivar">@uncountables</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">words</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -803,11 +825,10 @@ uncountable %w( money information rice )
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

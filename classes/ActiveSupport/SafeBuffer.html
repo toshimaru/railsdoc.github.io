@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -93,6 +113,7 @@
 </li>
 <li class="toc-entry toc-h2"><a href="#methods">Methods</a></li>
 <li class="toc-entry toc-h2"><a href="#constants">Constants</a></li>
+<li class="toc-entry toc-h2"><a href="#attributes">Attributes</a></li>
 <li class="toc-entry toc-h2"><a href="#class-public-methods">Class Public methods</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#method-c-new">
@@ -111,7 +132,7 @@
           </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-2A">
             
-              *(*)
+              *(_)
             
           </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-2B">
@@ -131,12 +152,17 @@
           </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-5B-5D-3D">
             
-              []=(*args)
+              []=(arg1, arg2, arg3 = nil)
             
           </a></li>
-<li class="toc-entry toc-h3"><a href="#method-i-clone_empty">
+<li class="toc-entry toc-h3"><a href="#method-i-bytesplice">
             
-              clone_empty()
+              bytesplice(*args, value)
+            
+          </a></li>
+<li class="toc-entry toc-h3"><a href="#method-i-chr">
+            
+              chr()
             
           </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-concat">
@@ -147,11 +173,6 @@
 <li class="toc-entry toc-h3"><a href="#method-i-encode_with">
             
               encode_with(coder)
-            
-          </a></li>
-<li class="toc-entry toc-h3"><a href="#method-i-html_safe-3F">
-            
-              html_safe?()
             
           </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-initialize_copy">
@@ -184,6 +205,16 @@
               safe_concat(value)
             
           </a></li>
+<li class="toc-entry toc-h3"><a href="#method-i-slice">
+            
+              slice(*args)
+            
+          </a></li>
+<li class="toc-entry toc-h3"><a href="#method-i-slice-21">
+            
+              slice!(*args)
+            
+          </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-to_param">
             
               to_param()
@@ -203,7 +234,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -276,7 +307,11 @@
         </li>
       
         <li>
-          <a href="#method-i-clone_empty">clone_empty</a>
+          <a href="#method-i-bytesplice">bytesplice</a>
+        </li>
+      
+        <li>
+          <a href="#method-i-chr">chr</a>
         </li>
       
         <li>
@@ -285,10 +320,6 @@
       
         <li>
           <a href="#method-i-encode_with">encode_with</a>
-        </li>
-      
-        <li>
-          <a href="#method-i-html_safe-3F">html_safe?</a>
         </li>
       
         <li>
@@ -320,6 +351,14 @@
         </li>
       
         <li>
+          <a href="#method-i-slice">slice</a>
+        </li>
+      
+        <li>
+          <a href="#method-i-slice-21">slice!</a>
+        </li>
+      
+        <li>
           <a href="#method-i-to_param">to_param</a>
         </li>
       
@@ -347,7 +386,7 @@
             <td>=</td>
             <td class="attr-value">%w(
 capitalize chomp chop delete delete_prefix delete_suffix
-downcase lstrip next reverse rstrip scrub slice squeeze strip
+downcase lstrip next reverse rstrip scrub squeeze strip
 succ swapcase tr tr_s unicode_normalize upcase
 )</td>
           </tr>
@@ -373,6 +412,28 @@ succ swapcase tr tr_s unicode_normalize upcase
       </table>
     
 
+    
+      <!-- Section attributes -->
+      <h2 id="attributes">Attributes</h2>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>html_safe</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>html_safe?</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
     
 
     <!-- Methods -->
@@ -405,7 +466,7 @@ succ swapcase tr tr_s unicode_normalize upcase
                 
               </p>
               <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 200</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 70</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">str</span> = <span class="ruby-string">&quot;&quot;</span>)
   <span class="ruby-ivar">@html_safe</span> = <span class="ruby-keyword">true</span>
   <span class="ruby-keyword">super</span>
@@ -445,7 +506,7 @@ succ swapcase tr tr_s unicode_normalize upcase
                 
               </p>
               <div id="method-i-25_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 253</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 130</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">%</span>(<span class="ruby-identifier">args</span>)
   <span class="ruby-keyword">case</span> <span class="ruby-identifier">args</span>
   <span class="ruby-keyword">when</span> <span class="ruby-constant">Hash</span>
@@ -464,7 +525,7 @@ succ swapcase tr tr_s unicode_normalize upcase
         <div class="method">
           <h3 id="method-i-2A">
             
-              *(*)
+              *(_)
             
           </h3>
 
@@ -487,8 +548,8 @@ succ swapcase tr tr_s unicode_normalize upcase
                 
               </p>
               <div id="method-i-2A_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 246</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">*</span>(<span class="ruby-operator">*</span>)
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">*</span>(<span class="ruby-identifier">_</span>)
   <span class="ruby-identifier">new_string</span> = <span class="ruby-keyword">super</span>
   <span class="ruby-identifier">new_safe_buffer</span> = <span class="ruby-identifier">new_string</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">SafeBuffer</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">new_string</span> <span class="ruby-operator">:</span> <span class="ruby-constant">SafeBuffer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">new_string</span>)
   <span class="ruby-identifier">new_safe_buffer</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-value">:@html_safe</span>, <span class="ruby-ivar">@html_safe</span>)
@@ -525,7 +586,7 @@ succ swapcase tr tr_s unicode_normalize upcase
                 
               </p>
               <div id="method-i-2B_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 242</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 119</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">+</span>(<span class="ruby-identifier">other</span>)
   <span class="ruby-identifier">dup</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">other</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -572,6 +633,10 @@ succ swapcase tr tr_s unicode_normalize upcase
           
 
           
+            <div class="aka">
+              Also aliased as: <a href="SafeBuffer.html#method-i-slice">slice</a>
+            </div>
+          
 
           
 
@@ -584,16 +649,14 @@ succ swapcase tr tr_s unicode_normalize upcase
                 
               </p>
               <div id="method-i-5B-5D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 181</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">html_safe?</span>
     <span class="ruby-identifier">new_string</span> = <span class="ruby-keyword">super</span>
 
     <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">new_string</span>
 
-    <span class="ruby-identifier">new_safe_buffer</span> = <span class="ruby-identifier">new_string</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">SafeBuffer</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">new_string</span> <span class="ruby-operator">:</span> <span class="ruby-constant">SafeBuffer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">new_string</span>)
-    <span class="ruby-identifier">new_safe_buffer</span>.<span class="ruby-identifier">instance_variable_set</span> <span class="ruby-value">:@html_safe</span>, <span class="ruby-keyword">true</span>
-    <span class="ruby-identifier">new_safe_buffer</span>
+    <span class="ruby-identifier">string_into_safe_buffer</span>(<span class="ruby-identifier">new_string</span>, <span class="ruby-keyword">true</span>)
   <span class="ruby-keyword">else</span>
     <span class="ruby-identifier">to_str</span>[<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>]
   <span class="ruby-keyword">end</span>
@@ -606,7 +669,7 @@ succ swapcase tr tr_s unicode_normalize upcase
         <div class="method">
           <h3 id="method-i-5B-5D-3D">
             
-              []=(*args)
+              []=(arg1, arg2, arg3 = nil)
             
           </h3>
 
@@ -629,12 +692,12 @@ succ swapcase tr tr_s unicode_normalize upcase
                 
               </p>
               <div id="method-i-5B-5D-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 234</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]=</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>
-    <span class="ruby-keyword">super</span>(<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>], <span class="ruby-identifier">implicit_html_escape_interpolated_argument</span>(<span class="ruby-identifier">args</span>[<span class="ruby-value">2</span>]))
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]=</span>(<span class="ruby-identifier">arg1</span>, <span class="ruby-identifier">arg2</span>, <span class="ruby-identifier">arg3</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg3</span>
+    <span class="ruby-keyword">super</span>(<span class="ruby-identifier">arg1</span>, <span class="ruby-identifier">arg2</span>, <span class="ruby-identifier">implicit_html_escape_interpolated_argument</span>(<span class="ruby-identifier">arg3</span>))
   <span class="ruby-keyword">else</span>
-    <span class="ruby-keyword">super</span>(<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">implicit_html_escape_interpolated_argument</span>(<span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>]))
+    <span class="ruby-keyword">super</span>(<span class="ruby-identifier">arg1</span>, <span class="ruby-identifier">implicit_html_escape_interpolated_argument</span>(<span class="ruby-identifier">arg2</span>))
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></code></pre>
               </div>
@@ -643,9 +706,9 @@ succ swapcase tr tr_s unicode_normalize upcase
           </div>
         
         <div class="method">
-          <h3 id="method-i-clone_empty">
+          <h3 id="method-i-bytesplice">
             
-              clone_empty()
+              bytesplice(*args, value)
             
           </h3>
 
@@ -667,10 +730,47 @@ succ swapcase tr tr_s unicode_normalize upcase
                 Source:
                 
               </p>
-              <div id="method-i-clone_empty_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 210</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clone_empty</span>
-  <span class="ruby-keyword">self</span>[<span class="ruby-value">0</span>, <span class="ruby-value">0</span>]
+              <div id="method-i-bytesplice_source">
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bytesplice</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-identifier">implicit_html_escape_interpolated_argument</span>(<span class="ruby-identifier">value</span>))
+<span class="ruby-keyword">end</span></code></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <h3 id="method-i-chr">
+            
+              chr()
+            
+          </h3>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                
+              </p>
+              <div id="method-i-chr_source">
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">chr</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">super</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">html_safe?</span>
+
+  <span class="ruby-identifier">string_into_safe_buffer</span>(<span class="ruby-keyword">super</span>, <span class="ruby-keyword">true</span>)
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -707,7 +807,7 @@ succ swapcase tr tr_s unicode_normalize upcase
                 
               </p>
               <div id="method-i-concat_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 214</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 87</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">concat</span>(<span class="ruby-identifier">value</span>)
   <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
     <span class="ruby-keyword">super</span>(<span class="ruby-identifier">implicit_html_escape_interpolated_argument</span>(<span class="ruby-identifier">value</span>))
@@ -745,44 +845,9 @@ succ swapcase tr tr_s unicode_normalize upcase
                 
               </p>
               <div id="method-i-encode_with_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 276</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 153</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">encode_with</span>(<span class="ruby-identifier">coder</span>)
   <span class="ruby-identifier">coder</span>.<span class="ruby-identifier">represent_object</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">to_str</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
-        
-        <div class="method">
-          <h3 id="method-i-html_safe-3F">
-            
-              html_safe?()
-            
-          </h3>
-
-          
-            <div class="description">
-              
-            </div>
-          
-
-          
-
-          
-
-          
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-html_safe-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 264</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">html_safe?</span>
-  <span class="ruby-keyword">defined?</span>(<span class="ruby-ivar">@html_safe</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@html_safe</span>
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -815,7 +880,7 @@ succ swapcase tr tr_s unicode_normalize upcase
                 
               </p>
               <div id="method-i-initialize_copy_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 205</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 75</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize_copy</span>(<span class="ruby-identifier">other</span>)
   <span class="ruby-keyword">super</span>
   <span class="ruby-ivar">@html_safe</span> = <span class="ruby-identifier">other</span>.<span class="ruby-identifier">html_safe?</span>
@@ -851,7 +916,7 @@ succ swapcase tr tr_s unicode_normalize upcase
                 
               </p>
               <div id="method-i-insert_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 222</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 99</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">insert</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">value</span>)
   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">implicit_html_escape_interpolated_argument</span>(<span class="ruby-identifier">value</span>))
 <span class="ruby-keyword">end</span></code></pre>
@@ -910,7 +975,7 @@ succ swapcase tr tr_s unicode_normalize upcase
                 
               </p>
               <div id="method-i-prepend_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 226</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 103</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prepend</span>(<span class="ruby-identifier">value</span>)
   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">implicit_html_escape_interpolated_argument</span>(<span class="ruby-identifier">value</span>))
 <span class="ruby-keyword">end</span></code></pre>
@@ -945,7 +1010,7 @@ succ swapcase tr tr_s unicode_normalize upcase
                 
               </p>
               <div id="method-i-replace_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 230</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 107</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">replace</span>(<span class="ruby-identifier">value</span>)
   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">implicit_html_escape_interpolated_argument</span>(<span class="ruby-identifier">value</span>))
 <span class="ruby-keyword">end</span></code></pre>
@@ -980,10 +1045,73 @@ succ swapcase tr tr_s unicode_normalize upcase
                 
               </p>
               <div id="method-i-safe_concat_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 195</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 65</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">safe_concat</span>(<span class="ruby-identifier">value</span>)
   <span class="ruby-identifier">raise</span> <span class="ruby-constant">SafeConcatError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">html_safe?</span>
   <span class="ruby-identifier">original_concat</span>(<span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></code></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <h3 id="method-i-slice">
+            
+              slice(*args)
+            
+          </h3>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="SafeBuffer.html#method-i-5B-5D">[]</a>
+            </div>
+          
+
+          
+          </div>
+        
+        <div class="method">
+          <h3 id="method-i-slice-21">
+            
+              slice!(*args)
+            
+          </h3>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                
+              </p>
+              <div id="method-i-slice-21_source">
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">slice!</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">new_string</span> = <span class="ruby-keyword">super</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">new_string</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">html_safe?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">new_string</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">string_into_safe_buffer</span>(<span class="ruby-identifier">new_string</span>, <span class="ruby-keyword">true</span>)
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -1016,7 +1144,7 @@ succ swapcase tr tr_s unicode_normalize upcase
                 
               </p>
               <div id="method-i-to_param_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 272</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 149</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_param</span>
   <span class="ruby-identifier">to_str</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -1051,7 +1179,7 @@ succ swapcase tr tr_s unicode_normalize upcase
                 
               </p>
               <div id="method-i-to_s_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 268</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 145</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
   <span class="ruby-keyword">self</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -1075,11 +1203,10 @@ succ swapcase tr tr_s unicode_normalize upcase
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

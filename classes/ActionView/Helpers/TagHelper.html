@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -142,7 +162,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -160,6 +180,8 @@
   
     <div class="description">
       
+<h1 id="module-ActionView::Helpers::TagHelper-label-Action+View+Tag+Helpers">Action View Tag Helpers</h1>
+
 <p>Provides methods to generate HTML tags programmatically both as a modern HTML5 compliant builder style and legacy XHTML compliant tags.</p>
 
     </div>
@@ -345,7 +367,7 @@ typemustmatch visible).to_set</td>
                 
               </p>
               <div id="method-c-build_tag_values_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionview/lib/action_view/helpers/tag_helper.rb, line 425</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionview/lib/action_view/helpers/tag_helper.rb, line 403</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">build_tag_values</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
   <span class="ruby-identifier">tag_values</span> = []
 
@@ -409,7 +431,7 @@ cdata_section(&quot;hello]]&gt;world&quot;)
                 
               </p>
               <div id="method-i-cdata_section_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionview/lib/action_view/helpers/tag_helper.rb, line 408</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionview/lib/action_view/helpers/tag_helper.rb, line 386</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cdata_section</span>(<span class="ruby-identifier">content</span>)
   <span class="ruby-identifier">splitted</span> = <span class="ruby-identifier">content</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\]\]&gt;/</span>, <span class="ruby-string">&quot;]]]]&gt;&lt;![CDATA[&gt;&quot;</span>)
   <span class="ruby-node">&quot;&lt;![CDATA[#{splitted}]]&gt;&quot;</span>.<span class="ruby-identifier">html_safe</span>
@@ -492,7 +514,7 @@ content_tag(&quot;select&quot;, options, multiple: true)
                 
               </p>
               <div id="method-i-content_tag_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionview/lib/action_view/helpers/tag_helper.rb, line 368</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionview/lib/action_view/helpers/tag_helper.rb, line 346</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">content_tag</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">content_or_options_with_block</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">escape</span> = <span class="ruby-keyword">true</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
     <span class="ruby-identifier">options</span> = <span class="ruby-identifier">content_or_options_with_block</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">content_or_options_with_block</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
@@ -539,7 +561,7 @@ escape_once(&quot;&amp;lt;&amp;lt; Accept &amp; Checkout&quot;)
                 
               </p>
               <div id="method-i-escape_once_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionview/lib/action_view/helpers/tag_helper.rb, line 420</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionview/lib/action_view/helpers/tag_helper.rb, line 398</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">escape_once</span>(<span class="ruby-identifier">html</span>)
   <span class="ruby-constant">ERB</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">html_escape_once</span>(<span class="ruby-identifier">html</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -612,7 +634,7 @@ tag.section id: dom_id(@post)
 
 <p>Thus <code>data-user-id</code> can be accessed as <code>dataset.userId</code>.</p>
 
-<p>Data attribute values are encoded to JSON, with the exception of strings, symbols, and BigDecimals. This may come in handy when using jQuery&#39;s HTML5-aware <code>.data()</code> from 1.4.3.</p>
+<p>Data attribute values are encoded to JSON, with the exception of strings, symbols, and BigDecimals. This may come in handy when using jQuery’s HTML5-aware <code>.data()</code> from 1.4.3.</p>
 
 <pre><code>tag.div data: { city_state: %w( Chicago IL ) }
 # =&gt; &lt;div data-city-state=&quot;[&amp;quot;Chicago&amp;quot;,&amp;quot;IL&amp;quot;]&quot;&gt;&lt;/div&gt;
@@ -706,7 +728,7 @@ tag(&quot;div&quot;, class: { highlight: current_user.admin? })
                 
               </p>
               <div id="method-i-tag_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionview/lib/action_view/helpers/tag_helper.rb, line 331</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionview/lib/action_view/helpers/tag_helper.rb, line 309</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">tag</span>(<span class="ruby-identifier">name</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">open</span> = <span class="ruby-keyword">false</span>, <span class="ruby-identifier">escape</span> = <span class="ruby-keyword">true</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">nil?</span>
     <span class="ruby-identifier">tag_builder</span>
@@ -762,9 +784,9 @@ token_list(nil, false, 123, &quot;&quot;, &quot;foo&quot;, { bar: true })
                 
               </p>
               <div id="method-i-token_list_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionview/lib/action_view/helpers/tag_helper.rb, line 388</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionview/lib/action_view/helpers/tag_helper.rb, line 366</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">token_list</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
-  <span class="ruby-identifier">tokens</span> = <span class="ruby-identifier">build_tag_values</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>).<span class="ruby-identifier">flat_map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\s+/</span>) }.<span class="ruby-identifier">uniq</span>
+  <span class="ruby-identifier">tokens</span> = <span class="ruby-identifier">build_tag_values</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>).<span class="ruby-identifier">flat_map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">unescape_html</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>).<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\s+/</span>) }.<span class="ruby-identifier">uniq</span>
 
   <span class="ruby-identifier">safe_join</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-string">&quot; &quot;</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -788,11 +810,10 @@ token_list(nil, false, 123, &quot;&quot;, &quot;foo&quot;, { bar: true })
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

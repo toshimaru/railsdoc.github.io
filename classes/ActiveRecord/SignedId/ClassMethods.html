@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -119,7 +139,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -192,11 +212,11 @@
 
           
             <div class="description">
-              <p>Lets you find a record based on a signed id that&#39;s safe to put into the world without risk of tampering. This is particularly useful for things like password reset or email verification, where you want the bearer of the signed id to be able to interact with the underlying record, but usually only within a certain time period.</p>
+              <p>Lets you find a record based on a signed id that’s safe to put into the world without risk of tampering. This is particularly useful for things like password reset or email verification, where you want the bearer of the signed id to be able to interact with the underlying record, but usually only within a certain time period.</p>
 
 <p>You set the time period that the signed id is valid for during generation, using the instance method <code>signed_id(expires_in: 15.minutes)</code>. If the time has elapsed before a signed find is attempted, the signed id will no longer be valid, and nil is returned.</p>
 
-<p>It&#39;s possible to further restrict the use of a signed id with a purpose. This helps when you have a general base model, like a User, which might have signed ids for several things, like password reset or email verification. The purpose that was set during generation must match the purpose set when finding. If there&#39;s a mismatch, nil is again returned.</p>
+<p>It’s possible to further restrict the use of a signed id with a purpose. This helps when you have a general base model, like a User, which might have signed ids for several things, like password reset or email verification. The purpose that was set during generation must match the purpose set when finding. If there’s a mismatch, nil is again returned.</p>
 
 <h4 id="method-i-find_signed-label-Examples">Examples</h4>
 
@@ -248,7 +268,7 @@ User.find_signed signed_id, purpose: :password_reset # =&gt; User.first
 
           
             <div class="description">
-              <p>Works like <a href="ClassMethods.html#method-i-find_signed"><code>find_signed</code></a>, but will raise an <code>ActiveSupport::MessageVerifier::InvalidSignature</code> exception if the <code>signed_id</code> has either expired, has a purpose mismatch, is for another record, or has been tampered with. It will also raise an <code>ActiveRecord::RecordNotFound</code> exception if the valid signed id can&#39;t find a record.</p>
+              <p>Works like <a href="ClassMethods.html#method-i-find_signed"><code>find_signed</code></a>, but will raise an <code>ActiveSupport::MessageVerifier::InvalidSignature</code> exception if the <code>signed_id</code> has either expired, has a purpose mismatch, is for another record, or has been tampered with. It will also raise an <code>ActiveRecord::RecordNotFound</code> exception if the valid signed id can’t find a record.</p>
 
 <h3 id="method-i-find_signed-21-label-Examples">Examples</h3>
 
@@ -294,7 +314,7 @@ User.find_signed! signed_id # =&gt; ActiveRecord::RecordNotFound
 
           
             <div class="description">
-              <p>The verifier instance that all signed ids are generated and verified from. By default, it&#39;ll be initialized with the class-level <code>signed_id_verifier_secret</code>, which within Rails comes from the <a href="../../Rails.html#method-c-application"><code>Rails.application</code></a>.key_generator. By default, it&#39;s SHA256 for the digest and JSON for the serialization.</p>
+              <p>The verifier instance that all signed ids are generated and verified from. By default, it’ll be initialized with the class-level <code>signed_id_verifier_secret</code>, which within Rails comes from the <a href="../../Rails.html#method-c-application"><code>Rails.application</code></a>.key_generator. By default, it’s SHA256 for the digest and JSON for the serialization.</p>
             </div>
           
 
@@ -379,11 +399,10 @@ User.find_signed! signed_id # =&gt; ActiveRecord::RecordNotFound
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

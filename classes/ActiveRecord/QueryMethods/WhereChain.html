@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -113,7 +133,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -137,7 +157,7 @@
   
     <div class="description">
       
-<p><a href="WhereChain.html"><code>WhereChain</code></a> objects act as placeholder for queries in which <code>where</code> does not have any parameter. In this case, <code>where</code> can be chained to return a new relation.</p>
+<p><code>WhereChain</code> objects act as placeholder for queries in which <code>where</code> does not have any parameter. In this case, <code>where</code> can be chained to return a new relation.</p>
 
     </div>
   
@@ -228,12 +248,16 @@
                 
               </p>
               <div id="method-i-associated_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/relation/query_methods.rb, line 76</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/relation/query_methods.rb, line 75</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">associated</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">associations</span>)
   <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">association</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">reflection</span> = <span class="ruby-identifier">scope_association_reflection</span>(<span class="ruby-identifier">association</span>)
     <span class="ruby-ivar">@scope</span>.<span class="ruby-identifier">joins!</span>(<span class="ruby-identifier">association</span>)
-    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">not</span>(<span class="ruby-identifier">reflection</span>.<span class="ruby-identifier">table_name</span> <span class="ruby-operator">=&gt;</span> { <span class="ruby-identifier">reflection</span>.<span class="ruby-identifier">association_primary_key</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span> })
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">reflection</span>.<span class="ruby-identifier">options</span>[<span class="ruby-value">:class_name</span>]
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">not</span>(<span class="ruby-identifier">association</span> <span class="ruby-operator">=&gt;</span> { <span class="ruby-identifier">reflection</span>.<span class="ruby-identifier">association_primary_key</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span> })
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">not</span>(<span class="ruby-identifier">reflection</span>.<span class="ruby-identifier">table_name</span> <span class="ruby-operator">=&gt;</span> { <span class="ruby-identifier">reflection</span>.<span class="ruby-identifier">association_primary_key</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span> })
+    <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 
   <span class="ruby-ivar">@scope</span>
@@ -286,12 +310,16 @@
                 
               </p>
               <div id="method-i-missing_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/relation/query_methods.rb, line 104</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/relation/query_methods.rb, line 107</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">missing</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">associations</span>)
   <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">association</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">reflection</span> = <span class="ruby-identifier">scope_association_reflection</span>(<span class="ruby-identifier">association</span>)
     <span class="ruby-ivar">@scope</span>.<span class="ruby-identifier">left_outer_joins!</span>(<span class="ruby-identifier">association</span>)
-    <span class="ruby-ivar">@scope</span>.<span class="ruby-identifier">where!</span>(<span class="ruby-identifier">reflection</span>.<span class="ruby-identifier">table_name</span> <span class="ruby-operator">=&gt;</span> { <span class="ruby-identifier">reflection</span>.<span class="ruby-identifier">association_primary_key</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span> })
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">reflection</span>.<span class="ruby-identifier">options</span>[<span class="ruby-value">:class_name</span>]
+      <span class="ruby-ivar">@scope</span>.<span class="ruby-identifier">where!</span>(<span class="ruby-identifier">association</span> <span class="ruby-operator">=&gt;</span> { <span class="ruby-identifier">reflection</span>.<span class="ruby-identifier">association_primary_key</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span> })
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@scope</span>.<span class="ruby-identifier">where!</span>(<span class="ruby-identifier">reflection</span>.<span class="ruby-identifier">table_name</span> <span class="ruby-operator">=&gt;</span> { <span class="ruby-identifier">reflection</span>.<span class="ruby-identifier">association_primary_key</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span> })
+    <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 
   <span class="ruby-ivar">@scope</span>
@@ -330,10 +358,10 @@ User.where.not(name: %w(Ko1 Nobu))
 # SELECT * FROM users WHERE name NOT IN (&#39;Ko1&#39;, &#39;Nobu&#39;)
 
 User.where.not(name: &quot;Jon&quot;, role: &quot;admin&quot;)
-# SELECT * FROM users WHERE NOT (name == &#39;Jon&#39; AND role == &#39;admin&#39;)
+# SELECT * FROM users WHERE NOT (name = &#39;Jon&#39; AND role = &#39;admin&#39;)
 </code></pre>
 
-<p>If there is a non-nil condition on a nullable column in the hash condition, the records that have nil values on the nullable column won&#39;t be returned.</p>
+<p>If there is a non-nil condition on a nullable column in the hash condition, the records that have nil values on the nullable column won’t be returned.</p>
 
 <pre><code>User.create!(nullable_country: nil)
 User.where.not(nullable_country: &quot;UK&quot;)
@@ -356,7 +384,7 @@ User.where.not(nullable_country: &quot;UK&quot;)
                 
               </p>
               <div id="method-i-not_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/relation/query_methods.rb, line 50</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/relation/query_methods.rb, line 49</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">not</span>(<span class="ruby-identifier ruby-title">opts</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">rest</span>)
   <span class="ruby-identifier">where_clause</span> = <span class="ruby-ivar">@scope</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:build_where_clause</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-identifier">rest</span>)
 
@@ -384,11 +412,10 @@ User.where.not(nullable_country: &quot;UK&quot;)
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

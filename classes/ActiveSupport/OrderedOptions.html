@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -104,6 +124,11 @@
               _get(key)
             
           </a></li>
+<li class="toc-entry toc-h3"><a href="#method-i-dig">
+            
+              dig(*keys)
+            
+          </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-extractable_options-3F">
             
               extractable_options?()
@@ -133,7 +158,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -157,6 +182,8 @@
   
     <div class="description">
       
+<h1 id="class-ActiveSupport::OrderedOptions-label-Ordered+Options">Ordered Options</h1>
+
 <p><code>OrderedOptions</code> inherits from <code>Hash</code> and provides dynamic accessor methods.</p>
 
 <p>With a <code>Hash</code>, key-value pairs are typically managed like this:</p>
@@ -209,6 +236,10 @@ h.dog  # =&gt; nil
       
         <li>
           <a href="#method-i-_get">_get</a>
+        </li>
+      
+        <li>
+          <a href="#method-i-dig">dig</a>
         </li>
       
         <li>
@@ -276,7 +307,7 @@ h.dog  # =&gt; nil
                 
               </p>
               <div id="method-i-5B-5D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/ordered_options.rb, line 39</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/ordered_options.rb, line 41</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]</span>(<span class="ruby-identifier">key</span>)
   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -311,7 +342,7 @@ h.dog  # =&gt; nil
                 
               </p>
               <div id="method-i-5B-5D-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/ordered_options.rb, line 35</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/ordered_options.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]=</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
   <span class="ruby-keyword">super</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>, <span class="ruby-identifier">value</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -345,6 +376,41 @@ h.dog  # =&gt; nil
           </div>
         
         <div class="method">
+          <h3 id="method-i-dig">
+            
+              dig(*keys)
+            
+          </h3>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                
+              </p>
+              <div id="method-i-dig_source">
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/ordered_options.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dig</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">keys</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">keys</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_sym</span>))
+<span class="ruby-keyword">end</span></code></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
           <h3 id="method-i-extractable_options-3F">
             
               extractable_options?()
@@ -370,7 +436,7 @@ h.dog  # =&gt; nil
                 
               </p>
               <div id="method-i-extractable_options-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/ordered_options.rb, line 62</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/ordered_options.rb, line 68</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extractable_options?</span>
   <span class="ruby-keyword">true</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -405,7 +471,7 @@ h.dog  # =&gt; nil
                 
               </p>
               <div id="method-i-inspect_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/ordered_options.rb, line 66</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/ordered_options.rb, line 72</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inspect</span>
   <span class="ruby-node">&quot;#&lt;#{self.class.name} #{super}&gt;&quot;</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -440,7 +506,7 @@ h.dog  # =&gt; nil
                 
               </p>
               <div id="method-i-method_missing_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/ordered_options.rb, line 43</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/ordered_options.rb, line 49</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">method_missing</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
   <span class="ruby-identifier">name_string</span> = <span class="ruby-operator">+</span><span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">name_string</span>.<span class="ruby-identifier">chomp!</span>(<span class="ruby-string">&quot;=&quot;</span>)
@@ -486,7 +552,7 @@ h.dog  # =&gt; nil
                 
               </p>
               <div id="method-i-respond_to_missing-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/ordered_options.rb, line 58</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/ordered_options.rb, line 64</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">respond_to_missing?</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">include_private</span>)
   <span class="ruby-keyword">true</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -510,11 +576,10 @@ h.dog  # =&gt; nil
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

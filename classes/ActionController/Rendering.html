@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -95,9 +115,9 @@
 <li class="toc-entry toc-h2"><a href="#constants">Constants</a></li>
 <li class="toc-entry toc-h2"><a href="#instance-public-methods">Instance Public methods</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#method-i-render_to_body">
+<li class="toc-entry toc-h3"><a href="#method-i-render">
             
-              render_to_body(options = {})
+              render(*args)
             
           </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-render_to_string">
@@ -114,7 +134,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -157,7 +177,7 @@
     <ul>
       
         <li>
-          <a href="#method-i-render_to_body">render_to_body</a>
+          <a href="#method-i-render">render</a>
         </li>
       
         <li>
@@ -202,15 +222,125 @@
       <h2 id="instance-public-methods">Instance Public methods</h2>
       
         <div class="method">
-          <h3 id="method-i-render_to_body">
+          <h3 id="method-i-render">
             
-              render_to_body(options = {})
+              render(*args)
             
           </h3>
 
           
             <div class="description">
-              
+              <p>Renders a template and assigns the result to <code>self.response_body</code>.</p>
+
+<p>If no rendering mode option is specified, the template will be derived from the first argument.</p>
+
+<pre><code>render &quot;posts/show&quot;
+# =&gt; renders app/views/posts/show.html.erb
+
+# In a PostsController action...
+render :show
+# =&gt; renders app/views/posts/show.html.erb
+</code></pre>
+
+<p>If the first argument responds to <code>render_in</code>, the template will be rendered by calling <code>render_in</code> with the current view context.</p>
+
+<h4 id="method-i-render-label-Rendering+Mode">Rendering Mode</h4>
+<dl class="rdoc-list label-list"><dt><code>:partial</code>
+<dd>
+<p>See <a href="../ActionView/PartialRenderer.html"><code>ActionView::PartialRenderer</code></a> for details.</p>
+
+<pre><code>render partial: &quot;posts/form&quot;, locals: { post: Post.new }
+# =&gt; renders app/views/posts/_form.html.erb
+</code></pre>
+</dd><dt><code>:file</code>
+<dd>
+<p>Renders the contents of a file. This option should <strong>not</strong> be used with unsanitized user input.</p>
+
+<pre><code>render file: &quot;/path/to/some/file&quot;
+# =&gt; renders /path/to/some/file
+</code></pre>
+</dd><dt><code>:inline</code>
+<dd>
+<p>Renders an <a href="../ERB.html"><code>ERB</code></a> template string.</p>
+
+<pre><code>@name = &quot;World&quot;
+render inline: &quot;&lt;h1&gt;Hello, &lt;%= @name %&gt;!&lt;/h1&gt;&quot;
+# =&gt; renders &quot;&lt;h1&gt;Hello, World!&lt;/h1&gt;&quot;
+</code></pre>
+</dd><dt><code>:body</code>
+<dd>
+<p>Renders the provided text, and sets the content type as <code>text/plain</code>.</p>
+
+<pre><code>render body: &quot;Hello, World!&quot;
+# =&gt; renders &quot;Hello, World!&quot;
+</code></pre>
+</dd><dt><code>:plain</code>
+<dd>
+<p>Renders the provided text, and sets the content type as <code>text/plain</code>.</p>
+
+<pre><code>render plain: &quot;Hello, World!&quot;
+# =&gt; renders &quot;Hello, World!&quot;
+</code></pre>
+</dd><dt><code>:html</code>
+<dd>
+<p>Renders the provided HTML string, and sets the content type as <code>text/html</code>. If the string is not <code>html_safe?</code>, performs HTML escaping on the string before rendering.</p>
+
+<pre><code>render html: &quot;&lt;h1&gt;Hello, World!&lt;/h1&gt;&quot;.html_safe
+# =&gt; renders &quot;&lt;h1&gt;Hello, World!&lt;/h1&gt;&quot;
+
+render html: &quot;&lt;h1&gt;Hello, World!&lt;/h1&gt;&quot;
+# =&gt; renders &quot;&amp;lt;h1&amp;gt;Hello, World!&amp;lt;/h1&amp;gt;&quot;
+</code></pre>
+</dd><dt><code>:json</code>
+<dd>
+<p>Renders the provided object as JSON, and sets the content type as <code>application/json</code>. If the object is not a string, it will be converted to JSON by calling <code>to_json</code>.</p>
+
+<pre><code>render json: { hello: &quot;world&quot; }
+# =&gt; renders &quot;{\&quot;hello\&quot;:\&quot;world\&quot;}&quot;
+</code></pre>
+</dd></dl>
+
+<p>By default, when a rendering mode is specified, no layout template is rendered.</p>
+
+<h4 id="method-i-render-label-Options">Options</h4>
+<dl class="rdoc-list label-list"><dt><code>:assigns</code>
+<dd>
+<p><a href="../Hash.html"><code>Hash</code></a> of instance variable assignments for the template.</p>
+
+<pre><code>render inline: &quot;&lt;h1&gt;Hello, &lt;%= @name %&gt;!&lt;/h1&gt;&quot;, assigns: { name: &quot;World&quot; }
+# =&gt; renders &quot;&lt;h1&gt;Hello, World!&lt;/h1&gt;&quot;
+</code></pre>
+</dd><dt><code>:locals</code>
+<dd>
+<p><a href="../Hash.html"><code>Hash</code></a> of local variable assignments for the template.</p>
+
+<pre><code>render inline: &quot;&lt;h1&gt;Hello, &lt;%= name %&gt;!&lt;/h1&gt;&quot;, locals: { name: &quot;World&quot; }
+# =&gt; renders &quot;&lt;h1&gt;Hello, World!&lt;/h1&gt;&quot;
+</code></pre>
+</dd><dt><code>:layout</code>
+<dd>
+<p>The layout template to render. Can also be <code>false</code> or <code>true</code> to disable or (re)enable the default layout template.</p>
+
+<pre><code>render &quot;posts/show&quot;, layout: &quot;holiday&quot;
+# =&gt; renders app/views/posts/show.html.erb with the app/views/layouts/holiday.html.erb layout
+
+render &quot;posts/show&quot;, layout: false
+# =&gt; renders app/views/posts/show.html.erb with no layout
+
+render inline: &quot;&lt;h1&gt;Hello, World!&lt;/h1&gt;&quot;, layout: true
+# =&gt; renders &quot;&lt;h1&gt;Hello, World!&lt;/h1&gt;&quot; with the default layout
+</code></pre>
+</dd><dt><code>:status</code>
+<dd>
+<p>The HTTP status code to send with the response. Can be specified as a number or as the status name in <a href="../Symbol.html"><code>Symbol</code></a> form. Defaults to 200.</p>
+
+<pre><code>render &quot;posts/new&quot;, status: 422
+# =&gt; renders app/views/posts/new.html.erb with HTTP status code 422
+
+render &quot;posts/new&quot;, status: :unprocessable_entity
+# =&gt; renders app/views/posts/new.html.erb with HTTP status code 422
+</code></pre>
+</dd></dl>
             </div>
           
 
@@ -226,10 +356,11 @@
                 Source:
                 
               </p>
-              <div id="method-i-render_to_body_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_controller/metal/rendering.rb, line 45</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">render_to_body</span>(<span class="ruby-identifier">options</span> = {})
-  <span class="ruby-keyword">super</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">_render_in_priorities</span>(<span class="ruby-identifier">options</span>) <span class="ruby-operator">||</span> <span class="ruby-string">&quot; &quot;</span>
+              <div id="method-i-render_source">
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_controller/metal/rendering.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">render</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-operator">::</span><span class="ruby-constant">AbstractController</span><span class="ruby-operator">::</span><span class="ruby-constant">DoubleRenderError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">response_body</span>
+  <span class="ruby-keyword">super</span>
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -245,7 +376,7 @@
 
           
             <div class="description">
-              <p>Override <a href="Rendering.html#method-i-render_to_string"><code>render_to_string</code></a> because body can now be set to a Rack body.</p>
+              <p>Similar to <a href="Rendering.html#method-i-render"><code>render</code></a>, but only returns the rendered template as a string, instead of setting <code>self.response_body</code>.</p>
             </div>
           
 
@@ -262,7 +393,7 @@
                 
               </p>
               <div id="method-i-render_to_string_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_controller/metal/rendering.rb, line 34</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_controller/metal/rendering.rb, line 146</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">render_to_string</span>(<span class="ruby-operator">*</span>)
   <span class="ruby-identifier">result</span> = <span class="ruby-keyword">super</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:each</span>)
@@ -293,11 +424,10 @@
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

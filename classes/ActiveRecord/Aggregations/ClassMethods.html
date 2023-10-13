@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -107,7 +127,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -125,11 +145,13 @@
   
     <div class="description">
       
+<h1 id="module-ActiveRecord::Aggregations::ClassMethods-label-Active+Record+Aggregations">Active Record Aggregations</h1>
+
 <p>Active Record implements aggregation through a macro-like class method called <a href="ClassMethods.html#method-i-composed_of"><code>composed_of</code></a> for representing attributes as value objects. It expresses relationships like “Account [is] composed of Money [among other things]” or “Person [is] composed of [an] address”. Each call to the macro adds a description of how the value objects are created from the attributes of the entity object (when the entity is initialized either as a new object or from finding an existing object) and how it can be turned back into attributes (when the entity is saved to the database).</p>
 
 <pre><code>class Customer &lt; ActiveRecord::Base
-  composed_of :balance, class_name: &quot;Money&quot;, mapping: %w(balance amount)
-  composed_of :address, mapping: [ %w(address_street street), %w(address_city city) ]
+  composed_of :balance, class_name: &quot;Money&quot;, mapping: { balance: :amount }
+  composed_of :address, mapping: { address_street: :street, address_city: :city }
 end
 </code></pre>
 
@@ -185,7 +207,7 @@ class Address
 end
 </code></pre>
 
-<p>Now it&#39;s possible to access attributes from the database through the value objects instead. If you choose to name the composition the same as the attribute&#39;s name, it will be the only way to access that attribute. That&#39;s the case with our <code>balance</code> attribute. You interact with the value objects just like you would with any other attribute:</p>
+<p>Now it’s possible to access attributes from the database through the value objects instead. If you choose to name the composition the same as the attribute’s name, it will be the only way to access that attribute. That’s the case with our <code>balance</code> attribute. You interact with the value objects just like you would with any other attribute:</p>
 
 <pre><code>customer.balance = Money.new(20)     # sets the Money value object and the attribute
 customer.balance                     # =&gt; Money value object
@@ -210,7 +232,7 @@ customer.address_city   # =&gt; &quot;Chicago&quot;
 
 <p>Value objects are immutable and interchangeable objects that represent a given value, such as a Money object representing $5. Two Money objects both representing $5 should be equal (through methods such as <code>==</code> and <code>&lt;=&gt;</code> from Comparable if ranking makes sense). This is unlike entity objects where equality is determined by identity. An entity class such as Customer can easily have two different objects that both have an address on Hyancintvej. Entity identity is determined by object or relational unique identifiers (such as primary keys). Normal <a href="../Base.html"><code>ActiveRecord::Base</code></a> classes are entity objects.</p>
 
-<p>It&#39;s also important to treat the value objects as immutable. Don&#39;t allow the Money object to have its amount changed after creation. Create a new Money object with the new value instead. The <code>Money#exchange_to</code> method is an example of this. It returns a new value object instead of changing its own values. Active Record won&#39;t persist value objects that have been changed through means other than the writer method.</p>
+<p>It’s also important to treat the value objects as immutable. Don’t allow the Money object to have its amount changed after creation. Create a new Money object with the new value instead. The <code>Money#exchange_to</code> method is an example of this. It returns a new value object instead of changing its own values. Active Record won’t persist value objects that have been changed through means other than the writer method.</p>
 
 <p>The immutable requirement is enforced by Active Record by freezing any object assigned as a value object. Attempting to change it afterwards will result in a <code>RuntimeError</code>.</p>
 
@@ -218,7 +240,7 @@ customer.address_city   # =&gt; &quot;Chicago&quot;
 
 <h2 id="module-ActiveRecord::Aggregations::ClassMethods-label-Custom+constructors+and+converters">Custom constructors and converters</h2>
 
-<p>By default value objects are initialized by calling the <code>new</code> constructor of the value class passing each of the mapped attributes, in the order specified by the <code>:mapping</code> option, as arguments. If the value class doesn&#39;t support this convention then <a href="ClassMethods.html#method-i-composed_of"><code>composed_of</code></a> allows a custom constructor to be specified.</p>
+<p>By default value objects are initialized by calling the <code>new</code> constructor of the value class passing each of the mapped attributes, in the order specified by the <code>:mapping</code> option, as arguments. If the value class doesn’t support this convention then <a href="ClassMethods.html#method-i-composed_of"><code>composed_of</code></a> allows a custom constructor to be specified.</p>
 
 <p>When a new value is assigned to the value object, the default assumption is that the new value is an instance of the value class. Specifying a custom converter allows the new value to be automatically converted to an instance of value class if necessary.</p>
 
@@ -227,7 +249,7 @@ customer.address_city   # =&gt; &quot;Chicago&quot;
 <pre><code>class NetworkResource &lt; ActiveRecord::Base
   composed_of :cidr,
               class_name: &#39;NetAddr::CIDR&#39;,
-              mapping: [ %w(network_address network), %w(cidr_range bits) ],
+              mapping: { network_address: :network, cidr_range: :bits },
               allow_nil: true,
               constructor: Proc.new { |network_address, cidr_range| NetAddr::CIDR.create(&quot;#{network_address}/#{cidr_range}&quot;) },
               converter: Proc.new { |value| NetAddr::CIDR.create(value.is_a?(Array) ? value.join(&#39;/&#39;) : value) }
@@ -320,9 +342,9 @@ network_resource.reload
 
 <p>Options are:</p>
 <ul><li>
-<p><code>:class_name</code> - Specifies the class name of the association. Use it only if that name can&#39;t be inferred from the part id. So <code>composed_of :address</code> will by default be linked to the Address class, but if the real class name is <code>CompanyAddress</code>, you&#39;ll have to specify it with this option.</p>
+<p><code>:class_name</code> - Specifies the class name of the association. Use it only if that name can’t be inferred from the part id. So <code>composed_of :address</code> will by default be linked to the Address class, but if the real class name is <code>CompanyAddress</code>, you’ll have to specify it with this option.</p>
 </li><li>
-<p><code>:mapping</code> - Specifies the mapping of entity attributes to attributes of the value object. Each mapping is represented as an array where the first item is the name of the entity attribute and the second item is the name of the attribute in the value object. The order in which mappings are defined determines the order in which attributes are sent to the value class constructor.</p>
+<p><code>:mapping</code> - Specifies the mapping of entity attributes to attributes of the value object. Each mapping is represented as a key-value pair where the key is the name of the entity attribute and the value is the name of the attribute in the value object. The order in which mappings are defined determines the order in which attributes are sent to the value class constructor. The mapping can be written as a hash or as an array of pairs.</p>
 </li><li>
 <p><code>:allow_nil</code> - Specifies that the value object will not be instantiated when all mapped attributes are <code>nil</code>. Setting the value object to <code>nil</code> has the effect of writing <code>nil</code> to all mapped attributes. This defaults to <code>false</code>.</p>
 </li><li>
@@ -333,14 +355,15 @@ network_resource.reload
 
 <p>Option examples:</p>
 
-<pre><code>composed_of :temperature, mapping: %w(reading celsius)
-composed_of :balance, class_name: &quot;Money&quot;, mapping: %w(balance amount)
+<pre><code>composed_of :temperature, mapping: { reading: :celsius }
+composed_of :balance, class_name: &quot;Money&quot;, mapping: { balance: :amount }
+composed_of :address, mapping: { address_street: :street, address_city: :city }
 composed_of :address, mapping: [ %w(address_street street), %w(address_city city) ]
 composed_of :gps_location
 composed_of :gps_location, allow_nil: true
 composed_of :ip_address,
             class_name: &#39;IPAddr&#39;,
-            mapping: %w(ip to_i),
+            mapping: { ip: :to_i },
             constructor: Proc.new { |ip| IPAddr.new(ip, Socket::AF_INET) },
             converter: Proc.new { |ip| ip.is_a?(Integer) ? IPAddr.new(ip, Socket::AF_INET) : IPAddr.new(ip.to_s) }
 </code></pre>
@@ -360,7 +383,7 @@ composed_of :ip_address,
                 
               </p>
               <div id="method-i-composed_of_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/aggregations.rb, line 222</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/aggregations.rb, line 225</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">composed_of</span>(<span class="ruby-identifier">part_id</span>, <span class="ruby-identifier">options</span> = {})
   <span class="ruby-identifier">options</span>.<span class="ruby-identifier">assert_valid_keys</span>(<span class="ruby-value">:class_name</span>, <span class="ruby-value">:mapping</span>, <span class="ruby-value">:allow_nil</span>, <span class="ruby-value">:constructor</span>, <span class="ruby-value">:converter</span>)
 
@@ -402,11 +425,10 @@ composed_of :ip_address,
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

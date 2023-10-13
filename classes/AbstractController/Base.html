@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -179,7 +199,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -203,6 +223,8 @@
   
     <div class="description">
       
+<h1 id="class-AbstractController::Base-label-Abstract+Controller+Base">Abstract Controller Base</h1>
+
 <p><a href="Base.html"><code>AbstractController::Base</code></a> is a low-level API. Nobody should be using it directly, and subclasses (like <a href="../ActionController/Base.html"><code>ActionController::Base</code></a>) are expected to provide their own <code>render</code> method, since rendering means different things depending on the context.</p>
 
     </div>
@@ -360,7 +382,7 @@
                 
               </p>
               <div id="method-c-abstract-21_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 55</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 57</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">abstract!</span>
   <span class="ruby-ivar">@abstract</span> = <span class="ruby-keyword">true</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -400,18 +422,15 @@
                 
               </p>
               <div id="method-c-action_methods_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 89</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 96</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">action_methods</span>
   <span class="ruby-ivar">@action_methods</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
     <span class="ruby-comment"># All public instance methods of this class, including ancestors</span>
-    <span class="ruby-identifier">methods</span> = (<span class="ruby-identifier">public_instance_methods</span>(<span class="ruby-keyword">true</span>) <span class="ruby-operator">-</span>
-      <span class="ruby-comment"># Except for public instance methods of Base and its ancestors</span>
-      <span class="ruby-identifier">internal_methods</span> <span class="ruby-operator">+</span>
-      <span class="ruby-comment"># Be sure to include shadowed public instance methods of this class</span>
-      <span class="ruby-identifier">public_instance_methods</span>(<span class="ruby-keyword">false</span>))
-
+    <span class="ruby-comment"># except for public instance methods of Base and its ancestors.</span>
+    <span class="ruby-identifier">methods</span> = <span class="ruby-identifier">public_instance_methods</span>(<span class="ruby-keyword">true</span>) <span class="ruby-operator">-</span> <span class="ruby-identifier">internal_methods</span>
+    <span class="ruby-comment"># Be sure to include shadowed public instance methods of this class.</span>
+    <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">public_instance_methods</span>(<span class="ruby-keyword">false</span>))
     <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">map!</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>)
-
     <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">to_set</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -446,7 +465,7 @@
                 
               </p>
               <div id="method-c-clear_action_methods-21_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 107</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 111</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clear_action_methods!</span>
   <span class="ruby-ivar">@action_methods</span> = <span class="ruby-keyword">nil</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -493,7 +512,7 @@ MyApp::MyPostsController.controller_path # =&gt; &quot;my_app/my_posts&quot;
                 
               </p>
               <div id="method-c-controller_path_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 121</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 125</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">controller_path</span>
   <span class="ruby-ivar">@controller_path</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">delete_suffix</span>(<span class="ruby-string">&quot;Controller&quot;</span>).<span class="ruby-identifier">underscore</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">anonymous?</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -511,7 +530,7 @@ MyApp::MyPostsController.controller_path # =&gt; &quot;my_app/my_posts&quot;
 
           
             <div class="description">
-              <p>A list of all internal methods for a controller. This finds the first abstract superclass of a controller, and gets a list of all public instance methods on that abstract class. Public instance methods of a controller would normally be considered action methods, so methods declared on abstract classes are being removed. (<code>ActionController::Metal</code> and <a href="../ActionController/Base.html"><code>ActionController::Base</code></a> are defined as abstract)</p>
+              <p>A list of all internal methods for a controller. This finds the first abstract superclass of a controller, and gets a list of all public instance methods on that abstract class. Public instance methods of a controller would normally be considered action methods, so methods declared on abstract classes are being removed. (<a href="../ActionController/Metal.html"><code>ActionController::Metal</code></a> and <a href="../ActionController/Base.html"><code>ActionController::Base</code></a> are defined as abstract)</p>
             </div>
           
 
@@ -528,12 +547,17 @@ MyApp::MyPostsController.controller_path # =&gt; &quot;my_app/my_posts&quot;
                 
               </p>
               <div id="method-c-internal_methods_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 74</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 76</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">internal_methods</span>
   <span class="ruby-identifier">controller</span> = <span class="ruby-keyword">self</span>
+  <span class="ruby-identifier">methods</span> = []
 
-  <span class="ruby-identifier">controller</span> = <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">superclass</span> <span class="ruby-keyword">until</span> <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">abstract?</span>
-  <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">public_instance_methods</span>(<span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">until</span> <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">abstract?</span>
+    <span class="ruby-identifier">methods</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">public_instance_methods</span>(<span class="ruby-keyword">false</span>)
+    <span class="ruby-identifier">controller</span> = <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">superclass</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">public_instance_methods</span>(<span class="ruby-keyword">true</span>) <span class="ruby-operator">-</span> <span class="ruby-identifier">methods</span>
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -566,7 +590,7 @@ MyApp::MyPostsController.controller_path # =&gt; &quot;my_app/my_posts&quot;
                 
               </p>
               <div id="method-c-method_added_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 126</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 130</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">method_added</span>(<span class="ruby-identifier">name</span>)
   <span class="ruby-keyword">super</span>
   <span class="ruby-identifier">clear_action_methods!</span>
@@ -602,7 +626,7 @@ MyApp::MyPostsController.controller_path # =&gt; &quot;my_app/my_posts&quot;
                 
               </p>
               <div id="method-c-supports_path-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 190</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 199</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">supports_path?</span>
   <span class="ruby-keyword">true</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -624,7 +648,7 @@ MyApp::MyPostsController.controller_path # =&gt; &quot;my_app/my_posts&quot;
 
           
             <div class="description">
-              <p>Delegates to the class&#39;s <a href="Base.html#method-c-action_methods"><code>::action_methods</code></a>.</p>
+              <p>Delegates to the class’s <a href="Base.html#method-c-action_methods"><code>::action_methods</code></a>.</p>
             </div>
           
 
@@ -641,7 +665,7 @@ MyApp::MyPostsController.controller_path # =&gt; &quot;my_app/my_posts&quot;
                 
               </p>
               <div id="method-i-action_methods_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 161</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 170</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">action_methods</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">action_methods</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -676,7 +700,7 @@ MyApp::MyPostsController.controller_path # =&gt; &quot;my_app/my_posts&quot;
                 
               </p>
               <div id="method-i-action_name_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 40</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 42</span>
 <span class="ruby-identifier">attr_internal</span> <span class="ruby-value">:action_name</span>
 </code></pre>
               </div>
@@ -717,7 +741,7 @@ MyApp::MyPostsController.controller_path # =&gt; &quot;my_app/my_posts&quot;
                 
               </p>
               <div id="method-i-available_action-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 175</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 184</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">available_action?</span>(<span class="ruby-identifier">action_name</span>)
   <span class="ruby-identifier">_find_action_name</span>(<span class="ruby-identifier">action_name</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -735,7 +759,7 @@ MyApp::MyPostsController.controller_path # =&gt; &quot;my_app/my_posts&quot;
 
           
             <div class="description">
-              <p>Delegates to the class&#39;s <a href="Base.html#method-c-controller_path"><code>::controller_path</code></a>.</p>
+              <p>Delegates to the class’s <a href="Base.html#method-c-controller_path"><code>::controller_path</code></a>.</p>
             </div>
           
 
@@ -752,7 +776,7 @@ MyApp::MyPostsController.controller_path # =&gt; &quot;my_app/my_posts&quot;
                 
               </p>
               <div id="method-i-controller_path_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 156</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 165</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">controller_path</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">controller_path</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -787,7 +811,7 @@ MyApp::MyPostsController.controller_path # =&gt; &quot;my_app/my_posts&quot;
                 
               </p>
               <div id="method-i-formats_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 44</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 46</span>
 <span class="ruby-identifier">attr_internal</span> <span class="ruby-value">:formats</span>
 </code></pre>
               </div>
@@ -821,7 +845,7 @@ MyApp::MyPostsController.controller_path # =&gt; &quot;my_app/my_posts&quot;
                 
               </p>
               <div id="method-i-performed-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 182</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 191</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">performed?</span>
   <span class="ruby-identifier">response_body</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -863,7 +887,7 @@ MyApp::MyPostsController.controller_path # =&gt; &quot;my_app/my_posts&quot;
                 
               </p>
               <div id="method-i-process_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 142</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 151</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">process</span>(<span class="ruby-identifier">action</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
   <span class="ruby-ivar">@_action_name</span> = <span class="ruby-identifier">action</span>.<span class="ruby-identifier">to_s</span>
 
@@ -906,7 +930,7 @@ MyApp::MyPostsController.controller_path # =&gt; &quot;my_app/my_posts&quot;
                 
               </p>
               <div id="method-i-response_body_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 36</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/base.rb, line 38</span>
 <span class="ruby-identifier">attr_internal</span> <span class="ruby-value">:response_body</span>
 </code></pre>
               </div>
@@ -929,11 +953,10 @@ MyApp::MyPostsController.controller_path # =&gt; &quot;my_app/my_posts&quot;
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

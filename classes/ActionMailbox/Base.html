@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -105,6 +125,11 @@
 </li>
 <li class="toc-entry toc-h2"><a href="#instance-public-methods">Instance Public methods</a>
 <ul>
+<li class="toc-entry toc-h3"><a href="#method-i-bounce_now_with">
+            
+              bounce_now_with(message)
+            
+          </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-bounce_with">
             
               bounce_with(message)
@@ -124,7 +149,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -148,7 +173,9 @@
   
     <div class="description">
       
-<p>The base class for all application mailboxes. Not intended to be inherited from directly. Inherit from <code>ApplicationMailbox</code> instead, as that&#39;s where the app-specific routing is configured. This routing is specified in the following ways:</p>
+<h1 id="class-ActionMailbox::Base-label-Action+Mailbox+Base">Action Mailbox Base</h1>
+
+<p>The base class for all application mailboxes. Not intended to be inherited from directly. Inherit from <code>ApplicationMailbox</code> instead, as that’s where the app-specific routing is configured. This routing is specified in the following ways:</p>
 
 <pre><code>class ApplicationMailbox &lt; ActionMailbox::Base
   # Any of the recipients of the mail (whether to, cc, bcc) are matched against the regexp.
@@ -168,7 +195,7 @@
 end
 </code></pre>
 
-<p>Application mailboxes need to override the <a href="Base.html#method-i-process"><code>process</code></a> method, which is invoked by the framework after callbacks have been run. The callbacks available are: <code>before_processing</code>, <code>after_processing</code>, and <code>around_processing</code>. The primary use case is ensure certain preconditions to processing are fulfilled using <code>before_processing</code> callbacks.</p>
+<p>Application mailboxes need to override the <a href="Base.html#method-i-process"><code>process</code></a> method, which is invoked by the framework after callbacks have been run. The callbacks available are: <code>before_processing</code>, <code>after_processing</code>, and <code>around_processing</code>. The primary use case is to ensure that certain preconditions to processing are fulfilled using <code>before_processing</code> callbacks.</p>
 
 <p>If a precondition fails to be met, you can halt the processing using the <code>#bounced!</code> method, which will silently prevent any further processing, but not actually send out any bounce notice. You can also pair this behavior with the invocation of an Action Mailer class responsible for sending out an actual bounce email. This is done using the <a href="Base.html#method-i-bounce_with"><code>bounce_with</code></a> method, which takes the mail object returned by an Action Mailer method, like so:</p>
 
@@ -186,7 +213,7 @@ end
 
 <p>During the processing of the inbound email, the status will be tracked. Before processing begins, the email will normally have the <code>pending</code> status. Once processing begins, just before callbacks and the <a href="Base.html#method-i-process"><code>process</code></a> method is called, the status is changed to <code>processing</code>. If processing is allowed to complete, the status is changed to <code>delivered</code>. If a bounce is triggered, then <code>bounced</code>. If an unhandled exception is bubbled up, then <code>failed</code>.</p>
 
-<p>Exceptions can be handled at the class level using the familiar <code>Rescuable</code> approach:</p>
+<p>Exceptions can be handled at the class level using the familiar <a href="../ActiveSupport/Rescuable.html"><code>ActiveSupport::Rescuable</code></a> approach:</p>
 
 <pre><code>class ForwardsMailbox &lt; ApplicationMailbox
   rescue_from(ApplicationSpecificVerificationError) { bounced! }
@@ -207,6 +234,10 @@ end
   
     <h2 id="methods">Methods</h2>
     <ul>
+      
+        <li>
+          <a href="#method-i-bounce_now_with">bounce_now_with</a>
+        </li>
       
         <li>
           <a href="#method-i-bounce_with">bounce_with</a>
@@ -296,7 +327,7 @@ end
                 
               </p>
               <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionmailbox/lib/action_mailbox/base.rb, line 76</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionmailbox/lib/action_mailbox/base.rb, line 79</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">inbound_email</span>)
   <span class="ruby-ivar">@inbound_email</span> = <span class="ruby-identifier">inbound_email</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -331,7 +362,7 @@ end
                 
               </p>
               <div id="method-c-receive_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionmailbox/lib/action_mailbox/base.rb, line 72</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionmailbox/lib/action_mailbox/base.rb, line 75</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">receive</span>(<span class="ruby-identifier">inbound_email</span>)
   <span class="ruby-identifier">new</span>(<span class="ruby-identifier">inbound_email</span>).<span class="ruby-identifier">perform_processing</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -345,6 +376,42 @@ end
       <h2 id="instance-public-methods">Instance Public methods</h2>
       
         <div class="method">
+          <h3 id="method-i-bounce_now_with">
+            
+              bounce_now_with(message)
+            
+          </h3>
+
+          
+            <div class="description">
+              <p>Immediately sends the given <code>message</code> and changes the inbound email’s status to <code>:bounced</code>.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                
+              </p>
+              <div id="method-i-bounce_now_with_source">
+                <pre><code class="ruby"><span class="ruby-comment"># File actionmailbox/lib/action_mailbox/base.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bounce_now_with</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">inbound_email</span>.<span class="ruby-identifier">bounced!</span>
+  <span class="ruby-identifier">message</span>.<span class="ruby-identifier">deliver_now</span>
+<span class="ruby-keyword">end</span></code></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
           <h3 id="method-i-bounce_with">
             
               bounce_with(message)
@@ -353,7 +420,7 @@ end
 
           
             <div class="description">
-              <p>Enqueues the given <code>message</code> for delivery and changes the inbound email&#39;s status to <code>:bounced</code>.</p>
+              <p>Enqueues the given <code>message</code> for delivery and changes the inbound email’s status to <code>:bounced</code>.</p>
             </div>
           
 
@@ -370,7 +437,7 @@ end
                 
               </p>
               <div id="method-i-bounce_with_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionmailbox/lib/action_mailbox/base.rb, line 101</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionmailbox/lib/action_mailbox/base.rb, line 105</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bounce_with</span>(<span class="ruby-identifier">message</span>)
   <span class="ruby-identifier">inbound_email</span>.<span class="ruby-identifier">bounced!</span>
   <span class="ruby-identifier">message</span>.<span class="ruby-identifier">deliver_later</span>
@@ -406,7 +473,7 @@ end
                 
               </p>
               <div id="method-i-process_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionmailbox/lib/action_mailbox/base.rb, line 91</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionmailbox/lib/action_mailbox/base.rb, line 96</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">process</span>
   <span class="ruby-comment"># Override in subclasses</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -430,11 +497,10 @@ end
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -134,7 +154,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -229,7 +249,7 @@
 
           
             <div class="description">
-              <p>Validates that the specified attributes are not present (as defined by <a href="../../Object.html#method-i-present-3F"><code>Object#present?</code></a>). If the attribute is an association, the associated object is considered absent if it was marked for destruction.</p>
+              <p>Validates that the specified attributes are not present (as defined by <a href="../../Object.html#method-i-present-3F"><code>Object#present?</code></a>). If the attribute is an association, the associated object is also considered not present if it is marked for destruction.</p>
 
 <p>See <a href="../../ActiveModel/Validations/HelperMethods.html#method-i-validates_absence_of"><code>ActiveModel::Validations::HelperMethods.validates_absence_of</code></a> for more information.</p>
             </div>
@@ -278,7 +298,7 @@ end
 
 <p>WARNING: This validation must not be used on both ends of an association. Doing so will lead to a circular dependency and cause infinite recursion.</p>
 
-<p>NOTE: This validation will not fail if the association hasn&#39;t been assigned. If you want to ensure that the association is both present and guaranteed to be valid, you also need to use <a href="ClassMethods.html#method-i-validates_presence_of">validates_presence_of</a>.</p>
+<p>NOTE: This validation will not fail if the association hasn’t been assigned. If you want to ensure that the association is both present and guaranteed to be valid, you also need to use <a href="ClassMethods.html#method-i-validates_presence_of">validates_presence_of</a>.</p>
 
 <p>Configuration options:</p>
 <ul><li>
@@ -365,7 +385,7 @@ end
 
           
             <div class="description">
-              <p>Validates whether the value of the specified attribute is numeric by trying to convert it to a float with <a href="../../Kernel.html"><code>Kernel</code></a>.Float (if <code>only_integer</code> is <code>false</code>) or applying it to the regular expression <code>/\A[+\-]?\d+\z/</code> (if <code>only_integer</code> is set to <code>true</code>). <a href="../../Kernel.html"><code>Kernel</code></a>.Float precision defaults to the column&#39;s precision value or 15.</p>
+              <p>Validates whether the value of the specified attribute is numeric by trying to convert it to a float with <code>Kernel.Float</code> (if <code>only_integer</code> is <code>false</code>) or applying it to the regular expression <code>/\A[+\-]?\d+\z/</code> (if <code>only_integer</code> is set to <code>true</code>). <code>Kernel.Float</code> precision defaults to the column’s precision value or 15.</p>
 
 <p>See <a href="../../ActiveModel/Validations/HelperMethods.html#method-i-validates_numericality_of"><code>ActiveModel::Validations::HelperMethods.validates_numericality_of</code></a> for more information.</p>
             </div>
@@ -384,7 +404,7 @@ end
                 
               </p>
               <div id="method-i-validates_numericality_of_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/validations/numericality.rb, line 30</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/validations/numericality.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validates_numericality_of</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attr_names</span>)
   <span class="ruby-identifier">validates_with</span> <span class="ruby-constant">NumericalityValidator</span>, <span class="ruby-identifier">_merge_attributes</span>(<span class="ruby-identifier">attr_names</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -402,7 +422,7 @@ end
 
           
             <div class="description">
-              <p>Validates that the specified attributes are not blank (as defined by <a href="../../Object.html#method-i-blank-3F"><code>Object#blank?</code></a>), and, if the attribute is an association, that the associated object is not marked for destruction. Happens by default on save.</p>
+              <p>Validates that the specified attributes are not blank (as defined by <a href="../../Object.html#method-i-blank-3F"><code>Object#blank?</code></a>). If the attribute is an association, the associated object is also considered blank if it is marked for destruction.</p>
 
 <pre><code>class Person &lt; ActiveRecord::Base
   has_one :face
@@ -412,26 +432,11 @@ end
 
 <p>The face attribute must be in the object and it cannot be blank or marked for destruction.</p>
 
-<p>If you want to validate the presence of a boolean field (where the real values are true and false), you will want to use <code>validates_inclusion_of :field_name, in: [true, false]</code>.</p>
-
-<p>This is due to the way <a href="../../Object.html#method-i-blank-3F"><code>Object#blank?</code></a> handles boolean values: <code>false.blank? # =&gt; true</code>.</p>
-
 <p>This validator defers to the Active Model validation for presence, adding the check to see that an associated object is not marked for destruction. This prevents the parent object from validating successfully and saving, which then deletes the associated object, thus putting the parent object into an invalid state.</p>
 
-<p>NOTE: This validation will not fail while using it with an association if the latter was assigned but not valid. If you want to ensure that it is both present and valid, you also need to use <a href="ClassMethods.html#method-i-validates_associated">validates_associated</a>.</p>
+<p>See <a href="../../ActiveModel/Validations/HelperMethods.html#method-i-validates_presence_of"><code>ActiveModel::Validations::HelperMethods.validates_presence_of</code></a> for more information.</p>
 
-<p>Configuration options:</p>
-<ul><li>
-<p><code>:message</code> - A custom error message (default is: “can&#39;t be blank”).</p>
-</li><li>
-<p><code>:on</code> - Specifies the contexts where this validation is active. Runs in all validation contexts by default <code>nil</code>. You can pass a symbol or an array of symbols. (e.g. <code>on: :create</code> or <code>on: :custom_validation_context</code> or <code>on: [:create, :custom_validation_context]</code>)</p>
-</li><li>
-<p><code>:if</code> - Specifies a method, proc, or string to call to determine if the validation should occur (e.g. <code>if: :allow_validation</code>, or <code>if: Proc.new { |user| user.signup_step &gt; 2 }</code>). The method, proc or string should return or evaluate to a <code>true</code> or <code>false</code> value.</p>
-</li><li>
-<p><code>:unless</code> - Specifies a method, proc, or string to call to determine if the validation should not occur (e.g. <code>unless: :skip_validation</code>, or <code>unless: Proc.new { |user| user.signup_step &lt;= 2 }</code>). The method, proc or string should return or evaluate to a <code>true</code> or <code>false</code> value.</p>
-</li><li>
-<p><code>:strict</code> - Specifies whether validation should be strict. See ActiveModel::Validations#validates! for more information.</p>
-</li></ul>
+<p>NOTE: This validation will not fail while using it with an association if the latter was assigned but not valid. If you want to ensure that it is both present and valid, you also need to use <a href="ClassMethods.html#method-i-validates_associated">validates_associated</a>.</p>
             </div>
           
 
@@ -448,7 +453,7 @@ end
                 
               </p>
               <div id="method-i-validates_presence_of_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/validations/presence.rb, line 63</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/validations/presence.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validates_presence_of</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attr_names</span>)
   <span class="ruby-identifier">validates_with</span> <span class="ruby-constant">PresenceValidator</span>, <span class="ruby-identifier">_merge_attributes</span>(<span class="ruby-identifier">attr_names</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -518,7 +523,7 @@ end
 end
 </code></pre>
 
-<p>To build conditions based on the record&#39;s state, define the conditions callable with a parameter, which will be the record itself. This example validates the title is unique for the year of publication:</p>
+<p>To build conditions based on the record’s state, define the conditions callable with a parameter, which will be the record itself. This example validates the title is unique for the year of publication:</p>
 
 <pre><code>class Article &lt; ActiveRecord::Base
   validates_uniqueness_of :title, conditions: -&gt;(article) {
@@ -551,7 +556,7 @@ end
 
 <h3 id="method-i-validates_uniqueness_of-label-Concurrency+and+integrity">Concurrency and integrity</h3>
 
-<p>Using this validation method in conjunction with <a href="../Persistence.html#method-i-save">ActiveRecord::Base#save</a> does not guarantee the absence of duplicate record insertions, because uniqueness checks on the application level are inherently prone to race conditions. For example, suppose that two users try to post a Comment at the same time, and a Comment&#39;s title must be unique. At the database-level, the actions performed by these users could be interleaved in the following manner:</p>
+<p>Using this validation method in conjunction with <a href="../Persistence.html#method-i-save">ActiveRecord::Base#save</a> does not guarantee the absence of duplicate record insertions, because uniqueness checks on the application level are inherently prone to race conditions. For example, suppose that two users try to post a Comment at the same time, and a Comment’s title must be unique. At the database-level, the actions performed by these users could be interleaved in the following manner:</p>
 
 <pre><code>             User 1                 |               User 2
 ------------------------------------+--------------------------------------
@@ -581,7 +586,7 @@ INSERT INTO comments                |
                                     | # title!
 </code></pre>
 
-<p>The best way to work around this problem is to add a unique index to the database table using <a href="../ConnectionAdapters/SchemaStatements.html#method-i-add_index">connection.add_index</a>. In the rare case that a race condition occurs, the database will guarantee the field&#39;s uniqueness.</p>
+<p>The best way to work around this problem is to add a unique index to the database table using <a href="../ConnectionAdapters/SchemaStatements.html#method-i-add_index">connection.add_index</a>. In the rare case that a race condition occurs, the database will guarantee the field’s uniqueness.</p>
 
 <p>When the database catches such a duplicate insertion, <a href="../Persistence.html#method-i-save">ActiveRecord::Base#save</a> will raise an <a href="../StatementInvalid.html"><code>ActiveRecord::StatementInvalid</code></a> exception. You can either choose to let this error propagate (which will result in the default Rails exception page being shown), or you can catch it and restart the transaction (e.g. by telling the user that the title already exists, and asking them to re-enter the title). This technique is also known as <a href="https://en.wikipedia.org/wiki/Optimistic_concurrency_control">optimistic concurrency control</a>.</p>
 
@@ -590,6 +595,8 @@ INSERT INTO comments                |
 <p>The following bundled adapters throw the <a href="../RecordNotUnique.html"><code>ActiveRecord::RecordNotUnique</code></a> exception:</p>
 <ul><li>
 <p><a href="../ConnectionAdapters/Mysql2Adapter.html"><code>ActiveRecord::ConnectionAdapters::Mysql2Adapter</code></a>.</p>
+</li><li>
+<p><a href="../ConnectionAdapters/TrilogyAdapter.html"><code>ActiveRecord::ConnectionAdapters::TrilogyAdapter</code></a>.</p>
 </li><li>
 <p><a href="../ConnectionAdapters/SQLite3Adapter.html"><code>ActiveRecord::ConnectionAdapters::SQLite3Adapter</code></a>.</p>
 </li><li>
@@ -611,7 +618,7 @@ INSERT INTO comments                |
                 
               </p>
               <div id="method-i-validates_uniqueness_of_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/validations/uniqueness.rb, line 241</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/validations/uniqueness.rb, line 286</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validates_uniqueness_of</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attr_names</span>)
   <span class="ruby-identifier">validates_with</span> <span class="ruby-constant">UniquenessValidator</span>, <span class="ruby-identifier">_merge_attributes</span>(<span class="ruby-identifier">attr_names</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -635,11 +642,10 @@ INSERT INTO comments                |
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

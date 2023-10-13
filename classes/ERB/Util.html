@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -90,16 +110,6 @@
 <li class="toc-entry toc-h2"><a href="#constants">Constants</a></li>
 <li class="toc-entry toc-h2"><a href="#class-public-methods">Class Public methods</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#method-c-h">
-            
-              h(s)
-            
-          </a></li>
-<li class="toc-entry toc-h3"><a href="#method-c-html_escape">
-            
-              html_escape(s)
-            
-          </a></li>
 <li class="toc-entry toc-h3"><a href="#method-c-html_escape_once">
             
               html_escape_once(s)
@@ -124,7 +134,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -133,7 +143,7 @@
         </h1>
         <ul class="files">
             
-            <li><a href="../../files/activesupport/lib/active_support/core_ext/string/output_safety_rb.html">activesupport/lib/active_support/core_ext/string/output_safety.rb</a></li>
+            <li><a href="../../files/activesupport/lib/active_support/core_ext/erb/util_rb.html">activesupport/lib/active_support/core_ext/erb/util.rb</a></li>
             
         </ul>
     </div>
@@ -152,14 +162,6 @@
   
     <h2 id="methods">Methods</h2>
     <ul>
-      
-        <li>
-          <a href="#method-c-h">h</a>
-        </li>
-      
-        <li>
-          <a href="#method-c-html_escape">html_escape</a>
-        </li>
       
         <li>
           <a href="#method-c-html_escape_once">html_escape_once</a>
@@ -213,9 +215,9 @@
           
         
           <tr valign='top'>
-            <td class="attr-name">JSON_ESCAPE</td>
+            <td class="attr-name">INVALID_TAG_NAME_FOLLOWING_REGEXP</td>
             <td>=</td>
-            <td class="attr-value">{ &quot;&amp;&quot; =&gt; &#39;\u0026&#39;, &quot;&gt;&quot; =&gt; &#39;\u003e&#39;, &quot;&lt;&quot; =&gt; &#39;\u003c&#39;, &quot;\u2028&quot; =&gt; &#39;\u2028&#39;, &quot;\u2029&quot; =&gt; &#39;\u2029&#39; }</td>
+            <td class="attr-value">/[^#{TAG_NAME_FOLLOWING_CODEPOINTS}]/</td>
           </tr>
           
             <tr valign='top'>
@@ -225,9 +227,9 @@
           
         
           <tr valign='top'>
-            <td class="attr-name">JSON_ESCAPE_REGEXP</td>
+            <td class="attr-name">INVALID_TAG_NAME_START_REGEXP</td>
             <td>=</td>
-            <td class="attr-value">/[\u2028\u2029&amp;&gt;&lt;]/u</td>
+            <td class="attr-value">/[^#{TAG_NAME_START_CODEPOINTS}]/</td>
           </tr>
           
             <tr valign='top'>
@@ -237,9 +239,21 @@
           
         
           <tr valign='top'>
-            <td class="attr-name">TAG_NAME_FOLLOWING_REGEXP</td>
+            <td class="attr-name">SAFE_XML_TAG_NAME_REGEXP</td>
             <td>=</td>
-            <td class="attr-value">/[^#{TAG_NAME_START_REGEXP_SET}\-.0-9\u{B7}\u{0300}-\u{036F}\u{203F}-\u{2040}]/</td>
+            <td class="attr-value">/\A[#{TAG_NAME_START_CODEPOINTS}][#{TAG_NAME_FOLLOWING_CODEPOINTS}]*\z/</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">TAG_NAME_FOLLOWING_CODEPOINTS</td>
+            <td>=</td>
+            <td class="attr-value">&quot;#{TAG_NAME_START_CODEPOINTS}\\-.0-9\u{B7}\u{0300}-\u{036F}\u{203F}-\u{2040}&quot;</td>
           </tr>
           
             <tr valign='top'>
@@ -261,19 +275,7 @@
           
         
           <tr valign='top'>
-            <td class="attr-name">TAG_NAME_START_REGEXP</td>
-            <td>=</td>
-            <td class="attr-value">/[^#{TAG_NAME_START_REGEXP_SET}]/</td>
-          </tr>
-          
-            <tr valign='top'>
-              <td>&nbsp;</td>
-              <td colspan="2" class="attr-desc"></td>
-            </tr>
-          
-        
-          <tr valign='top'>
-            <td class="attr-name">TAG_NAME_START_REGEXP_SET</td>
+            <td class="attr-name">TAG_NAME_START_CODEPOINTS</td>
             <td>=</td>
             <td class="attr-value">&quot;@:A-Z_a-z\u{C0}-\u{D6}\u{D8}-\u{F6}\u{F8}-\u{2FF}\u{370}-\u{37D}\u{37F}-\u{1FFF}&quot; \
 &quot;\u{200C}-\u{200D}\u{2070}-\u{218F}\u{2C00}-\u{2FEF}\u{3001}-\u{D7FF}\u{F900}-\u{FDCF}&quot; \
@@ -295,73 +297,6 @@
     
       <h2 id="class-public-methods">Class Public methods</h2>
       
-        <div class="method">
-          <h3 id="method-c-h">
-            
-              h(s)
-            
-          </h3>
-
-          
-            <div class="description">
-              
-            </div>
-          
-
-          
-
-          
-            <div class="aka">
-              Alias for: <a href="Util.html#method-i-html_escape">html_escape</a>
-            </div>
-          
-
-          
-          </div>
-        
-        <div class="method">
-          <h3 id="method-c-html_escape">
-            
-              html_escape(s)
-            
-          </h3>
-
-          
-            <div class="description">
-              <p>A utility method for escaping HTML tag characters. This method is also aliased as <code>h</code>.</p>
-
-<pre><code>puts html_escape(&#39;is a &gt; 0 &amp; a &lt; 10?&#39;)
-# =&gt; is a &amp;gt; 0 &amp;amp; a &amp;lt; 10?
-</code></pre>
-            </div>
-          
-
-          
-            <div class="aka">
-              Also aliased as: <a href="Util.html#method-i-h">h</a>
-            </div>
-          
-
-          
-
-          
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-html_escape_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 27</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">html_escape</span>(<span class="ruby-identifier">s</span>)
-  <span class="ruby-identifier">unwrapped_html_escape</span>(<span class="ruby-identifier">s</span>).<span class="ruby-identifier">html_safe</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
-        
         <div class="method">
           <h3 id="method-c-html_escape_once">
             
@@ -395,10 +330,9 @@ html_escape_once(&#39;&amp;lt;&amp;lt; Accept &amp; Checkout&#39;)
                 
               </p>
               <div id="method-c-html_escape_once_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 58</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/erb/util.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">html_escape_once</span>(<span class="ruby-identifier">s</span>)
-  <span class="ruby-identifier">result</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Multibyte</span><span class="ruby-operator">::</span><span class="ruby-constant">Unicode</span>.<span class="ruby-identifier">tidy_bytes</span>(<span class="ruby-identifier">s</span>.<span class="ruby-identifier">to_s</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">HTML_ESCAPE_ONCE_REGEXP</span>, <span class="ruby-constant">HTML_ESCAPE</span>)
-  <span class="ruby-identifier">s</span>.<span class="ruby-identifier">html_safe?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">html_safe</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">result</span>
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Multibyte</span><span class="ruby-operator">::</span><span class="ruby-constant">Unicode</span>.<span class="ruby-identifier">tidy_bytes</span>(<span class="ruby-identifier">s</span>.<span class="ruby-identifier">to_s</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">HTML_ESCAPE_ONCE_REGEXP</span>, <span class="ruby-constant">HTML_ESCAPE</span>).<span class="ruby-identifier">html_safe</span>
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -433,7 +367,7 @@ JSON.parse(json) == JSON.parse(json_escape(json))
 &lt;/script&gt;
 </code></pre>
 
-<p>It is necessary to <code>raw</code> the result of <code>json_escape</code>, so that quotation marks don&#39;t get converted to <code>&amp;quot;</code> entities. <code>json_escape</code> doesn&#39;t automatically flag the result as HTML safe, since the raw value is unsafe to use inside HTML attributes.</p>
+<p>It is necessary to <code>raw</code> the result of <code>json_escape</code>, so that quotation marks don’t get converted to <code>&amp;quot;</code> entities. <code>json_escape</code> doesn’t automatically flag the result as HTML safe, since the raw value is unsafe to use inside HTML attributes.</p>
 
 <p>If your JSON is being used downstream for insertion into the DOM, be aware of whether or not it is being inserted via <code>html()</code>. Most jQuery plugins do this. If that is the case, be sure to <code>html_escape</code> or <code>sanitize</code> any user-generated content returned by your JSON.</p>
 
@@ -446,7 +380,7 @@ JSON.parse(json) == JSON.parse(json_escape(json))
 
 <p>The escaping performed in this method is identical to those performed in the Active Support JSON encoder when <code>ActiveSupport.escape_html_entities_in_json</code> is set to true. Because this transformation is idempotent, this helper can be applied even if <code>ActiveSupport.escape_html_entities_in_json</code> is already true.</p>
 
-<p>Therefore, when you are unsure if <code>ActiveSupport.escape_html_entities_in_json</code> is enabled, or if you are unsure where your JSON string originated from, it is recommended that you always apply this helper (other libraries, such as the JSON gem, do not provide this kind of protection by default; also some gems might override <code>to_json</code> to bypass Active Support&#39;s encoder).</p>
+<p>Therefore, when you are unsure if <code>ActiveSupport.escape_html_entities_in_json</code> is enabled, or if you are unsure where your JSON string originated from, it is recommended that you always apply this helper (other libraries, such as the JSON gem, do not provide this kind of protection by default; also some gems might override <code>to_json</code> to bypass Active Support’s encoder).</p>
             </div>
           
 
@@ -463,9 +397,14 @@ JSON.parse(json) == JSON.parse(json_escape(json))
                 
               </p>
               <div id="method-c-json_escape_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 120</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/erb/util.rb, line 124</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">json_escape</span>(<span class="ruby-identifier">s</span>)
-  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">JSON_ESCAPE_REGEXP</span>, <span class="ruby-constant">JSON_ESCAPE</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;&gt;&quot;</span>, <span class="ruby-string">&#39;\u003e&#39;</span>)
+  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;&lt;&quot;</span>, <span class="ruby-string">&#39;\u003c&#39;</span>)
+  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;&amp;&quot;</span>, <span class="ruby-string">&#39;\u0026&#39;</span>)
+  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;\u2028&quot;</span>, <span class="ruby-string">&#39;\u2028&#39;</span>)
+  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;\u2029&quot;</span>, <span class="ruby-string">&#39;\u2029&#39;</span>)
   <span class="ruby-identifier">s</span>.<span class="ruby-identifier">html_safe?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">html_safe</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">result</span>
 <span class="ruby-keyword">end</span></code></pre>
               </div>
@@ -505,18 +444,21 @@ JSON.parse(json) == JSON.parse(json_escape(json))
                 
               </p>
               <div id="method-c-xml_name_escape_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 133</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/erb/util.rb, line 142</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">xml_name_escape</span>(<span class="ruby-identifier">name</span>)
   <span class="ruby-identifier">name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>
   <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">blank?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-constant">SAFE_XML_TAG_NAME_REGEXP</span>)
 
-  <span class="ruby-identifier">starting_char</span> = <span class="ruby-identifier">name</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">TAG_NAME_START_REGEXP</span>, <span class="ruby-constant">TAG_NAME_REPLACEMENT_CHAR</span>)
+  <span class="ruby-identifier">starting_char</span> = <span class="ruby-identifier">name</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-identifier">starting_char</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-constant">INVALID_TAG_NAME_START_REGEXP</span>, <span class="ruby-constant">TAG_NAME_REPLACEMENT_CHAR</span>)
 
   <span class="ruby-keyword">return</span> <span class="ruby-identifier">starting_char</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
 
-  <span class="ruby-identifier">following_chars</span> = <span class="ruby-identifier">name</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">TAG_NAME_FOLLOWING_REGEXP</span>, <span class="ruby-constant">TAG_NAME_REPLACEMENT_CHAR</span>)
+  <span class="ruby-identifier">following_chars</span> = <span class="ruby-identifier">name</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+  <span class="ruby-identifier">following_chars</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-constant">INVALID_TAG_NAME_FOLLOWING_REGEXP</span>, <span class="ruby-constant">TAG_NAME_REPLACEMENT_CHAR</span>)
 
-  <span class="ruby-identifier">starting_char</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">following_chars</span>
+  <span class="ruby-identifier">starting_char</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">following_chars</span>
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -539,11 +481,10 @@ JSON.parse(json) == JSON.parse(json_escape(json))
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

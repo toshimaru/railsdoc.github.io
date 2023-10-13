@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -154,7 +174,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -178,6 +198,8 @@
   
     <div class="description">
       
+<h1 id="class-ActiveStorage::Service::S3Service-label-Active+Storage+S3+Service">Active Storage S3 Service</h1>
+
 <p>Wraps the Amazon Simple Storage <a href="../Service.html"><code>Service</code></a> (S3) as an Active Storage service. See <a href="../Service.html"><code>ActiveStorage::Service</code></a> for the generic API documentation that applies to all services.</p>
 
     </div>
@@ -347,7 +369,7 @@
                 
               </p>
               <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 15</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-value">bucket:</span>, <span class="ruby-value">upload:</span> {}, <span class="ruby-value">public:</span> <span class="ruby-keyword">false</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
   <span class="ruby-ivar">@client</span> = <span class="ruby-constant">Aws</span><span class="ruby-operator">::</span><span class="ruby-constant">S3</span><span class="ruby-operator">::</span><span class="ruby-constant">Resource</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
   <span class="ruby-ivar">@bucket</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">bucket</span>(<span class="ruby-identifier">bucket</span>)
@@ -393,7 +415,7 @@
                 
               </p>
               <div id="method-i-compose_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 98</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 100</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">compose</span>(<span class="ruby-identifier">source_keys</span>, <span class="ruby-identifier">destination_key</span>, <span class="ruby-value">filename:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">content_type:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">disposition:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">custom_metadata:</span> {})
   <span class="ruby-identifier">content_disposition</span> = <span class="ruby-identifier">content_disposition_with</span>(<span class="ruby-value">type:</span> <span class="ruby-identifier">disposition</span>, <span class="ruby-value">filename:</span> <span class="ruby-identifier">filename</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">disposition</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">filename</span>
 
@@ -442,7 +464,7 @@
                 
               </p>
               <div id="method-i-delete_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 60</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 62</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete</span>(<span class="ruby-identifier">key</span>)
   <span class="ruby-identifier">instrument</span> <span class="ruby-value">:delete</span>, <span class="ruby-value">key:</span> <span class="ruby-identifier">key</span> <span class="ruby-keyword">do</span>
     <span class="ruby-identifier">object_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">delete</span>
@@ -479,7 +501,7 @@
                 
               </p>
               <div id="method-i-delete_prefixed_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 66</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 68</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete_prefixed</span>(<span class="ruby-identifier">prefix</span>)
   <span class="ruby-identifier">instrument</span> <span class="ruby-value">:delete_prefixed</span>, <span class="ruby-value">prefix:</span> <span class="ruby-identifier">prefix</span> <span class="ruby-keyword">do</span>
     <span class="ruby-identifier">bucket</span>.<span class="ruby-identifier">objects</span>(<span class="ruby-value">prefix:</span> <span class="ruby-identifier">prefix</span>).<span class="ruby-identifier">batch_delete!</span>
@@ -516,7 +538,7 @@
                 
               </p>
               <div id="method-i-download_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 38</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">download</span>(<span class="ruby-identifier">key</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
     <span class="ruby-identifier">instrument</span> <span class="ruby-value">:streaming_download</span>, <span class="ruby-value">key:</span> <span class="ruby-identifier">key</span> <span class="ruby-keyword">do</span>
@@ -561,7 +583,7 @@
                 
               </p>
               <div id="method-i-download_chunk_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 52</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 54</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">download_chunk</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">range</span>)
   <span class="ruby-identifier">instrument</span> <span class="ruby-value">:download_chunk</span>, <span class="ruby-value">key:</span> <span class="ruby-identifier">key</span>, <span class="ruby-value">range:</span> <span class="ruby-identifier">range</span> <span class="ruby-keyword">do</span>
     <span class="ruby-identifier">object_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">get</span>(<span class="ruby-value">range:</span> <span class="ruby-node">&quot;bytes=#{range.begin}-#{range.exclude_end? ? range.end - 1 : range.end}&quot;</span>).<span class="ruby-identifier">body</span>.<span class="ruby-identifier">string</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">BINARY</span>)
@@ -600,7 +622,7 @@
                 
               </p>
               <div id="method-i-exist-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 72</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 74</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">exist?</span>(<span class="ruby-identifier">key</span>)
   <span class="ruby-identifier">instrument</span> <span class="ruby-value">:exist</span>, <span class="ruby-value">key:</span> <span class="ruby-identifier">key</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">payload</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">answer</span> = <span class="ruby-identifier">object_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">exists?</span>
@@ -639,7 +661,7 @@
                 
               </p>
               <div id="method-i-headers_for_direct_upload_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 92</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 94</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">headers_for_direct_upload</span>(<span class="ruby-identifier">key</span>, <span class="ruby-value">content_type:</span>, <span class="ruby-value">checksum:</span>, <span class="ruby-value">filename:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">disposition:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">custom_metadata:</span> {}, <span class="ruby-operator">**</span>)
   <span class="ruby-identifier">content_disposition</span> = <span class="ruby-identifier">content_disposition_with</span>(<span class="ruby-value">type:</span> <span class="ruby-identifier">disposition</span>, <span class="ruby-value">filename:</span> <span class="ruby-identifier">filename</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">filename</span>
 
@@ -676,7 +698,7 @@
                 
               </p>
               <div id="method-i-upload_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 26</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 28</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">upload</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">io</span>, <span class="ruby-value">checksum:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">filename:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">content_type:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">disposition:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">custom_metadata:</span> {}, <span class="ruby-operator">**</span>)
   <span class="ruby-identifier">instrument</span> <span class="ruby-value">:upload</span>, <span class="ruby-value">key:</span> <span class="ruby-identifier">key</span>, <span class="ruby-value">checksum:</span> <span class="ruby-identifier">checksum</span> <span class="ruby-keyword">do</span>
     <span class="ruby-identifier">content_disposition</span> = <span class="ruby-identifier">content_disposition_with</span>(<span class="ruby-value">filename:</span> <span class="ruby-identifier">filename</span>, <span class="ruby-value">type:</span> <span class="ruby-identifier">disposition</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">disposition</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">filename</span>
@@ -719,7 +741,7 @@
                 
               </p>
               <div id="method-i-url_for_direct_upload_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 80</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/lib/active_storage/service/s3_service.rb, line 82</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">url_for_direct_upload</span>(<span class="ruby-identifier">key</span>, <span class="ruby-value">expires_in:</span>, <span class="ruby-value">content_type:</span>, <span class="ruby-value">content_length:</span>, <span class="ruby-value">checksum:</span>, <span class="ruby-value">custom_metadata:</span> {})
   <span class="ruby-identifier">instrument</span> <span class="ruby-value">:url</span>, <span class="ruby-value">key:</span> <span class="ruby-identifier">key</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">payload</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">generated_url</span> = <span class="ruby-identifier">object_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">presigned_url</span> <span class="ruby-value">:put</span>, <span class="ruby-value">expires_in:</span> <span class="ruby-identifier">expires_in</span>.<span class="ruby-identifier">to_i</span>,
@@ -751,11 +773,10 @@
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

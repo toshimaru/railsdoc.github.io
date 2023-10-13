@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -230,6 +250,16 @@
               weeks()
             
           </a></li>
+<li class="toc-entry toc-h3"><a href="#method-i-zettabyte">
+            
+              zettabyte()
+            
+          </a></li>
+<li class="toc-entry toc-h3"><a href="#method-i-zettabytes">
+            
+              zettabytes()
+            
+          </a></li>
 </ul>
 </li>
 </ul></div>
@@ -239,7 +269,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -394,6 +424,14 @@
           <a href="#method-i-weeks">weeks</a>
         </li>
       
+        <li>
+          <a href="#method-i-zettabyte">zettabyte</a>
+        </li>
+      
+        <li>
+          <a href="#method-i-zettabytes">zettabytes</a>
+        </li>
+      
     </ul>
   
 
@@ -481,6 +519,18 @@
             </tr>
           
         
+          <tr valign='top'>
+            <td class="attr-name">ZETTABYTE</td>
+            <td>=</td>
+            <td class="attr-value">EXABYTE * 1024</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
       </table>
     
 
@@ -548,7 +598,7 @@
                 
               </p>
               <div id="method-i-bytes_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/numeric/bytes.rb, line 14</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/numeric/bytes.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bytes</span>
   <span class="ruby-keyword">self</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -680,7 +730,7 @@
                 
               </p>
               <div id="method-i-exabytes_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/numeric/bytes.rb, line 62</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/numeric/bytes.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">exabytes</span>
   <span class="ruby-keyword">self</span> <span class="ruby-operator">*</span> <span class="ruby-constant">EXABYTE</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -812,7 +862,7 @@
                 
               </p>
               <div id="method-i-gigabytes_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/numeric/bytes.rb, line 38</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/numeric/bytes.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">gigabytes</span>
   <span class="ruby-keyword">self</span> <span class="ruby-operator">*</span> <span class="ruby-constant">GIGABYTE</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -913,7 +963,7 @@
                 
               </p>
               <div id="method-i-html_safe-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 156</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">html_safe?</span>
   <span class="ruby-keyword">true</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -1018,7 +1068,7 @@
                 
               </p>
               <div id="method-i-kilobytes_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/numeric/bytes.rb, line 22</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/numeric/bytes.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">kilobytes</span>
   <span class="ruby-keyword">self</span> <span class="ruby-operator">*</span> <span class="ruby-constant">KILOBYTE</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -1084,7 +1134,7 @@
                 
               </p>
               <div id="method-i-megabytes_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/numeric/bytes.rb, line 30</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/numeric/bytes.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">megabytes</span>
   <span class="ruby-keyword">self</span> <span class="ruby-operator">*</span> <span class="ruby-constant">MEGABYTE</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -1216,7 +1266,7 @@
                 
               </p>
               <div id="method-i-petabytes_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/numeric/bytes.rb, line 54</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/numeric/bytes.rb, line 55</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">petabytes</span>
   <span class="ruby-keyword">self</span> <span class="ruby-operator">*</span> <span class="ruby-constant">PETABYTE</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -1348,7 +1398,7 @@
                 
               </p>
               <div id="method-i-terabytes_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/numeric/bytes.rb, line 46</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/numeric/bytes.rb, line 47</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">terabytes</span>
   <span class="ruby-keyword">self</span> <span class="ruby-operator">*</span> <span class="ruby-constant">TERABYTE</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -1423,6 +1473,72 @@
             
           </div>
         
+        <div class="method">
+          <h3 id="method-i-zettabyte">
+            
+              zettabyte()
+            
+          </h3>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="Numeric.html#method-i-zettabytes">zettabytes</a>
+            </div>
+          
+
+          
+          </div>
+        
+        <div class="method">
+          <h3 id="method-i-zettabytes">
+            
+              zettabytes()
+            
+          </h3>
+
+          
+            <div class="description">
+              <p>Returns the number of bytes equivalent to the zettabytes provided.</p>
+
+<pre><code>2.zettabytes # =&gt; 2_361_183_241_434_822_606_848
+</code></pre>
+            </div>
+          
+
+          
+            <div class="aka">
+              Also aliased as: <a href="Numeric.html#method-i-zettabyte">zettabyte</a>
+            </div>
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                
+              </p>
+              <div id="method-i-zettabytes_source">
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/numeric/bytes.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">zettabytes</span>
+  <span class="ruby-keyword">self</span> <span class="ruby-operator">*</span> <span class="ruby-constant">ZETTABYTE</span>
+<span class="ruby-keyword">end</span></code></pre>
+              </div>
+            </div>
+            
+          </div>
+        
       
     
   
@@ -1438,11 +1554,10 @@
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

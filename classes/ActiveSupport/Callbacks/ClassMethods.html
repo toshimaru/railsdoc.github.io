@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -118,7 +138,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -241,7 +261,7 @@ end
 <pre><code>define_callbacks :save, scope: [:kind, :name]
 </code></pre>
 
-<p>would trigger <code>Audit#before_save</code> instead. That&#39;s constructed by calling <code>#{kind}_#{name}</code> on the given instance. In this case “kind” is “before” and “name” is “save”. In this context <code>:kind</code> and <code>:name</code> have special meanings: <code>:kind</code> refers to the kind of callback (before/after/around) and <code>:name</code> refers to the method on which callbacks are being defined.</p>
+<p>would trigger <code>Audit#before_save</code> instead. That’s constructed by calling <code>#{kind}_#{name}</code> on the given instance. In this case “kind” is “before” and “name” is “save”. In this context <code>:kind</code> and <code>:name</code> have special meanings: <code>:kind</code> refers to the kind of callback (before/after/around) and <code>:name</code> refers to the method on which callbacks are being defined.</p>
 
 <p>A declaration like</p>
 
@@ -255,7 +275,7 @@ end
 
 <p><code>names</code> passed to <code>define_callbacks</code> must not end with <code>!</code>, <code>?</code> or <code>=</code>.</p>
 
-<p>Calling <code>define_callbacks</code> multiple times with the same <code>names</code> will overwrite previous callbacks registered with <code>set_callback</code>.</p>
+<p>Calling <code>define_callbacks</code> multiple times with the same <code>names</code> will overwrite previous callbacks registered with <a href="ClassMethods.html#method-i-set_callback"><code>set_callback</code></a>.</p>
             </div>
           
 
@@ -272,7 +292,7 @@ end
                 
               </p>
               <div id="method-i-define_callbacks_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/callbacks.rb, line 917</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/callbacks.rb, line 940</span>
         <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">define_callbacks</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">names</span>)
           <span class="ruby-identifier">options</span> = <span class="ruby-identifier">names</span>.<span class="ruby-identifier">extract_options!</span>
 
@@ -333,7 +353,7 @@ end
                 
               </p>
               <div id="method-i-reset_callbacks_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/callbacks.rb, line 827</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/callbacks.rb, line 850</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reset_callbacks</span>(<span class="ruby-identifier">name</span>)
   <span class="ruby-identifier">callbacks</span> = <span class="ruby-identifier">get_callbacks</span> <span class="ruby-identifier">name</span>
 
@@ -371,13 +391,13 @@ set_callback :save, :around, -&gt;(r, block) { stuff; result = block.call; stuff
 <pre><code>set_callback :save, :before_method
 </code></pre>
 
-<p>The callback can be specified as a symbol naming an instance method; as a proc, lambda, or block; or as an object that responds to a certain method determined by the <code>:scope</code> argument to <code>define_callbacks</code>.</p>
+<p>The callback can be specified as a symbol naming an instance method; as a proc, lambda, or block; or as an object that responds to a certain method determined by the <code>:scope</code> argument to <a href="ClassMethods.html#method-i-define_callbacks"><code>define_callbacks</code></a>.</p>
 
 <p>If a proc, lambda, or block is given, its body is evaluated in the context of the current object. It can also optionally accept the current object as an argument.</p>
 
 <p>Before and around callbacks are called in the order that they are set; after callbacks are called in the reverse order.</p>
 
-<p>Around callbacks can access the return value from the event, if it wasn&#39;t halted, from the <code>yield</code> call.</p>
+<p>Around callbacks can access the return value from the event, if it wasn’t halted, from the <code>yield</code> call.</p>
 
 <h5 id="method-i-set_callback-label-Options">Options</h5>
 <ul><li>
@@ -407,7 +427,7 @@ set_callback :save, :around, -&gt;(r, block) { stuff; result = block.call; stuff
                 
               </p>
               <div id="method-i-set_callback_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/callbacks.rb, line 756</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/callbacks.rb, line 776</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_callback</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">filter_list</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">type</span>, <span class="ruby-identifier">filters</span>, <span class="ruby-identifier">options</span> = <span class="ruby-identifier">normalize_callback_params</span>(<span class="ruby-identifier">filter_list</span>, <span class="ruby-identifier">block</span>)
 
@@ -435,7 +455,9 @@ set_callback :save, :around, -&gt;(r, block) { stuff; result = block.call; stuff
 
           
             <div class="description">
-              <p>Skip a previously set callback. Like <code>set_callback</code>, <code>:if</code> or <code>:unless</code> options may be passed in order to control when the callback is skipped.</p>
+              <p>Skip a previously set callback. Like <a href="ClassMethods.html#method-i-set_callback"><code>set_callback</code></a>, <code>:if</code> or <code>:unless</code> options may be passed in order to control when the callback is skipped.</p>
+
+<p>Note: this example uses <code>PersonRecord</code> and <code>#saving_message</code>, which you can see defined <a href="../Callbacks.html">here</a></p>
 
 <pre><code>class Writer &lt; PersonRecord
   attr_accessor :age
@@ -487,7 +509,7 @@ saved
                 
               </p>
               <div id="method-i-skip_callback_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/callbacks.rb, line 802</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/callbacks.rb, line 825</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">skip_callback</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">filter_list</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">type</span>, <span class="ruby-identifier">filters</span>, <span class="ruby-identifier">options</span> = <span class="ruby-identifier">normalize_callback_params</span>(<span class="ruby-identifier">filter_list</span>, <span class="ruby-identifier">block</span>)
 
@@ -531,11 +553,10 @@ saved
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

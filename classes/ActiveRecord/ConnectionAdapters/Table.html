@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -125,6 +145,11 @@
               check_constraint(*args, **options)
             
           </a></li>
+<li class="toc-entry toc-h3"><a href="#method-i-check_constraint_exists-3F">
+            
+              check_constraint_exists?(*args, **options)
+            
+          </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-column">
             
               column(column_name, type, index: nil, **options)
@@ -152,7 +177,7 @@
           </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-index_exists-3F">
             
-              index_exists?(column_name, options = {})
+              index_exists?(column_name, **options)
             
           </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-references">
@@ -219,7 +244,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -243,6 +268,8 @@
   
     <div class="description">
       
+<h1 id="class-ActiveRecord::ConnectionAdapters::Table-label-Active+Record+Connection+Adapters+Table">Active Record Connection Adapters Table</h1>
+
 <p>Represents an SQL table in an abstract way for updating a table. Also see <a href="TableDefinition.html"><code>TableDefinition</code></a> and <a href="SchemaStatements.html#method-i-create_table">connection.create_table</a></p>
 
 <p>Available transformations are:</p>
@@ -320,6 +347,10 @@ end
       
         <li>
           <a href="#method-i-check_constraint">check_constraint</a>
+        </li>
+      
+        <li>
+          <a href="#method-i-check_constraint_exists-3F">check_constraint_exists?</a>
         </li>
       
         <li>
@@ -466,7 +497,7 @@ end
                 
               </p>
               <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 618</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 711</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">table_name</span>, <span class="ruby-identifier">base</span>)
   <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">table_name</span>
   <span class="ruby-ivar">@base</span> = <span class="ruby-identifier">base</span>
@@ -513,7 +544,7 @@ end
 
           
             <div class="description">
-              <p>Changes the column&#39;s definition according to the new options.</p>
+              <p>Changes the column’s definition according to the new options.</p>
 
 <pre><code>t.change(:name, :string, limit: 80)
 t.change(:description, :text)
@@ -536,8 +567,9 @@ t.change(:description, :text)
                 
               </p>
               <div id="method-i-change_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 692</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 788</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>(<span class="ruby-identifier">column_name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">raise_on_if_exist_options</span>(<span class="ruby-identifier">options</span>)
   <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">change_column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">column_name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
 <span class="ruby-keyword">end</span></code></pre>
               </div>
@@ -578,7 +610,7 @@ t.change_default(:status, from: nil, to: &quot;draft&quot;)
                 
               </p>
               <div id="method-i-change_default_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 703</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 800</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change_default</span>(<span class="ruby-identifier">column_name</span>, <span class="ruby-identifier">default_or_changes</span>)
   <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">change_column_default</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">column_name</span>, <span class="ruby-identifier">default_or_changes</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -619,7 +651,7 @@ t.change_null(:qualification, false, 0)
                 
               </p>
               <div id="method-i-change_null_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 713</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 810</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change_null</span>(<span class="ruby-identifier">column_name</span>, <span class="ruby-identifier">null</span>, <span class="ruby-identifier">default</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">change_column_null</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">column_name</span>, <span class="ruby-identifier">null</span>, <span class="ruby-identifier">default</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -659,9 +691,51 @@ t.change_null(:qualification, false, 0)
                 
               </p>
               <div id="method-i-check_constraint_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 817</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 920</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">check_constraint</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
   <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">add_check_constraint</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></code></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <h3 id="method-i-check_constraint_exists-3F">
+            
+              check_constraint_exists?(*args, **options)
+            
+          </h3>
+
+          
+            <div class="description">
+              <p>Checks if a <a href="Table.html#method-i-check_constraint"><code>check_constraint</code></a> exists on a table.</p>
+
+<pre><code>unless t.check_constraint_exists?(name: &quot;price_check&quot;)
+  t.check_constraint(&quot;price &gt; 0&quot;, name: &quot;price_check&quot;)
+end
+</code></pre>
+
+<p>See <a href="SchemaStatements.html#method-i-check_constraint_exists-3F">connection.check_constraint_exists?</a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                
+              </p>
+              <div id="method-i-check_constraint_exists-3F_source">
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 940</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">check_constraint_exists?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">check_constraint_exists?</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -699,8 +773,9 @@ t.change_null(:qualification, false, 0)
                 
               </p>
               <div id="method-i-column_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 628</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 721</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">column</span>(<span class="ruby-identifier">column_name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-value">index:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">raise_on_if_exist_options</span>(<span class="ruby-identifier">options</span>)
   <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">add_column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">column_name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span>
     <span class="ruby-identifier">index_options</span> = <span class="ruby-identifier">index</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">:</span> {}
@@ -743,7 +818,7 @@ t.change_null(:qualification, false, 0)
                 
               </p>
               <div id="method-i-column_exists-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 641</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 735</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">column_exists?</span>(<span class="ruby-identifier">column_name</span>, <span class="ruby-identifier">type</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
   <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">column_exists?</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">column_name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -784,8 +859,9 @@ t.foreign_key(:authors, column: :author_id, primary_key: &quot;id&quot;)
                 
               </p>
               <div id="method-i-foreign_key_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 789</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 890</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">foreign_key</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">raise_on_if_exist_options</span>(<span class="ruby-identifier">options</span>)
   <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">add_foreign_key</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
 <span class="ruby-keyword">end</span></code></pre>
               </div>
@@ -824,7 +900,7 @@ t.foreign_key(:authors, column: :author_id, primary_key: &quot;id&quot;)
                 
               </p>
               <div id="method-i-foreign_key_exists-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 808</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 911</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">foreign_key_exists?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
   <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">foreign_key_exists?</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -866,8 +942,9 @@ t.index([:branch_id, :party_id], unique: true, name: &#39;by_branch_party&#39;)
                 
               </p>
               <div id="method-i-index_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 653</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 747</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>(<span class="ruby-identifier">column_name</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">raise_on_if_exist_options</span>(<span class="ruby-identifier">options</span>)
   <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">add_index</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">column_name</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
 <span class="ruby-keyword">end</span></code></pre>
               </div>
@@ -878,7 +955,7 @@ t.index([:branch_id, :party_id], unique: true, name: &#39;by_branch_party&#39;)
         <div class="method">
           <h3 id="method-i-index_exists-3F">
             
-              index_exists?(column_name, options = {})
+              index_exists?(column_name, **options)
             
           </h3>
 
@@ -908,9 +985,9 @@ end
                 
               </p>
               <div id="method-i-index_exists-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 664</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index_exists?</span>(<span class="ruby-identifier">column_name</span>, <span class="ruby-identifier">options</span> = {})
-  <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">index_exists?</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">column_name</span>, <span class="ruby-identifier">options</span>)
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 759</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index_exists?</span>(<span class="ruby-identifier">column_name</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">index_exists?</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">column_name</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -953,8 +1030,9 @@ t.belongs_to(:supplier, foreign_key: true)
                 
               </p>
               <div id="method-i-references_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 763</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 862</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">references</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">raise_on_if_exist_options</span>(<span class="ruby-identifier">options</span>)
   <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ref_name</span><span class="ruby-operator">|</span>
     <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">add_reference</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">ref_name</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
   <span class="ruby-keyword">end</span>
@@ -996,8 +1074,9 @@ t.remove(:qualification, :experience)
                 
               </p>
               <div id="method-i-remove_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 723</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 820</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">column_names</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">raise_on_if_exist_options</span>(<span class="ruby-identifier">options</span>)
   <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">remove_columns</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">column_names</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
 <span class="ruby-keyword">end</span></code></pre>
               </div>
@@ -1060,7 +1139,7 @@ t.remove(:qualification, :experience)
                 
               </p>
               <div id="method-i-remove_check_constraint_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 826</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 929</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_check_constraint</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
   <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">remove_check_constraint</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -1101,8 +1180,9 @@ t.remove_foreign_key(column: :author_id)
                 
               </p>
               <div id="method-i-remove_foreign_key_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 799</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 901</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_foreign_key</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">raise_on_if_exist_options</span>(<span class="ruby-identifier">options</span>)
   <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">remove_foreign_key</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
 <span class="ruby-keyword">end</span></code></pre>
               </div>
@@ -1144,8 +1224,9 @@ t.remove_index(:branch_id, name: :by_branch_party)
                 
               </p>
               <div id="method-i-remove_index_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 735</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 833</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_index</span>(<span class="ruby-identifier">column_name</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">raise_on_if_exist_options</span>(<span class="ruby-identifier">options</span>)
   <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">remove_index</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">column_name</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
 <span class="ruby-keyword">end</span></code></pre>
               </div>
@@ -1189,8 +1270,9 @@ t.remove_belongs_to(:supplier, polymorphic: true)
                 
               </p>
               <div id="method-i-remove_references_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 776</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 876</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_references</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">raise_on_if_exist_options</span>(<span class="ruby-identifier">options</span>)
   <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ref_name</span><span class="ruby-operator">|</span>
     <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">remove_reference</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">ref_name</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
   <span class="ruby-keyword">end</span>
@@ -1231,7 +1313,7 @@ t.remove_belongs_to(:supplier, polymorphic: true)
                 
               </p>
               <div id="method-i-remove_timestamps_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 744</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 843</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_timestamps</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
   <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">remove_timestamps</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -1271,7 +1353,7 @@ t.remove_belongs_to(:supplier, polymorphic: true)
                 
               </p>
               <div id="method-i-rename_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 753</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 852</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">rename</span>(<span class="ruby-identifier">column_name</span>, <span class="ruby-identifier">new_column_name</span>)
   <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">rename_column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">column_name</span>, <span class="ruby-identifier">new_column_name</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -1311,7 +1393,7 @@ t.remove_belongs_to(:supplier, polymorphic: true)
                 
               </p>
               <div id="method-i-rename_index_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 673</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 768</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">rename_index</span>(<span class="ruby-identifier">index_name</span>, <span class="ruby-identifier">new_index_name</span>)
   <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">rename_index</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">index_name</span>, <span class="ruby-identifier">new_index_name</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -1351,8 +1433,9 @@ t.remove_belongs_to(:supplier, polymorphic: true)
                 
               </p>
               <div id="method-i-timestamps_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 682</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/schema_definitions.rb, line 777</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">timestamps</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">raise_on_if_exist_options</span>(<span class="ruby-identifier">options</span>)
   <span class="ruby-ivar">@base</span>.<span class="ruby-identifier">add_timestamps</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
 <span class="ruby-keyword">end</span></code></pre>
               </div>
@@ -1375,11 +1458,10 @@ t.remove_belongs_to(:supplier, polymorphic: true)
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

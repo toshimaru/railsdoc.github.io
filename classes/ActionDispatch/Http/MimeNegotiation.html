@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -105,14 +125,9 @@
               content_mime_type()
             
           </a></li>
-<li class="toc-entry toc-h3"><a href="#method-i-content_type">
-            
-              content_type()
-            
-          </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-format">
             
-              format(view_path = [])
+              format(_view_path = nil)
             
           </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-format-3D">
@@ -135,6 +150,16 @@
               negotiate_mime(order)
             
           </a></li>
+<li class="toc-entry toc-h3"><a href="#method-i-return_only_media_type_on_content_type">
+            
+              return_only_media_type_on_content_type()
+            
+          </a></li>
+<li class="toc-entry toc-h3"><a href="#method-i-return_only_media_type_on_content_type-3D">
+            
+              return_only_media_type_on_content_type=(value)
+            
+          </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-should_apply_vary_header-3F">
             
               should_apply_vary_header?()
@@ -152,30 +177,6 @@
           </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#instance-private-methods">Instance Private methods</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#method-i-format_from_path_extension">
-            
-              format_from_path_extension()
-            
-          </a></li>
-<li class="toc-entry toc-h3"><a href="#method-i-params_readable-3F">
-            
-              params_readable?()
-            
-          </a></li>
-<li class="toc-entry toc-h3"><a href="#method-i-use_accept_header">
-            
-              use_accept_header()
-            
-          </a></li>
-<li class="toc-entry toc-h3"><a href="#method-i-valid_accept_header">
-            
-              valid_accept_header()
-            
-          </a></li>
-</ul>
-</li>
 </ul></div>
       </div>
 
@@ -183,7 +184,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -234,19 +235,11 @@
         </li>
       
         <li>
-          <a href="#method-i-content_type">content_type</a>
-        </li>
-      
-        <li>
           <a href="#method-i-format">format</a>
         </li>
       
         <li>
           <a href="#method-i-format-3D">format=</a>
-        </li>
-      
-        <li>
-          <a href="#method-i-format_from_path_extension">format_from_path_extension</a>
         </li>
       
         <li>
@@ -262,19 +255,15 @@
         </li>
       
         <li>
-          <a href="#method-i-params_readable-3F">params_readable?</a>
+          <a href="#method-i-return_only_media_type_on_content_type">return_only_media_type_on_content_type</a>
+        </li>
+      
+        <li>
+          <a href="#method-i-return_only_media_type_on_content_type-3D">return_only_media_type_on_content_type=</a>
         </li>
       
         <li>
           <a href="#method-i-should_apply_vary_header-3F">should_apply_vary_header?</a>
-        </li>
-      
-        <li>
-          <a href="#method-i-use_accept_header">use_accept_header</a>
-        </li>
-      
-        <li>
-          <a href="#method-i-valid_accept_header">valid_accept_header</a>
         </li>
       
         <li>
@@ -308,7 +297,7 @@
           
             <tr valign='top'>
               <td>&nbsp;</td>
-              <td colspan="2" class="attr-desc"><p>We use normal content negotiation unless you include <strong>/</strong> in your list, in which case we assume you&#39;re a browser and send HTML.</p></td>
+              <td colspan="2" class="attr-desc"><p>We use normal content negotiation unless you include <strong>/</strong> in your list, in which case we assume you’re a browser and send HTML.</p></td>
             </tr>
           
         
@@ -409,7 +398,7 @@ ActionDispatch::Http::Parameters::ParseError,
                 
               </p>
               <div id="method-i-content_mime_type_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/mime_negotiation.rb, line 23</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/mime_negotiation.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">content_mime_type</span>
   <span class="ruby-identifier">fetch_header</span>(<span class="ruby-string">&quot;action_dispatch.request.content_type&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">v</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">get_header</span>(<span class="ruby-string">&quot;CONTENT_TYPE&quot;</span>) <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^([^,;]*)/</span>
@@ -428,53 +417,9 @@ ActionDispatch::Http::Parameters::ParseError,
           </div>
         
         <div class="method">
-          <h3 id="method-i-content_type">
-            
-              content_type()
-            
-          </h3>
-
-          
-            <div class="description">
-              
-            </div>
-          
-
-          
-
-          
-
-          
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-content_type_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/mime_negotiation.rb, line 36</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">content_type</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">return_only_media_type_on_content_type</span>
-    <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Deprecation</span>.<span class="ruby-identifier">warn</span>(
-      <span class="ruby-string">&quot;Rails 7.1 will return Content-Type header without modification.&quot;</span> \
-      <span class="ruby-string">&quot; If you want just the MIME type, please use `#media_type` instead.&quot;</span>
-    )
-
-    <span class="ruby-identifier">content_mime_type</span>&amp;.<span class="ruby-identifier">to_s</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-keyword">super</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
-        
-        <div class="method">
           <h3 id="method-i-format">
             
-              format(view_path = [])
+              format(_view_path = nil)
             
           </h3>
 
@@ -503,7 +448,7 @@ GET /posts/5       | request.format =&gt; Mime[:html] or Mime[:js], or request.a
               </p>
               <div id="method-i-format_source">
                 <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/mime_negotiation.rb, line 75</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">format</span>(<span class="ruby-identifier">view_path</span> = [])
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">format</span>(<span class="ruby-identifier">_view_path</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-identifier">formats</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Mime</span><span class="ruby-operator">::</span><span class="ruby-constant">NullType</span>.<span class="ruby-identifier">instance</span>
 <span class="ruby-keyword">end</span></code></pre>
               </div>
@@ -589,7 +534,7 @@ end
     <span class="ruby-identifier">v</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">params_readable?</span>
       <span class="ruby-constant">Array</span>(<span class="ruby-constant">Mime</span>[<span class="ruby-identifier">parameters</span>[<span class="ruby-value">:format</span>]])
     <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">use_accept_header</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">valid_accept_header</span>
-      <span class="ruby-identifier">accepts</span>
+      <span class="ruby-identifier">accepts</span>.<span class="ruby-identifier">dup</span>
     <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">extension_format</span> = <span class="ruby-identifier">format_from_path_extension</span>
       [<span class="ruby-identifier">extension_format</span>]
     <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">xhr?</span>
@@ -598,7 +543,7 @@ end
       [<span class="ruby-constant">Mime</span>[<span class="ruby-value">:html</span>]]
     <span class="ruby-keyword">end</span>
 
-    <span class="ruby-identifier">v</span> = <span class="ruby-identifier">v</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">v</span>.<span class="ruby-identifier">select!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">symbol</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">format</span>.<span class="ruby-identifier">ref</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;*/*&quot;</span>
     <span class="ruby-keyword">end</span>
 
@@ -621,7 +566,7 @@ end
             <div class="description">
               <p>Sets the formats by string extensions. This differs from <a href="MimeNegotiation.html#method-i-format-3D"><code>format=</code></a> by allowing you to set multiple, ordered formats, which is useful when you want to have a fallback.</p>
 
-<p>In this example, the <code>:iphone</code> format will be used if it&#39;s available, otherwise it&#39;ll fallback to the <code>:html</code> format.</p>
+<p>In this example, the <code>:iphone</code> format will be used if it’s available, otherwise it’ll fallback to the <code>:html</code> format.</p>
 
 <pre><code>class ApplicationController &lt; ActionController::Base
   before_action :adjust_format_for_iphone_with_html_fallback
@@ -697,6 +642,82 @@ end
   <span class="ruby-keyword">end</span>
 
   <span class="ruby-identifier">order</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-constant">Mime</span><span class="ruby-operator">::</span><span class="ruby-constant">ALL</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">format</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></code></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <h3 id="method-i-return_only_media_type_on_content_type">
+            
+              return_only_media_type_on_content_type()
+            
+          </h3>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                
+              </p>
+              <div id="method-i-return_only_media_type_on_content_type_source">
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/mime_negotiation.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">return_only_media_type_on_content_type</span>
+  <span class="ruby-constant">ActionDispatch</span>.<span class="ruby-identifier">deprecator</span>.<span class="ruby-identifier">warn</span>(
+    <span class="ruby-string">&quot;`config.action_dispatch.return_only_request_media_type_on_content_type` is deprecated and will&quot;</span> \
+    <span class="ruby-string">&quot; be removed in Rails 7.2.&quot;</span>
+  )
+<span class="ruby-keyword">end</span></code></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <h3 id="method-i-return_only_media_type_on_content_type-3D">
+            
+              return_only_media_type_on_content_type=(value)
+            
+          </h3>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                
+              </p>
+              <div id="method-i-return_only_media_type_on_content_type-3D_source">
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/mime_negotiation.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">return_only_media_type_on_content_type=</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-constant">ActionDispatch</span>.<span class="ruby-identifier">deprecator</span>.<span class="ruby-identifier">warn</span>(
+    <span class="ruby-string">&quot;`config.action_dispatch.return_only_request_media_type_on_content_type` is deprecated and will&quot;</span> \
+      <span class="ruby-string">&quot; be removed in Rails 7.2.&quot;</span>
+  )
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -815,155 +836,6 @@ end
           </div>
         
       
-      <h2 id="instance-private-methods">Instance Private methods</h2>
-      
-        <div class="method">
-          <h3 id="method-i-format_from_path_extension">
-            
-              format_from_path_extension()
-            
-          </h3>
-
-          
-            <div class="description">
-              
-            </div>
-          
-
-          
-
-          
-
-          
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-format_from_path_extension_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/mime_negotiation.rb, line 190</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">format_from_path_extension</span> <span class="ruby-comment"># :doc:</span>
-  <span class="ruby-identifier">path</span> = <span class="ruby-identifier">get_header</span>(<span class="ruby-string">&quot;action_dispatch.original_path&quot;</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">get_header</span>(<span class="ruby-string">&quot;PATH_INFO&quot;</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">match</span> = <span class="ruby-identifier">path</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\.(\w+)\z/</span>)
-    <span class="ruby-constant">Mime</span>[<span class="ruby-identifier">match</span>.<span class="ruby-identifier">captures</span>.<span class="ruby-identifier">first</span>]
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
-        
-        <div class="method">
-          <h3 id="method-i-params_readable-3F">
-            
-              params_readable?()
-            
-          </h3>
-
-          
-            <div class="description">
-              
-            </div>
-          
-
-          
-
-          
-
-          
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-params_readable-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/mime_negotiation.rb, line 175</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">params_readable?</span> <span class="ruby-comment"># :doc:</span>
-  <span class="ruby-identifier">parameters</span>[<span class="ruby-value">:format</span>]
-<span class="ruby-keyword">rescue</span> <span class="ruby-operator">*</span><span class="ruby-constant">RESCUABLE_MIME_FORMAT_ERRORS</span>
-  <span class="ruby-keyword">false</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
-        
-        <div class="method">
-          <h3 id="method-i-use_accept_header">
-            
-              use_accept_header()
-            
-          </h3>
-
-          
-            <div class="description">
-              
-            </div>
-          
-
-          
-
-          
-
-          
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-use_accept_header_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/mime_negotiation.rb, line 186</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">use_accept_header</span> <span class="ruby-comment"># :doc:</span>
-  <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">ignore_accept_header</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
-        
-        <div class="method">
-          <h3 id="method-i-valid_accept_header">
-            
-              valid_accept_header()
-            
-          </h3>
-
-          
-            <div class="description">
-              
-            </div>
-          
-
-          
-
-          
-
-          
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-valid_accept_header_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/mime_negotiation.rb, line 181</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">valid_accept_header</span> <span class="ruby-comment"># :doc:</span>
-  (<span class="ruby-identifier">xhr?</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">accept</span>.<span class="ruby-identifier">present?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">content_mime_type</span>)) <span class="ruby-operator">||</span>
-    (<span class="ruby-identifier">accept</span>.<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">accept</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-constant">BROWSER_LIKE_ACCEPTS</span>))
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
-        
-      
     
   
 </div>
@@ -978,11 +850,10 @@ end
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

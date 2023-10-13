@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -103,7 +123,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -164,7 +184,7 @@
 
           
             <div class="description">
-              <p>Returns the URL for the set of <code>options</code> provided. This takes the same options as <code>url_for</code> in Action Controller (see the documentation for <code>ActionController::Base#url_for</code>). Note that by default <code>:only_path</code> is <code>true</code> so you&#39;ll get the relative “/controller/action” instead of the fully qualified URL like “<a href="http://example.com/controller/action">example.com/controller/action</a>”.</p>
+              <p>Returns the URL for the set of <code>options</code> provided. This takes the same options as <code>url_for</code> in Action Controller (see the documentation for <a href="../ActionDispatch/Routing/UrlFor.html#method-i-url_for"><code>ActionDispatch::Routing::UrlFor#url_for</code></a>). Note that by default <code>:only_path</code> is <code>true</code> so you’ll get the relative <code>&quot;/controller/action&quot;</code> instead of the fully qualified URL like <code>&quot;http://example.com/controller/action&quot;</code>.</p>
 
 <h4 id="method-i-url_for-label-Options">Options</h4>
 <ul><li>
@@ -172,7 +192,7 @@
 </li><li>
 <p><code>:only_path</code> - If true, returns the relative URL (omitting the protocol, host name, and port) (<code>true</code> by default unless <code>:host</code> is specified).</p>
 </li><li>
-<p><code>:trailing_slash</code> - If true, adds a trailing slash, as in “/archive/2005/”. Note that this is currently not recommended since it breaks caching.</p>
+<p><code>:trailing_slash</code> - If true, adds a trailing slash, as in <code>&quot;/archive/2005/&quot;</code>. Note that this is currently not recommended since it breaks caching.</p>
 </li><li>
 <p><code>:host</code> - Overrides the default (current) host if provided.</p>
 </li><li>
@@ -185,7 +205,7 @@
 
 <h4 id="method-i-url_for-label-Relying+on+named+routes">Relying on named routes</h4>
 
-<p>Passing a record (like an Active Record) instead of a hash as the options parameter will trigger the named route for that record. The lookup will happen on the name of the class. So passing a Workshop object will attempt to use the <code>workshop_path</code> route. If you have a nested route, such as <code>admin_workshop_path</code> you&#39;ll have to call that explicitly (it&#39;s impossible for <code>url_for</code> to guess that route).</p>
+<p>Passing a record (like an Active Record) instead of a hash as the options parameter will trigger the named route for that record. The lookup will happen on the name of the class. So passing a Workshop object will attempt to use the <code>workshop_path</code> route. If you have a nested route, such as <code>admin_workshop_path</code> you’ll have to call that explicitly (it’s impossible for <code>url_for</code> to guess that route).</p>
 
 <h4 id="method-i-url_for-label-Implicit+Controller+Namespacing">Implicit Controller Namespacing</h4>
 
@@ -319,11 +339,10 @@
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

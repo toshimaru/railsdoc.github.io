@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -128,7 +148,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -146,6 +166,8 @@
   
     <div class="description">
       
+<h1 id="module-ActiveRecord::Reflection::ClassMethods-label-Active+Record+Reflection">Active Record <a href="../Reflection.html"><code>Reflection</code></a></h1>
+
 <p>Reflection enables the ability to examine the associations and aggregations of Active Record classes and objects. This information, for example, can be used in a form builder that takes an Active Record object and creates input fields for all of the attributes depending on their type and displays the associations to other objects.</p>
 
 <p><a href="MacroReflection.html"><code>MacroReflection</code></a> class has info for AggregateReflection and AssociationReflection classes.</p>
@@ -237,7 +259,7 @@
                 
               </p>
               <div id="method-i-reflect_on_aggregation_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/reflection.rb, line 67</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/reflection.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reflect_on_aggregation</span>(<span class="ruby-identifier">aggregation</span>)
   <span class="ruby-identifier">aggregate_reflections</span>[<span class="ruby-identifier">aggregation</span>.<span class="ruby-identifier">to_s</span>]
 <span class="ruby-keyword">end</span></code></pre>
@@ -272,7 +294,7 @@
                 
               </p>
               <div id="method-i-reflect_on_all_aggregations_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/reflection.rb, line 59</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/reflection.rb, line 61</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reflect_on_all_aggregations</span>
   <span class="ruby-identifier">aggregate_reflections</span>.<span class="ruby-identifier">values</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -313,7 +335,7 @@ Account.reflect_on_all_associations(:has_many)  # returns an array of all has_ma
                 
               </p>
               <div id="method-i-reflect_on_all_associations_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/reflection.rb, line 104</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/reflection.rb, line 106</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reflect_on_all_associations</span>(<span class="ruby-identifier">macro</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-identifier">association_reflections</span> = <span class="ruby-identifier">reflections</span>.<span class="ruby-identifier">values</span>
   <span class="ruby-identifier">association_reflections</span>.<span class="ruby-identifier">select!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">reflection</span><span class="ruby-operator">|</span> <span class="ruby-identifier">reflection</span>.<span class="ruby-identifier">macro</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">macro</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">macro</span>
@@ -350,7 +372,7 @@ Account.reflect_on_all_associations(:has_many)  # returns an array of all has_ma
                 
               </p>
               <div id="method-i-reflect_on_all_autosave_associations_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/reflection.rb, line 124</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/reflection.rb, line 126</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reflect_on_all_autosave_associations</span>
   <span class="ruby-identifier">reflections</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">reflection</span><span class="ruby-operator">|</span> <span class="ruby-identifier">reflection</span>.<span class="ruby-identifier">options</span>[<span class="ruby-value">:autosave</span>] }
 <span class="ruby-keyword">end</span></code></pre>
@@ -389,7 +411,7 @@ Invoice.reflect_on_association(:line_items).macro  # returns :has_many
                 
               </p>
               <div id="method-i-reflect_on_association_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/reflection.rb, line 115</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/reflection.rb, line 117</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reflect_on_association</span>(<span class="ruby-identifier">association</span>)
   <span class="ruby-identifier">reflections</span>[<span class="ruby-identifier">association</span>.<span class="ruby-identifier">to_s</span>]
 <span class="ruby-keyword">end</span></code></pre>
@@ -427,7 +449,7 @@ Invoice.reflect_on_association(:line_items).macro  # returns :has_many
                 
               </p>
               <div id="method-i-reflections_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/reflection.rb, line 75</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/reflection.rb, line 77</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reflections</span>
   <span class="ruby-ivar">@__reflections</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
     <span class="ruby-identifier">ref</span> = {}
@@ -466,11 +488,10 @@ Invoice.reflect_on_association(:line_items).macro  # returns :has_many
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

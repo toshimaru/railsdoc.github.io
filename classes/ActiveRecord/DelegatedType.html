@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -86,7 +106,6 @@
 
       <div class="col-12 col-md-3 col-xl-2 toc-content-sticky">
         <div class="toc-content"><ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#module-ActiveRecord::DelegatedType-label-Delegated+types">Delegated types</a></li>
 <li class="toc-entry toc-h2"><a href="#module-ActiveRecord::DelegatedType-label-Sharing+behavior+with+concerns+and+controllers">Sharing behavior with concerns and controllers</a></li>
 <li class="toc-entry toc-h2"><a href="#module-ActiveRecord::DelegatedType-label-Creating+new+records">Creating new records</a></li>
 <li class="toc-entry toc-h2"><a href="#module-ActiveRecord::DelegatedType-label-Adding+further+delegation">Adding further delegation</a></li>
@@ -109,7 +128,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -127,9 +146,9 @@
   
     <div class="description">
       
-<h2 id="module-ActiveRecord::DelegatedType-label-Delegated+types">Delegated types</h2>
+<h1 id="module-ActiveRecord::DelegatedType-label-Delegated+types">Delegated types</h1>
 
-<p><a href="../Class.html"><code>Class</code></a> hierarchies can map to relational database tables in many ways. Active Record, for example, offers purely abstract classes, where the superclass doesn&#39;t persist any attributes, and single-table inheritance, where all attributes from all levels of the hierarchy are represented in a single table. Both have their places, but neither are without their drawbacks.</p>
+<p><a href="../Class.html"><code>Class</code></a> hierarchies can map to relational database tables in many ways. Active Record, for example, offers purely abstract classes, where the superclass doesn’t persist any attributes, and single-table inheritance, where all attributes from all levels of the hierarchy are represented in a single table. Both have their places, but neither are without their drawbacks.</p>
 
 <p>The problem with purely abstract classes is that all concrete subclasses must persist all the shared attributes themselves in their own tables (also known as class-table inheritance). This makes it hard to do queries across the hierarchy. For example, imagine you have the following hierarchy:</p>
 
@@ -138,13 +157,13 @@ Message &lt; Entry
 Comment &lt; Entry
 </code></pre>
 
-<p>How do you show a feed that has both <code>Message</code> and <code>Comment</code> records, which can be easily paginated? Well, you can&#39;t! Messages are backed by a messages table and comments by a comments table. You can&#39;t pull from both tables at once and use a consistent OFFSET/LIMIT scheme.</p>
+<p>How do you show a feed that has both <code>Message</code> and <code>Comment</code> records, which can be easily paginated? Well, you can’t! Messages are backed by a messages table and comments by a comments table. You can’t pull from both tables at once and use a consistent OFFSET/LIMIT scheme.</p>
 
-<p>You can get around the pagination problem by using single-table inheritance, but now you&#39;re forced into a single mega table with all the attributes from all subclasses. No matter how divergent. If a Message has a subject, but the comment does not, well, now the comment does anyway! So STI works best when there&#39;s little divergence between the subclasses and their attributes.</p>
+<p>You can get around the pagination problem by using single-table inheritance, but now you’re forced into a single mega table with all the attributes from all subclasses. No matter how divergent. If a Message has a subject, but the comment does not, well, now the comment does anyway! So STI works best when there’s little divergence between the subclasses and their attributes.</p>
 
-<p>But there&#39;s a third way: Delegated types. With this approach, the “superclass” is a concrete class that is represented by its own table, where all the superclass attributes that are shared amongst all the “subclasses” are stored. And then each of the subclasses have their own individual tables for additional attributes that are particular to their implementation. This is similar to what&#39;s called multi-table inheritance in Django, but instead of actual inheritance, this approach uses delegation to form the hierarchy and share responsibilities.</p>
+<p>But there’s a third way: Delegated types. With this approach, the “superclass” is a concrete class that is represented by its own table, where all the superclass attributes that are shared amongst all the “subclasses” are stored. And then each of the subclasses have their own individual tables for additional attributes that are particular to their implementation. This is similar to what’s called multi-table inheritance in Django, but instead of actual inheritance, this approach uses delegation to form the hierarchy and share responsibilities.</p>
 
-<p>Let&#39;s look at that entry/message/comment example using delegated types:</p>
+<p>Let’s look at that entry/message/comment example using delegated types:</p>
 
 <pre><code># Schema: entries[ id, account_id, creator_id, created_at, updated_at, entryable_type, entryable_id ]
 class Entry &lt; ApplicationRecord
@@ -224,7 +243,7 @@ end
 
 <h2 id="module-ActiveRecord::DelegatedType-label-Adding+further+delegation">Adding further delegation</h2>
 
-<p>The delegated type shouldn&#39;t just answer the question of what the underlying class is called. In fact, that&#39;s an anti-pattern most of the time. The reason you&#39;re building this hierarchy is to take advantage of polymorphism. So here&#39;s a simple example of that:</p>
+<p>The delegated type shouldn’t just answer the question of what the underlying class is called. In fact, that’s an anti-pattern most of the time. The reason you’re building this hierarchy is to take advantage of polymorphism. So here’s a simple example of that:</p>
 
 <pre><code>class Entry &lt; ApplicationRecord
   delegated_type :entryable, types: %w[ Message Comment ]
@@ -308,7 +327,7 @@ entry.entryable.subject # =&gt; &#39;Smiling&#39;
 
           
             <div class="description">
-              <p>Defines this as a class that&#39;ll delegate its type for the passed <code>role</code> to the class references in <code>types</code>. That&#39;ll create a polymorphic <code>belongs_to</code> relationship to that <code>role</code>, and it&#39;ll add all the delegated type convenience methods:</p>
+              <p>Defines this as a class that’ll delegate its type for the passed <code>role</code> to the class references in <code>types</code>. That’ll create a polymorphic <code>belongs_to</code> relationship to that <code>role</code>, and it’ll add all the delegated type convenience methods:</p>
 
 <pre><code>class Entry &lt; ApplicationRecord
   delegated_type :entryable, types: %w[ Message Comment ], dependent: :destroy
@@ -343,6 +362,9 @@ entry.access_notice_message?
 <dl class="rdoc-list label-list"><dt>:foreign_key
 <dd>
 <p>Specify the foreign key used for the convenience methods. By default this is guessed to be the passed <code>role</code> with an “_id” suffix. So a class that defines a <code>delegated_type :entryable, types: %w[ Message Comment ]</code> association will use “entryable_id” as the default <code>:foreign_key</code>.</p>
+</dd><dt>:foreign_type
+<dd>
+<p>Specify the column used to store the associated object’s type. By default this is inferred to be the passed <code>role</code> with a “_type” suffix. A class that defines a <code>delegated_type :entryable, types: %w[ Message Comment ]</code> association will use “entryable_type” as the default <code>:foreign_type</code>.</p>
 </dd><dt>:primary_key
 <dd>
 <p>Specify the method that returns the primary key of associated object used for the convenience methods. By default this is <code>id</code>.</p>
@@ -373,7 +395,7 @@ Entry#comment_uuid      # =&gt; returns entryable_uuid, when entryable_type == &
                 
               </p>
               <div id="method-i-delegated_type_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/delegated_type.rb, line 206</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/delegated_type.rb, line 211</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delegated_type</span>(<span class="ruby-identifier">role</span>, <span class="ruby-value">types:</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
   <span class="ruby-identifier">belongs_to</span> <span class="ruby-identifier">role</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:scope</span>), <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">polymorphic:</span> <span class="ruby-keyword">true</span>)
   <span class="ruby-identifier">define_delegated_type_methods</span> <span class="ruby-identifier">role</span>, <span class="ruby-value">types:</span> <span class="ruby-identifier">types</span>, <span class="ruby-value">options:</span> <span class="ruby-identifier">options</span>
@@ -398,11 +420,10 @@ Entry#comment_uuid      # =&gt; returns entryable_uuid, when entryable_type == &
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

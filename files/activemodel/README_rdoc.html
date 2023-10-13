@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -96,7 +116,7 @@
         <div>
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <h1>
             README.rdoc
@@ -119,11 +139,11 @@
 
 <p>Active Model provides a known set of interfaces for usage in model classes. They allow for Action Pack helpers to interact with non-Active Record models, for example. Active Model also helps with building custom ORMs for use outside of the Rails framework.</p>
 
-<p>You can read more about Active Model in the <a href="https://edgeguides.rubyonrails.org/active_model_basics.html">Active Model Basics</a> guide.</p>
+<p>You can read more about Active Model in the <a href="https://guides.rubyonrails.org/active_model_basics.html">Active Model Basics</a> guide.</p>
 
 <p>Prior to Rails 3.0, if a plugin or gem developer wanted to have an object interact with Action Pack helpers, it was required to either copy chunks of code from Rails, or monkey patch entire helpers to make them handle objects that did not exactly conform to the Active Record interface. This would result in code duplication and fragile applications that broke on upgrades. Active Model solves this by defining an explicit API. You can read more about the API in <code>ActiveModel::Lint::Tests</code>.</p>
 
-<p>Active Model provides a default module that implements the basic API required to integrate with Action Pack out of the box: <code>ActiveModel::API</code>.</p>
+<p>Active Model provides a default module that implements the basic API required to integrate with Action Pack out of the box: <a href="../../classes/ActiveModel/API.html"><code>ActiveModel::API</code></a>.</p>
 
 <pre><code>class Person
   include ActiveModel::API
@@ -138,7 +158,7 @@ person.age    # =&gt; &#39;18&#39;
 person.valid? # =&gt; true
 </code></pre>
 
-<p>It includes model name introspections, conversions, translations and validations, resulting in a class suitable to be used with Action Pack. See <code>ActiveModel::API</code> for more examples.</p>
+<p>It includes model name introspections, conversions, translations and validations, resulting in a class suitable to be used with Action Pack. See <a href="../../classes/ActiveModel/API.html"><code>ActiveModel::API</code></a> for more examples.</p>
 
 <p>Active Model also provides the following functionality to have ORM-like behavior out of the box:</p>
 <ul><li>
@@ -264,7 +284,7 @@ NamedPerson.model_name.human  # =&gt; &quot;Named person&quot;
 </li><li>
 <p>Making objects serializable</p>
 
-<p><code>ActiveModel::Serialization</code> provides a standard interface for your object to provide <code>to_json</code> serialization.</p>
+<p><a href="../../classes/ActiveModel/Serialization.html"><code>ActiveModel::Serialization</code></a> provides a standard interface for your object to provide <code>to_json</code> serialization.</p>
 
 <pre><code>class SerialPerson
   include ActiveModel::Serialization
@@ -421,11 +441,10 @@ p.valid?                  # =&gt;  true
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

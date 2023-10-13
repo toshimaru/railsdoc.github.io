@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -86,6 +106,7 @@
 
       <div class="col-12 col-md-3 col-xl-2 toc-content-sticky">
         <div class="toc-content"><ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#module-ActionCable-label-Support">Support</a></li>
 <li class="toc-entry toc-h2"><a href="#namespace">Namespace</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#module">Module</a></li>
@@ -93,6 +114,7 @@
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#methods">Methods</a></li>
+<li class="toc-entry toc-h2"><a href="#constants">Constants</a></li>
 <li class="toc-entry toc-h2"><a href="#class-public-methods">Class Public methods</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#method-c-gem_version">
@@ -107,6 +129,15 @@
           </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#instance-public-methods">Instance Public methods</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#method-i-server">
+            
+              server()
+            
+          </a></li>
+</ul>
+</li>
 </ul></div>
       </div>
 
@@ -114,7 +145,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -123,7 +154,7 @@
         </h1>
         <ul class="files">
             
-            <li><a href="../files/actioncable/lib/action_cable/channel_rb.html">actioncable/lib/action_cable/channel.rb</a></li>
+            <li><a href="../files/actioncable/lib/action_cable_rb.html">actioncable/lib/action_cable.rb</a></li>
             
             <li><a href="../files/actioncable/lib/action_cable/channel/base_rb.html">actioncable/lib/action_cable/channel/base.rb</a></li>
             
@@ -139,11 +170,11 @@
             
             <li><a href="../files/actioncable/lib/action_cable/channel/test_case_rb.html">actioncable/lib/action_cable/channel/test_case.rb</a></li>
             
-            <li><a href="../files/actioncable/lib/action_cable/connection_rb.html">actioncable/lib/action_cable/connection.rb</a></li>
-            
             <li><a href="../files/actioncable/lib/action_cable/connection/authorization_rb.html">actioncable/lib/action_cable/connection/authorization.rb</a></li>
             
             <li><a href="../files/actioncable/lib/action_cable/connection/base_rb.html">actioncable/lib/action_cable/connection/base.rb</a></li>
+            
+            <li><a href="../files/actioncable/lib/action_cable/connection/callbacks_rb.html">actioncable/lib/action_cable/connection/callbacks.rb</a></li>
             
             <li><a href="../files/actioncable/lib/action_cable/connection/client_socket_rb.html">actioncable/lib/action_cable/connection/client_socket.rb</a></li>
             
@@ -165,6 +196,8 @@
             
             <li><a href="../files/actioncable/lib/action_cable/connection/web_socket_rb.html">actioncable/lib/action_cable/connection/web_socket.rb</a></li>
             
+            <li><a href="../files/actioncable/lib/action_cable/deprecator_rb.html">actioncable/lib/action_cable/deprecator.rb</a></li>
+            
             <li><a href="../files/actioncable/lib/action_cable/engine_rb.html">actioncable/lib/action_cable/engine.rb</a></li>
             
             <li><a href="../files/actioncable/lib/action_cable/gem_version_rb.html">actioncable/lib/action_cable/gem_version.rb</a></li>
@@ -172,8 +205,6 @@
             <li><a href="../files/actioncable/lib/action_cable/helpers/action_cable_helper_rb.html">actioncable/lib/action_cable/helpers/action_cable_helper.rb</a></li>
             
             <li><a href="../files/actioncable/lib/action_cable/remote_connections_rb.html">actioncable/lib/action_cable/remote_connections.rb</a></li>
-            
-            <li><a href="../files/actioncable/lib/action_cable/server_rb.html">actioncable/lib/action_cable/server.rb</a></li>
             
             <li><a href="../files/actioncable/lib/action_cable/server/base_rb.html">actioncable/lib/action_cable/server/base.rb</a></li>
             
@@ -186,8 +217,6 @@
             <li><a href="../files/actioncable/lib/action_cable/server/worker_rb.html">actioncable/lib/action_cable/server/worker.rb</a></li>
             
             <li><a href="../files/actioncable/lib/action_cable/server/worker/active_record_connection_management_rb.html">actioncable/lib/action_cable/server/worker/active_record_connection_management.rb</a></li>
-            
-            <li><a href="../files/actioncable/lib/action_cable/subscription_adapter_rb.html">actioncable/lib/action_cable/subscription_adapter.rb</a></li>
             
             <li><a href="../files/actioncable/lib/action_cable/subscription_adapter/async_rb.html">actioncable/lib/action_cable/subscription_adapter/async.rb</a></li>
             
@@ -217,6 +246,33 @@
     </div>
     <div id="bodyContent">
         <div id="content">
+  
+    <div class="description">
+      
+<h1 id="module-ActionCable-label-Action+Cable+-E2-80-93+Integrated+WebSockets+for+Rails">Action Cable – Integrated WebSockets for Rails</h1>
+
+<p>Action Cable seamlessly integrates WebSockets with the rest of your Rails application. It allows for real-time features to be written in Ruby in the same style and form as the rest of your Rails application, while still being performant and scalable. It’s a full-stack offering that provides both a client-side JavaScript framework and a server-side Ruby framework. You have access to your full domain model written with Active Record or your ORM of choice.</p>
+
+<p>You can read more about Action Cable in the <a href="https://guides.rubyonrails.org/action_cable_overview.html">Action Cable Overview</a> guide.</p>
+
+<h2 id="module-ActionCable-label-Support">Support</h2>
+
+<p>API documentation is at:</p>
+<ul><li>
+<p><a href="https://api.rubyonrails.org">api.rubyonrails.org</a></p>
+</li></ul>
+
+<p>Bug reports for the Ruby on Rails project can be filed here:</p>
+<ul><li>
+<p><a href="https://github.com/rails/rails/issues">github.com/rails/rails/issues</a></p>
+</li></ul>
+
+<p>Feature requests should be discussed on the rails-core mailing list here:</p>
+<ul><li>
+<p><a href="https://discuss.rubyonrails.org/c/rubyonrails-core">discuss.rubyonrails.org/c/rubyonrails-core</a></p>
+</li></ul>
+
+    </div>
   
 
   
@@ -270,6 +326,10 @@
         </li>
       
         <li>
+          <a href="#method-i-server">server</a>
+        </li>
+      
+        <li>
           <a href="#method-c-version">version</a>
         </li>
       
@@ -283,6 +343,40 @@
 
     
 
+    
+      <!-- Section constants -->
+      <h2 id="constants">Constants</h2>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">INTERNAL</td>
+            <td>=</td>
+            <td class="attr-value">{
+message_types: {
+welcome: &quot;welcome&quot;,
+disconnect: &quot;disconnect&quot;,
+ping: &quot;ping&quot;,
+confirmation: &quot;confirm_subscription&quot;,
+rejection: &quot;reject_subscription&quot;
+},
+disconnect_reasons: {
+unauthorized: &quot;unauthorized&quot;,
+invalid_request: &quot;invalid_request&quot;,
+server_restart: &quot;server_restart&quot;,
+remote: &quot;remote&quot;
+},
+default_mount_path: &quot;/cable&quot;,
+protocols: [&quot;actioncable-v1-json&quot;, &quot;actioncable-unsupported&quot;].freeze
+}</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
     
 
     
@@ -363,6 +457,44 @@
         
       
     
+      <h2 id="instance-public-methods">Instance Public methods</h2>
+      
+        <div class="method">
+          <h3 id="method-i-server">
+            
+              server()
+            
+          </h3>
+
+          
+            <div class="description">
+              <p><a href="Singleton.html"><code>Singleton</code></a> instance of the server</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                
+              </p>
+              <div id="method-i-server_source">
+                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable.rb, line 71</span>
+                <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">server</span>
+  <span class="ruby-ivar">@server</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">ActionCable</span><span class="ruby-operator">::</span><span class="ruby-constant">Server</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></code></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
     
   
 </div>
@@ -377,11 +509,10 @@
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

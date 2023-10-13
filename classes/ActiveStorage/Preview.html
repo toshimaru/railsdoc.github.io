@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -138,7 +158,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -162,9 +182,11 @@
   
     <div class="description">
       
+<h1 id="class-ActiveStorage::Preview-label-Active+Storage+Preview">Active Storage Preview</h1>
+
 <p>Some non-image blobs can be previewed: that is, they can be presented as images. A video blob can be previewed by extracting its first frame, and a PDF blob can be previewed by extracting its first page.</p>
 
-<p>A previewer extracts a preview image from a blob. Active Storage provides previewers for videos and PDFs. <a href="Previewer/VideoPreviewer.html"><code>ActiveStorage::Previewer::VideoPreviewer</code></a> is used for videos whereas <a href="Previewer/PopplerPDFPreviewer.html"><code>ActiveStorage::Previewer::PopplerPDFPreviewer</code></a> and <a href="Previewer/MuPDFPreviewer.html"><code>ActiveStorage::Previewer::MuPDFPreviewer</code></a> are used for PDFs. Build custom previewers by subclassing <a href="Previewer.html"><code>ActiveStorage::Previewer</code></a> and implementing the requisite methods. Consult the <a href="Previewer.html"><code>ActiveStorage::Previewer</code></a> documentation for more details on what&#39;s required of previewers.</p>
+<p>A previewer extracts a preview image from a blob. Active Storage provides previewers for videos and PDFs. <a href="Previewer/VideoPreviewer.html"><code>ActiveStorage::Previewer::VideoPreviewer</code></a> is used for videos whereas <a href="Previewer/PopplerPDFPreviewer.html"><code>ActiveStorage::Previewer::PopplerPDFPreviewer</code></a> and <a href="Previewer/MuPDFPreviewer.html"><code>ActiveStorage::Previewer::MuPDFPreviewer</code></a> are used for PDFs. Build custom previewers by subclassing <a href="Previewer.html"><code>ActiveStorage::Previewer</code></a> and implementing the requisite methods. Consult the <a href="Previewer.html"><code>ActiveStorage::Previewer</code></a> documentation for more details on what’s required of previewers.</p>
 
 <p>To choose the previewer for a blob, Active Storage calls <code>accept?</code> on each registered previewer in order. It uses the first previewer for which <code>accept?</code> returns true when given the blob. In a Rails application, add or remove previewers by manipulating <code>Rails.application.config.active_storage.previewers</code> in an initializer:</p>
 
@@ -300,7 +322,7 @@ Rails.application.config.active_storage.previewers &lt;&lt; DOCXPreviewer
                 
               </p>
               <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/preview.rb, line 36</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/preview.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">blob</span>, <span class="ruby-identifier">variation_or_variation_key</span>)
   <span class="ruby-ivar">@blob</span>, <span class="ruby-ivar">@variation</span> = <span class="ruby-identifier">blob</span>, <span class="ruby-constant">ActiveStorage</span><span class="ruby-operator">::</span><span class="ruby-constant">Variation</span>.<span class="ruby-identifier">wrap</span>(<span class="ruby-identifier">variation_or_variation_key</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -322,7 +344,7 @@ Rails.application.config.active_storage.previewers &lt;&lt; DOCXPreviewer
 
           
             <div class="description">
-              <p>Downloads the file associated with this preview&#39;s variant. If no block is given, the entire file is read into memory and returned. That&#39;ll use a lot of RAM for very large files. If a block is given, then the download is streamed and yielded in chunks. Raises <a href="Preview/UnprocessedError.html"><code>ActiveStorage::Preview::UnprocessedError</code></a> if the preview has not been processed yet.</p>
+              <p>Downloads the file associated with this preview’s variant. If no block is given, the entire file is read into memory and returned. That’ll use a lot of RAM for very large files. If a block is given, then the download is streamed and yielded in chunks. Raises <a href="Preview/UnprocessedError.html"><code>ActiveStorage::Preview::UnprocessedError</code></a> if the preview has not been processed yet.</p>
             </div>
           
 
@@ -339,7 +361,7 @@ Rails.application.config.active_storage.previewers &lt;&lt; DOCXPreviewer
                 
               </p>
               <div id="method-i-download_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/preview.rb, line 83</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/preview.rb, line 85</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">download</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">processed?</span>
     <span class="ruby-identifier">variant</span>.<span class="ruby-identifier">download</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
@@ -361,7 +383,7 @@ Rails.application.config.active_storage.previewers &lt;&lt; DOCXPreviewer
 
           
             <div class="description">
-              <p>Returns the blob&#39;s attached preview image.</p>
+              <p>Returns the blob’s attached preview image.</p>
             </div>
           
 
@@ -378,7 +400,7 @@ Rails.application.config.active_storage.previewers &lt;&lt; DOCXPreviewer
                 
               </p>
               <div id="method-i-image_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/preview.rb, line 52</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/preview.rb, line 54</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">image</span>
   <span class="ruby-identifier">blob</span>.<span class="ruby-identifier">preview_image</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -413,7 +435,7 @@ Rails.application.config.active_storage.previewers &lt;&lt; DOCXPreviewer
                 
               </p>
               <div id="method-i-key_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/preview.rb, line 70</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/preview.rb, line 72</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">key</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">processed?</span>
     <span class="ruby-identifier">variant</span>.<span class="ruby-identifier">key</span>
@@ -457,7 +479,7 @@ Rails.application.config.active_storage.previewers &lt;&lt; DOCXPreviewer
                 
               </p>
               <div id="method-i-processed_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/preview.rb, line 46</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/preview.rb, line 48</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">processed</span>
   <span class="ruby-identifier">process</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">processed?</span>
   <span class="ruby-keyword">self</span>
@@ -476,7 +498,7 @@ Rails.application.config.active_storage.previewers &lt;&lt; DOCXPreviewer
 
           
             <div class="description">
-              <p>Returns the URL of the preview&#39;s variant on the service. Raises <a href="Preview/UnprocessedError.html"><code>ActiveStorage::Preview::UnprocessedError</code></a> if the preview has not been processed yet.</p>
+              <p>Returns the URL of the preview’s variant on the service. Raises <a href="Preview/UnprocessedError.html"><code>ActiveStorage::Preview::UnprocessedError</code></a> if the preview has not been processed yet.</p>
 
 <p>This method synchronously processes a variant of the preview image, so do not call it in views. Instead, generate a stable URL that redirects to the URL returned by this method.</p>
             </div>
@@ -495,7 +517,7 @@ Rails.application.config.active_storage.previewers &lt;&lt; DOCXPreviewer
                 
               </p>
               <div id="method-i-url_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/preview.rb, line 61</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/preview.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">url</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">processed?</span>
     <span class="ruby-identifier">variant</span>.<span class="ruby-identifier">url</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
@@ -523,11 +545,10 @@ Rails.application.config.active_storage.previewers &lt;&lt; DOCXPreviewer
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

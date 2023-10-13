@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -86,6 +106,16 @@
 
       <div class="col-12 col-md-3 col-xl-2 toc-content-sticky">
         <div class="toc-content"><ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#methods">Methods</a></li>
+<li class="toc-entry toc-h2"><a href="#class-public-methods">Class Public methods</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#method-c-update_formatter">
+            
+              update_formatter(format)
+            
+          </a></li>
+</ul>
+</li>
 </ul></div>
       </div>
 
@@ -93,7 +123,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -104,6 +134,8 @@
             
             <li><a href="../../files/activerecord/lib/active_record/query_logs_rb.html">activerecord/lib/active_record/query_logs.rb</a></li>
             
+            <li><a href="../../files/activerecord/lib/active_record/query_logs_formatter_rb.html">activerecord/lib/active_record/query_logs_formatter.rb</a></li>
+            
         </ul>
     </div>
     <div id="bodyContent">
@@ -113,9 +145,19 @@
       
 <h1 id="module-ActiveRecord::QueryLogs-label-Active+Record+Query+Logs">Active Record Query Logs</h1>
 
-<p>Automatically tag SQL queries with runtime information.</p>
+<p>Automatically append comments to SQL queries with runtime information tags. This can be used to trace troublesome SQL statements back to the application code that generated these statements.</p>
 
-<p>Default tags available for use:</p>
+<p>Query logs can be enabled via Rails configuration in <code>config/application.rb</code> or an initializer:</p>
+
+<pre><code>config.active_record.query_log_tags_enabled = true
+</code></pre>
+
+<p>By default the name of the application, the name and action of the controller, or the name of the job are logged. The default format is <a href="https://open-telemetry.github.io/opentelemetry-sqlcommenter/">SQLCommenter</a>. The tags shown in a query comment can be configured via Rails configuration:</p>
+
+<pre><code>config.active_record.query_log_tags = [ :application, :controller, :action, :job ]
+</code></pre>
+
+<p>Active Record defines default tags available for use:</p>
 <ul><li>
 <p><code>application</code></p>
 </li><li>
@@ -128,52 +170,40 @@
 <p><code>database</code></p>
 </li></ul>
 
-<p>_Action Controller and Active Job tags are also defined when used in Rails:_</p>
+<p>Action Controller adds default tags when loaded:</p>
 <ul><li>
 <p><code>controller</code></p>
 </li><li>
 <p><code>action</code></p>
 </li><li>
+<p><code>namespaced_controller</code></p>
+</li></ul>
+
+<p>Active Job adds default tags when loaded:</p>
+<ul><li>
 <p><code>job</code></p>
 </li></ul>
 
-<p>The tags used in a query can be configured directly:</p>
+<p>New comment tags can be defined by adding them in a <code>Hash</code> to the tags <code>Array</code>. Tags can have dynamic content by setting a <code>Proc</code> or lambda value in the <code>Hash</code>, and can reference any value stored by Rails in the <code>context</code> object. <a href="../ActiveSupport/CurrentAttributes.html"><code>ActiveSupport::CurrentAttributes</code></a> can be used to store application values. Tags with <code>nil</code> values are omitted from the query comment.</p>
 
-<pre><code>ActiveRecord::QueryLogs.tags = [ :application, :controller, :action, :job ]
-</code></pre>
-
-<p>or via Rails configuration:</p>
-
-<pre><code>config.active_record.query_log_tags = [ :application, :controller, :action, :job ]
-</code></pre>
-
-<p>To add new comment tags, add a hash to the tags array containing the keys and values you want to add to the comment. Dynamic content can be created by setting a proc or lambda value in a hash, and can reference any value stored in the <code>context</code> object.</p>
+<p>Escaping is performed on the string returned, however untrusted user input should not be used.</p>
 
 <p>Example:</p>
 
-<pre><code>tags = [
-  :application,
+<pre><code>config.active_record.query_log_tags = [
+  :namespaced_controller,
+  :action,
+  :job,
   {
-    custom_tag: -&gt;(context) { context[:controller]&amp;.controller_name },
-    custom_value: -&gt; { Custom.value },
-  }
+    request_id: -&gt;(context) { context[:controller]&amp;.request&amp;.request_id },
+    job_id: -&gt;(context) { context[:job]&amp;.job_id },
+    tenant_id: -&gt; { Current.tenant&amp;.id },
+    static: &quot;value&quot;,
+  },
 ]
-ActiveRecord::QueryLogs.tags = tags
 </code></pre>
 
-<p>The <a href="QueryLogs.html"><code>QueryLogs</code></a> <code>context</code> can be manipulated via the <code>ActiveSupport::ExecutionContext.set</code> method.</p>
-
-<p>Temporary updates limited to the execution of a block:</p>
-
-<pre><code>ActiveSupport::ExecutionContext.set(foo: Bar.new) do
-  posts = Post.all
-end
-</code></pre>
-
-<p>Direct updates to a context value:</p>
-
-<pre><code>ActiveSupport::ExecutionContext[:foo] = Bar.new
-</code></pre>
+<p>By default the name of the application, the name and action of the controller, or the name of the job are logged using the <a href="https://open-telemetry.github.io/opentelemetry-sqlcommenter/">SQLCommenter</a> format. This can be changed via <a href="https://guides.rubyonrails.org/configuring.html#config-active-record-query-log-tags-format">config.active_record.query_log_tags_format</a></p>
 
 <p>Tag comments can be prepended to the query:</p>
 
@@ -181,11 +211,6 @@ end
 </code></pre>
 
 <p>For applications where the content will not change during the lifetime of the request or job execution, the tags can be cached for reuse in every query:</p>
-
-<pre><code>ActiveRecord::QueryLogs.cache_query_log_tags = true
-</code></pre>
-
-<p>This option can be set during application configuration or in a Rails initializer:</p>
 
 <pre><code>config.active_record.cache_query_log_tags = true
 </code></pre>
@@ -202,6 +227,15 @@ end
   
 
   
+    <h2 id="methods">Methods</h2>
+    <ul>
+      
+        <li>
+          <a href="#method-c-update_formatter">update_formatter</a>
+        </li>
+      
+    </ul>
+  
 
   
 
@@ -216,6 +250,52 @@ end
 
     <!-- Methods -->
     
+      <h2 id="class-public-methods">Class Public methods</h2>
+      
+        <div class="method">
+          <h3 id="method-c-update_formatter">
+            
+              update_formatter(format)
+            
+          </h3>
+
+          
+            <div class="description">
+              <p>Updates the formatter to be what the passed in format is.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                
+              </p>
+              <div id="method-c-update_formatter_source">
+                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/query_logs.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update_formatter</span>(<span class="ruby-identifier">format</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tags_formatter</span> =
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">format</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:legacy</span>
+      <span class="ruby-constant">LegacyFormatter</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:sqlcommenter</span>
+      <span class="ruby-constant">SQLCommenter</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Formatter is unsupported: #{formatter}&quot;</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></code></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
     
     
   
@@ -231,11 +311,10 @@ end
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

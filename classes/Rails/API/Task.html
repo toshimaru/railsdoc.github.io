@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -119,11 +139,6 @@
               desc(description)
             
           </a></li>
-<li class="toc-entry toc-h3"><a href="#method-i-setup_horo_variables">
-            
-              setup_horo_variables()
-            
-          </a></li>
 </ul>
 </li>
 </ul></div>
@@ -133,7 +148,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -188,10 +203,6 @@
           <a href="#method-c-new">new</a>
         </li>
       
-        <li>
-          <a href="#method-i-setup_horo_variables">setup_horo_variables</a>
-        </li>
-      
     </ul>
   
 
@@ -214,6 +225,7 @@
 &quot;activesupport&quot; =&gt; {
 include: %w(
 README.rdoc
+lib/active_support.rb
 lib/active_support/**/*.rb
 )
 },
@@ -221,6 +233,7 @@ lib/active_support/**/*.rb
 &quot;activerecord&quot; =&gt; {
 include: %w(
 README.rdoc
+lib/active_record.rb
 lib/active_record/**/*.rb
 lib/arel.rb
 )
@@ -229,6 +242,7 @@ lib/arel.rb
 &quot;activemodel&quot; =&gt; {
 include: %w(
 README.rdoc
+lib/active_model.rb
 lib/active_model/**/*.rb
 )
 },
@@ -237,7 +251,9 @@ lib/active_model/**/*.rb
 include: %w(
 README.rdoc
 lib/abstract_controller/**/*.rb
+lib/action_controller.rb
 lib/action_controller/**/*.rb
+lib/action_dispatch.rb
 lib/action_dispatch/**/*.rb
 )
 },
@@ -245,6 +261,7 @@ lib/action_dispatch/**/*.rb
 &quot;actionview&quot; =&gt; {
 include: %w(
 README.rdoc
+lib/action_view.rb
 lib/action_view/**/*.rb
 ),
 exclude: &quot;lib/action_view/vendor/*&quot;
@@ -253,6 +270,7 @@ exclude: &quot;lib/action_view/vendor/*&quot;
 &quot;actionmailer&quot; =&gt; {
 include: %w(
 README.rdoc
+lib/action_mailer.rb
 lib/action_mailer/**/*.rb
 )
 },
@@ -260,6 +278,7 @@ lib/action_mailer/**/*.rb
 &quot;activejob&quot; =&gt; {
 include: %w(
 README.md
+lib/active_job.rb
 lib/active_job/**/*.rb
 )
 },
@@ -267,6 +286,7 @@ lib/active_job/**/*.rb
 &quot;actioncable&quot; =&gt; {
 include: %w(
 README.md
+lib/action_cable.rb
 lib/action_cable/**/*.rb
 )
 },
@@ -275,6 +295,7 @@ lib/action_cable/**/*.rb
 include: %w(
 README.md
 app/**/active_storage/**/*.rb
+lib/active_storage.rb
 lib/active_storage/**/*.rb
 )
 },
@@ -283,6 +304,7 @@ lib/active_storage/**/*.rb
 include: %w(
 README.md
 app/**/action_mailbox/**/*.rb
+lib/action_mailbox.rb
 lib/action_mailbox/**/*.rb
 )
 },
@@ -291,6 +313,7 @@ lib/action_mailbox/**/*.rb
 include: %w(
 README.md
 app/**/action_text/**/*.rb
+lib/action_text.rb
 lib/action_text/**/*.rb
 )
 },
@@ -350,7 +373,7 @@ lib/rails/api/generator.rb
                 
               </p>
               <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/api/task.rb, line 107</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/api/task.rb, line 119</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">name</span>)
   <span class="ruby-keyword">super</span>
 
@@ -398,9 +421,9 @@ lib/rails/api/generator.rb
                 
               </p>
               <div id="method-i-api_main_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/api/task.rb, line 170</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/api/task.rb, line 185</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">api_main</span>
-  <span class="ruby-identifier">component_root_dir</span>(<span class="ruby-string">&quot;railties&quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/RDOC_MAIN.rdoc&quot;</span>
+  <span class="ruby-identifier">component_root_dir</span>(<span class="ruby-string">&quot;railties&quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/RDOC_MAIN.md&quot;</span>
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -433,7 +456,7 @@ lib/rails/api/generator.rb
                 
               </p>
               <div id="method-i-configure_rdoc_files_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/api/task.rb, line 136</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/api/task.rb, line 148</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">configure_rdoc_files</span>
   <span class="ruby-identifier">rdoc_files</span>.<span class="ruby-identifier">include</span>(<span class="ruby-identifier">api_main</span>)
 
@@ -451,8 +474,8 @@ lib/rails/api/generator.rb
 
   <span class="ruby-comment"># Only generate documentation for files that have been</span>
   <span class="ruby-comment"># changed since the API was generated.</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-string">&quot;doc/rdoc&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;ALL&quot;</span>]
-    <span class="ruby-identifier">last_generation</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">rfc2822</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;doc/rdoc/created.rid&quot;</span>, <span class="ruby-operator">&amp;</span><span class="ruby-value">:readline</span>))
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">api_dir</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;ALL&quot;</span>]
+    <span class="ruby-identifier">last_generation</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">rfc2822</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-node">&quot;#{api_dir}/created.rid&quot;</span>, <span class="ruby-operator">&amp;</span><span class="ruby-value">:readline</span>))
 
     <span class="ruby-identifier">rdoc_files</span>.<span class="ruby-identifier">keep_if</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
       <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">file</span>).<span class="ruby-identifier">to_datetime</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">last_generation</span>
@@ -493,7 +516,7 @@ lib/rails/api/generator.rb
                 
               </p>
               <div id="method-i-configure_sdoc_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/api/task.rb, line 125</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/api/task.rb, line 137</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">configure_sdoc</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">title</span>    = <span class="ruby-string">&quot;Ruby on Rails API&quot;</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">rdoc_dir</span> = <span class="ruby-identifier">api_dir</span>
@@ -535,45 +558,9 @@ lib/rails/api/generator.rb
                 
               </p>
               <div id="method-i-desc_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/api/task.rb, line 121</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/api/task.rb, line 133</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">desc</span>(<span class="ruby-identifier">description</span>)
   <span class="ruby-comment"># no-op</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
-        
-        <div class="method">
-          <h3 id="method-i-setup_horo_variables">
-            
-              setup_horo_variables()
-            
-          </h3>
-
-          
-            <div class="description">
-              
-            </div>
-          
-
-          
-
-          
-
-          
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-setup_horo_variables_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/api/task.rb, line 165</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup_horo_variables</span>
-  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;HORO_PROJECT_NAME&quot;</span>]    = <span class="ruby-string">&quot;Ruby on Rails&quot;</span>
-  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;HORO_PROJECT_VERSION&quot;</span>] = <span class="ruby-identifier">rails_version</span>
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -595,11 +582,10 @@ lib/rails/api/generator.rb
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

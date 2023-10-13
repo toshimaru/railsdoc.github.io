@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -279,7 +299,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -301,8 +321,6 @@
             <li><a href="../files/activesupport/lib/active_support/core_ext/date/calculations_rb.html">activesupport/lib/active_support/core_ext/date/calculations.rb</a></li>
             
             <li><a href="../files/activesupport/lib/active_support/core_ext/date/conversions_rb.html">activesupport/lib/active_support/core_ext/date/conversions.rb</a></li>
-            
-            <li><a href="../files/activesupport/lib/active_support/core_ext/date/deprecated_conversions_rb.html">activesupport/lib/active_support/core_ext/date/deprecated_conversions.rb</a></li>
             
             <li><a href="../files/activesupport/lib/active_support/core_ext/date/zones_rb.html">activesupport/lib/active_support/core_ext/date/zones.rb</a></li>
             
@@ -698,7 +716,7 @@ iso8601: lambda { |date| date.iso8601 }
 
           
             <div class="description">
-              <p>Returns a new <a href="Date.html"><code>Date</code></a> representing the date 1 day after today (i.e. tomorrow&#39;s date).</p>
+              <p>Returns a new <a href="Date.html"><code>Date</code></a> representing the date 1 day after today (i.e. tomorrow’s date).</p>
             </div>
           
 
@@ -733,7 +751,7 @@ iso8601: lambda { |date| date.iso8601 }
 
           
             <div class="description">
-              <p>Returns a new <a href="Date.html"><code>Date</code></a> representing the date 1 day ago (i.e. yesterday&#39;s date).</p>
+              <p>Returns a new <a href="Date.html"><code>Date</code></a> representing the date 1 day ago (i.e. yesterday’s date).</p>
             </div>
           
 
@@ -836,6 +854,18 @@ iso8601: lambda { |date| date.iso8601 }
           
             <div class="description">
               <p>Provides precise <a href="Date.html"><code>Date</code></a> calculations for years, months, and days. The <code>options</code> parameter takes a hash with any of these keys: <code>:years</code>, <code>:months</code>, <code>:weeks</code>, <code>:days</code>.</p>
+
+<p>The increments are applied in order of time units from largest to smallest. In other words, the date is incremented first by <code>:years</code>, then by <code>:months</code>, then by <code>:weeks</code>, then by <code>:days</code>. This order can affect the result around the end of a month. For example, incrementing first by months then by days:</p>
+
+<pre><code>Date.new(2004, 9, 30).advance(months: 1, days: 1)
+# =&gt; Sun, 31 Oct 2004
+</code></pre>
+
+<p>Whereas incrementing first by days then by months yields a different result:</p>
+
+<pre><code>Date.new(2004, 9, 30).advance(days: 1).advance(months: 1)
+# =&gt; Mon, 01 Nov 2004
+</code></pre>
             </div>
           
 
@@ -852,7 +882,7 @@ iso8601: lambda { |date| date.iso8601 }
                 
               </p>
               <div id="method-i-advance_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/date/calculations.rb, line 112</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/date/calculations.rb, line 127</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">advance</span>(<span class="ruby-identifier">options</span>)
   <span class="ruby-identifier">d</span> = <span class="ruby-keyword">self</span>
 
@@ -1116,7 +1146,7 @@ Date.new(2007, 5, 12).change(year: 2005, month: 1) # =&gt; Date.new(2005, 1, 12)
                 
               </p>
               <div id="method-i-change_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/date/calculations.rb, line 128</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/date/calculations.rb, line 143</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>(<span class="ruby-identifier">options</span>)
   <span class="ruby-operator">::</span><span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(
     <span class="ruby-identifier">options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:year</span>, <span class="ruby-identifier">year</span>),
@@ -1159,7 +1189,7 @@ Date.new(2007, 5, 12).change(year: 2005, month: 1) # =&gt; Date.new(2005, 1, 12)
                 
               </p>
               <div id="method-i-compare_with_coercion_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/date/calculations.rb, line 137</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/date/calculations.rb, line 152</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">compare_with_coercion</span>(<span class="ruby-identifier">other</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Time</span>)
     <span class="ruby-identifier">to_datetime</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>
@@ -1452,7 +1482,7 @@ Date.new(2007, 5, 12).change(year: 2005, month: 1) # =&gt; Date.new(2005, 1, 12)
                 
               </p>
               <div id="method-i-readable_inspect_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/date/conversions.rb, line 62</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/date/conversions.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">readable_inspect</span>
   <span class="ruby-identifier">strftime</span>(<span class="ruby-string">&quot;%a, %d %b %Y&quot;</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -1614,7 +1644,7 @@ date.to_time(:local)           # =&gt; 2007-11-10 00:00:00 0800
 date.to_time(:utc)             # =&gt; 2007-11-10 00:00:00 UTC
 </code></pre>
 
-<p>NOTE: The <code>:local</code> timezone is Ruby&#39;s <strong>process</strong> timezone, i.e. <code>ENV[&#39;TZ&#39;]</code>. If the <strong>application&#39;s</strong> timezone is needed, then use <code>in_time_zone</code> instead.</p>
+<p>NOTE: The <code>:local</code> timezone is Ruby’s <strong>process</strong> timezone, i.e. <code>ENV[&#39;TZ&#39;]</code>. If the <strong>application’s</strong> timezone is needed, then use <code>in_time_zone</code> instead.</p>
             </div>
           
 
@@ -1631,7 +1661,7 @@ date.to_time(:utc)             # =&gt; 2007-11-10 00:00:00 UTC
                 
               </p>
               <div id="method-i-to_time_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/date/conversions.rb, line 82</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/date/conversions.rb, line 83</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_time</span>(<span class="ruby-identifier">form</span> = <span class="ruby-value">:local</span>)
   <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Expected :local or :utc, got #{form.inspect}.&quot;</span> <span class="ruby-keyword">unless</span> [<span class="ruby-value">:local</span>, <span class="ruby-value">:utc</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">form</span>)
   <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">form</span>, <span class="ruby-identifier">year</span>, <span class="ruby-identifier">month</span>, <span class="ruby-identifier">day</span>)
@@ -1671,7 +1701,7 @@ date.xmlschema                 # =&gt; &quot;2015-05-23T00:00:00+04:00&quot;
                 
               </p>
               <div id="method-i-xmlschema_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/date/conversions.rb, line 94</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/date/conversions.rb, line 95</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">xmlschema</span>
   <span class="ruby-identifier">in_time_zone</span>.<span class="ruby-identifier">xmlschema</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -1695,11 +1725,10 @@ date.xmlschema                 # =&gt; &quot;2015-05-23T00:00:00+04:00&quot;
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

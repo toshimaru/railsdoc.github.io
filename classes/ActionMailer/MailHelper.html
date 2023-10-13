@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -123,7 +143,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -141,6 +161,8 @@
   
     <div class="description">
       
+<h1 id="module-ActionMailer::MailHelper-label-Action+Mailer+MailHelper">Action Mailer MailHelper</h1>
+
 <p>Provides helper methods for <a href="Base.html"><code>ActionMailer::Base</code></a> that can be used for easily formatting messages, accessing mailer or message instances, and the attachments list.</p>
 
     </div>
@@ -223,7 +245,7 @@
                 
               </p>
               <div id="method-i-attachments_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionmailer/lib/action_mailer/mail_helper.rb, line 43</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionmailer/lib/action_mailer/mail_helper.rb, line 45</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">attachments</span>
   <span class="ruby-identifier">mailer</span>.<span class="ruby-identifier">attachments</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -269,7 +291,7 @@ block_format text
                 
               </p>
               <div id="method-i-block_format_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionmailer/lib/action_mailer/mail_helper.rb, line 20</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionmailer/lib/action_mailer/mail_helper.rb, line 22</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">block_format</span>(<span class="ruby-identifier">text</span>)
   <span class="ruby-identifier">formatted</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\n\r?\n/</span>).<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">paragraph</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">format_paragraph</span>(<span class="ruby-identifier">paragraph</span>)
@@ -318,7 +340,7 @@ format_paragraph(my_text, 25, 4)
                 
               </p>
               <div id="method-i-format_paragraph_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionmailer/lib/action_mailer/mail_helper.rb, line 55</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionmailer/lib/action_mailer/mail_helper.rb, line 57</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">format_paragraph</span>(<span class="ruby-identifier">text</span>, <span class="ruby-identifier">len</span> = <span class="ruby-value">72</span>, <span class="ruby-identifier">indent</span> = <span class="ruby-value">2</span>)
   <span class="ruby-identifier">sentences</span> = [[]]
 
@@ -366,7 +388,7 @@ format_paragraph(my_text, 25, 4)
                 
               </p>
               <div id="method-i-mailer_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionmailer/lib/action_mailer/mail_helper.rb, line 33</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionmailer/lib/action_mailer/mail_helper.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">mailer</span>
   <span class="ruby-ivar">@_controller</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -401,7 +423,7 @@ format_paragraph(my_text, 25, 4)
                 
               </p>
               <div id="method-i-message_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionmailer/lib/action_mailer/mail_helper.rb, line 38</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionmailer/lib/action_mailer/mail_helper.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">message</span>
   <span class="ruby-ivar">@_message</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -425,11 +447,10 @@ format_paragraph(my_text, 25, 4)
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -114,7 +134,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -129,6 +149,14 @@
     </div>
     <div id="bodyContent">
         <div id="content">
+  
+    <div class="description">
+      
+<h1 id="module-ActiveJob::Execution-label-Active+Job+Execution">Active Job Execution</h1>
+
+<p>Provides methods to execute jobs immediately, and wraps job execution so that exceptions configured with <a href="../ActiveSupport/Rescuable/ClassMethods.html#method-i-rescue_from">rescue_from</a> are handled.</p>
+
+    </div>
   
 
   
@@ -223,7 +251,7 @@
                 
               </p>
               <div id="method-i-perform_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activejob/lib/active_job/execution.rb, line 51</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activejob/lib/active_job/execution.rb, line 61</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">perform</span>(<span class="ruby-operator">*</span>)
   <span class="ruby-identifier">fail</span> <span class="ruby-constant">NotImplementedError</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -241,7 +269,7 @@
 
           
             <div class="description">
-              <p>Performs the job immediately. The job is not sent to the queuing adapter but directly executed by blocking the execution of others until it&#39;s finished. <code>perform_now</code> returns the value of your job&#39;s <code>perform</code> method.</p>
+              <p>Performs the job immediately. The job is not sent to the queuing adapter but directly executed by blocking the execution of others until it’s finished. <code>perform_now</code> returns the value of your job’s <code>perform</code> method.</p>
 
 <pre><code>class MyJob &lt; ActiveJob::Base
   def perform
@@ -267,7 +295,7 @@ puts MyJob.new(*args).perform_now # =&gt; &quot;Hello World!&quot;
                 
               </p>
               <div id="method-i-perform_now_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activejob/lib/active_job/execution.rb, line 40</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activejob/lib/active_job/execution.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">perform_now</span>
   <span class="ruby-comment"># Guard against jobs that were persisted before we started counting executions by zeroing out nil counters</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">executions</span> = (<span class="ruby-identifier">executions</span> <span class="ruby-operator">||</span> <span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
@@ -276,7 +304,11 @@ puts MyJob.new(*args).perform_now # =&gt; &quot;Hello World!&quot;
 
   <span class="ruby-identifier">_perform_job</span>
 <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">exception</span>
-  <span class="ruby-identifier">rescue_with_handler</span>(<span class="ruby-identifier">exception</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">raise</span>
+  <span class="ruby-identifier">handled</span> = <span class="ruby-identifier">rescue_with_handler</span>(<span class="ruby-identifier">exception</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">handled</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">handled</span>
+
+  <span class="ruby-identifier">run_after_discard_procs</span>(<span class="ruby-identifier">exception</span>)
+  <span class="ruby-identifier">raise</span>
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -298,11 +330,10 @@ puts MyJob.new(*args).perform_now # =&gt; &quot;Hello World!&quot;
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

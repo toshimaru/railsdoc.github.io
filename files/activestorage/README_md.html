@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -110,7 +130,7 @@
         <div>
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <h1>
             README.md
@@ -137,13 +157,13 @@
 
 <p>Image files can furthermore be transformed using on-demand variants for quality, aspect ratio, size, or any other <a href="https://github.com/minimagick/minimagick">MiniMagick</a> or <a href="https://www.rubydoc.info/gems/ruby-vips/Vips/Image">Vips</a> supported transformation.</p>
 
-<p>You can read more about Active Storage in the <a href="https://edgeguides.rubyonrails.org/active_storage_overview.html">Active Storage Overview</a> guide.</p>
+<p>You can read more about Active Storage in the <a href="https://guides.rubyonrails.org/active_storage_overview.html">Active Storage Overview</a> guide.</p>
 
 <h2 id="label-Compared+to+other+storage+solutions">Compared to other storage solutions</h2>
 
-<p>A key difference to how Active Storage works compared to other attachment solutions in Rails is through the use of built-in <a href="https://github_com/rails/rails/blob/main/activestorage/app/models/active_storage/blob_rb.html">Blob</a> and <a href="https://github_com/rails/rails/blob/main/activestorage/app/models/active_storage/attachment_rb.html">Attachment</a> models (backed by Active Record). This means existing application models do not need to be modified with additional columns to associate with files. Active Storage uses polymorphic associations via the <code>Attachment</code> join model, which then connects to the actual <code>Blob</code>.</p>
+<p>A key difference to how Active Storage works compared to other attachment solutions in Rails is through the use of built-in <a href="https://github.com/rails/rails/blob/main/activestorage/app/models/active_storage/blob.rb">Blob</a> and <a href="https://github.com/rails/rails/blob/main/activestorage/app/models/active_storage/attachment.rb">Attachment</a> models (backed by Active Record). This means existing application models do not need to be modified with additional columns to associate with files. Active Storage uses polymorphic associations via the <code>Attachment</code> join model, which then connects to the actual <code>Blob</code>.</p>
 
-<p><code>Blob</code> models store attachment metadata (filename, content-type, etc.), and their identifier key in the storage service. Blob models do not store the actual binary data. They are intended to be immutable in spirit. One file, one blob. You can associate the same blob with multiple application models as well. And if you want to do transformations of a given <code>Blob</code>, the idea is that you&#39;ll simply create a new one, rather than attempt to mutate the existing one (though of course you can delete the previous version later if you don&#39;t need it).</p>
+<p><code>Blob</code> models store attachment metadata (filename, content-type, etc.), and their identifier key in the storage service. Blob models do not store the actual binary data. They are intended to be immutable in spirit. One file, one blob. You can associate the same blob with multiple application models as well. And if you want to do transformations of a given <code>Blob</code>, the idea is that you’ll simply create a new one, rather than attempt to mutate the existing one (though of course you can delete the previous version later if you don’t need it).</p>
 
 <h2 id="label-Installation">Installation</h2>
 
@@ -265,14 +285,14 @@ Rails.application.config.active_storage.resolve_model_to_route = :rails_storage_
 
 <h3 id="label-Direct+upload+installation">Direct upload installation</h3>
 <ol><li>
-<p>Include the Active Storage JavaScript in your application&#39;s JavaScript bundle or reference it directly.</p>
+<p>Include the Active Storage JavaScript in your application's JavaScript bundle or reference it directly.</p>
 
-<p>Requiring directly without bundling through the asset pipeline in the application html with autostart:</p>
+<p>Requiring directly without bundling through the asset pipeline in the application HTML with autostart:</p>
 
 <pre><code>&lt;%= javascript_include_tag &quot;activestorage&quot; %&gt;
 </code></pre>
 
-<p>Requiring via importmap-rails without bundling through the asset pipeline in the application html without autostart as ESM:</p>
+<p>Requiring via importmap-rails without bundling through the asset pipeline in the application HTML without autostart as ESM:</p>
 
 <pre><code># config/importmap.rb
 pin &quot;@rails/activestorage&quot;, to: &quot;activestorage.esm.js&quot;
@@ -300,12 +320,77 @@ ActiveStorage.start()
 <pre><code>&lt;%= form.file_field :attachments, multiple: true, direct_upload: true %&gt;
 </code></pre>
 </li><li>
-<p>That&#39;s it! Uploads begin upon form submission.</p>
+<p>That's it! Uploads begin upon form submission.</p>
 </li></ol>
 
 <h3 id="label-Direct+upload+JavaScript+events">Direct upload JavaScript events</h3>
 
-<p>| Event name | Event target | Event data (<code>event.detail</code>) | Description | | — | — | — | — | | <code>direct-uploads:start</code> | <code>&lt;form&gt;</code> | None | A form containing files for direct upload fields was submitted. | | <code>direct-upload:initialize</code> | <code>&lt;input&gt;</code> | <code>{id, file}</code> | Dispatched for every file after form submission. | | <code>direct-upload:start</code> | <code>&lt;input&gt;</code> | <code>{id, file}</code> | A direct upload is starting. | | <code>direct-upload:before-blob-request</code> | <code>&lt;input&gt;</code> | <code>{id, file, xhr}</code> | Before making a request to your application for direct upload metadata. | | <code>direct-upload:before-storage-request</code> | <code>&lt;input&gt;</code> | <code>{id, file, xhr}</code> | Before making a request to store a file. | | <code>direct-upload:progress</code> | <code>&lt;input&gt;</code> | <code>{id, file, progress}</code> | As requests to store files progress. | | <code>direct-upload:error</code> | <code>&lt;input&gt;</code> | <code>{id, file, error}</code> | An error occurred. An <code>alert</code> will display unless this event is canceled. | | <code>direct-upload:end</code> | <code>&lt;input&gt;</code> | <code>{id, file}</code> | A direct upload has ended. | | <code>direct-uploads:end</code> | <code>&lt;form&gt;</code> | None | All direct uploads have ended. |</p>
+<table role="table">
+<thead>
+<tr>
+<th>Event name</th>
+<th>Event target</th>
+<th>Event data (‘event.detail`)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>‘direct-uploads:start`</td>
+<td>‘&lt;form&gt;`</td>
+<td>None</td>
+<td>A form containing files for direct upload fields was submitted.</td>
+</tr>
+<tr>
+<td>‘direct-upload:initialize`</td>
+<td>‘&lt;input&gt;`</td>
+<td>‘{id, file}`</td>
+<td>Dispatched for every file after form submission.</td>
+</tr>
+<tr>
+<td>‘direct-upload:start`</td>
+<td>‘&lt;input&gt;`</td>
+<td>‘{id, file}`</td>
+<td>A direct upload is starting.</td>
+</tr>
+<tr>
+<td>‘direct-upload:before-blob-request`</td>
+<td>‘&lt;input&gt;`</td>
+<td>‘{id, file, xhr}`</td>
+<td>Before making a request to your application for direct upload metadata.</td>
+</tr>
+<tr>
+<td>‘direct-upload:before-storage-request`</td>
+<td>‘&lt;input&gt;`</td>
+<td>‘{id, file, xhr}`</td>
+<td>Before making a request to store a file.</td>
+</tr>
+<tr>
+<td>‘direct-upload:progress`</td>
+<td>‘&lt;input&gt;`</td>
+<td>‘{id, file, progress}`</td>
+<td>As requests to store files progress.</td>
+</tr>
+<tr>
+<td>‘direct-upload:error`</td>
+<td>‘&lt;input&gt;`</td>
+<td>‘{id, file, error}`</td>
+<td>An error occurred. An ‘alert` will display unless this event is canceled.</td>
+</tr>
+<tr>
+<td>‘direct-upload:end`</td>
+<td>‘&lt;input&gt;`</td>
+<td>‘{id, file}`</td>
+<td>A direct upload has ended.</td>
+</tr>
+<tr>
+<td>‘direct-uploads:end`</td>
+<td>‘&lt;form&gt;`</td>
+<td>None</td>
+<td>All direct uploads have ended.</td>
+</tr>
+</tbody>
+</table>
 
 <h2 id="label-License">License</h2>
 
@@ -369,11 +454,10 @@ ActiveStorage.start()
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

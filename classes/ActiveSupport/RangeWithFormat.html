@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -102,7 +122,7 @@
           </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#method-i-to_fs-label-Adding+your+own+range+formats+to+to_s">Adding your own range formats to to_s</a></li>
+<li class="toc-entry toc-h2"><a href="#method-i-to_fs-label-Adding+your+own+range+formats+to+to_fs">Adding your own range formats to to_fs</a></li>
 </ul></div>
       </div>
 
@@ -110,7 +130,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -121,12 +141,16 @@
             
             <li><a href="../../files/activesupport/lib/active_support/core_ext/range/conversions_rb.html">activesupport/lib/active_support/core_ext/range/conversions.rb</a></li>
             
-            <li><a href="../../files/activesupport/lib/active_support/core_ext/range/deprecated_conversions_rb.html">activesupport/lib/active_support/core_ext/range/deprecated_conversions.rb</a></li>
-            
         </ul>
     </div>
     <div id="bodyContent">
         <div id="content">
+  
+    <div class="description">
+      
+<h1 id="module-ActiveSupport::RangeWithFormat-label-Range+With+Format">Range With Format</h1>
+
+    </div>
   
 
   
@@ -169,10 +193,24 @@
             <td>=</td>
             <td class="attr-value">{
 db: -&gt; (start, stop) do
+if start &amp;&amp; stop
 case start
 when String then &quot;BETWEEN &#39;#{start}&#39; AND &#39;#{stop}&#39;&quot;
 else
 &quot;BETWEEN &#39;#{start.to_fs(:db)}&#39; AND &#39;#{stop.to_fs(:db)}&#39;&quot;
+end
+elsif start
+case start
+when String then &quot;&gt;= &#39;#{start}&#39;&quot;
+else
+&quot;&gt;= &#39;#{start.to_fs(:db)}&#39;&quot;
+end
+elsif stop
+case stop
+when String then &quot;&lt;= &#39;#{stop}&#39;&quot;
+else
+&quot;&lt;= &#39;#{stop.to_fs(:db)}&#39;&quot;
+end
 end
 end
 }</td>
@@ -234,10 +272,16 @@ end
 <pre><code>range = (1..100)           # =&gt; 1..100
 
 range.to_s                 # =&gt; &quot;1..100&quot;
-range.to_fs(:db)            # =&gt; &quot;BETWEEN &#39;1&#39; AND &#39;100&#39;&quot;
+range.to_fs(:db)           # =&gt; &quot;BETWEEN &#39;1&#39; AND &#39;100&#39;&quot;
+
+range = (1..)              # =&gt; 1..
+range.to_fs(:db)           # =&gt; &quot;&gt;= &#39;1&#39;&quot;
+
+range = (..100)            # =&gt; ..100
+range.to_fs(:db)           # =&gt; &quot;&lt;= &#39;100&#39;&quot;
 </code></pre>
 
-<h2 id="method-i-to_fs-label-Adding+your+own+range+formats+to+to_s">Adding your own range formats to to_s</h2>
+<h2 id="method-i-to_fs-label-Adding+your+own+range+formats+to+to_fs">Adding your own range formats to <a href="RangeWithFormat.html#method-i-to_fs"><code>to_fs</code></a></h2>
 
 <p>You can add your own formats to the Range::RANGE_FORMATS hash. Use the format name as the hash key and a Proc instance.</p>
 
@@ -264,10 +308,10 @@ Range::RANGE_FORMATS[:short] = -&gt;(start, stop) { &quot;Between #{start.to_fs(
                 
               </p>
               <div id="method-i-to_fs_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/range/conversions.rb, line 30</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/range/conversions.rb, line 51</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_fs</span>(<span class="ruby-identifier">format</span> = <span class="ruby-value">:default</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">formatter</span> = <span class="ruby-constant">RANGE_FORMATS</span>[<span class="ruby-identifier">format</span>]
-    <span class="ruby-identifier">formatter</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">first</span>, <span class="ruby-identifier">last</span>)
+    <span class="ruby-identifier">formatter</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">begin</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">end</span>)
   <span class="ruby-keyword">else</span>
     <span class="ruby-identifier">to_s</span>
   <span class="ruby-keyword">end</span>
@@ -292,11 +336,10 @@ Range::RANGE_FORMATS[:short] = -&gt;(start, stop) { &quot;Between #{start.to_fs(
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

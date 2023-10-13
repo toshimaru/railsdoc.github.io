@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -429,7 +449,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -455,8 +475,6 @@
             <li><a href="../files/activesupport/lib/active_support/core_ext/time/compatibility_rb.html">activesupport/lib/active_support/core_ext/time/compatibility.rb</a></li>
             
             <li><a href="../files/activesupport/lib/active_support/core_ext/time/conversions_rb.html">activesupport/lib/active_support/core_ext/time/conversions.rb</a></li>
-            
-            <li><a href="../files/activesupport/lib/active_support/core_ext/time/deprecated_conversions_rb.html">activesupport/lib/active_support/core_ext/time/deprecated_conversions.rb</a></li>
             
             <li><a href="../files/activesupport/lib/active_support/core_ext/time/zones_rb.html">activesupport/lib/active_support/core_ext/time/zones.rb</a></li>
             
@@ -1122,7 +1140,7 @@ Time.find_zone &quot;NOT-A-TIMEZONE&quot;   # =&gt; nil
                 
               </p>
               <div id="method-c-find_zone_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/zones.rb, line 94</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/zones.rb, line 93</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find_zone</span>(<span class="ruby-identifier">time_zone</span>)
   <span class="ruby-identifier">find_zone!</span>(<span class="ruby-identifier">time_zone</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -1165,7 +1183,7 @@ Time.find_zone! &quot;NOT-A-TIMEZONE&quot;   # =&gt; ArgumentError: Invalid Time
                 
               </p>
               <div id="method-c-find_zone-21_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/zones.rb, line 82</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/zones.rb, line 81</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find_zone!</span>(<span class="ruby-identifier">time_zone</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-identifier">time_zone</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">time_zone</span>
 
@@ -1246,14 +1264,13 @@ Time.find_zone! &quot;NOT-A-TIMEZONE&quot;   # =&gt; ArgumentError: Invalid Time
   around_action :set_time_zone
 
   private
-
-  def set_time_zone
-    Time.use_zone(current_user.timezone) { yield }
-  end
+    def set_time_zone
+      Time.use_zone(current_user.timezone) { yield }
+    end
 end
 </code></pre>
 
-<p>NOTE: This won&#39;t affect any <a href="ActiveSupport/TimeWithZone.html"><code>ActiveSupport::TimeWithZone</code></a> objects that have already been created, e.g. any model timestamp attributes that have been read before the block will remain in the application&#39;s default timezone.</p>
+<p>NOTE: This won’t affect any <a href="ActiveSupport/TimeWithZone.html"><code>ActiveSupport::TimeWithZone</code></a> objects that have already been created, e.g. any model timestamp attributes that have been read before the block will remain in the application’s default timezone.</p>
             </div>
           
 
@@ -1270,7 +1287,7 @@ end
                 
               </p>
               <div id="method-c-use_zone_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/zones.rb, line 62</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/zones.rb, line 61</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">use_zone</span>(<span class="ruby-identifier">time_zone</span>)
   <span class="ruby-identifier">new_zone</span> = <span class="ruby-identifier">find_zone!</span>(<span class="ruby-identifier">time_zone</span>)
   <span class="ruby-keyword">begin</span>
@@ -1342,7 +1359,7 @@ end
 <p>An identifier for a <code>TZInfo::Timezone</code> object (e.g., “America/New_York”).</p>
 </li></ul>
 
-<p>Here&#39;s an example of how you might set <code>Time.zone</code> on a per request basis and reset it when the request is done. <code>current_user.time_zone</code> just needs to return a string identifying the user&#39;s preferred time zone:</p>
+<p>Here’s an example of how you might set <code>Time.zone</code> on a per request basis and reset it when the request is done. <code>current_user.time_zone</code> just needs to return a string identifying the user’s preferred time zone:</p>
 
 <pre><code>class ApplicationController &lt; ActionController::Base
   around_action :set_time_zone
@@ -1493,6 +1510,8 @@ Time.new(2015, 8, 1, 14, 35, 0).advance(hours: 1)   # =&gt; 2015-08-01 15:35:00 
 Time.new(2015, 8, 1, 14, 35, 0).advance(days: 1)    # =&gt; 2015-08-02 14:35:00 -0700
 Time.new(2015, 8, 1, 14, 35, 0).advance(weeks: 1)   # =&gt; 2015-08-08 14:35:00 -0700
 </code></pre>
+
+<p>Just like <a href="Date.html#method-i-advance"><code>Date#advance</code></a>, increments are applied in order of time units from largest to smallest. This order can affect the result around the end of a month.</p>
             </div>
           
 
@@ -1509,7 +1528,7 @@ Time.new(2015, 8, 1, 14, 35, 0).advance(weeks: 1)   # =&gt; 2015-08-08 14:35:00 
                 
               </p>
               <div id="method-i-advance_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 182</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 202</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">advance</span>(<span class="ruby-identifier">options</span>)
   <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:weeks</span>].<span class="ruby-identifier">nil?</span>
     <span class="ruby-identifier">options</span>[<span class="ruby-value">:weeks</span>], <span class="ruby-identifier">partial_weeks</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:weeks</span>].<span class="ruby-identifier">divmod</span>(<span class="ruby-value">1</span>)
@@ -1565,7 +1584,7 @@ Time.new(2015, 8, 1, 14, 35, 0).advance(weeks: 1)   # =&gt; 2015-08-08 14:35:00 
                 
               </p>
               <div id="method-i-ago_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 208</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 228</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ago</span>(<span class="ruby-identifier">seconds</span>)
   <span class="ruby-identifier">since</span>(<span class="ruby-operator">-</span><span class="ruby-identifier">seconds</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -1844,7 +1863,7 @@ Time.new(2015, 8, 1, 14, 35, 0).advance(weeks: 1)   # =&gt; 2015-08-08 14:35:00 
                 
               </p>
               <div id="method-i-beginning_of_day_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 221</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 241</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">beginning_of_day</span>
   <span class="ruby-identifier">change</span>(<span class="ruby-value">hour:</span> <span class="ruby-value">0</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -1883,7 +1902,7 @@ Time.new(2015, 8, 1, 14, 35, 0).advance(weeks: 1)   # =&gt; 2015-08-08 14:35:00 
                 
               </p>
               <div id="method-i-beginning_of_hour_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 250</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 270</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">beginning_of_hour</span>
   <span class="ruby-identifier">change</span>(<span class="ruby-value">min:</span> <span class="ruby-value">0</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -1922,7 +1941,7 @@ Time.new(2015, 8, 1, 14, 35, 0).advance(weeks: 1)   # =&gt; 2015-08-08 14:35:00 
                 
               </p>
               <div id="method-i-beginning_of_minute_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 266</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 286</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">beginning_of_minute</span>
   <span class="ruby-identifier">change</span>(<span class="ruby-value">sec:</span> <span class="ruby-value">0</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -2023,9 +2042,25 @@ Time.new(2012, 8, 29, 22, 35, 0).change(year: 1981, hour: 0) # =&gt; Time.new(19
   <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">utc?</span>
     <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-identifier">new_year</span>, <span class="ruby-identifier">new_month</span>, <span class="ruby-identifier">new_day</span>, <span class="ruby-identifier">new_hour</span>, <span class="ruby-identifier">new_min</span>, <span class="ruby-identifier">new_sec</span>)
   <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">zone</span>&amp;.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:utc_to_local</span>)
-    <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">new_year</span>, <span class="ruby-identifier">new_month</span>, <span class="ruby-identifier">new_day</span>, <span class="ruby-identifier">new_hour</span>, <span class="ruby-identifier">new_min</span>, <span class="ruby-identifier">new_sec</span>, <span class="ruby-identifier">zone</span>)
+    <span class="ruby-identifier">new_time</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">new_year</span>, <span class="ruby-identifier">new_month</span>, <span class="ruby-identifier">new_day</span>, <span class="ruby-identifier">new_hour</span>, <span class="ruby-identifier">new_min</span>, <span class="ruby-identifier">new_sec</span>, <span class="ruby-identifier">zone</span>)
+
+    <span class="ruby-comment"># When there are two occurrences of a nominal time due to DST ending,</span>
+    <span class="ruby-comment"># `Time.new` chooses the first chronological occurrence (the one with a</span>
+    <span class="ruby-comment"># larger UTC offset). However, for `change`, we want to choose the</span>
+    <span class="ruby-comment"># occurrence that matches this time&#39;s UTC offset.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># If the new time&#39;s UTC offset is larger than this time&#39;s UTC offset, the</span>
+    <span class="ruby-comment"># new time might be a first chronological occurrence. So we add the offset</span>
+    <span class="ruby-comment"># difference to fast-forward the new time, and check if the result has the</span>
+    <span class="ruby-comment"># desired UTC offset (i.e. is the second chronological occurrence).</span>
+    <span class="ruby-identifier">offset_difference</span> = <span class="ruby-identifier">new_time</span>.<span class="ruby-identifier">utc_offset</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">utc_offset</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">offset_difference</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">new_time_2</span> = <span class="ruby-identifier">new_time</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">offset_difference</span>).<span class="ruby-identifier">utc_offset</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">utc_offset</span>
+      <span class="ruby-identifier">new_time_2</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">new_time</span>
+    <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">zone</span>
-    <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">local</span>(<span class="ruby-identifier">new_year</span>, <span class="ruby-identifier">new_month</span>, <span class="ruby-identifier">new_day</span>, <span class="ruby-identifier">new_hour</span>, <span class="ruby-identifier">new_min</span>, <span class="ruby-identifier">new_sec</span>)
+    <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">local</span>(<span class="ruby-identifier">new_sec</span>, <span class="ruby-identifier">new_min</span>, <span class="ruby-identifier">new_hour</span>, <span class="ruby-identifier">new_day</span>, <span class="ruby-identifier">new_month</span>, <span class="ruby-identifier">new_year</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">isdst</span>, <span class="ruby-keyword">nil</span>)
   <span class="ruby-keyword">else</span>
     <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">new_year</span>, <span class="ruby-identifier">new_month</span>, <span class="ruby-identifier">new_day</span>, <span class="ruby-identifier">new_hour</span>, <span class="ruby-identifier">new_min</span>, <span class="ruby-identifier">new_sec</span>, <span class="ruby-identifier">utc_offset</span>)
   <span class="ruby-keyword">end</span>
@@ -2044,7 +2079,7 @@ Time.new(2012, 8, 29, 22, 35, 0).change(year: 1981, hour: 0) # =&gt; Time.new(19
 
           
             <div class="description">
-              <p>Layers additional behavior on Time#&lt;=&gt; so that <a href="DateTime.html"><code>DateTime</code></a> and <a href="ActiveSupport/TimeWithZone.html"><code>ActiveSupport::TimeWithZone</code></a> instances can be chronologically compared with a <a href="Time.html"><code>Time</code></a></p>
+              <p>Layers additional behavior on <a href="Time.html#method-i-3C-3D-3E"><code>Time#&lt;=&gt;</code></a> so that <a href="DateTime.html"><code>DateTime</code></a> and <a href="ActiveSupport/TimeWithZone.html"><code>ActiveSupport::TimeWithZone</code></a> instances can be chronologically compared with a <a href="Time.html"><code>Time</code></a></p>
             </div>
           
 
@@ -2065,7 +2100,7 @@ Time.new(2012, 8, 29, 22, 35, 0).change(year: 1981, hour: 0) # =&gt; Time.new(19
                 
               </p>
               <div id="method-i-compare_with_coercion_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 312</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 332</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">compare_with_coercion</span>(<span class="ruby-identifier">other</span>)
   <span class="ruby-comment"># we&#39;re avoiding Time#to_datetime and Time#to_time because they&#39;re expensive</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Time</span>
@@ -2135,7 +2170,7 @@ Time.new(2012, 8, 29, 22, 35, 0).change(year: 1981, hour: 0) # =&gt; Time.new(19
                 
               </p>
               <div id="method-i-end_of_day_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 239</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 259</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_of_day</span>
   <span class="ruby-identifier">change</span>(
     <span class="ruby-value">hour:</span> <span class="ruby-value">23</span>,
@@ -2179,7 +2214,7 @@ Time.new(2012, 8, 29, 22, 35, 0).change(year: 1981, hour: 0) # =&gt; Time.new(19
                 
               </p>
               <div id="method-i-end_of_hour_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 256</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 276</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_of_hour</span>
   <span class="ruby-identifier">change</span>(
     <span class="ruby-value">min:</span> <span class="ruby-value">59</span>,
@@ -2222,7 +2257,7 @@ Time.new(2012, 8, 29, 22, 35, 0).change(year: 1981, hour: 0) # =&gt; Time.new(19
                 
               </p>
               <div id="method-i-end_of_minute_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 272</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 292</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_of_minute</span>
   <span class="ruby-identifier">change</span>(
     <span class="ruby-value">sec:</span> <span class="ruby-value">59</span>,
@@ -2292,7 +2327,7 @@ Time.new(2012, 8, 29, 22, 35, 0).change(year: 1981, hour: 0) # =&gt; Time.new(19
                 
               </p>
               <div id="method-i-eql_with_coercion_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 327</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 347</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">eql_with_coercion</span>(<span class="ruby-identifier">other</span>)
   <span class="ruby-comment"># if other is an ActiveSupport::TimeWithZone, coerce a Time instance from it so we can do eql? comparison</span>
   <span class="ruby-identifier">other</span> = <span class="ruby-identifier">other</span>.<span class="ruby-identifier">comparable_time</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:comparable_time</span>)
@@ -2479,7 +2514,7 @@ Time.local(2000).formatted_offset(false) # =&gt; &quot;-0600&quot;
                 
               </p>
               <div id="method-i-middle_of_day_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 229</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 249</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">middle_of_day</span>
   <span class="ruby-identifier">change</span>(<span class="ruby-value">hour:</span> <span class="ruby-value">12</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -2521,7 +2556,7 @@ Time.local(2000).formatted_offset(false) # =&gt; &quot;-0600&quot;
 
           
             <div class="description">
-              <p><a href="Time.html#method-i-2D"><code>Time#-</code></a> can also be used to determine the number of seconds between two <a href="Time.html"><code>Time</code></a> instances. We&#39;re layering on additional behavior so that <a href="ActiveSupport/TimeWithZone.html"><code>ActiveSupport::TimeWithZone</code></a> instances are coerced into values that <a href="Time.html#method-i-2D"><code>Time#-</code></a> will recognize</p>
+              <p><a href="Time.html#method-i-2D"><code>Time#-</code></a> can also be used to determine the number of seconds between two <a href="Time.html"><code>Time</code></a> instances. We’re layering on additional behavior so that <a href="ActiveSupport/TimeWithZone.html"><code>ActiveSupport::TimeWithZone</code></a> instances are coerced into values that <a href="Time.html#method-i-2D"><code>Time#-</code></a> will recognize</p>
             </div>
           
 
@@ -2542,7 +2577,7 @@ Time.local(2000).formatted_offset(false) # =&gt; &quot;-0600&quot;
                 
               </p>
               <div id="method-i-minus_with_coercion_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 303</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 323</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">minus_with_coercion</span>(<span class="ruby-identifier">other</span>)
   <span class="ruby-identifier">other</span> = <span class="ruby-identifier">other</span>.<span class="ruby-identifier">comparable_time</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:comparable_time</span>)
   <span class="ruby-identifier">other</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">DateTime</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">to_f</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">minus_without_coercion</span>(<span class="ruby-identifier">other</span>)
@@ -2626,7 +2661,7 @@ Time.local(2000).formatted_offset(false) # =&gt; &quot;-0600&quot;
                 
               </p>
               <div id="method-i-next_day_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 341</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 361</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">next_day</span>(<span class="ruby-identifier">days</span> = <span class="ruby-value">1</span>)
   <span class="ruby-identifier">advance</span>(<span class="ruby-value">days:</span> <span class="ruby-identifier">days</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -2661,7 +2696,7 @@ Time.local(2000).formatted_offset(false) # =&gt; &quot;-0600&quot;
                 
               </p>
               <div id="method-i-next_month_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 351</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 371</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">next_month</span>(<span class="ruby-identifier">months</span> = <span class="ruby-value">1</span>)
   <span class="ruby-identifier">advance</span>(<span class="ruby-value">months:</span> <span class="ruby-identifier">months</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -2696,7 +2731,7 @@ Time.local(2000).formatted_offset(false) # =&gt; &quot;-0600&quot;
                 
               </p>
               <div id="method-i-next_year_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 361</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 381</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">next_year</span>(<span class="ruby-identifier">years</span> = <span class="ruby-value">1</span>)
   <span class="ruby-identifier">advance</span>(<span class="ruby-value">years:</span> <span class="ruby-identifier">years</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -2755,7 +2790,7 @@ Time.local(2000).formatted_offset(false) # =&gt; &quot;-0600&quot;
                 
               </p>
               <div id="method-i-prev_day_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 336</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 356</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prev_day</span>(<span class="ruby-identifier">days</span> = <span class="ruby-value">1</span>)
   <span class="ruby-identifier">advance</span>(<span class="ruby-value">days:</span> <span class="ruby-operator">-</span><span class="ruby-identifier">days</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -2790,7 +2825,7 @@ Time.local(2000).formatted_offset(false) # =&gt; &quot;-0600&quot;
                 
               </p>
               <div id="method-i-prev_month_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 346</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 366</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prev_month</span>(<span class="ruby-identifier">months</span> = <span class="ruby-value">1</span>)
   <span class="ruby-identifier">advance</span>(<span class="ruby-value">months:</span> <span class="ruby-operator">-</span><span class="ruby-identifier">months</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -2825,7 +2860,7 @@ Time.local(2000).formatted_offset(false) # =&gt; &quot;-0600&quot;
                 
               </p>
               <div id="method-i-prev_year_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 356</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 376</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prev_year</span>(<span class="ruby-identifier">years</span> = <span class="ruby-value">1</span>)
   <span class="ruby-identifier">advance</span>(<span class="ruby-value">years:</span> <span class="ruby-operator">-</span><span class="ruby-identifier">years</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -2982,7 +3017,7 @@ Time.new(2012, 8, 29, 23, 59, 59).seconds_until_end_of_day # =&gt; 0
                 
               </p>
               <div id="method-i-since_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 213</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/time/calculations.rb, line 233</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">since</span>(<span class="ruby-identifier">seconds</span>)
   <span class="ruby-keyword">self</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">seconds</span>
 <span class="ruby-keyword">rescue</span>
@@ -3077,8 +3112,7 @@ Time::DATE_FORMATS[:short_ordinal]  = -&gt;(time) { time.strftime(&quot;%B #{tim
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">formatter</span> = <span class="ruby-constant">DATE_FORMATS</span>[<span class="ruby-identifier">format</span>]
     <span class="ruby-identifier">formatter</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">formatter</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword">self</span>).<span class="ruby-identifier">to_s</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">strftime</span>(<span class="ruby-identifier">formatter</span>)
   <span class="ruby-keyword">else</span>
-    <span class="ruby-comment"># Change to `to_s` when deprecation is gone. Also deprecate `to_default_s`.</span>
-    <span class="ruby-identifier">to_default_s</span>
+    <span class="ruby-identifier">to_s</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></code></pre>
               </div>
@@ -3136,11 +3170,10 @@ Time::DATE_FORMATS[:short_ordinal]  = -&gt;(time) { time.strftime(&quot;%B #{tim
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

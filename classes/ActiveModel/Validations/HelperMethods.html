@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -153,7 +173,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -274,7 +294,7 @@
 
           
             <div class="description">
-              <p>Validates that the specified attributes are blank (as defined by <a href="../../Object.html#method-i-present-3F"><code>Object#present?</code></a>). Happens by default on save.</p>
+              <p>Validates that the specified attributes are blank (as defined by <a href="../../Object.html#method-i-present-3F"><code>Object#present?</code></a>).</p>
 
 <pre><code>class Person &lt; ActiveRecord::Base
   validates_absence_of :first_name
@@ -331,7 +351,7 @@ end
 end
 </code></pre>
 
-<p>If the database column does not exist, the <code>terms_of_service</code> attribute is entirely virtual. This check is performed only if <code>terms_of_service</code> is not <code>nil</code> and by default on save.</p>
+<p>If the database column does not exist, the <code>terms_of_service</code> attribute is entirely virtual. This check is performed only if <code>terms_of_service</code> is not <code>nil</code>.</p>
 
 <p>Configuration options:</p>
 <ul><li>
@@ -386,17 +406,17 @@ end
 <ul><li>
 <p><code>:message</code> - A custom error message (default is: “failed comparison”).</p>
 </li><li>
-<p><code>:greater_than</code> - Specifies the value must be greater than the supplied value.</p>
+<p><code>:greater_than</code> - Specifies the value must be greater than the supplied value. The default error message for this option is _“must be greater than %{count}”_.</p>
 </li><li>
-<p><code>:greater_than_or_equal_to</code> - Specifies the value must be greater than or equal to the supplied value.</p>
+<p><code>:greater_than_or_equal_to</code> - Specifies the value must be greater than or equal to the supplied value. The default error message for this option is _“must be greater than or equal to %{count}”_.</p>
 </li><li>
-<p><code>:equal_to</code> - Specifies the value must be equal to the supplied value.</p>
+<p><code>:equal_to</code> - Specifies the value must be equal to the supplied value. The default error message for this option is _“must be equal to %{count}”_.</p>
 </li><li>
-<p><code>:less_than</code> - Specifies the value must be less than the supplied value.</p>
+<p><code>:less_than</code> - Specifies the value must be less than the supplied value. The default error message for this option is _“must be less than %{count}”_.</p>
 </li><li>
-<p><code>:less_than_or_equal_to</code> - Specifies the value must be less than or equal to the supplied value.</p>
+<p><code>:less_than_or_equal_to</code> - Specifies the value must be less than or equal to the supplied value. The default error message for this option is _“must be less than or equal to %{count}”_.</p>
 </li><li>
-<p><code>:other_than</code> - Specifies the value must not be equal to the supplied value.</p>
+<p><code>:other_than</code> - Specifies the value must not be equal to the supplied value. The default error message for this option is _“must be other than %{count}”_.</p>
 </li></ul>
 
 <p>There is also a list of default options supported by every validator: <code>:if</code>, <code>:unless</code>, <code>:on</code>, <code>:allow_nil</code>, <code>:allow_blank</code>, and <code>:strict</code> . See <a href="ClassMethods.html#method-i-validates"><code>ActiveModel::Validations::ClassMethods#validates</code></a> for more information.</p>
@@ -439,7 +459,7 @@ end
                 
               </p>
               <div id="method-i-validates_comparison_of_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/comparison.rb, line 77</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/comparison.rb, line 85</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validates_comparison_of</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attr_names</span>)
   <span class="ruby-identifier">validates_with</span> <span class="ruby-constant">ComparisonValidator</span>, <span class="ruby-identifier">_merge_attributes</span>(<span class="ruby-identifier">attr_names</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -480,7 +500,7 @@ View:
 
 <p>Configuration options:</p>
 <ul><li>
-<p><code>:message</code> - A custom error message (default is: “doesn&#39;t match <code>%{translated_attribute_name}</code>”).</p>
+<p><code>:message</code> - A custom error message (default is: “doesn’t match <code>%{translated_attribute_name}</code>”).</p>
 </li><li>
 <p><code>:case_sensitive</code> - Looks for an exact match. Ignored by non-text columns (<code>true</code> by default).</p>
 </li></ul>
@@ -534,7 +554,7 @@ end
 
 <p>Configuration options:</p>
 <ul><li>
-<p><code>:in</code> - An enumerable object of items that the value shouldn&#39;t be part of. This can be supplied as a proc, lambda, or symbol which returns an enumerable. If the enumerable is a numerical, time, or datetime range the test is performed with <code>Range#cover?</code>, otherwise with <code>include?</code>. When using a proc or lambda the instance under validation is passed as an argument.</p>
+<p><code>:in</code> - An enumerable object of items that the value shouldn’t be part of. This can be supplied as a proc, lambda, or symbol which returns an enumerable. If the enumerable is a numerical, time, or datetime range the test is performed with <code>Range#cover?</code>, otherwise with <code>include?</code>. When using a proc or lambda the instance under validation is passed as an argument.</p>
 </li><li>
 <p><code>:within</code> - A synonym(or alias) for <code>:in</code> <code>Range#cover?</code>, otherwise with <code>include?</code>.</p>
 </li><li>
@@ -633,7 +653,7 @@ end
                 
               </p>
               <div id="method-i-validates_format_of_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/format.rb, line 108</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/format.rb, line 107</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validates_format_of</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attr_names</span>)
   <span class="ruby-identifier">validates_with</span> <span class="ruby-constant">FormatValidator</span>, <span class="ruby-identifier">_merge_attributes</span>(<span class="ruby-identifier">attr_names</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -719,10 +739,9 @@ end
   validates_length_of :words_in_essay, minimum: 100, too_short: &#39;Your essay must be at least 100 words.&#39;
 
   private
-
-  def words_in_essay
-    essay.scan(/\w+/)
-  end
+    def words_in_essay
+      essay.scan(/\w+/)
+    end
 end
 </code></pre>
 
@@ -775,7 +794,7 @@ end
                 
               </p>
               <div id="method-i-validates_length_of_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/length.rb, line 122</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/length.rb, line 123</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validates_length_of</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attr_names</span>)
   <span class="ruby-identifier">validates_with</span> <span class="ruby-constant">LengthValidator</span>, <span class="ruby-identifier">_merge_attributes</span>(<span class="ruby-identifier">attr_names</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -793,7 +812,7 @@ end
 
           
             <div class="description">
-              <p>Validates whether the value of the specified attribute is numeric by trying to convert it to a float with <a href="../../Kernel.html"><code>Kernel</code></a>.Float (if <code>only_integer</code> is <code>false</code>) or applying it to the regular expression <code>/\A[+\-]?\d+\z/</code> (if <code>only_integer</code> is set to <code>true</code>). Precision of <a href="../../Kernel.html"><code>Kernel</code></a>.Float values are guaranteed up to 15 digits.</p>
+              <p>Validates whether the value of the specified attribute is numeric by trying to convert it to a float with <code>Kernel.Float</code> (if <code>only_integer</code> is <code>false</code>) or applying it to the regular expression <code>/\A[+\-]?\d+\z/</code> (if <code>only_integer</code> is set to <code>true</code>). Precision of <code>Kernel.Float</code> values are guaranteed up to 15 digits.</p>
 
 <pre><code>class Person &lt; ActiveRecord::Base
   validates_numericality_of :value, on: :create
@@ -806,25 +825,27 @@ end
 </li><li>
 <p><code>:only_integer</code> - Specifies whether the value has to be an integer (default is <code>false</code>).</p>
 </li><li>
+<p><code>:only_numeric</code> - Specifies whether the value has to be an instance of <a href="../../Numeric.html"><code>Numeric</code></a> (default is <code>false</code>). The default behavior is to attempt parsing the value if it is a <a href="../../String.html"><code>String</code></a>.</p>
+</li><li>
 <p><code>:allow_nil</code> - Skip validation if attribute is <code>nil</code> (default is <code>false</code>). Notice that for <a href="../../Integer.html"><code>Integer</code></a> and <a href="../../Float.html"><code>Float</code></a> columns empty strings are converted to <code>nil</code>.</p>
 </li><li>
-<p><code>:greater_than</code> - Specifies the value must be greater than the supplied value.</p>
+<p><code>:greater_than</code> - Specifies the value must be greater than the supplied value. The default error message for this option is _“must be greater than %{count}”_.</p>
 </li><li>
-<p><code>:greater_than_or_equal_to</code> - Specifies the value must be greater than or equal the supplied value.</p>
+<p><code>:greater_than_or_equal_to</code> - Specifies the value must be greater than or equal the supplied value. The default error message for this option is _“must be greater than or equal to %{count}”_.</p>
 </li><li>
-<p><code>:equal_to</code> - Specifies the value must be equal to the supplied value.</p>
+<p><code>:equal_to</code> - Specifies the value must be equal to the supplied value. The default error message for this option is _“must be equal to %{count}”_.</p>
 </li><li>
-<p><code>:less_than</code> - Specifies the value must be less than the supplied value.</p>
+<p><code>:less_than</code> - Specifies the value must be less than the supplied value. The default error message for this option is _“must be less than %{count}”_.</p>
 </li><li>
-<p><code>:less_than_or_equal_to</code> - Specifies the value must be less than or equal the supplied value.</p>
+<p><code>:less_than_or_equal_to</code> - Specifies the value must be less than or equal the supplied value. The default error message for this option is _“must be less than or equal to %{count}”_.</p>
 </li><li>
-<p><code>:other_than</code> - Specifies the value must be other than the supplied value.</p>
+<p><code>:other_than</code> - Specifies the value must be other than the supplied value. The default error message for this option is _“must be other than %{count}”_.</p>
 </li><li>
-<p><code>:odd</code> - Specifies the value must be an odd number.</p>
+<p><code>:odd</code> - Specifies the value must be an odd number. The default error message for this option is _“must be odd”_.</p>
 </li><li>
-<p><code>:even</code> - Specifies the value must be an even number.</p>
+<p><code>:even</code> - Specifies the value must be an even number. The default error message for this option is _“must be even”_.</p>
 </li><li>
-<p><code>:in</code> - Check that the value is within a range.</p>
+<p><code>:in</code> - Check that the value is within a range. The default error message for this option is _“must be in %{count}”_.</p>
 </li></ul>
 
 <p>There is also a list of default options supported by every validator: <code>:if</code>, <code>:unless</code>, <code>:on</code>, <code>:allow_nil</code>, <code>:allow_blank</code>, and <code>:strict</code> . See <a href="ClassMethods.html#method-i-validates"><code>ActiveModel::Validations::ClassMethods#validates</code></a> for more information.</p>
@@ -869,7 +890,7 @@ end
                 
               </p>
               <div id="method-i-validates_numericality_of_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/numericality.rb, line 205</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/numericality.rb, line 217</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validates_numericality_of</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attr_names</span>)
   <span class="ruby-identifier">validates_with</span> <span class="ruby-constant">NumericalityValidator</span>, <span class="ruby-identifier">_merge_attributes</span>(<span class="ruby-identifier">attr_names</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -887,7 +908,7 @@ end
 
           
             <div class="description">
-              <p>Validates that the specified attributes are not blank (as defined by <a href="../../Object.html#method-i-blank-3F"><code>Object#blank?</code></a>). Happens by default on save.</p>
+              <p>Validates that the specified attributes are not blank (as defined by <a href="../../Object.html#method-i-blank-3F"><code>Object#blank?</code></a>).</p>
 
 <pre><code>class Person &lt; ActiveRecord::Base
   validates_presence_of :first_name
@@ -902,7 +923,7 @@ end
 
 <p>Configuration options:</p>
 <ul><li>
-<p><code>:message</code> - A custom error message (default is: “can&#39;t be blank”).</p>
+<p><code>:message</code> - A custom error message (default is: “can’t be blank”).</p>
 </li></ul>
 
 <p>There is also a list of default options supported by every validator: <code>:if</code>, <code>:unless</code>, <code>:on</code>, <code>:allow_nil</code>, <code>:allow_blank</code>, and <code>:strict</code>. See <a href="ClassMethods.html#method-i-validates"><code>ActiveModel::Validations::ClassMethods#validates</code></a> for more information.</p>
@@ -970,11 +991,10 @@ end
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

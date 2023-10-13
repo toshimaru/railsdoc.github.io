@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -131,7 +151,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -238,7 +258,7 @@
                 
               </p>
               <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/rack/logger.rb, line 16</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/rack/logger.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">taggers</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-ivar">@app</span>          = <span class="ruby-identifier">app</span>
   <span class="ruby-ivar">@taggers</span>      = <span class="ruby-identifier">taggers</span> <span class="ruby-operator">||</span> []
@@ -278,12 +298,12 @@
                 
               </p>
               <div id="method-i-call_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/rack/logger.rb, line 21</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/rack/logger.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call</span>(<span class="ruby-identifier">env</span>)
   <span class="ruby-identifier">request</span> = <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">Request</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">env</span>)
 
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:tagged</span>)
-    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">tagged</span>(<span class="ruby-identifier">compute_tags</span>(<span class="ruby-identifier">request</span>)) { <span class="ruby-identifier">call_app</span>(<span class="ruby-identifier">request</span>, <span class="ruby-identifier">env</span>) }
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">tagged</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">compute_tags</span>(<span class="ruby-identifier">request</span>)) { <span class="ruby-identifier">call_app</span>(<span class="ruby-identifier">request</span>, <span class="ruby-identifier">env</span>) }
   <span class="ruby-keyword">else</span>
     <span class="ruby-identifier">call_app</span>(<span class="ruby-identifier">request</span>, <span class="ruby-identifier">env</span>)
   <span class="ruby-keyword">end</span>
@@ -322,20 +342,24 @@
                 
               </p>
               <div id="method-i-call_app_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/rack/logger.rb, line 32</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/rack/logger.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call_app</span>(<span class="ruby-identifier">request</span>, <span class="ruby-identifier">env</span>) <span class="ruby-comment"># :doc:</span>
   <span class="ruby-identifier">instrumenter</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Notifications</span>.<span class="ruby-identifier">instrumenter</span>
-  <span class="ruby-identifier">instrumenter_state</span> = <span class="ruby-identifier">instrumenter</span>.<span class="ruby-identifier">start</span> <span class="ruby-string">&quot;request.action_dispatch&quot;</span>, <span class="ruby-value">request:</span> <span class="ruby-identifier">request</span>
-  <span class="ruby-identifier">instrumenter_finish</span> = <span class="ruby-operator">-&gt;</span> () {
-    <span class="ruby-identifier">instrumenter</span>.<span class="ruby-identifier">finish_with_state</span>(<span class="ruby-identifier">instrumenter_state</span>, <span class="ruby-string">&quot;request.action_dispatch&quot;</span>, <span class="ruby-value">request:</span> <span class="ruby-identifier">request</span>)
-  }
+  <span class="ruby-identifier">handle</span> = <span class="ruby-identifier">instrumenter</span>.<span class="ruby-identifier">build_handle</span>(<span class="ruby-string">&quot;request.action_dispatch&quot;</span>, { <span class="ruby-value">request:</span> <span class="ruby-identifier">request</span> })
+  <span class="ruby-identifier">handle</span>.<span class="ruby-identifier">start</span>
 
   <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> { <span class="ruby-identifier">started_request_message</span>(<span class="ruby-identifier">request</span>) }
-  <span class="ruby-identifier">status</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-identifier">body</span> = <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
-  <span class="ruby-identifier">body</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">BodyProxy</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">body</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">instrumenter_finish</span>)
-  [<span class="ruby-identifier">status</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-identifier">body</span>]
+  <span class="ruby-identifier">status</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-identifier">body</span> = <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">body</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">BodyProxy</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">body</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">handle</span>.<span class="ruby-identifier">method</span>(<span class="ruby-value">:finish</span>))
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">frozen?</span>
+    [<span class="ruby-identifier">status</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-identifier">body</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">response</span>[<span class="ruby-value">2</span>] = <span class="ruby-identifier">body</span>
+    <span class="ruby-identifier">response</span>
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span>
-  <span class="ruby-identifier">instrumenter_finish</span>.<span class="ruby-identifier">call</span>
+  <span class="ruby-identifier">handle</span>.<span class="ruby-identifier">finish</span>
   <span class="ruby-identifier">raise</span>
 <span class="ruby-keyword">ensure</span>
   <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">LogSubscriber</span>.<span class="ruby-identifier">flush_all!</span>
@@ -371,7 +395,7 @@
                 
               </p>
               <div id="method-i-compute_tags_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/rack/logger.rb, line 59</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/rack/logger.rb, line 62</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">compute_tags</span>(<span class="ruby-identifier">request</span>) <span class="ruby-comment"># :doc:</span>
   <span class="ruby-ivar">@taggers</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tag</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">case</span> <span class="ruby-identifier">tag</span>
@@ -415,13 +439,13 @@
                 
               </p>
               <div id="method-i-started_request_message_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/rack/logger.rb, line 51</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/rack/logger.rb, line 54</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">started_request_message</span>(<span class="ruby-identifier">request</span>) <span class="ruby-comment"># :doc:</span>
-  <span class="ruby-string">&#39;Started %s &quot;%s&quot; for %s at %s&#39;</span> <span class="ruby-operator">%</span> [
+  <span class="ruby-identifier">sprintf</span>(<span class="ruby-string">&#39;Started %s &quot;%s&quot; for %s at %s&#39;</span>,
     <span class="ruby-identifier">request</span>.<span class="ruby-identifier">raw_request_method</span>,
     <span class="ruby-identifier">request</span>.<span class="ruby-identifier">filtered_path</span>,
     <span class="ruby-identifier">request</span>.<span class="ruby-identifier">remote_ip</span>,
-    <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_default_s</span> ]
+    <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>)
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -443,11 +467,10 @@
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

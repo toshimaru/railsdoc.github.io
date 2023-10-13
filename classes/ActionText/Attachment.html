@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -169,7 +189,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -190,6 +210,23 @@
     </div>
     <div id="bodyContent">
         <div id="content">
+  
+    <div class="description">
+      
+<h1 id="class-ActionText::Attachment-label-Action+Text+Attachment">Action Text Attachment</h1>
+
+<p><a href="Attachments.html"><code>Attachments</code></a> serialize attachables to HTML or plain text.</p>
+
+<pre><code>class Person &lt; ApplicationRecord
+  include ActionText::Attachable
+end
+
+attachable = Person.create! name: &quot;Javan&quot;
+attachment = ActionText::Attachment.from_attachable(attachable)
+attachment.to_html # =&gt; &quot;&lt;action-text-attachment sgid=\&quot;BAh7CEk...&quot;
+</code></pre>
+
+    </div>
   
 
   
@@ -274,7 +311,7 @@
           <tr valign='top'>
             <td class="attr-name">ATTRIBUTES</td>
             <td>=</td>
-            <td class="attr-value">%w( sgid content-type url href filename filesize width height previewable presentation caption )</td>
+            <td class="attr-value">%w( sgid content-type url href filename filesize width height previewable presentation caption content )</td>
           </tr>
           
             <tr valign='top'>
@@ -340,7 +377,7 @@
                 
               </p>
               <div id="method-c-fragment_by_canonicalizing_attachments_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 14</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 25</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fragment_by_canonicalizing_attachments</span>(<span class="ruby-identifier">content</span>)
   <span class="ruby-identifier">fragment_by_minifying_attachments</span>(<span class="ruby-identifier">fragment_by_converting_trix_attachments</span>(<span class="ruby-identifier">content</span>))
 <span class="ruby-keyword">end</span></code></pre>
@@ -375,7 +412,7 @@
                 
               </p>
               <div id="method-c-from_attachable_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 26</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">from_attachable</span>(<span class="ruby-identifier">attachable</span>, <span class="ruby-identifier">attributes</span> = {})
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span> = <span class="ruby-identifier">node_from_attributes</span>(<span class="ruby-identifier">attachable</span>.<span class="ruby-identifier">to_rich_text_attributes</span>(<span class="ruby-identifier">attributes</span>))
     <span class="ruby-identifier">new</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">attachable</span>)
@@ -412,7 +449,7 @@
                 
               </p>
               <div id="method-c-from_attachables_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 22</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">from_attachables</span>(<span class="ruby-identifier">attachables</span>)
   <span class="ruby-constant">Array</span>(<span class="ruby-identifier">attachables</span>).<span class="ruby-identifier">filter_map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">attachable</span><span class="ruby-operator">|</span> <span class="ruby-identifier">from_attachable</span>(<span class="ruby-identifier">attachable</span>) }
 <span class="ruby-keyword">end</span></code></pre>
@@ -447,7 +484,7 @@
                 
               </p>
               <div id="method-c-from_attributes_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 32</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 43</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">from_attributes</span>(<span class="ruby-identifier">attributes</span>, <span class="ruby-identifier">attachable</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span> = <span class="ruby-identifier">node_from_attributes</span>(<span class="ruby-identifier">attributes</span>)
     <span class="ruby-identifier">from_node</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">attachable</span>)
@@ -484,7 +521,7 @@
                 
               </p>
               <div id="method-c-from_node_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 18</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">from_node</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">attachable</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-identifier">new</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">attachable</span> <span class="ruby-operator">||</span> <span class="ruby-constant">ActionText</span><span class="ruby-operator">::</span><span class="ruby-constant">Attachable</span>.<span class="ruby-identifier">from_node</span>(<span class="ruby-identifier">node</span>))
 <span class="ruby-keyword">end</span></code></pre>
@@ -519,7 +556,7 @@
                 
               </p>
               <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 55</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 66</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">attachable</span>)
   <span class="ruby-ivar">@node</span> = <span class="ruby-identifier">node</span>
   <span class="ruby-ivar">@attachable</span> = <span class="ruby-identifier">attachable</span>
@@ -559,7 +596,7 @@
                 
               </p>
               <div id="method-i-caption_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 60</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 71</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">caption</span>
   <span class="ruby-identifier">node_attributes</span>[<span class="ruby-string">&quot;caption&quot;</span>].<span class="ruby-identifier">presence</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -594,7 +631,7 @@
                 
               </p>
               <div id="method-i-full_attributes_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 64</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 75</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">full_attributes</span>
   <span class="ruby-identifier">node_attributes</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">attachable_attributes</span>).<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">sgid_attributes</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -629,7 +666,7 @@
                 
               </p>
               <div id="method-i-inspect_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 88</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 129</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inspect</span>
   <span class="ruby-node">&quot;#&lt;#{self.class.name} attachable=#{attachable.inspect}&gt;&quot;</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -647,7 +684,12 @@
 
           
             <div class="description">
-              
+              <p>Converts the attachment to HTML.</p>
+
+<pre><code>attachable = Person.create! name: &quot;Javan&quot;
+attachment = ActionText::Attachment.from_attachable(attachable)
+attachment.to_html # =&gt; &quot;&lt;action-text-attachment sgid=\&quot;BAh7CEk...
+</code></pre>
             </div>
           
 
@@ -664,7 +706,7 @@
                 
               </p>
               <div id="method-i-to_html_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 80</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 121</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_html</span>
   <span class="ruby-constant">HtmlConversion</span>.<span class="ruby-identifier">node_to_html</span>(<span class="ruby-identifier">node</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -682,7 +724,33 @@
 
           
             <div class="description">
-              
+              <p>Converts the attachment to plain text.</p>
+
+<pre><code>attachable = ActiveStorage::Blob.find_by filename: &quot;racecar.jpg&quot;
+attachment = ActionText::Attachment.from_attachable(attachable)
+attachment.to_plain_text # =&gt; &quot;[racecar.jpg]&quot;
+</code></pre>
+
+<p>Use the <code>caption</code> when set:</p>
+
+<pre><code>attachment = ActionText::Attachment.from_attachable(attachable, caption: &quot;Vroom vroom&quot;)
+attachment.to_plain_text # =&gt; &quot;[Vroom vroom]&quot;
+</code></pre>
+
+<p>The presentation can be overridden by implementing the <code>attachable_plain_text_representation</code> method:</p>
+
+<pre><code>class Person &lt; ApplicationRecord
+  include ActionText::Attachable
+
+  def attachable_plain_text_representation
+    &quot;[#{name}]&quot;
+  end
+end
+
+attachable = Person.create! name: &quot;Javan&quot;
+attachment = ActionText::Attachment.from_attachable(attachable)
+attachment.to_plain_text # =&gt; &quot;[Javan]&quot;
+</code></pre>
             </div>
           
 
@@ -699,7 +767,7 @@
                 
               </p>
               <div id="method-i-to_plain_text_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 72</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 108</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_plain_text</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:attachable_plain_text_representation</span>)
     <span class="ruby-identifier">attachable_plain_text_representation</span>(<span class="ruby-identifier">caption</span>)
@@ -738,7 +806,7 @@
                 
               </p>
               <div id="method-i-to_s_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 84</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 125</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
   <span class="ruby-identifier">to_html</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -773,7 +841,7 @@
                 
               </p>
               <div id="method-i-with_full_attributes_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 68</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actiontext/lib/action_text/attachment.rb, line 79</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">with_full_attributes</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">from_attributes</span>(<span class="ruby-identifier">full_attributes</span>, <span class="ruby-identifier">attachable</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -797,11 +865,10 @@
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

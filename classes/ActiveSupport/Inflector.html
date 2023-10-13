@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -123,6 +143,11 @@
 <li class="toc-entry toc-h3"><a href="#method-i-demodulize">
             
               demodulize(path)
+            
+          </a></li>
+<li class="toc-entry toc-h3"><a href="#method-i-downcase_first">
+            
+              downcase_first(string)
             
           </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-foreign_key">
@@ -204,7 +229,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -226,6 +251,8 @@
   
     <div class="description">
       
+<h1 id="module-ActiveSupport::Inflector-label-Active+Support+Inflector">Active Support Inflector</h1>
+
 <p>The <a href="Inflector.html"><code>Inflector</code></a> transforms words from singular to plural, class names to table names, modularized class names to ones without, and class names to foreign keys. The default inflections for pluralization, singularization, and uncountable words are kept in inflections.rb.</p>
 
 <p>The Rails core team has stated patches for the inflections library will not be accepted in order to avoid breaking legacy applications which may be relying on errant inflections. If you discover an incorrect inflection and require it for your application or wish to define rules for languages other than English, please correct or add them yourself (explained below).</p>
@@ -280,6 +307,10 @@
       
         <li>
           <a href="#method-i-demodulize">demodulize</a>
+        </li>
+      
+        <li>
+          <a href="#method-i-downcase_first">downcase_first</a>
         </li>
       
         <li>
@@ -386,7 +417,7 @@
             <div class="description">
               <p>Converts strings to UpperCamelCase. If the <code>uppercase_first_letter</code> parameter is set to false, then produces lowerCamelCase.</p>
 
-<p>Also converts &#39;/&#39; to &#39;::&#39; which is useful for converting paths to namespaces.</p>
+<p>Also converts ‘/’ to ‘::’ which is useful for converting paths to namespaces.</p>
 
 <pre><code>camelize(&#39;active_model&#39;)                # =&gt; &quot;ActiveModel&quot;
 camelize(&#39;active_model&#39;, false)         # =&gt; &quot;activeModel&quot;
@@ -414,12 +445,14 @@ camelize(&#39;active_model/errors&#39;, false)  # =&gt; &quot;activeModel::Error
                 
               </p>
               <div id="method-i-camelize_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 69</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 70</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">camelize</span>(<span class="ruby-identifier">term</span>, <span class="ruby-identifier">uppercase_first_letter</span> = <span class="ruby-keyword">true</span>)
   <span class="ruby-identifier">string</span> = <span class="ruby-identifier">term</span>.<span class="ruby-identifier">to_s</span>
   <span class="ruby-comment"># String#camelize takes a symbol (:upper or :lower), so here we also support :lower to keep the methods consistent.</span>
   <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">uppercase_first_letter</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">uppercase_first_letter</span> <span class="ruby-operator">==</span> <span class="ruby-value">:lower</span>
     <span class="ruby-identifier">string</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-identifier">inflections</span>.<span class="ruby-identifier">acronyms_camelize_regex</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">match</span><span class="ruby-operator">|</span> <span class="ruby-identifier">match</span>.<span class="ruby-identifier">downcase!</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">match</span> }
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">string</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-regexp">/\A[a-z\d]*\z/</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">inflections</span>.<span class="ruby-identifier">acronyms</span>[<span class="ruby-identifier">string</span>]&amp;.<span class="ruby-identifier">dup</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">string</span>.<span class="ruby-identifier">capitalize</span>
   <span class="ruby-keyword">else</span>
     <span class="ruby-identifier">string</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/^[a-z\d]*/</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">match</span><span class="ruby-operator">|</span> <span class="ruby-identifier">inflections</span>.<span class="ruby-identifier">acronyms</span>[<span class="ruby-identifier">match</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">match</span>.<span class="ruby-identifier">capitalize!</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">match</span> }
   <span class="ruby-keyword">end</span>
@@ -444,7 +477,7 @@ camelize(&#39;active_model/errors&#39;, false)  # =&gt; &quot;activeModel::Error
 
           
             <div class="description">
-              <p>Creates a class name from a plural table name like Rails does for table names to models. Note that this returns a string and not a <a href="../Class.html"><code>Class</code></a> (To convert to an actual class follow <code>classify</code> with <a href="Inflector.html#method-i-constantize"><code>constantize</code></a>).</p>
+              <p>Creates a class name from a plural table name like Rails does for table names to models. Note that this returns a string and not a <a href="../Class.html"><code>Class</code></a>. (To convert to an actual class follow <code>classify</code> with <a href="Inflector.html#method-i-constantize"><code>constantize</code></a>.)</p>
 
 <pre><code>classify(&#39;ham_and_eggs&#39;) # =&gt; &quot;HamAndEgg&quot;
 classify(&#39;posts&#39;)        # =&gt; &quot;Post&quot;
@@ -470,7 +503,7 @@ classify(&#39;posts&#39;)        # =&gt; &quot;Post&quot;
                 
               </p>
               <div id="method-i-classify_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 208</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 218</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">classify</span>(<span class="ruby-identifier">table_name</span>)
   <span class="ruby-comment"># strip out any leading schema name</span>
   <span class="ruby-identifier">camelize</span>(<span class="ruby-identifier">singularize</span>(<span class="ruby-identifier">table_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/.*\./</span>, <span class="ruby-string">&quot;&quot;</span>)))
@@ -522,7 +555,7 @@ end
                 
               </p>
               <div id="method-i-constantize_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 279</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 289</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">constantize</span>(<span class="ruby-identifier">camel_cased_word</span>)
   <span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">camel_cased_word</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -560,7 +593,7 @@ end
                 
               </p>
               <div id="method-i-dasherize_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 216</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 226</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dasherize</span>(<span class="ruby-identifier">underscored_word</span>)
   <span class="ruby-identifier">underscored_word</span>.<span class="ruby-identifier">tr</span>(<span class="ruby-string">&quot;_&quot;</span>, <span class="ruby-string">&quot;-&quot;</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -604,7 +637,7 @@ deconstantize(&#39;&#39;)            # =&gt; &quot;&quot;
                 
               </p>
               <div id="method-i-deconstantize_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 246</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 256</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deconstantize</span>(<span class="ruby-identifier">path</span>)
   <span class="ruby-identifier">path</span>.<span class="ruby-identifier">to_s</span>[<span class="ruby-value">0</span>, <span class="ruby-identifier">path</span>.<span class="ruby-identifier">rindex</span>(<span class="ruby-string">&quot;::&quot;</span>) <span class="ruby-operator">||</span> <span class="ruby-value">0</span>] <span class="ruby-comment"># implementation based on the one in facets&#39; Module#spacename</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -647,14 +680,54 @@ demodulize(&#39;&#39;)                                      # =&gt; &quot;&quot;
                 
               </p>
               <div id="method-i-demodulize_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 228</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 238</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">demodulize</span>(<span class="ruby-identifier">path</span>)
   <span class="ruby-identifier">path</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">to_s</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">rindex</span>(<span class="ruby-string">&quot;::&quot;</span>)
-    <span class="ruby-identifier">path</span>[(<span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span>)<span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+    <span class="ruby-identifier">path</span>[(<span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span>), <span class="ruby-identifier">path</span>.<span class="ruby-identifier">length</span>]
   <span class="ruby-keyword">else</span>
     <span class="ruby-identifier">path</span>
   <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></code></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <h3 id="method-i-downcase_first">
+            
+              downcase_first(string)
+            
+          </h3>
+
+          
+            <div class="description">
+              <p>Converts the first character in the string to lowercase.</p>
+
+<pre><code>downcase_first(&#39;If they enjoyed The Matrix&#39;) # =&gt; &quot;if they enjoyed The Matrix&quot;
+downcase_first(&#39;I&#39;)                          # =&gt; &quot;i&quot;
+downcase_first(&#39;&#39;)                           # =&gt; &quot;&quot;
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                
+              </p>
+              <div id="method-i-downcase_first_source">
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 175</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">downcase_first</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">string</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">string</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]) <span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -670,7 +743,7 @@ demodulize(&#39;&#39;)                                      # =&gt; &quot;&quot;
 
           
             <div class="description">
-              <p>Creates a foreign key name from a class name. <code>separate_class_name_and_id_with_underscore</code> sets whether the method should put &#39;_&#39; between the name and &#39;id&#39;.</p>
+              <p>Creates a foreign key name from a class name. <code>separate_class_name_and_id_with_underscore</code> sets whether the method should put ‘_’ between the name and ‘id’.</p>
 
 <pre><code>foreign_key(&#39;Message&#39;)        # =&gt; &quot;message_id&quot;
 foreign_key(&#39;Message&#39;, false) # =&gt; &quot;messageid&quot;
@@ -692,7 +765,7 @@ foreign_key(&#39;Admin::Post&#39;)    # =&gt; &quot;post_id&quot;
                 
               </p>
               <div id="method-i-foreign_key_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 257</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 267</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">foreign_key</span>(<span class="ruby-identifier">class_name</span>, <span class="ruby-identifier">separate_class_name_and_id_with_underscore</span> = <span class="ruby-keyword">true</span>)
   <span class="ruby-identifier">underscore</span>(<span class="ruby-identifier">demodulize</span>(<span class="ruby-identifier">class_name</span>)) <span class="ruby-operator">+</span> (<span class="ruby-identifier">separate_class_name_and_id_with_underscore</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;_id&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;id&quot;</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -729,7 +802,7 @@ foreign_key(&#39;Admin::Post&#39;)    # =&gt; &quot;post_id&quot;
 
 <p>The capitalization of the first word can be turned off by setting the <code>:capitalize</code> option to false (default is true).</p>
 
-<p>The trailing &#39;_id&#39; can be kept and capitalized by setting the optional parameter <code>keep_id_suffix</code> to true (default is false).</p>
+<p>The trailing ‘_id’ can be kept and capitalized by setting the optional parameter <code>keep_id_suffix</code> to true (default is false).</p>
 
 <pre><code>humanize(&#39;employee_salary&#39;)                  # =&gt; &quot;Employee salary&quot;
 humanize(&#39;author_id&#39;)                        # =&gt; &quot;Author&quot;
@@ -758,7 +831,7 @@ humanize(&#39;author_id&#39;, keep_id_suffix: true)  # =&gt; &quot;Author id&quo
                 
               </p>
               <div id="method-i-humanize_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 132</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 135</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">humanize</span>(<span class="ruby-identifier">lower_case_and_underscored_word</span>, <span class="ruby-value">capitalize:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">keep_id_suffix:</span> <span class="ruby-keyword">false</span>)
   <span class="ruby-identifier">result</span> = <span class="ruby-identifier">lower_case_and_underscored_word</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">dup</span>
 
@@ -766,7 +839,7 @@ humanize(&#39;author_id&#39;, keep_id_suffix: true)  # =&gt; &quot;Author id&quo
 
   <span class="ruby-identifier">result</span>.<span class="ruby-identifier">tr!</span>(<span class="ruby-string">&quot;_&quot;</span>, <span class="ruby-string">&quot; &quot;</span>)
   <span class="ruby-identifier">result</span>.<span class="ruby-identifier">lstrip!</span>
-  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">keep_id_suffix</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">keep_id_suffix</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lower_case_and_underscored_word</span>&amp;.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;_id&quot;</span>)
     <span class="ruby-identifier">result</span>.<span class="ruby-identifier">delete_suffix!</span>(<span class="ruby-string">&quot; id&quot;</span>)
   <span class="ruby-keyword">end</span>
 
@@ -820,7 +893,7 @@ end
                 
               </p>
               <div id="method-i-inflections_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 263</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/inflections.rb, line 265</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inflections</span>(<span class="ruby-identifier">locale</span> = <span class="ruby-value">:en</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
     <span class="ruby-keyword">yield</span> <span class="ruby-constant">Inflections</span>.<span class="ruby-identifier">instance</span>(<span class="ruby-identifier">locale</span>)
@@ -867,7 +940,7 @@ ordinal(-1021) # =&gt; &quot;st&quot;
                 
               </p>
               <div id="method-i-ordinal_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 324</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 334</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ordinal</span>(<span class="ruby-identifier">number</span>)
   <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">translate</span>(<span class="ruby-string">&quot;number.nth.ordinals&quot;</span>, <span class="ruby-value">number:</span> <span class="ruby-identifier">number</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -910,7 +983,7 @@ ordinalize(-1021) # =&gt; &quot;-1021st&quot;
                 
               </p>
               <div id="method-i-ordinalize_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 337</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 347</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ordinalize</span>(<span class="ruby-identifier">number</span>)
   <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">translate</span>(<span class="ruby-string">&quot;number.nth.ordinalized&quot;</span>, <span class="ruby-value">number:</span> <span class="ruby-identifier">number</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -928,7 +1001,7 @@ ordinalize(-1021) # =&gt; &quot;-1021st&quot;
 
           
             <div class="description">
-              <p>Replaces special characters in a string so that it may be used as part of a &#39;pretty&#39; URL.</p>
+              <p>Replaces special characters in a string so that it may be used as part of a ‘pretty’ URL.</p>
 
 <pre><code>parameterize(&quot;Donald E. Knuth&quot;) # =&gt; &quot;donald-e-knuth&quot;
 parameterize(&quot;^très|Jolie-- &quot;)  # =&gt; &quot;tres-jolie&quot;
@@ -970,7 +1043,7 @@ parameterize(&quot;^très_Jolie-- &quot;, separator: &quot;.&quot;) # =&gt; &quo
                 
               </p>
               <div id="method-i-parameterize_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/transliterate.rb, line 121</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/transliterate.rb, line 123</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parameterize</span>(<span class="ruby-identifier">string</span>, <span class="ruby-value">separator:</span> <span class="ruby-string">&quot;-&quot;</span>, <span class="ruby-value">preserve_case:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">locale:</span> <span class="ruby-keyword">nil</span>)
   <span class="ruby-comment"># Replace accented chars with their ASCII equivalents.</span>
   <span class="ruby-identifier">parameterized_string</span> = <span class="ruby-identifier">transliterate</span>(<span class="ruby-identifier">string</span>, <span class="ruby-value">locale:</span> <span class="ruby-identifier">locale</span>)
@@ -1037,7 +1110,7 @@ pluralize(&#39;ley&#39;, :es)         # =&gt; &quot;leyes&quot;
                 
               </p>
               <div id="method-i-pluralize_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 32</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pluralize</span>(<span class="ruby-identifier">word</span>, <span class="ruby-identifier">locale</span> = <span class="ruby-value">:en</span>)
   <span class="ruby-identifier">apply_inflections</span>(<span class="ruby-identifier">word</span>, <span class="ruby-identifier">inflections</span>(<span class="ruby-identifier">locale</span>).<span class="ruby-identifier">plurals</span>, <span class="ruby-identifier">locale</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -1093,7 +1166,7 @@ safe_constantize(&#39;UnknownModule::Foo::Bar&#39;)  # =&gt; nil
                 
               </p>
               <div id="method-i-safe_constantize_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 305</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 315</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">safe_constantize</span>(<span class="ruby-identifier">camel_cased_word</span>)
   <span class="ruby-identifier">constantize</span>(<span class="ruby-identifier">camel_cased_word</span>)
 <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NameError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
@@ -1144,7 +1217,7 @@ singularize(&#39;leyes&#39;, :es)       # =&gt; &quot;ley&quot;
                 
               </p>
               <div id="method-i-singularize_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 49</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">singularize</span>(<span class="ruby-identifier">word</span>, <span class="ruby-identifier">locale</span> = <span class="ruby-value">:en</span>)
   <span class="ruby-identifier">apply_inflections</span>(<span class="ruby-identifier">word</span>, <span class="ruby-identifier">inflections</span>(<span class="ruby-identifier">locale</span>).<span class="ruby-identifier">singulars</span>, <span class="ruby-identifier">locale</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -1184,7 +1257,7 @@ tableize(&#39;fancyCategory&#39;)   # =&gt; &quot;fancy_categories&quot;
                 
               </p>
               <div id="method-i-tableize_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 194</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 204</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">tableize</span>(<span class="ruby-identifier">class_name</span>)
   <span class="ruby-identifier">pluralize</span>(<span class="ruby-identifier">underscore</span>(<span class="ruby-identifier">class_name</span>))
 <span class="ruby-keyword">end</span></code></pre>
@@ -1204,9 +1277,7 @@ tableize(&#39;fancyCategory&#39;)   # =&gt; &quot;fancy_categories&quot;
             <div class="description">
               <p>Capitalizes all the words and replaces some characters in the string to create a nicer looking title. <code>titleize</code> is meant for creating pretty output. It is not used in the Rails internals.</p>
 
-<p>The trailing &#39;_id&#39;,&#39;Id&#39;.. can be kept and capitalized by setting the optional parameter <code>keep_id_suffix</code> to true. By default, this parameter is false.</p>
-
-<p><code>titleize</code> is also aliased as <code>titlecase</code>.</p>
+<p>The trailing ‘_id’,‘Id’.. can be kept and capitalized by setting the optional parameter <code>keep_id_suffix</code> to true. By default, this parameter is false.</p>
 
 <pre><code>titleize(&#39;man from the boondocks&#39;)                       # =&gt; &quot;Man From The Boondocks&quot;
 titleize(&#39;x-men: the last stand&#39;)                        # =&gt; &quot;X Men: The Last Stand&quot;
@@ -1230,7 +1301,7 @@ titleize(&#39;string_ending_with_id&#39;, keep_id_suffix: true)  # =&gt; &quot;S
                 
               </p>
               <div id="method-i-titleize_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 182</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 192</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">titleize</span>(<span class="ruby-identifier">word</span>, <span class="ruby-value">keep_id_suffix:</span> <span class="ruby-keyword">false</span>)
   <span class="ruby-identifier">humanize</span>(<span class="ruby-identifier">underscore</span>(<span class="ruby-identifier">word</span>), <span class="ruby-value">keep_id_suffix:</span> <span class="ruby-identifier">keep_id_suffix</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\b(?&lt;!\w[&#39;’`()])[a-z]/</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">match</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">match</span>.<span class="ruby-identifier">capitalize</span>
@@ -1258,7 +1329,7 @@ titleize(&#39;string_ending_with_id&#39;, keep_id_suffix: true)  # =&gt; &quot;S
 
 <p>Default approximations are provided for Western/Latin characters, e.g, “ø”, “ñ”, “é”, “ß”, etc.</p>
 
-<p>This method is I18n aware, so you can set up custom approximations for a locale. This can be useful, for example, to transliterate German&#39;s “ü” and “ö” to “ue” and “oe”, or to add support for transliterating Russian to ASCII.</p>
+<p>This method is I18n aware, so you can set up custom approximations for a locale. This can be useful, for example, to transliterate German’s “ü” and “ö” to “ue” and “oe”, or to add support for transliterating Russian to ASCII.</p>
 
 <p>In order to make your custom transliterations available, you must set them as the <code>i18n.transliterate.rule</code> i18n key:</p>
 
@@ -1317,9 +1388,11 @@ transliterate(&#39;Jürgen&#39;, locale: :de)
               <div id="method-i-transliterate_source">
                 <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/transliterate.rb, line 64</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">transliterate</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">replacement</span> = <span class="ruby-string">&quot;?&quot;</span>, <span class="ruby-value">locale:</span> <span class="ruby-keyword">nil</span>)
-  <span class="ruby-identifier">string</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">dup</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">string</span>.<span class="ruby-identifier">frozen?</span>
   <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Can only transliterate strings. Received #{string.class.name}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">string</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
   <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Cannot transliterate strings with #{string.encoding} encoding&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">ALLOWED_ENCODINGS_FOR_TRANSLITERATE</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">string</span>.<span class="ruby-identifier">encoding</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">string</span>.<span class="ruby-identifier">dup</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">string</span>.<span class="ruby-identifier">ascii_only?</span>
+  <span class="ruby-identifier">string</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">dup</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">string</span>.<span class="ruby-identifier">frozen?</span>
 
   <span class="ruby-identifier">input_encoding</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">encoding</span>
 
@@ -1362,7 +1435,7 @@ transliterate(&#39;Jürgen&#39;, locale: :de)
             <div class="description">
               <p>Makes an underscored, lowercase form from the expression in the string.</p>
 
-<p>Changes &#39;::&#39; to &#39;/&#39; to convert namespaces to paths.</p>
+<p>Changes ‘::’ to ‘/’ to convert namespaces to paths.</p>
 
 <pre><code>underscore(&#39;ActiveModel&#39;)         # =&gt; &quot;active_model&quot;
 underscore(&#39;ActiveModel::Errors&#39;) # =&gt; &quot;active_model/errors&quot;
@@ -1388,12 +1461,12 @@ underscore(&#39;ActiveModel::Errors&#39;) # =&gt; &quot;active_model/errors&quot
                 
               </p>
               <div id="method-i-underscore_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 96</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 99</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">underscore</span>(<span class="ruby-identifier">camel_cased_word</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-identifier">camel_cased_word</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">unless</span> <span class="ruby-regexp">/[A-Z-]|::/</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-identifier">camel_cased_word</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">camel_cased_word</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">dup</span> <span class="ruby-keyword">unless</span> <span class="ruby-regexp">/[A-Z-]|::/</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-identifier">camel_cased_word</span>)
   <span class="ruby-identifier">word</span> = <span class="ruby-identifier">camel_cased_word</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;::&quot;</span>, <span class="ruby-string">&quot;/&quot;</span>)
   <span class="ruby-identifier">word</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-identifier">inflections</span>.<span class="ruby-identifier">acronyms_underscore_regex</span>) { <span class="ruby-node">&quot;#{$1 &amp;&amp; &#39;_&#39; }#{$2.downcase}&quot;</span> }
-  <span class="ruby-identifier">word</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/([A-Z]+)(?=[A-Z][a-z])|([a-z\d])(?=[A-Z])/</span>) { (<span class="ruby-node">$1</span> <span class="ruby-operator">||</span> <span class="ruby-node">$2</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;_&quot;</span> }
+  <span class="ruby-identifier">word</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/(?&lt;=[A-Z])(?=[A-Z][a-z])|(?&lt;=[a-z\d])(?=[A-Z])/</span>, <span class="ruby-string">&quot;_&quot;</span>)
   <span class="ruby-identifier">word</span>.<span class="ruby-identifier">tr!</span>(<span class="ruby-string">&quot;-&quot;</span>, <span class="ruby-string">&quot;_&quot;</span>)
   <span class="ruby-identifier">word</span>.<span class="ruby-identifier">downcase!</span>
   <span class="ruby-identifier">word</span>
@@ -1412,7 +1485,7 @@ underscore(&#39;ActiveModel::Errors&#39;) # =&gt; &quot;active_model/errors&quot
 
           
             <div class="description">
-              <p>Converts just the first character to uppercase.</p>
+              <p>Converts the first character in the string to uppercase.</p>
 
 <pre><code>upcase_first(&#39;what a Lovely Day&#39;) # =&gt; &quot;What a Lovely Day&quot;
 upcase_first(&#39;w&#39;)                 # =&gt; &quot;W&quot;
@@ -1434,7 +1507,7 @@ upcase_first(&#39;&#39;)                  # =&gt; &quot;&quot;
                 
               </p>
               <div id="method-i-upcase_first_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 163</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/inflector/methods.rb, line 166</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">upcase_first</span>(<span class="ruby-identifier">string</span>)
   <span class="ruby-identifier">string</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">string</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">upcase</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">string</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]) <span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -1458,11 +1531,10 @@ upcase_first(&#39;&#39;)                  # =&gt; &quot;&quot;
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

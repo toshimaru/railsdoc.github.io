@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -136,7 +156,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -162,7 +182,7 @@
 
 <p>If validations for any of the associations fail, their error messages will be applied to the parent.</p>
 
-<p>Note that it also means that associations marked for destruction won&#39;t be destroyed directly. They will however still be marked for destruction.</p>
+<p>Note that it also means that associations marked for destruction won’t be destroyed directly. They will however still be marked for destruction.</p>
 
 <p>Note that <code>autosave: false</code> is not same as not declaring <code>:autosave</code>. When the <code>:autosave</code> option is not present then new association records are saved but the updated association records are not saved.</p>
 
@@ -170,7 +190,7 @@
 
 <p>Child records are validated unless <code>:validate</code> is <code>false</code>.</p>
 
-<h2 id="module-ActiveRecord::AutosaveAssociation-label-Callbacks"><a href="Callbacks.html"><code>Callbacks</code></a></h2>
+<h2 id="module-ActiveRecord::AutosaveAssociation-label-Callbacks">Callbacks</h2>
 
 <p>Association with autosave option defines several callbacks on your model (around_save, before_save, after_create, after_update). Please note that callbacks are executed in the order they were defined in model. You should avoid modifying the association content before autosave callbacks are executed. Placing your callbacks after associations is usually a good practice.</p>
 
@@ -196,7 +216,7 @@ post.title       # =&gt; &quot;On the migration of ducks&quot;
 post.author.name # =&gt; &quot;Eloy Duran&quot;
 </code></pre>
 
-<p>Destroying an associated model, as part of the parent&#39;s save action, is as simple as marking it for destruction:</p>
+<p>Destroying an associated model, as part of the parent’s save action, is as simple as marking it for destruction:</p>
 
 <pre><code>post.author.mark_for_destruction
 post.author.marked_for_destruction? # =&gt; true
@@ -251,7 +271,7 @@ post.comments.build(body: &quot;good morning.&quot;)
 post.save # =&gt; saves post and both comments.
 </code></pre>
 
-<p>Destroying one of the associated models as part of the parent&#39;s save action is as simple as marking it for destruction:</p>
+<p>Destroying one of the associated models as part of the parent’s save action is as simple as marking it for destruction:</p>
 
 <pre><code>post.comments # =&gt; [#&lt;Comment id: 1, ...&gt;, #&lt;Comment id: 2, ...]&gt;
 post.comments[1].mark_for_destruction
@@ -451,7 +471,7 @@ post.reload.comments.length # =&gt; 1
 
           
             <div class="description">
-              <p>Marks this record to be destroyed as part of the parent&#39;s save transaction. This does <em>not</em> actually destroy the record instantly, rather child record will be destroyed when <code>parent.save</code> is called.</p>
+              <p>Marks this record to be destroyed as part of the parent’s save transaction. This does <em>not</em> actually destroy the record instantly, rather child record will be destroyed when <code>parent.save</code> is called.</p>
 
 <p>Only useful if the <code>:autosave</code> option on the parent is enabled for this associated model.</p>
             </div>
@@ -488,7 +508,7 @@ post.reload.comments.length # =&gt; 1
 
           
             <div class="description">
-              <p>Returns whether or not this record will be destroyed as part of the parent&#39;s save transaction.</p>
+              <p>Returns whether or not this record will be destroyed as part of the parent’s save transaction.</p>
 
 <p>Only useful if the <code>:autosave</code> option on the parent is enabled for this associated model.</p>
             </div>
@@ -568,11 +588,10 @@ post.reload.comments.length # =&gt; 1
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

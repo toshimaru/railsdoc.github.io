@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -86,7 +106,7 @@
 
       <div class="col-12 col-md-3 col-xl-2 toc-content-sticky">
         <div class="toc-content"><ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#label-What-27s+Rails">What&#39;s Rails</a></li>
+<li class="toc-entry toc-h2"><a href="#label-What-27s+Rails">What’s Rails</a></li>
 <li class="toc-entry toc-h2"><a href="#label-Model+layer">Model layer</a></li>
 <li class="toc-entry toc-h2"><a href="#label-Controller+layer">Controller layer</a></li>
 <li class="toc-entry toc-h2"><a href="#label-View+layer">View layer</a></li>
@@ -101,7 +121,7 @@
         <div>
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.0.8</span><br />
         
         <h1>
             RDOC_MAIN.rdoc
@@ -122,7 +142,7 @@
       
 <h1 id="label-Welcome+to+Rails">Welcome to Rails</h1>
 
-<h2 id="label-What-27s+Rails">What&#39;s Rails</h2>
+<h2 id="label-What-27s+Rails">What’s Rails</h2>
 
 <p>Rails is a web-application framework that includes everything needed to create database-backed web applications according to the <a href="https://en.wikipedia.org/wiki/Model-view-controller">Model-View-Controller (MVC)</a> pattern.</p>
 
@@ -138,7 +158,7 @@
 
 <h2 id="label-View+layer">View layer</h2>
 
-<p>The <strong><em>View layer</em></strong> is composed of “templates” that are responsible for providing appropriate representations of your application&#39;s resources. Templates can come in a variety of formats, but most view templates are HTML with embedded Ruby code (<a href="../../classes/ERB.html"><code>ERB</code></a> files). Views are typically rendered to generate a controller response, or to generate the body of an email. In Rails, View generation is handled by <a href="../../files/actionview/README_rdoc.html">Action View</a>.</p>
+<p>The <strong><em>View layer</em></strong> is composed of “templates” that are responsible for providing appropriate representations of your application’s resources. Templates can come in a variety of formats, but most view templates are HTML with embedded Ruby code (<a href="../../classes/ERB.html"><code>ERB</code></a> files). Views are typically rendered to generate a controller response, or to generate the body of an email. In Rails, View generation is handled by <a href="../../files/actionview/README_rdoc.html">Action View</a>.</p>
 
 <h2 id="label-Frameworks+and+libraries">Frameworks and libraries</h2>
 
@@ -146,7 +166,7 @@
 
 <h2 id="label-Getting+Started">Getting Started</h2>
 <ol><li>
-<p>Install Rails at the command prompt if you haven&#39;t yet:</p>
+<p>Install Rails at the command prompt if you haven’t yet:</p>
 
 <pre><code>$ gem install rails
 </code></pre>
@@ -166,7 +186,7 @@ $ bin/rails server
 
 <p>Run with <code>--help</code> or <code>-h</code> for options.</p>
 </li><li>
-<p>Go to <code>http://localhost:3000</code>, and you&#39;ll see: “Yay! You’re on Rails!”</p>
+<p>Go to <code>http://localhost:3000</code>, and you’ll see: “Yay! You’re on Rails!”</p>
 </li><li>
 <p>Follow the guidelines to start developing your application. You may find the following resources handy:</p>
 <ul><li>
@@ -186,7 +206,7 @@ $ bin/rails server
 
 <p>Trying to report a possible security vulnerability in Rails? Please check out our <a href="https://rubyonrails.org/security/">security policy</a> for guidelines about how to proceed.</p>
 
-<p>Everyone interacting in Rails and its sub-projects&#39; codebases, issue trackers, chat rooms, and mailing lists is expected to follow the Rails <a href="http://rubyonrails.org/conduct/">code of conduct</a>.</p>
+<p>Everyone interacting in Rails and its sub-projects’ codebases, issue trackers, chat rooms, and mailing lists is expected to follow the Rails <a href="http://rubyonrails.org/conduct/">code of conduct</a>.</p>
 
 <h2 id="label-License">License</h2>
 
@@ -233,11 +253,10 @@ $ bin/rails server
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

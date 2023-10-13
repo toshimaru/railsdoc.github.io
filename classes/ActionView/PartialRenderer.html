@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -118,7 +138,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -144,7 +164,7 @@
       
 <h1 id="class-ActionView::PartialRenderer-label-Action+View+Partials">Action View Partials</h1>
 
-<p>There&#39;s also a convenience method for rendering sub templates within the current controller that depends on a single object (we call this kind of sub templates for partials). It relies on the fact that partials should follow the naming convention of being prefixed with an underscore – as to separate them from regular templates that could be rendered on their own.</p>
+<p>There’s also a convenience method for rendering sub templates within the current controller that depends on a single object (we call this kind of sub templates for partials). It relies on the fact that partials should follow the naming convention of being prefixed with an underscore – as to separate them from regular templates that could be rendered on their own.</p>
 
 <p>In a template for Advertiser#account:</p>
 
@@ -166,7 +186,7 @@
 
 <h2 id="class-ActionView::PartialRenderer-label-The+-3Aas+and+-3Aobject+options">The <code>:as</code> and <code>:object</code> options</h2>
 
-<p>By default <a href="PartialRenderer.html"><code>ActionView::PartialRenderer</code></a> doesn&#39;t have any local variables. The <code>:object</code> option can be used to pass an object to the partial. For instance:</p>
+<p>By default <a href="PartialRenderer.html"><code>ActionView::PartialRenderer</code></a> doesn’t have any local variables. The <code>:object</code> option can be used to pass an object to the partial. For instance:</p>
 
 <pre><code>&lt;%= render partial: &quot;account&quot;, object: @buyer %&gt;
 </code></pre>
@@ -176,7 +196,7 @@
 <pre><code>&lt;%= render partial: &quot;account&quot;, locals: { account: @buyer } %&gt;
 </code></pre>
 
-<p>With the <code>:as</code> option we can specify a different name for said local variable. For example, if we wanted it to be <code>user</code> instead of <code>account</code> we&#39;d do:</p>
+<p>With the <code>:as</code> option we can specify a different name for said local variable. For example, if we wanted it to be <code>user</code> instead of <code>account</code> we’d do:</p>
 
 <pre><code>&lt;%= render partial: &quot;account&quot;, object: @buyer, as: &#39;user&#39; %&gt;
 </code></pre>
@@ -193,7 +213,7 @@
 <pre><code>&lt;%= render partial: &quot;ad&quot;, collection: @advertisements %&gt;
 </code></pre>
 
-<p>This will render <code>advertiser/_ad.html.erb</code> and pass the local variable <code>ad</code> to the template for display. An iteration object will automatically be made available to the template with a name of the form <code>partial_name_iteration</code>. The iteration object has knowledge about which index the current object has in the collection and the total size of the collection. The iteration object also has two convenience methods, <code>first?</code> and <code>last?</code>. In the case of the example above, the template would be fed <code>ad_iteration</code>. For backwards compatibility the <code>partial_name_counter</code> is still present and is mapped to the iteration&#39;s <code>index</code> method.</p>
+<p>This will render <code>advertiser/_ad.html.erb</code> and pass the local variable <code>ad</code> to the template for display. An iteration object will automatically be made available to the template with a name of the form <code>partial_name_iteration</code>. The iteration object has knowledge about which index the current object has in the collection and the total size of the collection. The iteration object also has two convenience methods, <code>first?</code> and <code>last?</code>. In the case of the example above, the template would be fed <code>ad_iteration</code>. For backwards compatibility the <code>partial_name_counter</code> is still present and is mapped to the iteration’s <code>index</code> method.</p>
 
 <p>The <code>:as</code> option may be used when rendering partials.</p>
 
@@ -232,7 +252,7 @@
 
 <h2 id="class-ActionView::PartialRenderer-label-Rendering+the+default+case">Rendering the default case</h2>
 
-<p>If you&#39;re not going to be using any of the options like collections or layouts, you can also use the short-hand defaults of render to render partials. Examples:</p>
+<p>If you’re not going to be using any of the options like collections or layouts, you can also use the short-hand defaults of render to render partials. Examples:</p>
 
 <pre><code># Instead of &lt;%= render partial: &quot;account&quot; %&gt;
 &lt;%= render &quot;account&quot; %&gt;
@@ -489,11 +509,10 @@ Name: &lt;%= user.name %&gt;
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

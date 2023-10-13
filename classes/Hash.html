@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -121,11 +141,7 @@
 <li class="toc-entry toc-h3"><a href="#method-i-deep_merge">
             
               deep_merge(other_hash, &amp;block)
-            
-          </a></li>
-<li class="toc-entry toc-h3"><a href="#method-i-deep_merge-21">
-            
-              deep_merge!(other_hash, &amp;block)
+
             
           </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-deep_stringify_keys">
@@ -282,7 +298,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -357,10 +373,6 @@
       
         <li>
           <a href="#method-i-deep_merge">deep_merge</a>
-        </li>
-      
-        <li>
-          <a href="#method-i-deep_merge-21">deep_merge!</a>
         </li>
       
         <li>
@@ -687,7 +699,7 @@ h.compact_blank!
                 
               </p>
               <div id="method-i-compact_blank-21_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/enumerable.rb, line 278</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/enumerable.rb, line 227</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">compact_blank!</span>
   <span class="ruby-comment"># use delete_if rather than reject! because it always returns self even if nothing changed</span>
   <span class="ruby-identifier">delete_if</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">_k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">blank?</span> }
@@ -752,7 +764,8 @@ dup[:a][:c]  # =&gt; &quot;c&quot;
         <div class="method">
           <h3 id="method-i-deep_merge">
             
-              deep_merge(other_hash, &amp;block)
+              deep_merge(other_hash, &block)
+
             
           </h3>
 
@@ -789,53 +802,8 @@ h1.deep_merge(h2) { |key, this_val, other_val| this_val + other_val }
                 
               </p>
               <div id="method-i-deep_merge_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/hash/deep_merge.rb, line 18</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deep_merge</span>(<span class="ruby-identifier">other_hash</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-identifier">dup</span>.<span class="ruby-identifier">deep_merge!</span>(<span class="ruby-identifier">other_hash</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
-        
-        <div class="method">
-          <h3 id="method-i-deep_merge-21">
-            
-              deep_merge!(other_hash, &amp;block)
-            
-          </h3>
-
-          
-            <div class="description">
-              <p>Same as <code>deep_merge</code>, but modifies <code>self</code>.</p>
-            </div>
-          
-
-          
-
-          
-
-          
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-deep_merge-21_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/hash/deep_merge.rb, line 23</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deep_merge!</span>(<span class="ruby-identifier">other_hash</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">other_hash</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">this_val</span>, <span class="ruby-identifier">other_val</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">this_val</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">other_val</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
-      <span class="ruby-identifier">this_val</span>.<span class="ruby-identifier">deep_merge</span>(<span class="ruby-identifier">other_val</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">block_given?</span>
-      <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">this_val</span>, <span class="ruby-identifier">other_val</span>)
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">other_val</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/hash/deep_merge.rb, line 9</span>
+  </code></pre>
               </div>
             </div>
             
@@ -1747,8 +1715,6 @@ hash.symbolize_keys
 </code></pre>
 
 <p>The string pairs “key=value” that conform the query string are sorted lexicographically in ascending order.</p>
-
-<p>This method is also aliased as <code>to_param</code>.</p>
             </div>
           
 
@@ -1769,7 +1735,7 @@ hash.symbolize_keys
                 
               </p>
               <div id="method-i-to_query_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/object/to_query.rb, line 77</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/object/to_query.rb, line 75</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_query</span>(<span class="ruby-identifier">namespace</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-identifier">query</span> = <span class="ruby-identifier">filter_map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">empty?</span>
@@ -1807,9 +1773,9 @@ hash.symbolize_keys
 
 <p>To do so, the method loops over the pairs and builds nodes that depend on the <em>values</em>. Given a pair <code>key</code>, <code>value</code>:</p>
 <ul><li>
-<p>If <code>value</code> is a hash there&#39;s a recursive call with <code>key</code> as <code>:root</code>.</p>
+<p>If <code>value</code> is a hash there’s a recursive call with <code>key</code> as <code>:root</code>.</p>
 </li><li>
-<p>If <code>value</code> is an array there&#39;s a recursive call with <code>key</code> as <code>:root</code>, and <code>key</code> singularized as <code>:children</code>.</p>
+<p>If <code>value</code> is an array there’s a recursive call with <code>key</code> as <code>:root</code>, and <code>key</code> singularized as <code>:children</code>.</p>
 </li><li>
 <p>If <code>value</code> is a callable object it must expect one or two arguments. Depending on the arity, the callable is invoked with the <code>options</code> hash as first argument with <code>key</code> as <code>:root</code>, and <code>key</code> singularized as second argument. The callable can add nodes by using <code>options[:builder]</code>.</p>
 
@@ -1848,7 +1814,7 @@ end
 </code></pre>
 </li></ul>
 
-<p>By default the root node is “hash”, but that&#39;s configurable via the <code>:root</code> option.</p>
+<p>By default the root node is “hash”, but that’s configurable via the <code>:root</code> option.</p>
 
 <p>The default XML builder is a fresh instance of <code>Builder::XmlMarkup</code>. You can configure your own builder with the <code>:builder</code> option. The method also accepts options like <code>:dasherize</code> and friends, they are forwarded to the builder.</p>
             </div>
@@ -1996,11 +1962,10 @@ end
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

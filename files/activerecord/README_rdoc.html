@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -97,7 +117,7 @@
         <div>
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <h1>
             README.rdoc
@@ -120,9 +140,9 @@
 
 <p>Active Record connects classes to relational database tables to establish an almost zero-configuration persistence layer for applications. The library provides a base class that, when subclassed, sets up a mapping between the new class and an existing table in the database. In the context of an application, these classes are commonly referred to as <strong>models</strong>. Models can also be connected to other models; this is done by defining <strong>associations</strong>.</p>
 
-<p>Active Record relies heavily on naming in that it uses class and association names to establish mappings between respective database tables and foreign key columns. Although these mappings can be defined explicitly, it&#39;s recommended to follow naming conventions, especially when getting started with the library.</p>
+<p>Active Record relies heavily on naming in that it uses class and association names to establish mappings between respective database tables and foreign key columns. Although these mappings can be defined explicitly, it’s recommended to follow naming conventions, especially when getting started with the library.</p>
 
-<p>You can read more about Active Record in the <a href="https://edgeguides.rubyonrails.org/active_record_basics.html">Active Record Basics</a> guide.</p>
+<p>You can read more about Active Record in the <a href="https://guides.rubyonrails.org/active_record_basics.html">Active Record Basics</a> guide.</p>
 
 <p>A short rundown of some of the major features:</p>
 <ul><li>
@@ -131,9 +151,6 @@
 <pre><code>class Product &lt; ActiveRecord::Base
 end
 </code></pre>
-
-<p><a href="../../classes/ActiveRecord/Base.html">Learn more</a></p>
-</li></ul>
 
 <p>The Product class is automatically mapped to the table named “products”, which might look like this:</p>
 
@@ -145,7 +162,9 @@ end
 </code></pre>
 
 <p>This would also define the following accessors: <code>Product#name</code> and <code>Product#name=(new_name)</code>.</p>
-<ul><li>
+
+<p><a href="../../classes/ActiveRecord/Base.html">Learn more</a></p>
+</li><li>
 <p>Associations between objects defined by simple class methods.</p>
 
 <pre><code>class Firm &lt; ActiveRecord::Base
@@ -246,7 +265,7 @@ ActiveRecord::Base.logger = Log4r::Logger.new(&#39;Application Log&#39;)
 </li><li>
 <p>Database agnostic schema management with Migrations.</p>
 
-<pre><code>class AddSystemSettings &lt; ActiveRecord::Migration[7.0]
+<pre><code>class AddSystemSettings &lt; ActiveRecord::Migration[7.1]
   def up
     create_table :system_settings do |t|
       t.string  :name
@@ -291,7 +310,7 @@ encapsulates the database access, and adds domain logic on that data.&quot;
 <ul><li>
 <p>Lets you drop down to SQL for odd cases and performance</p>
 </li><li>
-<p>Doesn&#39;t attempt to duplicate or replace data definitions</p>
+<p>Doesn’t attempt to duplicate or replace data definitions</p>
 </li></ul>
 
 <h2 id="label-Download+and+installation">Download and installation</h2>
@@ -371,11 +390,10 @@ encapsulates the database access, and adds domain logic on that data.&quot;
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -158,7 +178,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -182,6 +202,8 @@
   
     <div class="description">
       
+<h1 id="class-ActiveStorage::Filename-label-Active+Storage+Filename">Active Storage Filename</h1>
+
 <p>Encapsulates a string representing a filename to provide convenient access to parts of it and sanitization. A <a href="Filename.html"><code>Filename</code></a> instance is returned by <a href="Blob.html#method-i-filename"><code>ActiveStorage::Blob#filename</code></a>, and is comparable so it can be used for sorting.</p>
 
     </div>
@@ -299,7 +321,7 @@
                 
               </p>
               <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 16</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">filename</span>)
   <span class="ruby-ivar">@filename</span> = <span class="ruby-identifier">filename</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -334,7 +356,7 @@
                 
               </p>
               <div id="method-c-wrap_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 11</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">wrap</span>(<span class="ruby-identifier">filename</span>)
   <span class="ruby-identifier">filename</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-keyword">self</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">filename</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">new</span>(<span class="ruby-identifier">filename</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -373,7 +395,7 @@
                 
               </p>
               <div id="method-i-3C-3D-3E_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 74</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 76</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
   <span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -408,7 +430,7 @@
                 
               </p>
               <div id="method-i-as_json_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 66</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 68</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">as_json</span>(<span class="ruby-operator">*</span>)
   <span class="ruby-identifier">to_s</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -448,7 +470,7 @@ ActiveStorage::Filename.new(&quot;.gitignore&quot;).base  # =&gt; &quot;.gitigno
                 
               </p>
               <div id="method-i-base_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 25</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">base</span>
   <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span> <span class="ruby-ivar">@filename</span>, <span class="ruby-identifier">extension_with_delimiter</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -512,7 +534,7 @@ ActiveStorage::Filename.new(&quot;.gitignore&quot;).extension_with_delimiter  # 
                 
               </p>
               <div id="method-i-extension_with_delimiter_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 35</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extension_with_delimiter</span>
   <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span> <span class="ruby-ivar">@filename</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -556,7 +578,7 @@ ActiveStorage::Filename.new(&quot;.gitignore&quot;).extension_without_delimiter 
                 
               </p>
               <div id="method-i-extension_without_delimiter_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 45</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 47</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extension_without_delimiter</span>
   <span class="ruby-identifier">extension_with_delimiter</span>.<span class="ruby-identifier">from</span>(<span class="ruby-value">1</span>).<span class="ruby-identifier">to_s</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -597,7 +619,7 @@ ActiveStorage::Filename.new(&quot;foo/bar.jpg&quot;).sanitized # =&gt; &quot;foo
                 
               </p>
               <div id="method-i-sanitized_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 57</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 59</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sanitized</span>
   <span class="ruby-ivar">@filename</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>, <span class="ruby-value">invalid:</span> <span class="ruby-value">:replace</span>, <span class="ruby-value">undef:</span> <span class="ruby-value">:replace</span>, <span class="ruby-value">replace:</span> <span class="ruby-string">&quot;�&quot;</span>).<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">tr</span>(<span class="ruby-string">&quot;\u{202E}%$|:;/\t\r\n\\&quot;</span>, <span class="ruby-string">&quot;-&quot;</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -632,7 +654,7 @@ ActiveStorage::Filename.new(&quot;foo/bar.jpg&quot;).sanitized # =&gt; &quot;foo
                 
               </p>
               <div id="method-i-to_json_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 70</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 72</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_json</span>
   <span class="ruby-identifier">to_s</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -667,7 +689,7 @@ ActiveStorage::Filename.new(&quot;foo/bar.jpg&quot;).sanitized # =&gt; &quot;foo
                 
               </p>
               <div id="method-i-to_s_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 62</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/filename.rb, line 64</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
   <span class="ruby-identifier">sanitized</span>.<span class="ruby-identifier">to_s</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -691,11 +713,10 @@ ActiveStorage::Filename.new(&quot;foo/bar.jpg&quot;).sanitized # =&gt; &quot;foo
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

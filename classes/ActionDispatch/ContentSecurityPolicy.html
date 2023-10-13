@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -154,7 +174,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -180,6 +200,8 @@
   
     <div class="description">
       
+<h1 id="class-ActionDispatch::ContentSecurityPolicy-label-Action+Dispatch+Content+Security+Policy">Action Dispatch Content Security Policy</h1>
+
 <p>Configures the HTTP <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">Content-Security-Policy</a> response header to help protect against XSS and injection attacks.</p>
 
 <p>Example global policy:</p>
@@ -326,7 +348,7 @@ end
                 
               </p>
               <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/content_security_policy.rb, line 169</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/content_security_policy.rb, line 174</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
   <span class="ruby-ivar">@directives</span> = {}
   <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
@@ -374,7 +396,7 @@ end
                 
               </p>
               <div id="method-i-block_all_mixed_content_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/content_security_policy.rb, line 197</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/content_security_policy.rb, line 202</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">block_all_mixed_content</span>(<span class="ruby-identifier">enabled</span> = <span class="ruby-keyword">true</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">enabled</span>
     <span class="ruby-ivar">@directives</span>[<span class="ruby-string">&quot;block-all-mixed-content&quot;</span>] = <span class="ruby-keyword">true</span>
@@ -413,7 +435,7 @@ end
                 
               </p>
               <div id="method-i-build_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/content_security_policy.rb, line 286</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/content_security_policy.rb, line 291</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">build</span>(<span class="ruby-identifier">context</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">nonce</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">nonce_directives</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-identifier">nonce_directives</span> = <span class="ruby-constant">DEFAULT_NONCE_DIRECTIVES</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">nonce_directives</span>.<span class="ruby-identifier">nil?</span>
   <span class="ruby-identifier">build_directives</span>(<span class="ruby-identifier">context</span>, <span class="ruby-identifier">nonce</span>, <span class="ruby-identifier">nonce_directives</span>).<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;; &quot;</span>)
@@ -449,7 +471,7 @@ end
                 
               </p>
               <div id="method-i-initialize_copy_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/content_security_policy.rb, line 174</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/content_security_policy.rb, line 179</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize_copy</span>(<span class="ruby-identifier">other</span>)
   <span class="ruby-ivar">@directives</span> = <span class="ruby-identifier">other</span>.<span class="ruby-identifier">directives</span>.<span class="ruby-identifier">deep_dup</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -492,7 +514,7 @@ end
                 
               </p>
               <div id="method-i-plugin_types_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/content_security_policy.rb, line 213</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/content_security_policy.rb, line 218</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">plugin_types</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">types</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">types</span>.<span class="ruby-identifier">first</span>
     <span class="ruby-ivar">@directives</span>[<span class="ruby-string">&quot;plugin-types&quot;</span>] = <span class="ruby-identifier">types</span>
@@ -534,7 +556,7 @@ end
                 
               </p>
               <div id="method-i-report_uri_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/content_security_policy.rb, line 226</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/content_security_policy.rb, line 231</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">report_uri</span>(<span class="ruby-identifier">uri</span>)
   <span class="ruby-ivar">@directives</span>[<span class="ruby-string">&quot;report-uri&quot;</span>] = [<span class="ruby-identifier">uri</span>]
 <span class="ruby-keyword">end</span></code></pre>
@@ -577,7 +599,7 @@ end
                 
               </p>
               <div id="method-i-require_sri_for_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/content_security_policy.rb, line 239</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/content_security_policy.rb, line 244</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">require_sri_for</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">types</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">types</span>.<span class="ruby-identifier">first</span>
     <span class="ruby-ivar">@directives</span>[<span class="ruby-string">&quot;require-sri-for&quot;</span>] = <span class="ruby-identifier">types</span>
@@ -629,7 +651,7 @@ end
                 
               </p>
               <div id="method-i-sandbox_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/content_security_policy.rb, line 260</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/content_security_policy.rb, line 265</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sandbox</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">values</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">values</span>.<span class="ruby-identifier">empty?</span>
     <span class="ruby-ivar">@directives</span>[<span class="ruby-string">&quot;sandbox&quot;</span>] = <span class="ruby-keyword">true</span>
@@ -678,7 +700,7 @@ end
                 
               </p>
               <div id="method-i-upgrade_insecure_requests_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/content_security_policy.rb, line 278</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/content_security_policy.rb, line 283</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">upgrade_insecure_requests</span>(<span class="ruby-identifier">enabled</span> = <span class="ruby-keyword">true</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">enabled</span>
     <span class="ruby-ivar">@directives</span>[<span class="ruby-string">&quot;upgrade-insecure-requests&quot;</span>] = <span class="ruby-keyword">true</span>
@@ -706,11 +728,10 @@ end
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

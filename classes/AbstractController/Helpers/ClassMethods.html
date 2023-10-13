@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -95,6 +115,12 @@
               _helpers_for_modification()
             
           </a></li>
+<li class="toc-entry toc-h3"><a href="#method-i-all_helpers_from_path">
+            
+              all_helpers_from_path(path)
+
+            
+          </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-clear_helpers">
             
               clear_helpers()
@@ -118,6 +144,7 @@
 <li class="toc-entry toc-h3"><a href="#method-i-modules_for_helpers">
             
               modules_for_helpers(modules_or_helper_prefixes)
+
             
           </a></li>
 </ul>
@@ -129,7 +156,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -160,6 +187,10 @@
       
         <li>
           <a href="#method-i-_helpers_for_modification">_helpers_for_modification</a>
+        </li>
+      
+        <li>
+          <a href="#method-i-all_helpers_from_path">all_helpers_from_path</a>
         </li>
       
         <li>
@@ -241,13 +272,51 @@
                 
               </p>
               <div id="method-i-_helpers_for_modification_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 184</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 231</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">_helpers_for_modification</span>
   <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@_helpers</span>
     <span class="ruby-keyword">self</span>.<span class="ruby-identifier">_helpers</span> = <span class="ruby-identifier">define_helpers_module</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">superclass</span>.<span class="ruby-identifier">_helpers</span>)
   <span class="ruby-keyword">end</span>
   <span class="ruby-identifier">_helpers</span>
 <span class="ruby-keyword">end</span></code></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <h3 id="method-i-all_helpers_from_path">
+            
+              all_helpers_from_path(path)
+
+            
+          </h3>
+
+          
+            <div class="description">
+              <p>Returns a list of helper names in a given path.</p>
+
+<pre><code>ActionController::Base.all_helpers_from_path &#39;app/helpers&#39;
+# =&gt; [&quot;application&quot;, &quot;chart&quot;, &quot;rubygems&quot;]
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                
+              </p>
+              <div id="method-i-all_helpers_from_path_source">
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 107</span>
+      </code></pre>
               </div>
             </div>
             
@@ -279,7 +348,7 @@
                 
               </p>
               <div id="method-i-clear_helpers_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 158</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 222</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clear_helpers</span>
   <span class="ruby-identifier">inherited_helper_methods</span> = <span class="ruby-identifier">_helper_methods</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">_helpers</span> = <span class="ruby-constant">Module</span>.<span class="ruby-identifier">new</span>
@@ -367,7 +436,7 @@ end
                 
               </p>
               <div id="method-i-helper_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 147</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 211</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">helper</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">modules_for_helpers</span>(<span class="ruby-identifier">args</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">mod</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">_helpers</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">mod</span>)
@@ -395,13 +464,14 @@ end
 <pre><code>class ApplicationController &lt; ActionController::Base
   helper_method :current_user, :logged_in?
 
-  def current_user
-    @current_user ||= User.find_by(id: session[:user])
-  end
+  private
+    def current_user
+      @current_user ||= User.find_by(id: session[:user])
+    end
 
-  def logged_in?
-    current_user != nil
-  end
+    def logged_in?
+      current_user != nil
+    end
 end
 </code></pre>
 
@@ -430,7 +500,7 @@ end
                 
               </p>
               <div id="method-i-helper_method_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 79</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 140</span>
       <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">helper_method</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">methods</span>)
         <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">flatten!</span>
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">_helper_methods</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">methods</span>
@@ -439,10 +509,13 @@ end
         <span class="ruby-identifier">file</span>, <span class="ruby-identifier">line</span> = <span class="ruby-identifier">location</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">location</span>.<span class="ruby-identifier">lineno</span>
 
         <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
-          <span class="ruby-identifier">_helpers_for_modification</span>.<span class="ruby-identifier">class_eval</span> <span class="ruby-identifier">&lt;&lt;~ruby_eval</span>, <span class="ruby-identifier">file</span>, <span class="ruby-identifier">line</span>
-<span class="ruby-value">            def #{method}(*args, &amp;block)                    # def current_user(*args, &amp;block)
-              controller.send(:&#39;#{method}&#39;, *args, &amp;block)  #   controller.send(:&#39;current_user&#39;, *args, &amp;block)
-            end                                             # end
+          <span class="ruby-comment"># def current_user(*args, &amp;block)</span>
+          <span class="ruby-comment">#   controller.send(:&#39;current_user&#39;, *args, &amp;block)</span>
+          <span class="ruby-comment"># end</span>
+          <span class="ruby-identifier">_helpers_for_modification</span>.<span class="ruby-identifier">class_eval</span> <span class="ruby-identifier">&lt;&lt;~ruby_eval</span>.<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:strip</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;;&quot;</span>), <span class="ruby-identifier">file</span>, <span class="ruby-identifier">line</span>
+<span class="ruby-value">            def #{method}(*args, &amp;block)
+              controller.send(:&#39;#{method}&#39;, *args, &amp;block)
+            end
             ruby2_keywords(:&#39;#{method}&#39;)
 </span><span class="ruby-identifier">          ruby_eval</span>
         <span class="ruby-keyword">end</span>
@@ -461,7 +534,7 @@ end
 
           
             <div class="description">
-              <p>When a class is inherited, wrap its helper module in a new module. This ensures that the parent class&#39;s module can be changed independently of the child class&#39;s.</p>
+              <p>When a class is inherited, wrap its helper module in a new module. This ensures that the parent class’s module can be changed independently of the child class’s.</p>
             </div>
           
 
@@ -478,7 +551,7 @@ end
                 
               </p>
               <div id="method-i-inherited_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 48</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 84</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inherited</span>(<span class="ruby-identifier">klass</span>)
   <span class="ruby-comment"># Inherited from parent by default</span>
   <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">_helpers</span> = <span class="ruby-keyword">nil</span>
@@ -495,6 +568,7 @@ end
           <h3 id="method-i-modules_for_helpers">
             
               modules_for_helpers(modules_or_helper_prefixes)
+
             
           </h3>
 
@@ -517,21 +591,8 @@ end
                 
               </p>
               <div id="method-i-modules_for_helpers_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 169</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">modules_for_helpers</span>(<span class="ruby-identifier">modules_or_helper_prefixes</span>)
-  <span class="ruby-identifier">modules_or_helper_prefixes</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">map!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">module_or_helper_prefix</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">case</span> <span class="ruby-identifier">module_or_helper_prefix</span>
-    <span class="ruby-keyword">when</span> <span class="ruby-constant">Module</span>
-      <span class="ruby-identifier">module_or_helper_prefix</span>
-    <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">Symbol</span>
-      <span class="ruby-identifier">helper_prefix</span> = <span class="ruby-identifier">module_or_helper_prefix</span>.<span class="ruby-identifier">to_s</span>
-      <span class="ruby-identifier">helper_prefix</span> = <span class="ruby-identifier">helper_prefix</span>.<span class="ruby-identifier">camelize</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">helper_prefix</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-regexp">/[A-Z]/</span>)
-      <span class="ruby-node">&quot;#{helper_prefix}Helper&quot;</span>.<span class="ruby-identifier">constantize</span>
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;helper must be a String, Symbol, or Module&quot;</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 97</span>
+      </code></pre>
               </div>
             </div>
             
@@ -552,11 +613,10 @@ end
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -119,7 +139,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -140,7 +160,7 @@
 <p><a href="Behavior.html"><code>Behavior</code></a> module allows to determine how to display deprecation messages. You can create a custom behavior or set any from the <code>DEFAULT_BEHAVIORS</code> constant. Available behaviors are:</p>
 <dl class="rdoc-list label-list"><dt><code>raise</code>
 <dd>
-<p>Raise <code>ActiveSupport::DeprecationException</code>.</p>
+<p>Raise <a href="../DeprecationException.html"><code>ActiveSupport::DeprecationException</code></a>.</p>
 </dd><dt><code>stderr</code>
 <dd>
 <p>Log all deprecation warnings to <code>$stderr</code>.</p>
@@ -150,6 +170,9 @@
 </dd><dt><code>notify</code>
 <dd>
 <p>Use <code>ActiveSupport::Notifications</code> to notify <code>deprecation.rails</code>.</p>
+</dd><dt><code>report</code>
+<dd>
+<p>Use <code>ActiveSupport::ErrorReporter</code> to report deprecations.</p>
 </dd><dt><code>silence</code>
 <dd>
 <p>Do nothing. On Rails, set <code>config.active_support.report_deprecations = false</code> to disable all behaviors.</p>
@@ -230,7 +253,7 @@
 
           
             <div class="description">
-              <p>Returns the current behavior or if one isn&#39;t set, defaults to <code>:stderr</code>.</p>
+              <p>Returns the current behavior or if one isn’t set, defaults to <code>:stderr</code>.</p>
             </div>
           
 
@@ -247,7 +270,7 @@
                 
               </p>
               <div id="method-i-behavior_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/deprecation/behaviors.rb, line 66</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/deprecation/behaviors.rb, line 74</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">behavior</span>
   <span class="ruby-ivar">@behavior</span> <span class="ruby-operator">||=</span> [<span class="ruby-constant">DEFAULT_BEHAVIORS</span>[<span class="ruby-value">:stderr</span>]]
 <span class="ruby-keyword">end</span></code></pre>
@@ -270,7 +293,7 @@
 <p>Available behaviors:</p>
 <dl class="rdoc-list label-list"><dt><code>raise</code>
 <dd>
-<p>Raise <code>ActiveSupport::DeprecationException</code>.</p>
+<p>Raise <a href="../DeprecationException.html"><code>ActiveSupport::DeprecationException</code></a>.</p>
 </dd><dt><code>stderr</code>
 <dd>
 <p>Log all deprecation warnings to <code>$stderr</code>.</p>
@@ -280,6 +303,9 @@
 </dd><dt><code>notify</code>
 <dd>
 <p>Use <code>ActiveSupport::Notifications</code> to notify <code>deprecation.rails</code>.</p>
+</dd><dt><code>report</code>
+<dd>
+<p>Use <code>ActiveSupport::ErrorReporter</code> to report deprecations.</p>
 </dd><dt><code>silence</code>
 <dd>
 <p>Do nothing.</p>
@@ -287,10 +313,11 @@
 
 <p>Setting behaviors only affects deprecations that happen after boot time. <a href="../Deprecation.html"><code>Deprecation</code></a> warnings raised by gems are not affected by this setting because they happen before Rails boots up.</p>
 
-<pre><code>ActiveSupport::Deprecation.behavior = :stderr
-ActiveSupport::Deprecation.behavior = [:stderr, :log]
-ActiveSupport::Deprecation.behavior = MyCustomHandler
-ActiveSupport::Deprecation.behavior = -&gt;(message, callstack, deprecation_horizon, gem_name) {
+<pre><code>deprecator = ActiveSupport::Deprecation.new
+deprecator.behavior = :stderr
+deprecator.behavior = [:stderr, :log]
+deprecator.behavior = MyCustomHandler
+deprecator.behavior = -&gt;(message, callstack, deprecation_horizon, gem_name) {
   # custom stuff
 }
 </code></pre>
@@ -312,7 +339,7 @@ ActiveSupport::Deprecation.behavior = -&gt;(message, callstack, deprecation_hori
                 
               </p>
               <div id="method-i-behavior-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/deprecation/behaviors.rb, line 99</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/deprecation/behaviors.rb, line 109</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">behavior=</span>(<span class="ruby-identifier">behavior</span>)
   <span class="ruby-ivar">@behavior</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">behavior</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-constant">DEFAULT_BEHAVIORS</span>[<span class="ruby-identifier">b</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">arity_coerce</span>(<span class="ruby-identifier">b</span>) }
 <span class="ruby-keyword">end</span></code></pre>
@@ -330,7 +357,7 @@ ActiveSupport::Deprecation.behavior = -&gt;(message, callstack, deprecation_hori
 
           
             <div class="description">
-              <p>Returns the current behavior for disallowed deprecations or if one isn&#39;t set, defaults to <code>:raise</code>.</p>
+              <p>Returns the current behavior for disallowed deprecations or if one isn’t set, defaults to <code>:raise</code>.</p>
             </div>
           
 
@@ -347,7 +374,7 @@ ActiveSupport::Deprecation.behavior = -&gt;(message, callstack, deprecation_hori
                 
               </p>
               <div id="method-i-disallowed_behavior_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/deprecation/behaviors.rb, line 71</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/deprecation/behaviors.rb, line 79</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">disallowed_behavior</span>
   <span class="ruby-ivar">@disallowed_behavior</span> <span class="ruby-operator">||=</span> [<span class="ruby-constant">DEFAULT_BEHAVIORS</span>[<span class="ruby-value">:raise</span>]]
 <span class="ruby-keyword">end</span></code></pre>
@@ -365,7 +392,7 @@ ActiveSupport::Deprecation.behavior = -&gt;(message, callstack, deprecation_hori
 
           
             <div class="description">
-              <p>Sets the behavior for disallowed deprecations (those configured by <a href="Disallowed.html#attribute-i-disallowed_warnings"><code>ActiveSupport::Deprecation.disallowed_warnings=</code></a>) to the specified value. As with <code>behavior=</code>, this can be a single value, array, or an object that responds to <code>call</code>.</p>
+              <p>Sets the behavior for disallowed deprecations (those configured by <a href="Disallowed.html#attribute-i-disallowed_warnings"><code>ActiveSupport::Deprecation#disallowed_warnings=</code></a>) to the specified value. As with <code>behavior=</code>, this can be a single value, array, or an object that responds to <code>call</code>.</p>
             </div>
           
 
@@ -382,7 +409,7 @@ ActiveSupport::Deprecation.behavior = -&gt;(message, callstack, deprecation_hori
                 
               </p>
               <div id="method-i-disallowed_behavior-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/deprecation/behaviors.rb, line 107</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/deprecation/behaviors.rb, line 117</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">disallowed_behavior=</span>(<span class="ruby-identifier">behavior</span>)
   <span class="ruby-ivar">@disallowed_behavior</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">behavior</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-constant">DEFAULT_BEHAVIORS</span>[<span class="ruby-identifier">b</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">arity_coerce</span>(<span class="ruby-identifier">b</span>) }
 <span class="ruby-keyword">end</span></code></pre>
@@ -406,11 +433,10 @@ ActiveSupport::Deprecation.behavior = -&gt;(message, callstack, deprecation_hori
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

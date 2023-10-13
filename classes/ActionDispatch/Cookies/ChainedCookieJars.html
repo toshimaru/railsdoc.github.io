@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -118,7 +138,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -197,11 +217,11 @@
 
           
             <div class="description">
-              <p>Returns a jar that&#39;ll automatically encrypt cookie values before sending them to the client and will decrypt them for read. If the cookie was tampered with by the user (or a 3rd party), <code>nil</code> will be returned.</p>
+              <p>Returns a jar that’ll automatically encrypt cookie values before sending them to the client and will decrypt them for read. If the cookie was tampered with by the user (or a 3rd party), <code>nil</code> will be returned.</p>
 
 <p>If <code>config.action_dispatch.encrypted_cookie_salt</code> and <code>config.action_dispatch.encrypted_signed_cookie_salt</code> are both set, legacy cookies encrypted with HMAC AES-256-CBC will be transparently upgraded.</p>
 
-<p>This jar requires that you set a suitable secret for the verification on your app&#39;s <code>secret_key_base</code>.</p>
+<p>This jar requires that you set a suitable secret for the verification on your app’s <code>secret_key_base</code>.</p>
 
 <p>Example:</p>
 
@@ -226,7 +246,7 @@ cookies.encrypted[:discount] # =&gt; 45
                 
               </p>
               <div id="method-i-encrypted_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/cookies.rb, line 252</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/cookies.rb, line 258</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">encrypted</span>
   <span class="ruby-ivar">@encrypted</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">EncryptedKeyRotatingCookieJar</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -244,13 +264,13 @@ cookies.encrypted[:discount] # =&gt; 45
 
           
             <div class="description">
-              <p>Returns a jar that&#39;ll automatically set the assigned cookies to have an expiration date 20 years from now. Example:</p>
+              <p>Returns a jar that’ll automatically set the assigned cookies to have an expiration date 20 years from now. Example:</p>
 
 <pre><code>cookies.permanent[:prefers_open_id] = true
 # =&gt; Set-Cookie: prefers_open_id=true; path=/; expires=Sun, 16-Dec-2029 03:24:16 GMT
 </code></pre>
 
-<p>This jar is only meant for writing. You&#39;ll read permanent cookies through the regular accessor.</p>
+<p>This jar is only meant for writing. You’ll read permanent cookies through the regular accessor.</p>
 
 <p>This jar allows chaining with the signed jar as well, so you can set permanent, signed cookies. Examples:</p>
 
@@ -273,7 +293,7 @@ cookies.encrypted[:discount] # =&gt; 45
                 
               </p>
               <div id="method-i-permanent_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/cookies.rb, line 218</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/cookies.rb, line 224</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">permanent</span>
   <span class="ruby-ivar">@permanent</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">PermanentCookieJar</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -291,9 +311,9 @@ cookies.encrypted[:discount] # =&gt; 45
 
           
             <div class="description">
-              <p>Returns a jar that&#39;ll automatically generate a signed representation of cookie value and verify it when reading from the cookie again. This is useful for creating cookies with values that the user is not supposed to change. If a signed cookie was tampered with by the user (or a 3rd party), <code>nil</code> will be returned.</p>
+              <p>Returns a jar that’ll automatically generate a signed representation of cookie value and verify it when reading from the cookie again. This is useful for creating cookies with values that the user is not supposed to change. If a signed cookie was tampered with by the user (or a 3rd party), <code>nil</code> will be returned.</p>
 
-<p>This jar requires that you set a suitable secret for the verification on your app&#39;s <code>secret_key_base</code>.</p>
+<p>This jar requires that you set a suitable secret for the verification on your app’s <code>secret_key_base</code>.</p>
 
 <p>Example:</p>
 
@@ -318,7 +338,7 @@ cookies.signed[:discount] # =&gt; 45
                 
               </p>
               <div id="method-i-signed_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/cookies.rb, line 234</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/cookies.rb, line 240</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">signed</span>
   <span class="ruby-ivar">@signed</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">SignedKeyRotatingCookieJar</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -353,7 +373,7 @@ cookies.signed[:discount] # =&gt; 45
                 
               </p>
               <div id="method-i-signed_or_encrypted_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/cookies.rb, line 258</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/cookies.rb, line 264</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">signed_or_encrypted</span>
   <span class="ruby-ivar">@signed_or_encrypted</span> <span class="ruby-operator">||=</span>
     <span class="ruby-keyword">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">secret_key_base</span>.<span class="ruby-identifier">present?</span>
@@ -382,11 +402,10 @@ cookies.signed[:discount] # =&gt; 45
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

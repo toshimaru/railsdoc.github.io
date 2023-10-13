@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -99,6 +119,11 @@
 </li>
 <li class="toc-entry toc-h2"><a href="#instance-public-methods">Instance Public methods</a>
 <ul>
+<li class="toc-entry toc-h3"><a href="#method-i-destroy">
+            
+              destroy()
+            
+          </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-download">
             
               download(&amp;block)
@@ -138,7 +163,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -162,6 +187,8 @@
   
     <div class="description">
       
+<h1 id="class-ActiveStorage::Variant-label-Active+Storage+Variant">Active Storage Variant</h1>
+
 <p>Image blobs can have variants that are the result of a set of transformations applied to the original. These variants are used to create thumbnails, fixed-size avatars, or any other derivative image from the original.</p>
 
 <p>Variants rely on <a href="https://github.com/janko/image_processing">ImageProcessing</a> gem for the actual transformations of the file, so you must add <code>gem &quot;image_processing&quot;</code> to your Gemfile if you wish to use variants. By default, images will be processed with <a href="http://imagemagick.org">ImageMagick</a> using the <a href="https://github.com/minimagick/minimagick">MiniMagick</a> gem, but you can also switch to the <a href="http://libvips.github.io/libvips/">libvips</a> processor operated by the <a href="https://github.com/libvips/ruby-vips">ruby-vips</a> gem).</p>
@@ -173,7 +200,7 @@ Rails.application.config.active_storage.variant_processor = :vips
 # =&gt; :vips
 </code></pre>
 
-<p>Note that to create a variant it&#39;s necessary to download the entire blob file from the service. Because of this process, you also want to be considerate about when the variant is actually processed. You shouldn&#39;t be processing variants inline in a template, for example. Delay the processing to an on-demand controller, like the one provided in ActiveStorage::RepresentationsController.</p>
+<p>Note that to create a variant it’s necessary to download the entire blob file from the service. Because of this process, you also want to be considerate about when the variant is actually processed. You shouldn’t be processing variants inline in a template, for example. Delay the processing to an on-demand controller, like the one provided in ActiveStorage::RepresentationsController.</p>
 
 <p>To refer to such a delayed on-demand variant, simply link to the variant through the resolved route provided by Active Storage like so:</p>
 
@@ -187,7 +214,7 @@ Rails.application.config.active_storage.variant_processor = :vips
 <pre><code>avatar.variant(resize_to_limit: [100, 100]).processed.url
 </code></pre>
 
-<p>This will create and process a variant of the avatar blob that&#39;s constrained to a height and width of 100. Then it&#39;ll upload said variant to the service according to a derivative key of the blob and the transformations.</p>
+<p>This will create and process a variant of the avatar blob that’s constrained to a height and width of 100. Then it’ll upload said variant to the service according to a derivative key of the blob and the transformations.</p>
 
 <p>You can combine any number of ImageMagick/libvips operations into a variant, as well as any macros provided by the ImageProcessing gem (such as <code>resize_to_limit</code>):</p>
 
@@ -219,6 +246,10 @@ Rails.application.config.active_storage.variant_processor = :vips
   
     <h2 id="methods">Methods</h2>
     <ul>
+      
+        <li>
+          <a href="#method-i-destroy">destroy</a>
+        </li>
       
         <li>
           <a href="#method-i-download">download</a>
@@ -314,7 +345,7 @@ Rails.application.config.active_storage.variant_processor = :vips
                 
               </p>
               <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/variant.rb, line 58</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/variant.rb, line 60</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">blob</span>, <span class="ruby-identifier">variation_or_variation_key</span>)
   <span class="ruby-ivar">@blob</span>, <span class="ruby-ivar">@variation</span> = <span class="ruby-identifier">blob</span>, <span class="ruby-constant">ActiveStorage</span><span class="ruby-operator">::</span><span class="ruby-constant">Variation</span>.<span class="ruby-identifier">wrap</span>(<span class="ruby-identifier">variation_or_variation_key</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -328,6 +359,41 @@ Rails.application.config.active_storage.variant_processor = :vips
       <h2 id="instance-public-methods">Instance Public methods</h2>
       
         <div class="method">
+          <h3 id="method-i-destroy">
+            
+              destroy()
+            
+          </h3>
+
+          
+            <div class="description">
+              <p>Deletes variant file from service.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                
+              </p>
+              <div id="method-i-destroy_source">
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/variant.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
+  <span class="ruby-identifier">service</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></code></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
           <h3 id="method-i-download">
             
               download(&amp;block)
@@ -336,7 +402,7 @@ Rails.application.config.active_storage.variant_processor = :vips
 
           
             <div class="description">
-              <p>Downloads the file associated with this variant. If no block is given, the entire file is read into memory and returned. That&#39;ll use a lot of RAM for very large files. If a block is given, then the download is streamed and yielded in chunks.</p>
+              <p>Downloads the file associated with this variant. If no block is given, the entire file is read into memory and returned. That’ll use a lot of RAM for very large files. If a block is given, then the download is streamed and yielded in chunks.</p>
             </div>
           
 
@@ -353,7 +419,7 @@ Rails.application.config.active_storage.variant_processor = :vips
                 
               </p>
               <div id="method-i-download_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/variant.rb, line 84</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/variant.rb, line 86</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">download</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">service</span>.<span class="ruby-identifier">download</span> <span class="ruby-identifier">key</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -388,7 +454,7 @@ Rails.application.config.active_storage.variant_processor = :vips
                 
               </p>
               <div id="method-i-filename_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/variant.rb, line 88</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/variant.rb, line 90</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">filename</span>
   <span class="ruby-constant">ActiveStorage</span><span class="ruby-operator">::</span><span class="ruby-constant">Filename</span>.<span class="ruby-identifier">new</span> <span class="ruby-node">&quot;#{blob.filename.base}.#{variation.format.downcase}&quot;</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -423,7 +489,7 @@ Rails.application.config.active_storage.variant_processor = :vips
                 
               </p>
               <div id="method-i-image_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/variant.rb, line 99</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/variant.rb, line 95</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">image</span>
   <span class="ruby-keyword">self</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -458,7 +524,7 @@ Rails.application.config.active_storage.variant_processor = :vips
                 
               </p>
               <div id="method-i-key_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/variant.rb, line 69</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/variant.rb, line 71</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">key</span>
   <span class="ruby-node">&quot;variants/#{blob.key}/#{OpenSSL::Digest::SHA256.hexdigest(variation.key)}&quot;</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -476,7 +542,7 @@ Rails.application.config.active_storage.variant_processor = :vips
 
           
             <div class="description">
-              <p>Returns the variant instance itself after it&#39;s been processed or an existing processing has been found on the service.</p>
+              <p>Returns the variant instance itself after it’s been processed or an existing processing has been found on the service.</p>
             </div>
           
 
@@ -493,7 +559,7 @@ Rails.application.config.active_storage.variant_processor = :vips
                 
               </p>
               <div id="method-i-processed_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/variant.rb, line 63</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/variant.rb, line 65</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">processed</span>
   <span class="ruby-identifier">process</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">processed?</span>
   <span class="ruby-keyword">self</span>
@@ -514,7 +580,7 @@ Rails.application.config.active_storage.variant_processor = :vips
             <div class="description">
               <p>Returns the URL of the blob variant on the service. See {ActiveStorage::Blob#url} for details.</p>
 
-<p>Use <code>url_for(variant)</code> (or the implied form, like +link_to variant+ or +redirect_to variant+) to get the stable URL for a variant that points to the ActiveStorage::RepresentationsController, which in turn will use this <code>service_call</code> method for its redirection.</p>
+<p>Use <code>url_for(variant)</code> (or the implied form, like <code>link_to variant</code> or <code>redirect_to variant</code>) to get the stable URL for a variant that points to the ActiveStorage::RepresentationsController, which in turn will use this <code>service_call</code> method for its redirection.</p>
             </div>
           
 
@@ -531,7 +597,7 @@ Rails.application.config.active_storage.variant_processor = :vips
                 
               </p>
               <div id="method-i-url_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/variant.rb, line 78</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/variant.rb, line 80</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">url</span>(<span class="ruby-value">expires_in:</span> <span class="ruby-constant">ActiveStorage</span>.<span class="ruby-identifier">service_urls_expire_in</span>, <span class="ruby-value">disposition:</span> <span class="ruby-value">:inline</span>)
   <span class="ruby-identifier">service</span>.<span class="ruby-identifier">url</span> <span class="ruby-identifier">key</span>, <span class="ruby-value">expires_in:</span> <span class="ruby-identifier">expires_in</span>, <span class="ruby-value">disposition:</span> <span class="ruby-identifier">disposition</span>, <span class="ruby-value">filename:</span> <span class="ruby-identifier">filename</span>, <span class="ruby-value">content_type:</span> <span class="ruby-identifier">content_type</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -555,11 +621,10 @@ Rails.application.config.active_storage.variant_processor = :vips
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

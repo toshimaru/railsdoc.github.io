@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -114,6 +134,11 @@
               filtered_path()
             
           </a></li>
+<li class="toc-entry toc-h3"><a href="#method-i-parameter_filter">
+            
+              parameter_filter()
+            
+          </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#instance-private-methods">Instance Private methods</a>
@@ -126,11 +151,6 @@
 <li class="toc-entry toc-h3"><a href="#method-i-filtered_query_string">
             
               filtered_query_string()
-            
-          </a></li>
-<li class="toc-entry toc-h3"><a href="#method-i-parameter_filter">
-            
-              parameter_filter()
             
           </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-parameter_filter_for">
@@ -147,7 +167,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -165,28 +185,15 @@
   
     <div class="description">
       
-<p>Allows you to specify sensitive parameters which will be replaced from the request log by looking in the query string of the request and all sub-hashes of the params hash to filter. Filtering only certain sub-keys from a hash is possible by using the dot notation: &#39;credit_card.number&#39;. If a block is given, each key and value of the params hash and all sub-hashes are passed to it, where the value or the key can be replaced using String#replace or similar methods.</p>
+<h1 id="module-ActionDispatch::Http::FilterParameters-label-Action+Dispatch+HTTP+Filter+Parameters">Action Dispatch HTTP Filter <a href="Parameters.html"><code>Parameters</code></a></h1>
 
-<pre><code>env[&quot;action_dispatch.parameter_filter&quot;] = [:password]
-=&gt; replaces the value to all keys matching /password/i with &quot;[FILTERED]&quot;
+<p>Allows you to specify sensitive query string and POST parameters to filter from the request log.</p>
 
+<pre><code># Replaces values with &quot;[FILTERED]&quot; for keys that match /foo|bar/i.
 env[&quot;action_dispatch.parameter_filter&quot;] = [:foo, &quot;bar&quot;]
-=&gt; replaces the value to all keys matching /foo|bar/i with &quot;[FILTERED]&quot;
-
-env[&quot;action_dispatch.parameter_filter&quot;] = [ /\Apin\z/i, /\Apin_/i ]
-=&gt; replaces the value for the exact (case-insensitive) key &#39;pin&#39; and all
-(case-insensitive) keys beginning with &#39;pin_&#39;, with &quot;[FILTERED]&quot;
-Does not match keys with &#39;pin&#39; as a substring, such as &#39;shipping_id&#39;.
-
-env[&quot;action_dispatch.parameter_filter&quot;] = [ &quot;credit_card.code&quot; ]
-=&gt; replaces { credit_card: {code: &quot;xxxx&quot;} } with &quot;[FILTERED]&quot;, does not
-change { file: { code: &quot;xxxx&quot;} }
-
-env[&quot;action_dispatch.parameter_filter&quot;] = -&gt; (k, v) do
-  v.reverse! if k.match?(/secret/i)
-end
-=&gt; reverses the value to all keys matching /secret/i
 </code></pre>
+
+<p>For more information about filter behavior, see <a href="../../ActiveSupport/ParameterFilter.html"><code>ActiveSupport::ParameterFilter</code></a>.</p>
 
     </div>
   
@@ -309,12 +316,13 @@ end
                 
               </p>
               <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 39</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
   <span class="ruby-keyword">super</span>
   <span class="ruby-ivar">@filtered_parameters</span> = <span class="ruby-keyword">nil</span>
   <span class="ruby-ivar">@filtered_env</span>        = <span class="ruby-keyword">nil</span>
   <span class="ruby-ivar">@filtered_path</span>       = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@parameter_filter</span>    = <span class="ruby-keyword">nil</span>
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -351,7 +359,7 @@ end
                 
               </p>
               <div id="method-i-filtered_env_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 54</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">filtered_env</span>
   <span class="ruby-ivar">@filtered_env</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">env_filter</span>.<span class="ruby-identifier">filter</span>(<span class="ruby-ivar">@env</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -386,7 +394,7 @@ end
                 
               </p>
               <div id="method-i-filtered_parameters_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 47</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">filtered_parameters</span>
   <span class="ruby-ivar">@filtered_parameters</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">parameter_filter</span>.<span class="ruby-identifier">filter</span>(<span class="ruby-identifier">parameters</span>)
 <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">Http</span><span class="ruby-operator">::</span><span class="ruby-constant">Parameters</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseError</span>
@@ -423,9 +431,48 @@ end
                 
               </p>
               <div id="method-i-filtered_path_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 59</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">filtered_path</span>
   <span class="ruby-ivar">@filtered_path</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">query_string</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">path</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{path}?#{filtered_query_string}&quot;</span>
+<span class="ruby-keyword">end</span></code></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <h3 id="method-i-parameter_filter">
+            
+              parameter_filter()
+            
+          </h3>
+
+          
+            <div class="description">
+              <p>Returns the <code>ActiveSupport::ParameterFilter</code> object used to filter in this request.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                
+              </p>
+              <div id="method-i-parameter_filter_source">
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parameter_filter</span>
+  <span class="ruby-ivar">@parameter_filter</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">has_header?</span>(<span class="ruby-string">&quot;action_dispatch.parameter_filter&quot;</span>)
+    <span class="ruby-identifier">parameter_filter_for</span> <span class="ruby-identifier">get_header</span>(<span class="ruby-string">&quot;action_dispatch.parameter_filter&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">NULL_PARAM_FILTER</span>
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -461,7 +508,7 @@ end
                 
               </p>
               <div id="method-i-env_filter_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 70</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 56</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">env_filter</span> <span class="ruby-comment"># :doc:</span>
   <span class="ruby-identifier">user_key</span> = <span class="ruby-identifier">fetch_header</span>(<span class="ruby-string">&quot;action_dispatch.parameter_filter&quot;</span>) {
     <span class="ruby-keyword">return</span> <span class="ruby-constant">NULL_ENV_FILTER</span>
@@ -499,48 +546,11 @@ end
                 
               </p>
               <div id="method-i-filtered_query_string_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 83</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">filtered_query_string</span> <span class="ruby-comment"># :doc:</span>
   <span class="ruby-identifier">query_string</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">PAIR_RE</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">_</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">parameter_filter</span>.<span class="ruby-identifier">filter</span>(<span class="ruby-node">$1</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-node">$2</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;=&quot;</span>)
   <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
-        
-        <div class="method">
-          <h3 id="method-i-parameter_filter">
-            
-              parameter_filter()
-            
-          </h3>
-
-          
-            <div class="description">
-              
-            </div>
-          
-
-          
-
-          
-
-          
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-parameter_filter_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 64</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parameter_filter</span> <span class="ruby-comment"># :doc:</span>
-  <span class="ruby-identifier">parameter_filter_for</span> <span class="ruby-identifier">fetch_header</span>(<span class="ruby-string">&quot;action_dispatch.parameter_filter&quot;</span>) {
-    <span class="ruby-keyword">return</span> <span class="ruby-constant">NULL_PARAM_FILTER</span>
-  }
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -573,7 +583,7 @@ end
                 
               </p>
               <div id="method-i-parameter_filter_for_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 77</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parameter_filter_for</span>(<span class="ruby-identifier">filters</span>) <span class="ruby-comment"># :doc:</span>
   <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">ParameterFilter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filters</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -597,11 +607,10 @@ end
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

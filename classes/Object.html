@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -54,19 +54,39 @@
       <li class="nav-item text-nowrap p-1">
         <div class="dropdown">
           <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            v7.0
+            v7.1
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/">v7.0</a>
             
               
-              <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+              
+                <a class="dropdown-item" href="/">v7.1</a>
+              
             
               
-              <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+              
+                <a class="dropdown-item" href="/7.0/">v7.0</a>
+              
             
               
-              <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
+              
+                <a class="dropdown-item" href="/6.1/">v6.1</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/6.0/">v6.0</a>
+              
+            
+              
+              
+              
+                <a class="dropdown-item" href="/5.2/">v5.2</a>
+              
             
           </div>
         </div>
@@ -168,6 +188,11 @@
 
             
           </a></li>
+<li class="toc-entry toc-h3"><a href="#method-i-with">
+            
+              with(**attributes)
+            
+          </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-with_options">
             
               with_options(options, &amp;block)
@@ -182,7 +207,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.0.4</span><br />
+            <span>Ruby on Rails 7.1.0</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -196,8 +221,6 @@
             
         </h1>
         <ul class="files">
-            
-            <li><a href="../files/activesupport/lib/active_support/core_ext/enumerable_rb.html">activesupport/lib/active_support/core_ext/enumerable.rb</a></li>
             
             <li><a href="../files/activesupport/lib/active_support/core_ext/object/acts_like_rb.html">activesupport/lib/active_support/core_ext/object/acts_like.rb</a></li>
             
@@ -217,6 +240,8 @@
             
             <li><a href="../files/activesupport/lib/active_support/core_ext/object/try_rb.html">activesupport/lib/active_support/core_ext/object/try.rb</a></li>
             
+            <li><a href="../files/activesupport/lib/active_support/core_ext/object/with_rb.html">activesupport/lib/active_support/core_ext/object/with.rb</a></li>
+            
             <li><a href="../files/activesupport/lib/active_support/core_ext/object/with_options_rb.html">activesupport/lib/active_support/core_ext/object/with_options.rb</a></li>
             
             <li><a href="../files/activesupport/lib/active_support/core_ext/string/output_safety_rb.html">activesupport/lib/active_support/core_ext/string/output_safety.rb</a></li>
@@ -226,8 +251,6 @@
             <li><a href="../files/activesupport/lib/active_support/xml_mini/jdom_rb.html">activesupport/lib/active_support/xml_mini/jdom.rb</a></li>
             
             <li><a href="../files/railties/lib/rails/engine/commands_rb.html">railties/lib/rails/engine/commands.rb</a></li>
-            
-            <li><a href="../files/railties/lib/rails/test_help_rb.html">railties/lib/rails/test_help.rb</a></li>
             
         </ul>
     </div>
@@ -308,6 +331,10 @@
         </li>
       
         <li>
+          <a href="#method-i-with">with</a>
+        </li>
+      
+        <li>
           <a href="#method-i-with_options">with_options</a>
         </li>
       
@@ -322,14 +349,6 @@
         <li>
           
             Java
-          
-        </li>
-      
-        <li>
-          
-            <a href="ActiveRecord/TestFixtures.html">
-              ActiveRecord::TestFixtures
-            </a>
           
         </li>
       
@@ -383,7 +402,7 @@
 
 <p>For example, Active Support extends <code>Date</code> to define an <code>acts_like_date?</code> method, and extends <code>Time</code> to define <code>acts_like_time?</code>. As a result, developers can call <code>x.acts_like?(:time)</code> and <code>x.acts_like?(:date)</code> to test duck-type compatibility, and classes that are able to act like <code>Time</code> can also define an <code>acts_like_time?</code> method to interoperate.</p>
 
-<p>Note that the marker method is only expected to exist. It isn&#39;t called, so its body or return value are irrelevant.</p>
+<p>Note that the marker method is only expected to exist. It isn’t called, so its body or return value are irrelevant.</p>
 
 <h4 id="method-i-acts_like-3F-label-Example-3A+A+class+that+provides+the+same+interface+as+String">Example: A class that provides the same interface as <code>String</code></h4>
 
@@ -442,7 +461,7 @@ end
 
           
             <div class="description">
-              <p>An object is blank if it&#39;s false, empty, or a whitespace string. For example, <code>nil</code>, &#39;&#39;, &#39;   &#39;, [], {}, and <code>false</code> are all blank.</p>
+              <p>An object is blank if it’s false, empty, or a whitespace string. For example, <code>nil</code>, ”, ‘   ’, [], {}, and <code>false</code> are all blank.</p>
 
 <p>This simplifies</p>
 
@@ -489,7 +508,7 @@ end
 
           
             <div class="description">
-              <p>Returns a deep copy of object if it&#39;s duplicable. If it&#39;s not duplicable, returns <code>self</code>.</p>
+              <p>Returns a deep copy of object if it’s duplicable. If it’s not duplicable, returns <code>self</code>.</p>
 
 <pre><code>object = Object.new
 dup    = object.deep_dup
@@ -586,7 +605,7 @@ dup.instance_variable_defined?(:@a)    # =&gt; true
                 
               </p>
               <div id="method-i-html_safe-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 150</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/string/output_safety.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">html_safe?</span>
   <span class="ruby-keyword">false</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -604,13 +623,15 @@ dup.instance_variable_defined?(:@a)    # =&gt; true
 
           
             <div class="description">
-              <p>Returns true if this object is included in the argument. Argument must be any object which responds to <code>#include?</code>. Usage:</p>
+              <p>Returns true if this object is included in the argument.</p>
+
+<p>When argument is a <code>Range</code>, <code>#cover?</code> is used to properly handle inclusion check within open ranges. Otherwise, argument must be any object which responds to <code>#include?</code>. Usage:</p>
 
 <pre><code>characters = [&quot;Konata&quot;, &quot;Kagami&quot;, &quot;Tsukasa&quot;]
 &quot;Konata&quot;.in?(characters) # =&gt; true
 </code></pre>
 
-<p>This will throw an <code>ArgumentError</code> if the argument doesn&#39;t respond to <code>#include?</code>.</p>
+<p>For non <code>Range</code> arguments, this will throw an <code>ArgumentError</code> if the argument doesn’t respond to <code>#include?</code>.</p>
             </div>
           
 
@@ -627,9 +648,14 @@ dup.instance_variable_defined?(:@a)    # =&gt; true
                 
               </p>
               <div id="method-i-in-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/object/inclusion.rb, line 12</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/object/inclusion.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">in?</span>(<span class="ruby-identifier">another_object</span>)
-  <span class="ruby-identifier">another_object</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">another_object</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Range</span>
+    <span class="ruby-identifier">another_object</span>.<span class="ruby-identifier">cover?</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">another_object</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NoMethodError</span>
   <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;The parameter passed to #in? must respond to #include?&quot;</span>)
 <span class="ruby-keyword">end</span></code></pre>
@@ -675,7 +701,9 @@ C.new(0, 1).instance_values # =&gt; {&quot;x&quot; =&gt; 0, &quot;y&quot; =&gt; 
               <div id="method-i-instance_values_source">
                 <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/object/instance_variables.rb, line 14</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">instance_values</span>
-  <span class="ruby-constant">Hash</span>[<span class="ruby-identifier">instance_variables</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">name</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>], <span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">name</span>)] }]
+  <span class="ruby-identifier">instance_variables</span>.<span class="ruby-identifier">to_h</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ivar</span><span class="ruby-operator">|</span>
+    [<span class="ruby-identifier">ivar</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">freeze</span>, <span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">ivar</span>)]
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -717,9 +745,9 @@ C.new(0, 1).instance_variable_names # =&gt; [&quot;@y&quot;, &quot;@x&quot;]
                 
               </p>
               <div id="method-i-instance_variable_names_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/object/instance_variables.rb, line 27</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/object/instance_variables.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">instance_variable_names</span>
-  <span class="ruby-identifier">instance_variables</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>)
+  <span class="ruby-identifier">instance_variables</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:name</span>)
 <span class="ruby-keyword">end</span></code></pre>
               </div>
             </div>
@@ -735,7 +763,7 @@ C.new(0, 1).instance_variable_names # =&gt; [&quot;@y&quot;, &quot;@x&quot;]
 
           
             <div class="description">
-              <p>Returns the receiver if it&#39;s present otherwise returns <code>nil</code>. <code>object.presence</code> is equivalent to</p>
+              <p>Returns the receiver if it’s present otherwise returns <code>nil</code>. <code>object.presence</code> is equivalent to</p>
 
 <pre><code>object.present? ? object : nil
 </code></pre>
@@ -787,12 +815,12 @@ region  = state || country || &#39;US&#39;
 
           
             <div class="description">
-              <p>Returns the receiver if it&#39;s included in the argument otherwise returns <code>nil</code>. Argument must be any object which responds to <code>#include?</code>. Usage:</p>
+              <p>Returns the receiver if it’s included in the argument otherwise returns <code>nil</code>. Argument must be any object which responds to <code>#include?</code>. Usage:</p>
 
 <pre><code>params[:bucket_type].presence_in %w( project calendar )
 </code></pre>
 
-<p>This will throw an <code>ArgumentError</code> if the argument doesn&#39;t respond to <code>#include?</code>.</p>
+<p>This will throw an <code>ArgumentError</code> if the argument doesn’t respond to <code>#include?</code>.</p>
 
 <p>@return [Object]</p>
             </div>
@@ -811,7 +839,7 @@ region  = state || country || &#39;US&#39;
                 
               </p>
               <div id="method-i-presence_in_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/object/inclusion.rb, line 26</span>
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/object/inclusion.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">presence_in</span>(<span class="ruby-identifier">another_object</span>)
   <span class="ruby-identifier">in?</span>(<span class="ruby-identifier">another_object</span>) <span class="ruby-operator">?</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
 <span class="ruby-keyword">end</span></code></pre>
@@ -829,7 +857,7 @@ region  = state || country || &#39;US&#39;
 
           
             <div class="description">
-              <p>An object is present if it&#39;s not blank.</p>
+              <p>An object is present if it’s not blank.</p>
 
 <p>@return [true, false]</p>
             </div>
@@ -990,12 +1018,12 @@ end
 end
 </code></pre>
 
-<p>You can also call try with a block without accepting an argument, and the block will be instance_eval&#39;ed instead:</p>
+<p>You can also call try with a block without accepting an argument, and the block will be instance_eval’ed instead:</p>
 
 <pre><code>@person.try { upcase.truncate(50) }
 </code></pre>
 
-<p>Please also note that <code>try</code> is defined on <code>Object</code>. Therefore, it won&#39;t work with instances of classes that do not have <code>Object</code> among their ancestors, like direct subclasses of <code>BasicObject</code>.</p>
+<p>Please also note that <code>try</code> is defined on <code>Object</code>. Therefore, it won’t work with instances of classes that do not have <code>Object</code> among their ancestors, like direct subclasses of <code>BasicObject</code>.</p>
             </div>
           
 
@@ -1059,6 +1087,72 @@ nil.try!(:upcase) # =&gt; nil
           </div>
         
         <div class="method">
+          <h3 id="method-i-with">
+            
+              with(**attributes)
+            
+          </h3>
+
+          
+            <div class="description">
+              <p>Set and restore public attributes around a block.</p>
+
+<pre><code>client.timeout # =&gt; 5
+client.with(timeout: 1) do
+  client.timeout # =&gt; 1
+end
+client.timeout # =&gt; 5
+</code></pre>
+
+<p>This method is a shorthand for the common begin/ensure pattern:</p>
+
+<pre><code>old_value = object.attribute
+begin
+  object.attribute = new_value
+  # do things
+ensure
+  object.attribute = old_value
+end
+</code></pre>
+
+<p>It can be used on any object as long as both the reader and writer methods are public.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                
+              </p>
+              <div id="method-i-with_source">
+                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/object/with.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">with</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">attributes</span>)
+  <span class="ruby-identifier">old_values</span> = {}
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">old_values</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">key</span>)
+      <span class="ruby-identifier">public_send</span>(<span class="ruby-node">&quot;#{key}=&quot;</span>, <span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">old_values</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">old_value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">public_send</span>(<span class="ruby-node">&quot;#{key}=&quot;</span>, <span class="ruby-identifier">old_value</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></code></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
           <h3 id="method-i-with_options">
             
               with_options(options, &amp;block)
@@ -1067,7 +1161,7 @@ nil.try!(:upcase) # =&gt; nil
 
           
             <div class="description">
-              <p>An elegant way to factor duplication out of options passed to a series of method calls. Each method called in the block, with the block variable as the receiver, will have its options merged with the default <code>options</code> hash provided. Each method called on the block variable must take an options hash as its final argument.</p>
+              <p>An elegant way to factor duplication out of options passed to a series of method calls. Each method called in the block, with the block variable as the receiver, will have its options merged with the default <code>options</code> <code>Hash</code> or <code>Hash</code>-like object provided. Each method called on the block variable must take an options hash as its final argument.</p>
 
 <p>Without <code>with_options</code>, this code contains duplication:</p>
 
@@ -1099,7 +1193,7 @@ end
 end
 </code></pre>
 
-<p>When you don&#39;t pass an explicit receiver, it executes the whole block in merging options context:</p>
+<p>When you don’t pass an explicit receiver, it executes the whole block in merging options context:</p>
 
 <pre><code>class Account &lt; ActiveRecord::Base
   with_options dependent: :destroy do
@@ -1129,7 +1223,7 @@ end
 
 <p>Hence the inherited default for <code>if</code> key is ignored.</p>
 
-<p>NOTE: You cannot call class methods implicitly inside of with_options. You can access these methods using the class name instead:</p>
+<p>NOTE: You cannot call class methods implicitly inside of <code>with_options</code>. You can access these methods using the class name instead:</p>
 
 <pre><code>class Phone &lt; ActiveRecord::Base
   enum phone_number_type: { home: 0, office: 1, mobile: 2 }
@@ -1148,11 +1242,11 @@ end
   end
 end
 
-# styled.link_to &quot;I&#39;m red&quot;, &quot;/&quot;
-# #=&gt; &lt;a href=&quot;/&quot; style=&quot;color: red;&quot;&gt;I&#39;m red&lt;/a&gt;
+styled.link_to &quot;I&#39;m red&quot;, &quot;/&quot;
+# =&gt; &lt;a href=&quot;/&quot; style=&quot;color: red;&quot;&gt;I&#39;m red&lt;/a&gt;
 
-# styled.button_tag &quot;I&#39;m red too!&quot;
-# #=&gt; &lt;button style=&quot;color: red;&quot;&gt;I&#39;m red too!&lt;/button&gt;
+styled.button_tag &quot;I&#39;m red too!&quot;
+# =&gt; &lt;button style=&quot;color: red;&quot;&gt;I&#39;m red too!&lt;/button&gt;
 </code></pre>
             </div>
           
@@ -1200,11 +1294,10 @@ end
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>
