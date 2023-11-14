@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -263,40 +264,40 @@ form_for([blog, @post])         # =&gt; &quot;/blog/posts/1&quot;
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/routing/polymorphic_routes.rb, line 126
+      def polymorphic_path(record_or_hash_or_array, options = {})
+        if Hash === record_or_hash_or_array
+          options = record_or_hash_or_array.merge(options)
+          record  = options.delete :id
+          return polymorphic_path record, options
+        end
+
+        if mapping = polymorphic_mapping(record_or_hash_or_array)
+          return mapping.call(self, [record_or_hash_or_array, options], true)
+        end
+
+        opts   = options.dup
+        action = opts.delete :action
+        type   = :path
+
+        HelperMethodBuilder.polymorphic_method self,
+                                               record_or_hash_or_array,
+                                               action,
+                                               type,
+                                               opts
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-polymorphic_path_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/routing/polymorphic_routes.rb, line 126</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">polymorphic_path</span>(<span class="ruby-identifier">record_or_hash_or_array</span>, <span class="ruby-identifier">options</span> = {})
-  <span class="ruby-keyword">if</span> <span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">record_or_hash_or_array</span>
-    <span class="ruby-identifier">options</span> = <span class="ruby-identifier">record_or_hash_or_array</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>)
-    <span class="ruby-identifier">record</span>  = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-value">:id</span>
-    <span class="ruby-keyword">return</span> <span class="ruby-identifier">polymorphic_path</span> <span class="ruby-identifier">record</span>, <span class="ruby-identifier">options</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">mapping</span> = <span class="ruby-identifier">polymorphic_mapping</span>(<span class="ruby-identifier">record_or_hash_or_array</span>)
-    <span class="ruby-keyword">return</span> <span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword">self</span>, [<span class="ruby-identifier">record_or_hash_or_array</span>, <span class="ruby-identifier">options</span>], <span class="ruby-keyword">true</span>)
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-identifier">opts</span>   = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span>
-  <span class="ruby-identifier">action</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span> <span class="ruby-value">:action</span>
-  <span class="ruby-identifier">type</span>   = <span class="ruby-value">:path</span>
-
-  <span class="ruby-constant">HelperMethodBuilder</span>.<span class="ruby-identifier">polymorphic_method</span> <span class="ruby-keyword">self</span>,
-                                         <span class="ruby-identifier">record_or_hash_or_array</span>,
-                                         <span class="ruby-identifier">action</span>,
-                                         <span class="ruby-identifier">type</span>,
-                                         <span class="ruby-identifier">opts</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/routing/polymorphic_routes.rb#L126" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-polymorphic_url">
@@ -357,40 +358,40 @@ polymorphic_url(Comment) # same as comments_url()
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/routing/polymorphic_routes.rb, line 103
+      def polymorphic_url(record_or_hash_or_array, options = {})
+        if Hash === record_or_hash_or_array
+          options = record_or_hash_or_array.merge(options)
+          record  = options.delete :id
+          return polymorphic_url record, options
+        end
+
+        if mapping = polymorphic_mapping(record_or_hash_or_array)
+          return mapping.call(self, [record_or_hash_or_array, options], false)
+        end
+
+        opts   = options.dup
+        action = opts.delete :action
+        type   = opts.delete(:routing_type) || :url
+
+        HelperMethodBuilder.polymorphic_method self,
+                                               record_or_hash_or_array,
+                                               action,
+                                               type,
+                                               opts
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-polymorphic_url_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/routing/polymorphic_routes.rb, line 103</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">polymorphic_url</span>(<span class="ruby-identifier">record_or_hash_or_array</span>, <span class="ruby-identifier">options</span> = {})
-  <span class="ruby-keyword">if</span> <span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">record_or_hash_or_array</span>
-    <span class="ruby-identifier">options</span> = <span class="ruby-identifier">record_or_hash_or_array</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>)
-    <span class="ruby-identifier">record</span>  = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-value">:id</span>
-    <span class="ruby-keyword">return</span> <span class="ruby-identifier">polymorphic_url</span> <span class="ruby-identifier">record</span>, <span class="ruby-identifier">options</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">mapping</span> = <span class="ruby-identifier">polymorphic_mapping</span>(<span class="ruby-identifier">record_or_hash_or_array</span>)
-    <span class="ruby-keyword">return</span> <span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword">self</span>, [<span class="ruby-identifier">record_or_hash_or_array</span>, <span class="ruby-identifier">options</span>], <span class="ruby-keyword">false</span>)
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-identifier">opts</span>   = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span>
-  <span class="ruby-identifier">action</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span> <span class="ruby-value">:action</span>
-  <span class="ruby-identifier">type</span>   = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:routing_type</span>) <span class="ruby-operator">||</span> <span class="ruby-value">:url</span>
-
-  <span class="ruby-constant">HelperMethodBuilder</span>.<span class="ruby-identifier">polymorphic_method</span> <span class="ruby-keyword">self</span>,
-                                         <span class="ruby-identifier">record_or_hash_or_array</span>,
-                                         <span class="ruby-identifier">action</span>,
-                                         <span class="ruby-identifier">type</span>,
-                                         <span class="ruby-identifier">opts</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/routing/polymorphic_routes.rb#L103" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -410,7 +411,7 @@ polymorphic_url(Comment) # same as comments_url()
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -268,22 +269,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionmailbox/lib/action_mailbox/router.rb, line 11
+    def initialize
+      @routes = []
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionmailbox/lib/action_mailbox/router.rb, line 11</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
-  <span class="ruby-ivar">@routes</span> = []
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionmailbox/lib/action_mailbox/router.rb#L11" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -307,22 +308,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionmailbox/lib/action_mailbox/router.rb, line 21
+    def add_route(address, to:)
+      routes.append Route.new(address, to: to)
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-add_route_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionmailbox/lib/action_mailbox/router.rb, line 21</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_route</span>(<span class="ruby-identifier">address</span>, <span class="ruby-value">to:</span>)
-  <span class="ruby-identifier">routes</span>.<span class="ruby-identifier">append</span> <span class="ruby-constant">Route</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">address</span>, <span class="ruby-value">to:</span> <span class="ruby-identifier">to</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionmailbox/lib/action_mailbox/router.rb#L21" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-add_routes">
@@ -342,24 +343,24 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionmailbox/lib/action_mailbox/router.rb, line 15
+    def add_routes(routes)
+      routes.each do |(address, mailbox_name)|
+        add_route address, to: mailbox_name
+      end
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-add_routes_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionmailbox/lib/action_mailbox/router.rb, line 15</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_routes</span>(<span class="ruby-identifier">routes</span>)
-  <span class="ruby-identifier">routes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">address</span>, <span class="ruby-identifier">mailbox_name</span>)<span class="ruby-operator">|</span>
-    <span class="ruby-identifier">add_route</span> <span class="ruby-identifier">address</span>, <span class="ruby-value">to:</span> <span class="ruby-identifier">mailbox_name</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionmailbox/lib/action_mailbox/router.rb#L15" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-mailbox_for">
@@ -379,22 +380,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionmailbox/lib/action_mailbox/router.rb, line 35
+    def mailbox_for(inbound_email)
+      routes.detect { |route| route.match?(inbound_email) }&.mailbox_class
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-mailbox_for_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionmailbox/lib/action_mailbox/router.rb, line 35</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">mailbox_for</span>(<span class="ruby-identifier">inbound_email</span>)
-  <span class="ruby-identifier">routes</span>.<span class="ruby-identifier">detect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">route</span><span class="ruby-operator">|</span> <span class="ruby-identifier">route</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-identifier">inbound_email</span>) }&amp;.<span class="ruby-identifier">mailbox_class</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionmailbox/lib/action_mailbox/router.rb#L35" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-route">
@@ -414,28 +415,28 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-route_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionmailbox/lib/action_mailbox/router.rb, line 25</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">route</span>(<span class="ruby-identifier">inbound_email</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">mailbox</span> = <span class="ruby-identifier">mailbox_for</span>(<span class="ruby-identifier">inbound_email</span>)
-    <span class="ruby-identifier">mailbox</span>.<span class="ruby-identifier">receive</span>(<span class="ruby-identifier">inbound_email</span>)
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">inbound_email</span>.<span class="ruby-identifier">bounced!</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-    <span class="ruby-identifier">raise</span> <span class="ruby-constant">RoutingError</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File actionmailbox/lib/action_mailbox/router.rb, line 25
+    def route(inbound_email)
+      if mailbox = mailbox_for(inbound_email)
+        mailbox.receive(inbound_email)
+      else
+        inbound_email.bounced!
+
+        raise RoutingError
+      end
+    end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionmailbox/lib/action_mailbox/router.rb#L25" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -455,7 +456,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

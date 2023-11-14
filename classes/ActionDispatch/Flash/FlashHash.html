@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -384,22 +385,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 162
+      def [](k)
+        @flashes[k.to_s]
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-5B-5D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 162</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]</span>(<span class="ruby-identifier">k</span>)
-  <span class="ruby-ivar">@flashes</span>[<span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_s</span>]
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L162" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-5B-5D-3D">
@@ -419,24 +420,24 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 156
+      def []=(k, v)
+        k = k.to_s
+        @discard.delete k
+        @flashes[k] = v
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-5B-5D-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 156</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]=</span>(<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)
-  <span class="ruby-identifier">k</span> = <span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_s</span>
-  <span class="ruby-ivar">@discard</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">k</span>
-  <span class="ruby-ivar">@flashes</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">v</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L156" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-alert">
@@ -456,22 +457,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 268
+      def alert
+        self[:alert]
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-alert_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 268</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">alert</span>
-  <span class="ruby-keyword">self</span>[<span class="ruby-value">:alert</span>]
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L268" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-alert-3D">
@@ -491,22 +492,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 273
+      def alert=(message)
+        self[:alert] = message
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-alert-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 273</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">alert=</span>(<span class="ruby-identifier">message</span>)
-  <span class="ruby-keyword">self</span>[<span class="ruby-value">:alert</span>] = <span class="ruby-identifier">message</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L273" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-clear">
@@ -526,23 +527,23 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 197
+      def clear
+        @discard.clear
+        @flashes.clear
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-clear_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 197</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clear</span>
-  <span class="ruby-ivar">@discard</span>.<span class="ruby-identifier">clear</span>
-  <span class="ruby-ivar">@flashes</span>.<span class="ruby-identifier">clear</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L197" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-delete">
@@ -562,25 +563,25 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 182
+      def delete(key)
+        key = key.to_s
+        @discard.delete key
+        @flashes.delete key
+        self
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-delete_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 182</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete</span>(<span class="ruby-identifier">key</span>)
-  <span class="ruby-identifier">key</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>
-  <span class="ruby-ivar">@discard</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">key</span>
-  <span class="ruby-ivar">@flashes</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">key</span>
-  <span class="ruby-keyword">self</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L182" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-discard">
@@ -606,24 +607,24 @@ flash.discard(:warning)    # discard only the &quot;warning&quot; entry at the e
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 253
+      def discard(k = nil)
+        k = k.to_s if k
+        @discard.merge Array(k || keys)
+        k ? self[k] : self
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-discard_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 253</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">discard</span>(<span class="ruby-identifier">k</span> = <span class="ruby-keyword">nil</span>)
-  <span class="ruby-identifier">k</span> = <span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">k</span>
-  <span class="ruby-ivar">@discard</span>.<span class="ruby-identifier">merge</span> <span class="ruby-constant">Array</span>(<span class="ruby-identifier">k</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">keys</span>)
-  <span class="ruby-identifier">k</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">self</span>[<span class="ruby-identifier">k</span>] <span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L253" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-each">
@@ -643,22 +644,22 @@ flash.discard(:warning)    # discard only the &quot;warning&quot; entry at the e
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 202
+      def each(&block)
+        @flashes.each(&block)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-each_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 202</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-ivar">@flashes</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L202" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-empty-3F">
@@ -678,22 +679,22 @@ flash.discard(:warning)    # discard only the &quot;warning&quot; entry at the e
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 193
+      def empty?
+        @flashes.empty?
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-empty-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 193</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">empty?</span>
-  <span class="ruby-ivar">@flashes</span>.<span class="ruby-identifier">empty?</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L193" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-initialize_copy">
@@ -713,26 +714,26 @@ flash.discard(:warning)    # discard only the &quot;warning&quot; entry at the e
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 148
+      def initialize_copy(other)
+        if other.now_is_loaded?
+          @now = other.now.dup
+          @now.flash = self
+        end
+        super
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-initialize_copy_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 148</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize_copy</span>(<span class="ruby-identifier">other</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">now_is_loaded?</span>
-    <span class="ruby-ivar">@now</span> = <span class="ruby-identifier">other</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">dup</span>
-    <span class="ruby-ivar">@now</span>.<span class="ruby-identifier">flash</span> = <span class="ruby-keyword">self</span>
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">super</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L148" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-keep">
@@ -756,24 +757,24 @@ flash.keep(:notice)   # keeps only the &quot;notice&quot; entry, the rest of the
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 240
+      def keep(k = nil)
+        k = k.to_s if k
+        @discard.subtract Array(k || keys)
+        k ? self[k] : self
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-keep_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 240</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">keep</span>(<span class="ruby-identifier">k</span> = <span class="ruby-keyword">nil</span>)
-  <span class="ruby-identifier">k</span> = <span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">k</span>
-  <span class="ruby-ivar">@discard</span>.<span class="ruby-identifier">subtract</span> <span class="ruby-constant">Array</span>(<span class="ruby-identifier">k</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">keys</span>)
-  <span class="ruby-identifier">k</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">self</span>[<span class="ruby-identifier">k</span>] <span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L240" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-key-3F">
@@ -793,22 +794,22 @@ flash.keep(:notice)   # keeps only the &quot;notice&quot; entry, the rest of the
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 176
+      def key?(name)
+        @flashes.key? name.to_s
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-key-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 176</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">key?</span>(<span class="ruby-identifier">name</span>)
-  <span class="ruby-ivar">@flashes</span>.<span class="ruby-identifier">key?</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L176" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-keys">
@@ -828,22 +829,22 @@ flash.keep(:notice)   # keeps only the &quot;notice&quot; entry, the rest of the
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 172
+      def keys
+        @flashes.keys
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-keys_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 172</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">keys</span>
-  <span class="ruby-ivar">@flashes</span>.<span class="ruby-identifier">keys</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L172" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-notice">
@@ -863,22 +864,22 @@ flash.keep(:notice)   # keeps only the &quot;notice&quot; entry, the rest of the
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 278
+      def notice
+        self[:notice]
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-notice_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 278</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">notice</span>
-  <span class="ruby-keyword">self</span>[<span class="ruby-value">:notice</span>]
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L278" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-notice-3D">
@@ -898,22 +899,22 @@ flash.keep(:notice)   # keeps only the &quot;notice&quot; entry, the rest of the
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 283
+      def notice=(message)
+        self[:notice] = message
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-notice-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 283</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">notice=</span>(<span class="ruby-identifier">message</span>)
-  <span class="ruby-keyword">self</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-identifier">message</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L283" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-now">
@@ -949,22 +950,22 @@ flash.now.notice = &quot;Good luck now!&quot;
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 232
+      def now
+        @now ||= FlashNow.new(self)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-now_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 232</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">now</span>
-  <span class="ruby-ivar">@now</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">FlashNow</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L232" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-to_hash">
@@ -984,22 +985,22 @@ flash.now.notice = &quot;Good luck now!&quot;
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 189
+      def to_hash
+        @flashes.dup
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-to_hash_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 189</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_hash</span>
-  <span class="ruby-ivar">@flashes</span>.<span class="ruby-identifier">dup</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L189" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
       <h2 id="instance-protected-methods">Instance Protected methods</h2>
@@ -1022,22 +1023,22 @@ flash.now.notice = &quot;Good luck now!&quot;
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 288
+        def now_is_loaded?
+          @now
+        end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-now_is_loaded-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 288</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">now_is_loaded?</span>
-  <span class="ruby-ivar">@now</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L288" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
       <h2 id="instance-private-methods">Instance Private methods</h2>
@@ -1060,24 +1061,24 @@ flash.now.notice = &quot;Good luck now!&quot;
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 293
+        def stringify_array(array) # :doc:
+          array.map do |item|
+            item.kind_of?(Symbol) ? item.to_s : item
+          end
+        end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-stringify_array_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/flash.rb, line 293</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">stringify_array</span>(<span class="ruby-identifier">array</span>) <span class="ruby-comment"># :doc:</span>
-  <span class="ruby-identifier">array</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">item</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Symbol</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">item</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/flash.rb#L293" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -1097,7 +1098,7 @@ flash.now.notice = &quot;Good luck now!&quot;
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

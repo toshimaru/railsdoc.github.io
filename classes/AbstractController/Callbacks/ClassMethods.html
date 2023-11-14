@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -336,29 +337,29 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/abstract_controller/callbacks.rb, line 119
+      def _insert_callbacks(callbacks, block = nil)
+        options = callbacks.extract_options!
+        callbacks.push(block) if block
+        options[:filters] = callbacks
+        _normalize_callback_options(options)
+        options.delete(:filters)
+        callbacks.each do |callback|
+          yield callback, options
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-_insert_callbacks_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/callbacks.rb, line 119</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">_insert_callbacks</span>(<span class="ruby-identifier">callbacks</span>, <span class="ruby-identifier">block</span> = <span class="ruby-keyword">nil</span>)
-  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">callbacks</span>.<span class="ruby-identifier">extract_options!</span>
-  <span class="ruby-identifier">callbacks</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">block</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>
-  <span class="ruby-identifier">options</span>[<span class="ruby-value">:filters</span>] = <span class="ruby-identifier">callbacks</span>
-  <span class="ruby-identifier">_normalize_callback_options</span>(<span class="ruby-identifier">options</span>)
-  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:filters</span>)
-  <span class="ruby-identifier">callbacks</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">callback</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">callback</span>, <span class="ruby-identifier">options</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/callbacks.rb#L119" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-_normalize_callback_options">
@@ -397,23 +398,23 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/abstract_controller/callbacks.rb, line 94
+      def _normalize_callback_options(options)
+        _normalize_callback_option(options, :only, :if)
+        _normalize_callback_option(options, :except, :unless)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-_normalize_callback_options_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/callbacks.rb, line 94</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">_normalize_callback_options</span>(<span class="ruby-identifier">options</span>)
-  <span class="ruby-identifier">_normalize_callback_option</span>(<span class="ruby-identifier">options</span>, <span class="ruby-value">:only</span>, <span class="ruby-value">:if</span>)
-  <span class="ruby-identifier">_normalize_callback_option</span>(<span class="ruby-identifier">options</span>, <span class="ruby-value">:except</span>, <span class="ruby-value">:unless</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/callbacks.rb#L94" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-after_action">
@@ -434,20 +435,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-after_action_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/callbacks.rb, line 171</span>
-      </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/callbacks.rb#L171" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-append_after_action">
@@ -468,20 +459,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-append_after_action_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/callbacks.rb, line 192</span>
-      </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/callbacks.rb#L192" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-append_around_action">
@@ -502,20 +483,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-append_around_action_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/callbacks.rb, line 220</span>
-      </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/callbacks.rb#L220" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-append_before_action">
@@ -538,20 +509,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-append_before_action_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/callbacks.rb, line 160</span>
-      </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/callbacks.rb#L160" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-around_action">
@@ -572,20 +533,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-around_action_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/callbacks.rb, line 199</span>
-      </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/callbacks.rb#L199" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-before_action">
@@ -608,20 +559,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-before_action_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/callbacks.rb, line 131</span>
-      </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/callbacks.rb#L131" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-prepend_after_action">
@@ -642,20 +583,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-prepend_after_action_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/callbacks.rb, line 178</span>
-      </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/callbacks.rb#L178" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-prepend_around_action">
@@ -676,20 +607,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-prepend_around_action_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/callbacks.rb, line 206</span>
-      </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/callbacks.rb#L206" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-prepend_before_action">
@@ -712,20 +633,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-prepend_before_action_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/callbacks.rb, line 142</span>
-      </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/callbacks.rb#L142" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-skip_after_action">
@@ -746,20 +657,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-skip_after_action_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/callbacks.rb, line 185</span>
-      </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/callbacks.rb#L185" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-skip_around_action">
@@ -780,20 +681,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-skip_around_action_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/callbacks.rb, line 213</span>
-      </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/callbacks.rb#L213" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-skip_before_action">
@@ -814,20 +705,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-skip_before_action_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/callbacks.rb, line 153</span>
-      </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/callbacks.rb#L153" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
       
     
@@ -847,7 +728,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

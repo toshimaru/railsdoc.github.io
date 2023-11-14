@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -271,24 +272,24 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-id_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods/primary_key.rb, line 20</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">id</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-identifier">_read_attribute</span>(<span class="ruby-ivar">@primary_key</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@primary_key</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-  <span class="ruby-ivar">@primary_key</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">pk</span><span class="ruby-operator">|</span> <span class="ruby-identifier">_read_attribute</span>(<span class="ruby-identifier">pk</span>) }
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File activerecord/lib/active_record/attribute_methods/primary_key.rb, line 20
+      def id
+        return _read_attribute(@primary_key) unless @primary_key.is_a?(Array)
+
+        @primary_key.map { |pk| _read_attribute(pk) }
+      end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods/primary_key.rb#L20" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-id-3D">
@@ -308,27 +309,27 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/attribute_methods/primary_key.rb, line 34
+      def id=(value)
+        if self.class.composite_primary_key?
+          raise TypeError, "Expected value matching #{self.class.primary_key.inspect}, got #{value.inspect}." unless value.is_a?(Enumerable)
+          @primary_key.zip(value) { |attr, value| _write_attribute(attr, value) }
+        else
+          _write_attribute(@primary_key, value)
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-id-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods/primary_key.rb, line 34</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">id=</span>(<span class="ruby-identifier">value</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">composite_primary_key?</span>
-    <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;Expected value matching #{self.class.primary_key.inspect}, got #{value.inspect}.&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Enumerable</span>)
-    <span class="ruby-ivar">@primary_key</span>.<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">value</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">_write_attribute</span>(<span class="ruby-identifier">attr</span>, <span class="ruby-identifier">value</span>) }
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">_write_attribute</span>(<span class="ruby-ivar">@primary_key</span>, <span class="ruby-identifier">value</span>)
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods/primary_key.rb#L34" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-id-3F">
@@ -348,26 +349,26 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/attribute_methods/primary_key.rb, line 45
+      def id?
+        if self.class.composite_primary_key?
+          @primary_key.all? { |col| _query_attribute(col) }
+        else
+          _query_attribute(@primary_key)
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-id-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods/primary_key.rb, line 45</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">id?</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">composite_primary_key?</span>
-    <span class="ruby-ivar">@primary_key</span>.<span class="ruby-identifier">all?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">col</span><span class="ruby-operator">|</span> <span class="ruby-identifier">_query_attribute</span>(<span class="ruby-identifier">col</span>) }
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">_query_attribute</span>(<span class="ruby-ivar">@primary_key</span>)
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods/primary_key.rb#L45" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-id_before_type_cast">
@@ -387,26 +388,26 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/attribute_methods/primary_key.rb, line 55
+      def id_before_type_cast
+        if self.class.composite_primary_key?
+          @primary_key.map { |col| attribute_before_type_cast(col) }
+        else
+          attribute_before_type_cast(@primary_key)
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-id_before_type_cast_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods/primary_key.rb, line 55</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">id_before_type_cast</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">composite_primary_key?</span>
-    <span class="ruby-ivar">@primary_key</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">col</span><span class="ruby-operator">|</span> <span class="ruby-identifier">attribute_before_type_cast</span>(<span class="ruby-identifier">col</span>) }
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">attribute_before_type_cast</span>(<span class="ruby-ivar">@primary_key</span>)
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods/primary_key.rb#L55" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-id_in_database">
@@ -426,26 +427,26 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/attribute_methods/primary_key.rb, line 75
+      def id_in_database
+        if self.class.composite_primary_key?
+          @primary_key.map { |col| attribute_in_database(col) }
+        else
+          attribute_in_database(@primary_key)
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-id_in_database_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods/primary_key.rb, line 75</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">id_in_database</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">composite_primary_key?</span>
-    <span class="ruby-ivar">@primary_key</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">col</span><span class="ruby-operator">|</span> <span class="ruby-identifier">attribute_in_database</span>(<span class="ruby-identifier">col</span>) }
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">attribute_in_database</span>(<span class="ruby-ivar">@primary_key</span>)
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods/primary_key.rb#L75" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-id_was">
@@ -465,26 +466,26 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/attribute_methods/primary_key.rb, line 65
+      def id_was
+        if self.class.composite_primary_key?
+          @primary_key.map { |col| attribute_was(col) }
+        else
+          attribute_was(@primary_key)
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-id_was_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods/primary_key.rb, line 65</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">id_was</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">composite_primary_key?</span>
-    <span class="ruby-ivar">@primary_key</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">col</span><span class="ruby-operator">|</span> <span class="ruby-identifier">attribute_was</span>(<span class="ruby-identifier">col</span>) }
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">attribute_was</span>(<span class="ruby-ivar">@primary_key</span>)
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods/primary_key.rb#L65" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-to_key">
@@ -504,23 +505,23 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/attribute_methods/primary_key.rb, line 13
+      def to_key
+        key = id
+        Array(key) if key
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-to_key_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods/primary_key.rb, line 13</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_key</span>
-  <span class="ruby-identifier">key</span> = <span class="ruby-identifier">id</span>
-  <span class="ruby-constant">Array</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods/primary_key.rb#L13" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -540,7 +541,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

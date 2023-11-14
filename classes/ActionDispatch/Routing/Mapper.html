@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -317,22 +318,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 393
+      def self.normalize_name(name)
+        normalize_path(name)[1..-1].tr("/", "_")
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-normalize_name_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 393</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">normalize_name</span>(<span class="ruby-identifier">name</span>)
-  <span class="ruby-identifier">normalize_path</span>(<span class="ruby-identifier">name</span>)[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">tr</span>(<span class="ruby-string">&quot;/&quot;</span>, <span class="ruby-string">&quot;_&quot;</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/routing/mapper.rb#L393" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-normalize_path">
@@ -352,35 +353,35 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 376
+      def self.normalize_path(path)
+        path = Journey::Router::Utils.normalize_path(path)
+
+        # the path for a root URL at this point can be something like
+        # "/(/:locale)(/:platform)/(:browser)", and we would want
+        # "/(:locale)(/:platform)(/:browser)"
+
+        # reverse "/(", "/((" etc to "(/", "((/" etc
+        path.gsub!(%r{/(\(+)/?}, '\1/')
+        # if a path is all optional segments, change the leading "(/" back to
+        # "/(" so it evaluates to "/" when interpreted with no options.
+        # Unless, however, at least one secondary segment consists of a static
+        # part, ex. "(/:locale)(/pages/:page)"
+        path.sub!(%r{^(\(+)/}, '/\1') if %r{^(\(+[^)]+\))(\(+/:[^)]+\))*$}.match?(path)
+        path
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-normalize_path_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 376</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">normalize_path</span>(<span class="ruby-identifier">path</span>)
-  <span class="ruby-identifier">path</span> = <span class="ruby-constant">Journey</span><span class="ruby-operator">::</span><span class="ruby-constant">Router</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">normalize_path</span>(<span class="ruby-identifier">path</span>)
-
-  <span class="ruby-comment"># the path for a root URL at this point can be something like</span>
-  <span class="ruby-comment"># &quot;/(/:locale)(/:platform)/(:browser)&quot;, and we would want</span>
-  <span class="ruby-comment"># &quot;/(:locale)(/:platform)(/:browser)&quot;</span>
-
-  <span class="ruby-comment"># reverse &quot;/(&quot;, &quot;/((&quot; etc to &quot;(/&quot;, &quot;((/&quot; etc</span>
-  <span class="ruby-identifier">path</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">%r{/(\(+)/?}</span>, <span class="ruby-string">&#39;\1/&#39;</span>)
-  <span class="ruby-comment"># if a path is all optional segments, change the leading &quot;(/&quot; back to</span>
-  <span class="ruby-comment"># &quot;/(&quot; so it evaluates to &quot;/&quot; when interpreted with no options.</span>
-  <span class="ruby-comment"># Unless, however, at least one secondary segment consists of a static</span>
-  <span class="ruby-comment"># part, ex. &quot;(/:locale)(/pages/:page)&quot;</span>
-  <span class="ruby-identifier">path</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">%r{^(\(+)/}</span>, <span class="ruby-string">&#39;/\1&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-regexp">%r{^(\(+[^)]+\))(\(+/:[^)]+\))*$}</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-identifier">path</span>)
-  <span class="ruby-identifier">path</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/routing/mapper.rb#L376" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -401,7 +402,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

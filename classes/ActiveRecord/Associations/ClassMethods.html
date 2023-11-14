@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -1241,23 +1242,23 @@ belong_to  :note, query_constraints: [:organization_id, :note_id]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/associations.rb, line 1886
+        def belongs_to(name, scope = nil, **options)
+          reflection = Builder::BelongsTo.build(self, name, scope, options)
+          Reflection.add_reflection self, name, reflection
+        end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-belongs_to_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/associations.rb, line 1886</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">belongs_to</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">scope</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
-  <span class="ruby-identifier">reflection</span> = <span class="ruby-constant">Builder</span><span class="ruby-operator">::</span><span class="ruby-constant">BelongsTo</span>.<span class="ruby-identifier">build</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">scope</span>, <span class="ruby-identifier">options</span>)
-  <span class="ruby-constant">Reflection</span>.<span class="ruby-identifier">add_reflection</span> <span class="ruby-keyword">self</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">reflection</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/associations.rb#L1886" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-has_and_belongs_to_many">
@@ -1433,56 +1434,56 @@ has_and_belongs_to_many :categories, strict_loading: true
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-has_and_belongs_to_many_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/associations.rb, line 2067</span>
-        <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">has_and_belongs_to_many</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">scope</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">extension</span>)
-          <span class="ruby-identifier">habtm_reflection</span> = <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Reflection</span><span class="ruby-operator">::</span><span class="ruby-constant">HasAndBelongsToManyReflection</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">scope</span>, <span class="ruby-identifier">options</span>, <span class="ruby-keyword">self</span>)
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-          <span class="ruby-identifier">builder</span> = <span class="ruby-constant">Builder</span><span class="ruby-operator">::</span><span class="ruby-constant">HasAndBelongsToMany</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">name</span>, <span class="ruby-keyword">self</span>, <span class="ruby-identifier">options</span>
+              <pre><code class="ruby"># File activerecord/lib/active_record/associations.rb, line 2067
+        def has_and_belongs_to_many(name, scope = nil, **options, &extension)
+          habtm_reflection = ActiveRecord::Reflection::HasAndBelongsToManyReflection.new(name, scope, options, self)
 
-          <span class="ruby-identifier">join_model</span> = <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">through_model</span>
+          builder = Builder::HasAndBelongsToMany.new name, self, options
 
-          <span class="ruby-identifier">const_set</span> <span class="ruby-identifier">join_model</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">join_model</span>
-          <span class="ruby-identifier">private_constant</span> <span class="ruby-identifier">join_model</span>.<span class="ruby-identifier">name</span>
+          join_model = builder.through_model
 
-          <span class="ruby-identifier">middle_reflection</span> = <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">middle_reflection</span> <span class="ruby-identifier">join_model</span>
+          const_set join_model.name, join_model
+          private_constant join_model.name
 
-          <span class="ruby-constant">Builder</span><span class="ruby-operator">::</span><span class="ruby-constant">HasMany</span>.<span class="ruby-identifier">define_callbacks</span> <span class="ruby-keyword">self</span>, <span class="ruby-identifier">middle_reflection</span>
-          <span class="ruby-constant">Reflection</span>.<span class="ruby-identifier">add_reflection</span> <span class="ruby-keyword">self</span>, <span class="ruby-identifier">middle_reflection</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">middle_reflection</span>
-          <span class="ruby-identifier">middle_reflection</span>.<span class="ruby-identifier">parent_reflection</span> = <span class="ruby-identifier">habtm_reflection</span>
+          middle_reflection = builder.middle_reflection join_model
 
-          <span class="ruby-identifier">include</span> <span class="ruby-constant">Module</span>.<span class="ruby-identifier">new</span> {
-            <span class="ruby-identifier">class_eval</span> <span class="ruby-identifier">&lt;&lt;-RUBY</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
-<span class="ruby-value">              def destroy_associations
+          Builder::HasMany.define_callbacks self, middle_reflection
+          Reflection.add_reflection self, middle_reflection.name, middle_reflection
+          middle_reflection.parent_reflection = habtm_reflection
+
+          include Module.new {
+            class_eval <<-RUBY, __FILE__, __LINE__ + 1
+              def destroy_associations
                 association(:#{middle_reflection.name}).delete_all(:delete_all)
                 association(:#{name}).reset
                 super
               end
-</span><span class="ruby-identifier">            RUBY</span>
+            RUBY
           }
 
-          <span class="ruby-identifier">hm_options</span> = {}
-          <span class="ruby-identifier">hm_options</span>[<span class="ruby-value">:through</span>] = <span class="ruby-identifier">middle_reflection</span>.<span class="ruby-identifier">name</span>
-          <span class="ruby-identifier">hm_options</span>[<span class="ruby-value">:source</span>] = <span class="ruby-identifier">join_model</span>.<span class="ruby-identifier">right_reflection</span>.<span class="ruby-identifier">name</span>
+          hm_options = {}
+          hm_options[:through] = middle_reflection.name
+          hm_options[:source] = join_model.right_reflection.name
 
-          [<span class="ruby-value">:before_add</span>, <span class="ruby-value">:after_add</span>, <span class="ruby-value">:before_remove</span>, <span class="ruby-value">:after_remove</span>, <span class="ruby-value">:autosave</span>, <span class="ruby-value">:validate</span>, <span class="ruby-value">:join_table</span>, <span class="ruby-value">:class_name</span>, <span class="ruby-value">:extend</span>, <span class="ruby-value">:strict_loading</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
-            <span class="ruby-identifier">hm_options</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">k</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span> <span class="ruby-identifier">k</span>
-          <span class="ruby-keyword">end</span>
+          [:before_add, :after_add, :before_remove, :after_remove, :autosave, :validate, :join_table, :class_name, :extend, :strict_loading].each do |k|
+            hm_options[k] = options[k] if options.key? k
+          end
 
-          <span class="ruby-identifier">has_many</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">scope</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">hm_options</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">extension</span>
-          <span class="ruby-identifier">_reflections</span>[<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>].<span class="ruby-identifier">parent_reflection</span> = <span class="ruby-identifier">habtm_reflection</span>
-        <span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+          has_many name, scope, **hm_options, &extension
+          _reflections[name.to_s].parent_reflection = habtm_reflection
+        end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/associations.rb#L2067" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-has_many">
@@ -1713,23 +1714,23 @@ has_many :comments, query_constraints: [:blog_id, :post_id]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/associations.rb, line 1522
+        def has_many(name, scope = nil, **options, &extension)
+          reflection = Builder::HasMany.build(self, name, scope, options, &extension)
+          Reflection.add_reflection self, name, reflection
+        end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-has_many_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/associations.rb, line 1522</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">has_many</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">scope</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">extension</span>)
-  <span class="ruby-identifier">reflection</span> = <span class="ruby-constant">Builder</span><span class="ruby-operator">::</span><span class="ruby-constant">HasMany</span>.<span class="ruby-identifier">build</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">scope</span>, <span class="ruby-identifier">options</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">extension</span>)
-  <span class="ruby-constant">Reflection</span>.<span class="ruby-identifier">add_reflection</span> <span class="ruby-keyword">self</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">reflection</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/associations.rb#L1522" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-has_one">
@@ -1910,23 +1911,23 @@ has_one :employment_record_book, query_constraints: [:organization_id, :employee
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/associations.rb, line 1708
+        def has_one(name, scope = nil, **options)
+          reflection = Builder::HasOne.build(self, name, scope, options)
+          Reflection.add_reflection self, name, reflection
+        end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-has_one_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/associations.rb, line 1708</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">has_one</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">scope</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
-  <span class="ruby-identifier">reflection</span> = <span class="ruby-constant">Builder</span><span class="ruby-operator">::</span><span class="ruby-constant">HasOne</span>.<span class="ruby-identifier">build</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">scope</span>, <span class="ruby-identifier">options</span>)
-  <span class="ruby-constant">Reflection</span>.<span class="ruby-identifier">add_reflection</span> <span class="ruby-keyword">self</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">reflection</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/associations.rb#L1708" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -1946,7 +1947,7 @@ has_one :employment_record_book, query_constraints: [:organization_id, :employee
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

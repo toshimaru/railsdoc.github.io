@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -287,21 +288,21 @@ User.first.avatars.with_all_variant_records
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-with_all_variant_records_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/attachment.rb, line 47</span>
-<span class="ruby-identifier">scope</span> <span class="ruby-value">:with_all_variant_records</span>, <span class="ruby-operator">-&gt;</span> { <span class="ruby-identifier">includes</span>(<span class="ruby-value">blob:</span> { <span class="ruby-value">variant_records:</span> { <span class="ruby-value">image_attachment:</span> <span class="ruby-value">:blob</span> } }) }
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activestorage/app/models/active_storage/attachment.rb, line 47
+  scope :with_all_variant_records, -> { includes(blob: { variant_records: { image_attachment: :blob } }) }
 </code></pre>
-              </div>
-            </div>
-            
-          </div>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activestorage/app/models/active_storage/attachment.rb#L47" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -325,21 +326,21 @@ User.first.avatars.with_all_variant_records
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-blob_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/attachment.rb, line 33</span>
-<span class="ruby-identifier">belongs_to</span> <span class="ruby-value">:blob</span>, <span class="ruby-value">class_name:</span> <span class="ruby-string">&quot;ActiveStorage::Blob&quot;</span>, <span class="ruby-value">autosave:</span> <span class="ruby-keyword">true</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activestorage/app/models/active_storage/attachment.rb, line 33
+  belongs_to :blob, class_name: "ActiveStorage::Blob", autosave: true
 </code></pre>
-              </div>
-            </div>
-            
-          </div>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activestorage/app/models/active_storage/attachment.rb#L33" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-preview">
@@ -371,23 +372,23 @@ User.first.avatars.with_all_variant_records
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activestorage/app/models/active_storage/attachment.rb, line 100
+  def preview(transformations)
+    transformations = transformations_by_name(transformations)
+    blob.preview(transformations)
+  end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-preview_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/attachment.rb, line 100</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">preview</span>(<span class="ruby-identifier">transformations</span>)
-  <span class="ruby-identifier">transformations</span> = <span class="ruby-identifier">transformations_by_name</span>(<span class="ruby-identifier">transformations</span>)
-  <span class="ruby-identifier">blob</span>.<span class="ruby-identifier">preview</span>(<span class="ruby-identifier">transformations</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activestorage/app/models/active_storage/attachment.rb#L100" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-purge">
@@ -407,26 +408,26 @@ User.first.avatars.with_all_variant_records
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activestorage/app/models/active_storage/attachment.rb, line 50
+  def purge
+    transaction do
+      delete
+      record.touch if record&.persisted?
+    end
+    blob&.purge
+  end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-purge_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/attachment.rb, line 50</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">purge</span>
-  <span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-identifier">delete</span>
-    <span class="ruby-identifier">record</span>.<span class="ruby-identifier">touch</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>&amp;.<span class="ruby-identifier">persisted?</span>
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-identifier">blob</span>&amp;.<span class="ruby-identifier">purge</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activestorage/app/models/active_storage/attachment.rb#L50" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-purge_later">
@@ -446,26 +447,26 @@ User.first.avatars.with_all_variant_records
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activestorage/app/models/active_storage/attachment.rb, line 59
+  def purge_later
+    transaction do
+      delete
+      record.touch if record&.persisted?
+    end
+    blob&.purge_later
+  end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-purge_later_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/attachment.rb, line 59</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">purge_later</span>
-  <span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-identifier">delete</span>
-    <span class="ruby-identifier">record</span>.<span class="ruby-identifier">touch</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>&amp;.<span class="ruby-identifier">persisted?</span>
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-identifier">blob</span>&amp;.<span class="ruby-identifier">purge_later</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activestorage/app/models/active_storage/attachment.rb#L59" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-record">
@@ -485,21 +486,21 @@ User.first.avatars.with_all_variant_records
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-record_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/attachment.rb, line 27</span>
-<span class="ruby-identifier">belongs_to</span> <span class="ruby-value">:record</span>, <span class="ruby-value">polymorphic:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">touch:</span> <span class="ruby-keyword">true</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activestorage/app/models/active_storage/attachment.rb, line 27
+  belongs_to :record, polymorphic: true, touch: true
 </code></pre>
-              </div>
-            </div>
-            
-          </div>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activestorage/app/models/active_storage/attachment.rb#L27" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-representation">
@@ -531,23 +532,23 @@ User.first.avatars.with_all_variant_records
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activestorage/app/models/active_storage/attachment.rb, line 119
+  def representation(transformations)
+    transformations = transformations_by_name(transformations)
+    blob.representation(transformations)
+  end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-representation_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/attachment.rb, line 119</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">representation</span>(<span class="ruby-identifier">transformations</span>)
-  <span class="ruby-identifier">transformations</span> = <span class="ruby-identifier">transformations_by_name</span>(<span class="ruby-identifier">transformations</span>)
-  <span class="ruby-identifier">blob</span>.<span class="ruby-identifier">representation</span>(<span class="ruby-identifier">transformations</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activestorage/app/models/active_storage/attachment.rb#L119" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-variant">
@@ -579,23 +580,23 @@ User.first.avatars.with_all_variant_records
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activestorage/app/models/active_storage/attachment.rb, line 81
+  def variant(transformations)
+    transformations = transformations_by_name(transformations)
+    blob.variant(transformations)
+  end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-variant_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activestorage/app/models/active_storage/attachment.rb, line 81</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">variant</span>(<span class="ruby-identifier">transformations</span>)
-  <span class="ruby-identifier">transformations</span> = <span class="ruby-identifier">transformations_by_name</span>(<span class="ruby-identifier">transformations</span>)
-  <span class="ruby-identifier">blob</span>.<span class="ruby-identifier">variant</span>(<span class="ruby-identifier">transformations</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activestorage/app/models/active_storage/attachment.rb#L81" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -615,7 +616,7 @@ User.first.avatars.with_all_variant_records
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

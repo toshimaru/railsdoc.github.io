@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -262,22 +263,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/dependencies/interlock.rb, line 32
+      def done_running
+        @lock.stop_sharing
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-done_running_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/dependencies/interlock.rb, line 32</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">done_running</span>
-  <span class="ruby-ivar">@lock</span>.<span class="ruby-identifier">stop_sharing</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/dependencies/interlock.rb#L32" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-done_unloading">
@@ -297,22 +298,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/dependencies/interlock.rb, line 24
+      def done_unloading
+        @lock.stop_exclusive(compatible: [:load, :unload])
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-done_unloading_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/dependencies/interlock.rb, line 24</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">done_unloading</span>
-  <span class="ruby-ivar">@lock</span>.<span class="ruby-identifier">stop_exclusive</span>(<span class="ruby-value">compatible:</span> [<span class="ruby-value">:load</span>, <span class="ruby-value">:unload</span>])
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/dependencies/interlock.rb#L24" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-loading">
@@ -332,22 +333,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/dependencies/interlock.rb, line 12
+      def loading(&block)
+        @lock.exclusive(purpose: :load, compatible: [:load], after_compatible: [:load], &block)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-loading_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/dependencies/interlock.rb, line 12</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">loading</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-ivar">@lock</span>.<span class="ruby-identifier">exclusive</span>(<span class="ruby-value">purpose:</span> <span class="ruby-value">:load</span>, <span class="ruby-value">compatible:</span> [<span class="ruby-value">:load</span>], <span class="ruby-value">after_compatible:</span> [<span class="ruby-value">:load</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/dependencies/interlock.rb#L12" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-permit_concurrent_loads">
@@ -367,22 +368,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/dependencies/interlock.rb, line 40
+      def permit_concurrent_loads(&block)
+        @lock.yield_shares(compatible: [:load], &block)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-permit_concurrent_loads_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/dependencies/interlock.rb, line 40</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">permit_concurrent_loads</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-ivar">@lock</span>.<span class="ruby-identifier">yield_shares</span>(<span class="ruby-value">compatible:</span> [<span class="ruby-value">:load</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/dependencies/interlock.rb#L40" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-running">
@@ -402,22 +403,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/dependencies/interlock.rb, line 36
+      def running(&block)
+        @lock.sharing(&block)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-running_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/dependencies/interlock.rb, line 36</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">running</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-ivar">@lock</span>.<span class="ruby-identifier">sharing</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/dependencies/interlock.rb#L36" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-start_running">
@@ -437,22 +438,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/dependencies/interlock.rb, line 28
+      def start_running
+        @lock.start_sharing
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-start_running_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/dependencies/interlock.rb, line 28</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_running</span>
-  <span class="ruby-ivar">@lock</span>.<span class="ruby-identifier">start_sharing</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/dependencies/interlock.rb#L28" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-start_unloading">
@@ -472,22 +473,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/dependencies/interlock.rb, line 20
+      def start_unloading
+        @lock.start_exclusive(purpose: :unload, compatible: [:load, :unload])
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-start_unloading_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/dependencies/interlock.rb, line 20</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_unloading</span>
-  <span class="ruby-ivar">@lock</span>.<span class="ruby-identifier">start_exclusive</span>(<span class="ruby-value">purpose:</span> <span class="ruby-value">:unload</span>, <span class="ruby-value">compatible:</span> [<span class="ruby-value">:load</span>, <span class="ruby-value">:unload</span>])
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/dependencies/interlock.rb#L20" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-unloading">
@@ -507,22 +508,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/dependencies/interlock.rb, line 16
+      def unloading(&block)
+        @lock.exclusive(purpose: :unload, compatible: [:load, :unload], after_compatible: [:load, :unload], &block)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-unloading_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/dependencies/interlock.rb, line 16</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">unloading</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-ivar">@lock</span>.<span class="ruby-identifier">exclusive</span>(<span class="ruby-value">purpose:</span> <span class="ruby-value">:unload</span>, <span class="ruby-value">compatible:</span> [<span class="ruby-value">:load</span>, <span class="ruby-value">:unload</span>], <span class="ruby-value">after_compatible:</span> [<span class="ruby-value">:load</span>, <span class="ruby-value">:unload</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/dependencies/interlock.rb#L16" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -542,7 +543,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

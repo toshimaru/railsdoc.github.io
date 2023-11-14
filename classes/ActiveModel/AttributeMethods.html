@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -339,22 +340,22 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/attribute_methods.rb, line 498
+    def attribute_missing(match, *args, &block)
+      __send__(match.proxy_target, match.attr_name, *args, &block)
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-attribute_missing_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/attribute_methods.rb, line 498</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">attribute_missing</span>(<span class="ruby-identifier">match</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">match</span>.<span class="ruby-identifier">proxy_target</span>, <span class="ruby-identifier">match</span>.<span class="ruby-identifier">attr_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/attribute_methods.rb#L498" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-method_missing">
@@ -376,27 +377,27 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/attribute_methods.rb, line 484
+    def method_missing(method, *args, &block)
+      if respond_to_without_attributes?(method, true)
+        super
+      else
+        match = matched_attribute_method(method.to_s)
+        match ? attribute_missing(match, *args, &block) : super
+      end
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-method_missing_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/attribute_methods.rb, line 484</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">method_missing</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">respond_to_without_attributes?</span>(<span class="ruby-identifier">method</span>, <span class="ruby-keyword">true</span>)
-    <span class="ruby-keyword">super</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">match</span> = <span class="ruby-identifier">matched_attribute_method</span>(<span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span>)
-    <span class="ruby-identifier">match</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">attribute_missing</span>(<span class="ruby-identifier">match</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword">super</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/attribute_methods.rb#L484" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-respond_to-3F">
@@ -420,30 +421,30 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/attribute_methods.rb, line 507
+    def respond_to?(method, include_private_methods = false)
+      if super
+        true
+      elsif !include_private_methods && super(method, true)
+        # If we're here then we haven't found among non-private methods
+        # but found among all methods. Which means that the given method is private.
+        false
+      else
+        !matched_attribute_method(method.to_s).nil?
+      end
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-respond_to-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/attribute_methods.rb, line 507</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">respond_to?</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">include_private_methods</span> = <span class="ruby-keyword">false</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-keyword">super</span>
-    <span class="ruby-keyword">true</span>
-  <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">include_private_methods</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">super</span>(<span class="ruby-identifier">method</span>, <span class="ruby-keyword">true</span>)
-    <span class="ruby-comment"># If we&#39;re here then we haven&#39;t found among non-private methods</span>
-    <span class="ruby-comment"># but found among all methods. Which means that the given method is private.</span>
-    <span class="ruby-keyword">false</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-operator">!</span><span class="ruby-identifier">matched_attribute_method</span>(<span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span>).<span class="ruby-identifier">nil?</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/attribute_methods.rb#L507" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-respond_to_without_attributes-3F">
@@ -467,7 +468,8 @@ end
           
 
           
-          </div>
+          
+        </div>
         
       
     
@@ -487,7 +489,7 @@ end
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

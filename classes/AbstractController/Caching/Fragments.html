@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -260,28 +261,28 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-combined_fragment_cache_key_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/caching/fragments.rb, line 70</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">combined_fragment_cache_key</span>(<span class="ruby-identifier">key</span>)
-  <span class="ruby-identifier">head</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">fragment_cache_keys</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">instance_exec</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">k</span>) }
-  <span class="ruby-identifier">tail</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">url_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;://&quot;</span>).<span class="ruby-identifier">last</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">key</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-  <span class="ruby-identifier">cache_key</span> = [<span class="ruby-value">:views</span>, <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;RAILS_CACHE_ID&quot;</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;RAILS_APP_VERSION&quot;</span>], <span class="ruby-identifier">head</span>, <span class="ruby-identifier">tail</span>]
-  <span class="ruby-identifier">cache_key</span>.<span class="ruby-identifier">flatten!</span>(<span class="ruby-value">1</span>)
-  <span class="ruby-identifier">cache_key</span>.<span class="ruby-identifier">compact!</span>
-  <span class="ruby-identifier">cache_key</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File actionpack/lib/abstract_controller/caching/fragments.rb, line 70
+      def combined_fragment_cache_key(key)
+        head = self.class.fragment_cache_keys.map { |k| instance_exec(&k) }
+        tail = key.is_a?(Hash) ? url_for(key).split("://").last : key
+
+        cache_key = [:views, ENV["RAILS_CACHE_ID"] || ENV["RAILS_APP_VERSION"], head, tail]
+        cache_key.flatten!(1)
+        cache_key.compact!
+        cache_key
+      end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/caching/fragments.rb#L70" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-expire_fragment">
@@ -312,31 +313,31 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-expire_fragment_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/caching/fragments.rb, line 134</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">expire_fragment</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">cache_configured?</span>
-  <span class="ruby-identifier">key</span> = <span class="ruby-identifier">combined_fragment_cache_key</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Regexp</span>)
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-  <span class="ruby-identifier">instrument_fragment_cache</span> <span class="ruby-value">:expire_fragment</span>, <span class="ruby-identifier">key</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Regexp</span>)
-      <span class="ruby-identifier">cache_store</span>.<span class="ruby-identifier">delete_matched</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">cache_store</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File actionpack/lib/abstract_controller/caching/fragments.rb, line 134
+      def expire_fragment(key, options = nil)
+        return unless cache_configured?
+        key = combined_fragment_cache_key(key) unless key.is_a?(Regexp)
+
+        instrument_fragment_cache :expire_fragment, key do
+          if key.is_a?(Regexp)
+            cache_store.delete_matched(key, options)
+          else
+            cache_store.delete(key, options)
+          end
+        end
+      end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/caching/fragments.rb#L134" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-fragment_exist-3F">
@@ -356,27 +357,27 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-fragment_exist-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/caching/fragments.rb, line 107</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fragment_exist?</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">cache_configured?</span>
-  <span class="ruby-identifier">key</span> = <span class="ruby-identifier">combined_fragment_cache_key</span>(<span class="ruby-identifier">key</span>)
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-  <span class="ruby-identifier">instrument_fragment_cache</span> <span class="ruby-value">:exist_fragment?</span>, <span class="ruby-identifier">key</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-identifier">cache_store</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File actionpack/lib/abstract_controller/caching/fragments.rb, line 107
+      def fragment_exist?(key, options = nil)
+        return unless cache_configured?
+        key = combined_fragment_cache_key(key)
+
+        instrument_fragment_cache :exist_fragment?, key do
+          cache_store.exist?(key, options)
+        end
+      end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/caching/fragments.rb#L107" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-read_fragment">
@@ -396,28 +397,28 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-read_fragment_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/caching/fragments.rb, line 95</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_fragment</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">cache_configured?</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-  <span class="ruby-identifier">key</span> = <span class="ruby-identifier">combined_fragment_cache_key</span>(<span class="ruby-identifier">key</span>)
-  <span class="ruby-identifier">instrument_fragment_cache</span> <span class="ruby-value">:read_fragment</span>, <span class="ruby-identifier">key</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">cache_store</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
-    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:html_safe</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">html_safe</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">result</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File actionpack/lib/abstract_controller/caching/fragments.rb, line 95
+      def read_fragment(key, options = nil)
+        return unless cache_configured?
+
+        key = combined_fragment_cache_key(key)
+        instrument_fragment_cache :read_fragment, key do
+          result = cache_store.read(key, options)
+          result.respond_to?(:html_safe) ? result.html_safe : result
+        end
+      end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/caching/fragments.rb#L95" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-write_fragment">
@@ -437,29 +438,29 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-write_fragment_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/abstract_controller/caching/fragments.rb, line 82</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">write_fragment</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">content</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-identifier">content</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">cache_configured?</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-  <span class="ruby-identifier">key</span> = <span class="ruby-identifier">combined_fragment_cache_key</span>(<span class="ruby-identifier">key</span>)
-  <span class="ruby-identifier">instrument_fragment_cache</span> <span class="ruby-value">:write_fragment</span>, <span class="ruby-identifier">key</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-identifier">content</span> = <span class="ruby-identifier">content</span>.<span class="ruby-identifier">to_str</span>
-    <span class="ruby-identifier">cache_store</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">content</span>, <span class="ruby-identifier">options</span>)
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-identifier">content</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File actionpack/lib/abstract_controller/caching/fragments.rb, line 82
+      def write_fragment(key, content, options = nil)
+        return content unless cache_configured?
+
+        key = combined_fragment_cache_key(key)
+        instrument_fragment_cache :write_fragment, key do
+          content = content.to_str
+          cache_store.write(key, content, options)
+        end
+        content
+      end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/abstract_controller/caching/fragments.rb#L82" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -479,7 +480,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

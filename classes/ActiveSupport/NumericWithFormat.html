@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -206,7 +207,8 @@
           
 
           
-          </div>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-to_fs">
@@ -333,45 +335,45 @@ Human-friendly format:
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-to_fs_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/numeric/conversions.rb, line 113</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_fs</span>(<span class="ruby-identifier">format</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_s</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">format</span>.<span class="ruby-identifier">nil?</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-  <span class="ruby-keyword">case</span> <span class="ruby-identifier">format</span>
-  <span class="ruby-keyword">when</span> <span class="ruby-constant">Integer</span>, <span class="ruby-constant">String</span>
-    <span class="ruby-identifier">to_s</span>(<span class="ruby-identifier">format</span>)
-  <span class="ruby-keyword">when</span> <span class="ruby-value">:phone</span>
-    <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">NumberHelper</span>.<span class="ruby-identifier">number_to_phone</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">options</span> <span class="ruby-operator">||</span> {})
-  <span class="ruby-keyword">when</span> <span class="ruby-value">:currency</span>
-    <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">NumberHelper</span>.<span class="ruby-identifier">number_to_currency</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">options</span> <span class="ruby-operator">||</span> {})
-  <span class="ruby-keyword">when</span> <span class="ruby-value">:percentage</span>
-    <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">NumberHelper</span>.<span class="ruby-identifier">number_to_percentage</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">options</span> <span class="ruby-operator">||</span> {})
-  <span class="ruby-keyword">when</span> <span class="ruby-value">:delimited</span>
-    <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">NumberHelper</span>.<span class="ruby-identifier">number_to_delimited</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">options</span> <span class="ruby-operator">||</span> {})
-  <span class="ruby-keyword">when</span> <span class="ruby-value">:rounded</span>
-    <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">NumberHelper</span>.<span class="ruby-identifier">number_to_rounded</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">options</span> <span class="ruby-operator">||</span> {})
-  <span class="ruby-keyword">when</span> <span class="ruby-value">:human</span>
-    <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">NumberHelper</span>.<span class="ruby-identifier">number_to_human</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">options</span> <span class="ruby-operator">||</span> {})
-  <span class="ruby-keyword">when</span> <span class="ruby-value">:human_size</span>
-    <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">NumberHelper</span>.<span class="ruby-identifier">number_to_human_size</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">options</span> <span class="ruby-operator">||</span> {})
-  <span class="ruby-keyword">when</span> <span class="ruby-constant">Symbol</span>
-    <span class="ruby-identifier">to_s</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">to_s</span>(<span class="ruby-identifier">format</span>)
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File activesupport/lib/active_support/core_ext/numeric/conversions.rb, line 113
+    def to_fs(format = nil, options = nil)
+      return to_s if format.nil?
+
+      case format
+      when Integer, String
+        to_s(format)
+      when :phone
+        ActiveSupport::NumberHelper.number_to_phone(self, options || {})
+      when :currency
+        ActiveSupport::NumberHelper.number_to_currency(self, options || {})
+      when :percentage
+        ActiveSupport::NumberHelper.number_to_percentage(self, options || {})
+      when :delimited
+        ActiveSupport::NumberHelper.number_to_delimited(self, options || {})
+      when :rounded
+        ActiveSupport::NumberHelper.number_to_rounded(self, options || {})
+      when :human
+        ActiveSupport::NumberHelper.number_to_human(self, options || {})
+      when :human_size
+        ActiveSupport::NumberHelper.number_to_human_size(self, options || {})
+      when Symbol
+        to_s
+      else
+        to_s(format)
+      end
+    end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/core_ext/numeric/conversions.rb#L113" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -391,7 +393,7 @@ Human-friendly format:
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

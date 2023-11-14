@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -308,26 +309,26 @@ env[&quot;action_dispatch.parameter_filter&quot;] = [:foo, &quot;bar&quot;]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 21
+      def initialize
+        super
+        @filtered_parameters = nil
+        @filtered_env        = nil
+        @filtered_path       = nil
+        @parameter_filter    = nil
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 21</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
-  <span class="ruby-keyword">super</span>
-  <span class="ruby-ivar">@filtered_parameters</span> = <span class="ruby-keyword">nil</span>
-  <span class="ruby-ivar">@filtered_env</span>        = <span class="ruby-keyword">nil</span>
-  <span class="ruby-ivar">@filtered_path</span>       = <span class="ruby-keyword">nil</span>
-  <span class="ruby-ivar">@parameter_filter</span>    = <span class="ruby-keyword">nil</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/filter_parameters.rb#L21" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -351,22 +352,22 @@ env[&quot;action_dispatch.parameter_filter&quot;] = [:foo, &quot;bar&quot;]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 37
+      def filtered_env
+        @filtered_env ||= env_filter.filter(@env)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-filtered_env_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 37</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">filtered_env</span>
-  <span class="ruby-ivar">@filtered_env</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">env_filter</span>.<span class="ruby-identifier">filter</span>(<span class="ruby-ivar">@env</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/filter_parameters.rb#L37" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-filtered_parameters">
@@ -386,24 +387,24 @@ env[&quot;action_dispatch.parameter_filter&quot;] = [:foo, &quot;bar&quot;]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 30
+      def filtered_parameters
+        @filtered_parameters ||= parameter_filter.filter(parameters)
+      rescue ActionDispatch::Http::Parameters::ParseError
+        @filtered_parameters = {}
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-filtered_parameters_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 30</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">filtered_parameters</span>
-  <span class="ruby-ivar">@filtered_parameters</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">parameter_filter</span>.<span class="ruby-identifier">filter</span>(<span class="ruby-identifier">parameters</span>)
-<span class="ruby-keyword">rescue</span> <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">Http</span><span class="ruby-operator">::</span><span class="ruby-constant">Parameters</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseError</span>
-  <span class="ruby-ivar">@filtered_parameters</span> = {}
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/filter_parameters.rb#L30" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-filtered_path">
@@ -423,22 +424,22 @@ env[&quot;action_dispatch.parameter_filter&quot;] = [:foo, &quot;bar&quot;]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 42
+      def filtered_path
+        @filtered_path ||= query_string.empty? ? path : "#{path}?#{filtered_query_string}"
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-filtered_path_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 42</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">filtered_path</span>
-  <span class="ruby-ivar">@filtered_path</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">query_string</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">path</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{path}?#{filtered_query_string}&quot;</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/filter_parameters.rb#L42" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-parameter_filter">
@@ -458,26 +459,26 @@ env[&quot;action_dispatch.parameter_filter&quot;] = [:foo, &quot;bar&quot;]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 47
+      def parameter_filter
+        @parameter_filter ||= if has_header?("action_dispatch.parameter_filter")
+          parameter_filter_for get_header("action_dispatch.parameter_filter")
+        else
+          NULL_PARAM_FILTER
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-parameter_filter_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 47</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parameter_filter</span>
-  <span class="ruby-ivar">@parameter_filter</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">has_header?</span>(<span class="ruby-string">&quot;action_dispatch.parameter_filter&quot;</span>)
-    <span class="ruby-identifier">parameter_filter_for</span> <span class="ruby-identifier">get_header</span>(<span class="ruby-string">&quot;action_dispatch.parameter_filter&quot;</span>)
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-constant">NULL_PARAM_FILTER</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/filter_parameters.rb#L47" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
       <h2 id="instance-private-methods">Instance Private methods</h2>
@@ -500,25 +501,25 @@ env[&quot;action_dispatch.parameter_filter&quot;] = [:foo, &quot;bar&quot;]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 56
+      def env_filter # :doc:
+        user_key = fetch_header("action_dispatch.parameter_filter") {
+          return NULL_ENV_FILTER
+        }
+        parameter_filter_for(Array(user_key) + ENV_MATCH)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-env_filter_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 56</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">env_filter</span> <span class="ruby-comment"># :doc:</span>
-  <span class="ruby-identifier">user_key</span> = <span class="ruby-identifier">fetch_header</span>(<span class="ruby-string">&quot;action_dispatch.parameter_filter&quot;</span>) {
-    <span class="ruby-keyword">return</span> <span class="ruby-constant">NULL_ENV_FILTER</span>
-  }
-  <span class="ruby-identifier">parameter_filter_for</span>(<span class="ruby-constant">Array</span>(<span class="ruby-identifier">user_key</span>) <span class="ruby-operator">+</span> <span class="ruby-constant">ENV_MATCH</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/filter_parameters.rb#L56" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-filtered_query_string">
@@ -538,24 +539,24 @@ env[&quot;action_dispatch.parameter_filter&quot;] = [:foo, &quot;bar&quot;]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 69
+      def filtered_query_string # :doc:
+        query_string.gsub(PAIR_RE) do |_|
+          parameter_filter.filter($1 => $2).first.join("=")
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-filtered_query_string_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 69</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">filtered_query_string</span> <span class="ruby-comment"># :doc:</span>
-  <span class="ruby-identifier">query_string</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">PAIR_RE</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">_</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">parameter_filter</span>.<span class="ruby-identifier">filter</span>(<span class="ruby-node">$1</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-node">$2</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;=&quot;</span>)
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/filter_parameters.rb#L69" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-parameter_filter_for">
@@ -575,22 +576,22 @@ env[&quot;action_dispatch.parameter_filter&quot;] = [:foo, &quot;bar&quot;]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 63
+      def parameter_filter_for(filters) # :doc:
+        ActiveSupport::ParameterFilter.new(filters)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-parameter_filter_for_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_dispatch/http/filter_parameters.rb, line 63</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parameter_filter_for</span>(<span class="ruby-identifier">filters</span>) <span class="ruby-comment"># :doc:</span>
-  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">ParameterFilter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filters</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/filter_parameters.rb#L63" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -610,7 +611,7 @@ env[&quot;action_dispatch.parameter_filter&quot;] = [:foo, &quot;bar&quot;]
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

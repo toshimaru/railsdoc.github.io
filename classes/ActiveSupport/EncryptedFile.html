@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -336,22 +337,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/encrypted_file.rb, line 31
+    def self.generate_key
+      SecureRandom.hex(ActiveSupport::MessageEncryptor.key_len(CIPHER))
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-generate_key_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/encrypted_file.rb, line 31</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">generate_key</span>
-  <span class="ruby-constant">SecureRandom</span>.<span class="ruby-identifier">hex</span>(<span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageEncryptor</span>.<span class="ruby-identifier">key_len</span>(<span class="ruby-constant">CIPHER</span>))
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/encrypted_file.rb#L31" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-new">
@@ -371,24 +372,24 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/encrypted_file.rb, line 42
+    def initialize(content_path:, key_path:, env_key:, raise_if_missing_key:)
+      @content_path = Pathname.new(content_path).yield_self { |path| path.symlink? ? path.realpath : path }
+      @key_path = Pathname.new(key_path)
+      @env_key, @raise_if_missing_key = env_key, raise_if_missing_key
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/encrypted_file.rb, line 42</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-value">content_path:</span>, <span class="ruby-value">key_path:</span>, <span class="ruby-value">env_key:</span>, <span class="ruby-value">raise_if_missing_key:</span>)
-  <span class="ruby-ivar">@content_path</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">content_path</span>).<span class="ruby-identifier">yield_self</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">symlink?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">realpath</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">path</span> }
-  <span class="ruby-ivar">@key_path</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key_path</span>)
-  <span class="ruby-ivar">@env_key</span>, <span class="ruby-ivar">@raise_if_missing_key</span> = <span class="ruby-identifier">env_key</span>, <span class="ruby-identifier">raise_if_missing_key</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/encrypted_file.rb#L42" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -412,22 +413,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/encrypted_file.rb, line 83
+    def change(&block)
+      writing read, &block
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-change_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/encrypted_file.rb, line 83</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-identifier">writing</span> <span class="ruby-identifier">read</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/encrypted_file.rb#L83" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-key">
@@ -447,22 +448,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/encrypted_file.rb, line 52
+    def key
+      read_env_key || read_key_file || handle_missing_key
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-key_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/encrypted_file.rb, line 52</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">key</span>
-  <span class="ruby-identifier">read_env_key</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">read_key_file</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">handle_missing_key</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/encrypted_file.rb#L52" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-key-3F">
@@ -482,22 +483,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/encrypted_file.rb, line 58
+    def key?
+      read_env_key || read_key_file
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-key-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/encrypted_file.rb, line 58</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">key?</span>
-  <span class="ruby-identifier">read_env_key</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">read_key_file</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/encrypted_file.rb#L58" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-read">
@@ -526,26 +527,26 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/encrypted_file.rb, line 70
+    def read
+      if !key.nil? && content_path.exist?
+        decrypt content_path.binread
+      else
+        raise MissingContentError, content_path
+      end
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-read_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/encrypted_file.rb, line 70</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">key</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">content_path</span>.<span class="ruby-identifier">exist?</span>
-    <span class="ruby-identifier">decrypt</span> <span class="ruby-identifier">content_path</span>.<span class="ruby-identifier">binread</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">raise</span> <span class="ruby-constant">MissingContentError</span>, <span class="ruby-identifier">content_path</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/encrypted_file.rb#L70" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-write">
@@ -565,23 +566,23 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/encrypted_file.rb, line 78
+    def write(contents)
+      IO.binwrite "#{content_path}.tmp", encrypt(contents)
+      FileUtils.mv "#{content_path}.tmp", content_path
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-write_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/encrypted_file.rb, line 78</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">write</span>(<span class="ruby-identifier">contents</span>)
-  <span class="ruby-constant">IO</span>.<span class="ruby-identifier">binwrite</span> <span class="ruby-node">&quot;#{content_path}.tmp&quot;</span>, <span class="ruby-identifier">encrypt</span>(<span class="ruby-identifier">contents</span>)
-  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mv</span> <span class="ruby-node">&quot;#{content_path}.tmp&quot;</span>, <span class="ruby-identifier">content_path</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/encrypted_file.rb#L78" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -601,7 +602,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

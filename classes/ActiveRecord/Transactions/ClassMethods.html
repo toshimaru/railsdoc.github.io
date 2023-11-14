@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -406,23 +407,23 @@ after_commit :do_bar_baz, on: [:update, :destroy]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/transactions.rb, line 232
+      def after_commit(*args, &block)
+        set_options_for_callbacks!(args, prepend_option)
+        set_callback(:commit, :after, *args, &block)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-after_commit_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/transactions.rb, line 232</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">after_commit</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-identifier">set_options_for_callbacks!</span>(<span class="ruby-identifier">args</span>, <span class="ruby-identifier">prepend_option</span>)
-  <span class="ruby-identifier">set_callback</span>(<span class="ruby-value">:commit</span>, <span class="ruby-value">:after</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/transactions.rb#L232" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-after_create_commit">
@@ -442,23 +443,23 @@ after_commit :do_bar_baz, on: [:update, :destroy]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/transactions.rb, line 244
+      def after_create_commit(*args, &block)
+        set_options_for_callbacks!(args, on: :create, **prepend_option)
+        set_callback(:commit, :after, *args, &block)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-after_create_commit_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/transactions.rb, line 244</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">after_create_commit</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-identifier">set_options_for_callbacks!</span>(<span class="ruby-identifier">args</span>, <span class="ruby-value">on:</span> <span class="ruby-value">:create</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">prepend_option</span>)
-  <span class="ruby-identifier">set_callback</span>(<span class="ruby-value">:commit</span>, <span class="ruby-value">:after</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/transactions.rb#L244" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-after_destroy_commit">
@@ -478,23 +479,23 @@ after_commit :do_bar_baz, on: [:update, :destroy]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/transactions.rb, line 256
+      def after_destroy_commit(*args, &block)
+        set_options_for_callbacks!(args, on: :destroy, **prepend_option)
+        set_callback(:commit, :after, *args, &block)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-after_destroy_commit_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/transactions.rb, line 256</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">after_destroy_commit</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-identifier">set_options_for_callbacks!</span>(<span class="ruby-identifier">args</span>, <span class="ruby-value">on:</span> <span class="ruby-value">:destroy</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">prepend_option</span>)
-  <span class="ruby-identifier">set_callback</span>(<span class="ruby-value">:commit</span>, <span class="ruby-value">:after</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/transactions.rb#L256" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-after_rollback">
@@ -516,23 +517,23 @@ after_commit :do_bar_baz, on: [:update, :destroy]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/transactions.rb, line 264
+      def after_rollback(*args, &block)
+        set_options_for_callbacks!(args, prepend_option)
+        set_callback(:rollback, :after, *args, &block)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-after_rollback_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/transactions.rb, line 264</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">after_rollback</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-identifier">set_options_for_callbacks!</span>(<span class="ruby-identifier">args</span>, <span class="ruby-identifier">prepend_option</span>)
-  <span class="ruby-identifier">set_callback</span>(<span class="ruby-value">:rollback</span>, <span class="ruby-value">:after</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/transactions.rb#L264" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-after_save_commit">
@@ -552,23 +553,23 @@ after_commit :do_bar_baz, on: [:update, :destroy]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/transactions.rb, line 238
+      def after_save_commit(*args, &block)
+        set_options_for_callbacks!(args, on: [ :create, :update ], **prepend_option)
+        set_callback(:commit, :after, *args, &block)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-after_save_commit_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/transactions.rb, line 238</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">after_save_commit</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-identifier">set_options_for_callbacks!</span>(<span class="ruby-identifier">args</span>, <span class="ruby-value">on:</span> [ <span class="ruby-value">:create</span>, <span class="ruby-value">:update</span> ], <span class="ruby-operator">**</span><span class="ruby-identifier">prepend_option</span>)
-  <span class="ruby-identifier">set_callback</span>(<span class="ruby-value">:commit</span>, <span class="ruby-value">:after</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/transactions.rb#L238" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-after_update_commit">
@@ -588,23 +589,23 @@ after_commit :do_bar_baz, on: [:update, :destroy]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/transactions.rb, line 250
+      def after_update_commit(*args, &block)
+        set_options_for_callbacks!(args, on: :update, **prepend_option)
+        set_callback(:commit, :after, *args, &block)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-after_update_commit_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/transactions.rb, line 250</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">after_update_commit</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-identifier">set_options_for_callbacks!</span>(<span class="ruby-identifier">args</span>, <span class="ruby-value">on:</span> <span class="ruby-value">:update</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">prepend_option</span>)
-  <span class="ruby-identifier">set_callback</span>(<span class="ruby-value">:commit</span>, <span class="ruby-value">:after</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/transactions.rb#L250" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-transaction">
@@ -624,22 +625,22 @@ after_commit :do_bar_baz, on: [:update, :destroy]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/transactions.rb, line 211
+      def transaction(**options, &block)
+        connection.transaction(**options, &block)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-transaction_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/transactions.rb, line 211</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">transaction</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">options</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">transaction</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">options</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/transactions.rb#L211" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -659,7 +660,7 @@ after_commit :do_bar_baz, on: [:update, :destroy]
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

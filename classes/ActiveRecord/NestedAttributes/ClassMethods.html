@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -505,41 +506,41 @@ accepts_nested_attributes_for :avatar, :posts, allow_destroy: true
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/nested_attributes.rb, line 353
+      def accepts_nested_attributes_for(*attr_names)
+        options = { allow_destroy: false, update_only: false }
+        options.update(attr_names.extract_options!)
+        options.assert_valid_keys(:allow_destroy, :reject_if, :limit, :update_only)
+        options[:reject_if] = REJECT_ALL_BLANK_PROC if options[:reject_if] == :all_blank
+
+        attr_names.each do |association_name|
+          if reflection = _reflect_on_association(association_name)
+            reflection.autosave = true
+            define_autosave_validation_callbacks(reflection)
+
+            nested_attributes_options = self.nested_attributes_options.dup
+            nested_attributes_options[association_name.to_sym] = options
+            self.nested_attributes_options = nested_attributes_options
+
+            type = (reflection.collection? ? :collection : :one_to_one)
+            generate_association_writer(association_name, type)
+          else
+            raise ArgumentError, "No association found for name `#{association_name}'. Has it been defined yet?"
+          end
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-accepts_nested_attributes_for_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/nested_attributes.rb, line 353</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accepts_nested_attributes_for</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attr_names</span>)
-  <span class="ruby-identifier">options</span> = { <span class="ruby-value">allow_destroy:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">update_only:</span> <span class="ruby-keyword">false</span> }
-  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">attr_names</span>.<span class="ruby-identifier">extract_options!</span>)
-  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">assert_valid_keys</span>(<span class="ruby-value">:allow_destroy</span>, <span class="ruby-value">:reject_if</span>, <span class="ruby-value">:limit</span>, <span class="ruby-value">:update_only</span>)
-  <span class="ruby-identifier">options</span>[<span class="ruby-value">:reject_if</span>] = <span class="ruby-constant">REJECT_ALL_BLANK_PROC</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:reject_if</span>] <span class="ruby-operator">==</span> <span class="ruby-value">:all_blank</span>
-
-  <span class="ruby-identifier">attr_names</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">association_name</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">reflection</span> = <span class="ruby-identifier">_reflect_on_association</span>(<span class="ruby-identifier">association_name</span>)
-      <span class="ruby-identifier">reflection</span>.<span class="ruby-identifier">autosave</span> = <span class="ruby-keyword">true</span>
-      <span class="ruby-identifier">define_autosave_validation_callbacks</span>(<span class="ruby-identifier">reflection</span>)
-
-      <span class="ruby-identifier">nested_attributes_options</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nested_attributes_options</span>.<span class="ruby-identifier">dup</span>
-      <span class="ruby-identifier">nested_attributes_options</span>[<span class="ruby-identifier">association_name</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">options</span>
-      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nested_attributes_options</span> = <span class="ruby-identifier">nested_attributes_options</span>
-
-      <span class="ruby-identifier">type</span> = (<span class="ruby-identifier">reflection</span>.<span class="ruby-identifier">collection?</span> <span class="ruby-operator">?</span> <span class="ruby-value">:collection</span> <span class="ruby-operator">:</span> <span class="ruby-value">:one_to_one</span>)
-      <span class="ruby-identifier">generate_association_writer</span>(<span class="ruby-identifier">association_name</span>, <span class="ruby-identifier">type</span>)
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;No association found for name `#{association_name}&#39;. Has it been defined yet?&quot;</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/nested_attributes.rb#L353" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -559,7 +560,7 @@ accepts_nested_attributes_for :avatar, :posts, allow_destroy: true
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

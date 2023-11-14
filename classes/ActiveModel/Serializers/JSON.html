@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -301,34 +302,34 @@ user.as_json(except: [:id, :created_at, :age])
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-as_json_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/serializers/json.rb, line 96</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">as_json</span>(<span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
-  <span class="ruby-identifier">root</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:root</span>)
-    <span class="ruby-identifier">options</span>[<span class="ruby-value">:root</span>]
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">include_root_in_json</span>
-  <span class="ruby-keyword">end</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-  <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">serializable_hash</span>(<span class="ruby-identifier">options</span>).<span class="ruby-identifier">as_json</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">root</span>
-    <span class="ruby-identifier">root</span> = <span class="ruby-identifier">model_name</span>.<span class="ruby-identifier">element</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">root</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
-    { <span class="ruby-identifier">root</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">hash</span> }
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">hash</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File activemodel/lib/active_model/serializers/json.rb, line 96
+      def as_json(options = nil)
+        root = if options && options.key?(:root)
+          options[:root]
+        else
+          include_root_in_json
+        end
+
+        hash = serializable_hash(options).as_json
+        if root
+          root = model_name.element if root == true
+          { root => hash }
+        else
+          hash
+        end
+      end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/serializers/json.rb#L96" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-from_json">
@@ -382,25 +383,25 @@ person.awesome               # =&gt; true
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/serializers/json.rb, line 146
+      def from_json(json, include_root = include_root_in_json)
+        hash = ActiveSupport::JSON.decode(json)
+        hash = hash.values.first if include_root
+        self.attributes = hash
+        self
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-from_json_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/serializers/json.rb, line 146</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">from_json</span>(<span class="ruby-identifier">json</span>, <span class="ruby-identifier">include_root</span> = <span class="ruby-identifier">include_root_in_json</span>)
-  <span class="ruby-identifier">hash</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">decode</span>(<span class="ruby-identifier">json</span>)
-  <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">include_root</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">attributes</span> = <span class="ruby-identifier">hash</span>
-  <span class="ruby-keyword">self</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/serializers/json.rb#L146" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -420,7 +421,7 @@ person.awesome               # =&gt; true
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -289,23 +290,23 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 10
+      def initialize
+        @options = {}
+        @deprecators = {}
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 10</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
-  <span class="ruby-ivar">@options</span> = {}
-  <span class="ruby-ivar">@deprecators</span> = {}
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/deprecation/deprecators.rb#L10" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -329,22 +330,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 16
+      def [](name)
+        @deprecators[name]
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-5B-5D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 16</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]</span>(<span class="ruby-identifier">name</span>)
-  <span class="ruby-ivar">@deprecators</span>[<span class="ruby-identifier">name</span>]
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/deprecation/deprecators.rb#L16" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-5B-5D-3D">
@@ -375,23 +376,23 @@ foo_deprecator.debug    # =&gt; true
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 34
+      def []=(name, deprecator)
+        apply_options(deprecator)
+        @deprecators[name] = deprecator
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-5B-5D-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 34</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]=</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">deprecator</span>)
-  <span class="ruby-identifier">apply_options</span>(<span class="ruby-identifier">deprecator</span>)
-  <span class="ruby-ivar">@deprecators</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">deprecator</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/deprecation/deprecators.rb#L34" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-behavior-3D">
@@ -413,22 +414,22 @@ foo_deprecator.debug    # =&gt; true
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 60
+      def behavior=(behavior)
+        set_option(:behavior, behavior)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-behavior-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 60</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">behavior=</span>(<span class="ruby-identifier">behavior</span>)
-  <span class="ruby-identifier">set_option</span>(<span class="ruby-value">:behavior</span>, <span class="ruby-identifier">behavior</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/deprecation/deprecators.rb#L60" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-debug-3D">
@@ -448,22 +449,22 @@ foo_deprecator.debug    # =&gt; true
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 52
+      def debug=(debug)
+        set_option(:debug, debug)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-debug-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 52</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">debug=</span>(<span class="ruby-identifier">debug</span>)
-  <span class="ruby-identifier">set_option</span>(<span class="ruby-value">:debug</span>, <span class="ruby-identifier">debug</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/deprecation/deprecators.rb#L52" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-disallowed_behavior-3D">
@@ -485,22 +486,22 @@ foo_deprecator.debug    # =&gt; true
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 68
+      def disallowed_behavior=(disallowed_behavior)
+        set_option(:disallowed_behavior, disallowed_behavior)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-disallowed_behavior-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 68</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">disallowed_behavior=</span>(<span class="ruby-identifier">disallowed_behavior</span>)
-  <span class="ruby-identifier">set_option</span>(<span class="ruby-value">:disallowed_behavior</span>, <span class="ruby-identifier">disallowed_behavior</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/deprecation/deprecators.rb#L68" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-disallowed_warnings-3D">
@@ -522,22 +523,22 @@ foo_deprecator.debug    # =&gt; true
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 76
+      def disallowed_warnings=(disallowed_warnings)
+        set_option(:disallowed_warnings, disallowed_warnings)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-disallowed_warnings-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 76</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">disallowed_warnings=</span>(<span class="ruby-identifier">disallowed_warnings</span>)
-  <span class="ruby-identifier">set_option</span>(<span class="ruby-value">:disallowed_warnings</span>, <span class="ruby-identifier">disallowed_warnings</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/deprecation/deprecators.rb#L76" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-each">
@@ -557,23 +558,23 @@ foo_deprecator.debug    # =&gt; true
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 41
+      def each(&block)
+        return to_enum(__method__) unless block
+        @deprecators.each_value(&block)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-each_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 41</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-identifier">__method__</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block</span>
-  <span class="ruby-ivar">@deprecators</span>.<span class="ruby-identifier">each_value</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/deprecation/deprecators.rb#L41" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-silence">
@@ -595,25 +596,25 @@ foo_deprecator.debug    # =&gt; true
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 84
+      def silence(&block)
+        each { |deprecator| deprecator.begin_silence }
+        block.call
+      ensure
+        each { |deprecator| deprecator.end_silence }
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-silence_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 84</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">silence</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">deprecator</span><span class="ruby-operator">|</span> <span class="ruby-identifier">deprecator</span>.<span class="ruby-identifier">begin_silence</span> }
-  <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>
-<span class="ruby-keyword">ensure</span>
-  <span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">deprecator</span><span class="ruby-operator">|</span> <span class="ruby-identifier">deprecator</span>.<span class="ruby-identifier">end_silence</span> }
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/deprecation/deprecators.rb#L84" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-silenced-3D">
@@ -633,22 +634,22 @@ foo_deprecator.debug    # =&gt; true
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 47
+      def silenced=(silenced)
+        set_option(:silenced, silenced)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-silenced-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/deprecation/deprecators.rb, line 47</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">silenced=</span>(<span class="ruby-identifier">silenced</span>)
-  <span class="ruby-identifier">set_option</span>(<span class="ruby-value">:silenced</span>, <span class="ruby-identifier">silenced</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/deprecation/deprecators.rb#L47" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -668,7 +669,7 @@ foo_deprecator.debug    # =&gt; true
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

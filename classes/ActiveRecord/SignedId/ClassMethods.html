@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -238,26 +239,26 @@ User.find_signed signed_id, purpose: :password_reset # =&gt; User.first
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-find_signed_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/signed_id.rb, line 42</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find_signed</span>(<span class="ruby-identifier">signed_id</span>, <span class="ruby-value">purpose:</span> <span class="ruby-keyword">nil</span>)
-  <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnknownPrimaryKey</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">primary_key</span>.<span class="ruby-identifier">nil?</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">id</span> = <span class="ruby-identifier">signed_id_verifier</span>.<span class="ruby-identifier">verified</span>(<span class="ruby-identifier">signed_id</span>, <span class="ruby-value">purpose:</span> <span class="ruby-identifier">combine_signed_id_purposes</span>(<span class="ruby-identifier">purpose</span>))
-    <span class="ruby-identifier">find_by</span> <span class="ruby-identifier">primary_key</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">id</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File activerecord/lib/active_record/signed_id.rb, line 42
+      def find_signed(signed_id, purpose: nil)
+        raise UnknownPrimaryKey.new(self) if primary_key.nil?
+
+        if id = signed_id_verifier.verified(signed_id, purpose: combine_signed_id_purposes(purpose))
+          find_by primary_key => id
+        end
+      end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/signed_id.rb#L42" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-find_signed-21">
@@ -286,24 +287,24 @@ User.find_signed! signed_id # =&gt; ActiveRecord::RecordNotFound
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/signed_id.rb, line 62
+      def find_signed!(signed_id, purpose: nil)
+        if id = signed_id_verifier.verify(signed_id, purpose: combine_signed_id_purposes(purpose))
+          find(id)
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-find_signed-21_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/signed_id.rb, line 62</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find_signed!</span>(<span class="ruby-identifier">signed_id</span>, <span class="ruby-value">purpose:</span> <span class="ruby-keyword">nil</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">id</span> = <span class="ruby-identifier">signed_id_verifier</span>.<span class="ruby-identifier">verify</span>(<span class="ruby-identifier">signed_id</span>, <span class="ruby-value">purpose:</span> <span class="ruby-identifier">combine_signed_id_purposes</span>(<span class="ruby-identifier">purpose</span>))
-    <span class="ruby-identifier">find</span>(<span class="ruby-identifier">id</span>)
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/signed_id.rb#L62" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-signed_id_verifier">
@@ -323,31 +324,31 @@ User.find_signed! signed_id # =&gt; ActiveRecord::RecordNotFound
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-signed_id_verifier_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/signed_id.rb, line 71</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">signed_id_verifier</span>
-  <span class="ruby-ivar">@signed_id_verifier</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
-    <span class="ruby-identifier">secret</span> = <span class="ruby-identifier">signed_id_verifier_secret</span>
-    <span class="ruby-identifier">secret</span> = <span class="ruby-identifier">secret</span>.<span class="ruby-identifier">call</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">secret</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">secret</span>.<span class="ruby-identifier">nil?</span>
-      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You must set ActiveRecord::Base.signed_id_verifier_secret to use signed ids&quot;</span>
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageVerifier</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">secret</span>, <span class="ruby-value">digest:</span> <span class="ruby-string">&quot;SHA256&quot;</span>, <span class="ruby-value">serializer:</span> <span class="ruby-constant">JSON</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File activerecord/lib/active_record/signed_id.rb, line 71
+      def signed_id_verifier
+        @signed_id_verifier ||= begin
+          secret = signed_id_verifier_secret
+          secret = secret.call if secret.respond_to?(:call)
+
+          if secret.nil?
+            raise ArgumentError, "You must set ActiveRecord::Base.signed_id_verifier_secret to use signed ids"
+          else
+            ActiveSupport::MessageVerifier.new secret, digest: "SHA256", serializer: JSON
+          end
+        end
+      end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/signed_id.rb#L71" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-signed_id_verifier-3D">
@@ -367,22 +368,22 @@ User.find_signed! signed_id # =&gt; ActiveRecord::RecordNotFound
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/signed_id.rb, line 87
+      def signed_id_verifier=(verifier)
+        @signed_id_verifier = verifier
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-signed_id_verifier-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/signed_id.rb, line 87</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">signed_id_verifier=</span>(<span class="ruby-identifier">verifier</span>)
-  <span class="ruby-ivar">@signed_id_verifier</span> = <span class="ruby-identifier">verifier</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/signed_id.rb#L87" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -402,7 +403,7 @@ User.find_signed! signed_id # =&gt; ActiveRecord::RecordNotFound
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

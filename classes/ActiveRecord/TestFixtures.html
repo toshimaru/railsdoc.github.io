@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -259,20 +260,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-fixture_paths_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/test_fixtures.rb, line 21</span>
-      </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/test_fixtures.rb#L21" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-fixture_paths-3D">
@@ -292,21 +283,21 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-fixture_paths-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/test_fixtures.rb, line 30</span>
-<span class="ruby-identifier">class_attribute</span> <span class="ruby-value">:fixture_paths</span>, <span class="ruby-value">instance_writer:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">default:</span> []
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/test_fixtures.rb, line 30
+      class_attribute :fixture_paths, instance_writer: false, default: []
 </code></pre>
-              </div>
-            </div>
-            
-          </div>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/test_fixtures.rb#L30" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -330,24 +321,24 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-enlist_fixture_connections_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/test_fixtures.rb, line 205</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">enlist_fixture_connections</span>
-  <span class="ruby-identifier">setup_shared_connection_pool</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">connection_handler</span>.<span class="ruby-identifier">connection_pool_list</span>(<span class="ruby-value">:writing</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:connection</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File activerecord/lib/active_record/test_fixtures.rb, line 205
+    def enlist_fixture_connections
+      setup_shared_connection_pool
+
+      ActiveRecord::Base.connection_handler.connection_pool_list(:writing).map(&:connection)
+    end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/test_fixtures.rb#L205" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-run_in_transaction-3F">
@@ -367,23 +358,23 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/test_fixtures.rb, line 121
+    def run_in_transaction?
+      use_transactional_tests &&
+        !self.class.uses_transaction?(name)
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-run_in_transaction-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/test_fixtures.rb, line 121</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">run_in_transaction?</span>
-  <span class="ruby-identifier">use_transactional_tests</span> <span class="ruby-operator">&amp;&amp;</span>
-    <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">uses_transaction?</span>(<span class="ruby-identifier">name</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/test_fixtures.rb#L121" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-setup_fixtures">
@@ -403,80 +394,80 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/test_fixtures.rb, line 126
+    def setup_fixtures(config = ActiveRecord::Base)
+      if pre_loaded_fixtures && !use_transactional_tests
+        raise RuntimeError, "pre_loaded_fixtures requires use_transactional_tests"
+      end
+
+      @fixture_cache = {}
+      @fixture_connections = []
+      @@already_loaded_fixtures ||= {}
+      @connection_subscriber = nil
+      @saved_pool_configs = Hash.new { |hash, key| hash[key] = {} }
+
+      # Load fixtures once and begin transaction.
+      if run_in_transaction?
+        if @@already_loaded_fixtures[self.class]
+          @loaded_fixtures = @@already_loaded_fixtures[self.class]
+        else
+          @loaded_fixtures = load_fixtures(config)
+          @@already_loaded_fixtures[self.class] = @loaded_fixtures
+        end
+
+        # Begin transactions for connections already established
+        @fixture_connections = enlist_fixture_connections
+        @fixture_connections.each do |connection|
+          connection.begin_transaction joinable: false, _lazy: false
+          connection.pool.lock_thread = true if lock_threads
+        end
+
+        # When connections are established in the future, begin a transaction too
+        @connection_subscriber = ActiveSupport::Notifications.subscribe("!connection.active_record") do |_, _, _, _, payload|
+          connection_name = payload[:connection_name] if payload.key?(:connection_name)
+          shard = payload[:shard] if payload.key?(:shard)
+
+          if connection_name
+            begin
+              connection = ActiveRecord::Base.connection_handler.retrieve_connection(connection_name, shard: shard)
+            rescue ConnectionNotEstablished
+              connection = nil
+            end
+
+            if connection
+              setup_shared_connection_pool
+
+              if !@fixture_connections.include?(connection)
+                connection.begin_transaction joinable: false, _lazy: false
+                connection.pool.lock_thread = true if lock_threads
+                @fixture_connections << connection
+              end
+            end
+          end
+        end
+
+      # Load fixtures for every test.
+      else
+        ActiveRecord::FixtureSet.reset_cache
+        @@already_loaded_fixtures[self.class] = nil
+        @loaded_fixtures = load_fixtures(config)
+      end
+
+      # Instantiate fixtures for every test if requested.
+      instantiate_fixtures if use_instantiated_fixtures
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-setup_fixtures_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/test_fixtures.rb, line 126</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup_fixtures</span>(<span class="ruby-identifier">config</span> = <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">pre_loaded_fixtures</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">use_transactional_tests</span>
-    <span class="ruby-identifier">raise</span> <span class="ruby-constant">RuntimeError</span>, <span class="ruby-string">&quot;pre_loaded_fixtures requires use_transactional_tests&quot;</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-ivar">@fixture_cache</span> = {}
-  <span class="ruby-ivar">@fixture_connections</span> = []
-  <span class="ruby-identifier">@@already_loaded_fixtures</span> <span class="ruby-operator">||=</span> {}
-  <span class="ruby-ivar">@connection_subscriber</span> = <span class="ruby-keyword">nil</span>
-  <span class="ruby-ivar">@saved_pool_configs</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span>, <span class="ruby-identifier">key</span><span class="ruby-operator">|</span> <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">key</span>] = {} }
-
-  <span class="ruby-comment"># Load fixtures once and begin transaction.</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">run_in_transaction?</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">@@already_loaded_fixtures</span>[<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>]
-      <span class="ruby-ivar">@loaded_fixtures</span> = <span class="ruby-identifier">@@already_loaded_fixtures</span>[<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>]
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-ivar">@loaded_fixtures</span> = <span class="ruby-identifier">load_fixtures</span>(<span class="ruby-identifier">config</span>)
-      <span class="ruby-identifier">@@already_loaded_fixtures</span>[<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>] = <span class="ruby-ivar">@loaded_fixtures</span>
-    <span class="ruby-keyword">end</span>
-
-    <span class="ruby-comment"># Begin transactions for connections already established</span>
-    <span class="ruby-ivar">@fixture_connections</span> = <span class="ruby-identifier">enlist_fixture_connections</span>
-    <span class="ruby-ivar">@fixture_connections</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">connection</span><span class="ruby-operator">|</span>
-      <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">begin_transaction</span> <span class="ruby-value">joinable:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">_lazy:</span> <span class="ruby-keyword">false</span>
-      <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">pool</span>.<span class="ruby-identifier">lock_thread</span> = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">lock_threads</span>
-    <span class="ruby-keyword">end</span>
-
-    <span class="ruby-comment"># When connections are established in the future, begin a transaction too</span>
-    <span class="ruby-ivar">@connection_subscriber</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Notifications</span>.<span class="ruby-identifier">subscribe</span>(<span class="ruby-string">&quot;!connection.active_record&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">_</span>, <span class="ruby-identifier">_</span>, <span class="ruby-identifier">_</span>, <span class="ruby-identifier">payload</span><span class="ruby-operator">|</span>
-      <span class="ruby-identifier">connection_name</span> = <span class="ruby-identifier">payload</span>[<span class="ruby-value">:connection_name</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:connection_name</span>)
-      <span class="ruby-identifier">shard</span> = <span class="ruby-identifier">payload</span>[<span class="ruby-value">:shard</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:shard</span>)
-
-      <span class="ruby-keyword">if</span> <span class="ruby-identifier">connection_name</span>
-        <span class="ruby-keyword">begin</span>
-          <span class="ruby-identifier">connection</span> = <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">connection_handler</span>.<span class="ruby-identifier">retrieve_connection</span>(<span class="ruby-identifier">connection_name</span>, <span class="ruby-value">shard:</span> <span class="ruby-identifier">shard</span>)
-        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ConnectionNotEstablished</span>
-          <span class="ruby-identifier">connection</span> = <span class="ruby-keyword">nil</span>
-        <span class="ruby-keyword">end</span>
-
-        <span class="ruby-keyword">if</span> <span class="ruby-identifier">connection</span>
-          <span class="ruby-identifier">setup_shared_connection_pool</span>
-
-          <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@fixture_connections</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">connection</span>)
-            <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">begin_transaction</span> <span class="ruby-value">joinable:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">_lazy:</span> <span class="ruby-keyword">false</span>
-            <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">pool</span>.<span class="ruby-identifier">lock_thread</span> = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">lock_threads</span>
-            <span class="ruby-ivar">@fixture_connections</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">connection</span>
-          <span class="ruby-keyword">end</span>
-        <span class="ruby-keyword">end</span>
-      <span class="ruby-keyword">end</span>
-    <span class="ruby-keyword">end</span>
-
-  <span class="ruby-comment"># Load fixtures for every test.</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">FixtureSet</span>.<span class="ruby-identifier">reset_cache</span>
-    <span class="ruby-identifier">@@already_loaded_fixtures</span>[<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>] = <span class="ruby-keyword">nil</span>
-    <span class="ruby-ivar">@loaded_fixtures</span> = <span class="ruby-identifier">load_fixtures</span>(<span class="ruby-identifier">config</span>)
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-comment"># Instantiate fixtures for every test if requested.</span>
-  <span class="ruby-identifier">instantiate_fixtures</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">use_instantiated_fixtures</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/test_fixtures.rb#L126" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-teardown_fixtures">
@@ -496,35 +487,35 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-teardown_fixtures_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/test_fixtures.rb, line 188</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">teardown_fixtures</span>
-  <span class="ruby-comment"># Rollback changes if a transaction is active.</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">run_in_transaction?</span>
-    <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Notifications</span>.<span class="ruby-identifier">unsubscribe</span>(<span class="ruby-ivar">@connection_subscriber</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@connection_subscriber</span>
-    <span class="ruby-ivar">@fixture_connections</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">connection</span><span class="ruby-operator">|</span>
-      <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">rollback_transaction</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">transaction_open?</span>
-      <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">pool</span>.<span class="ruby-identifier">lock_thread</span> = <span class="ruby-keyword">false</span>
-    <span class="ruby-keyword">end</span>
-    <span class="ruby-ivar">@fixture_connections</span>.<span class="ruby-identifier">clear</span>
-    <span class="ruby-identifier">teardown_shared_connection_pool</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">FixtureSet</span>.<span class="ruby-identifier">reset_cache</span>
-  <span class="ruby-keyword">end</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">connection_handler</span>.<span class="ruby-identifier">clear_active_connections!</span>(<span class="ruby-value">:all</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File activerecord/lib/active_record/test_fixtures.rb, line 188
+    def teardown_fixtures
+      # Rollback changes if a transaction is active.
+      if run_in_transaction?
+        ActiveSupport::Notifications.unsubscribe(@connection_subscriber) if @connection_subscriber
+        @fixture_connections.each do |connection|
+          connection.rollback_transaction if connection.transaction_open?
+          connection.pool.lock_thread = false
+        end
+        @fixture_connections.clear
+        teardown_shared_connection_pool
+      else
+        ActiveRecord::FixtureSet.reset_cache
+      end
+
+      ActiveRecord::Base.connection_handler.clear_active_connections!(:all)
+    end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/test_fixtures.rb#L188" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -544,7 +535,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

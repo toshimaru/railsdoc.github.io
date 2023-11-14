@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -212,56 +213,56 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/testing/isolation.rb, line 69
+        def run_in_isolation(&blk)
+          require "tempfile"
+
+          if ENV["ISOLATION_TEST"]
+            yield
+            test_result = defined?(Minitest::Result) ? Minitest::Result.from(self) : dup
+            File.open(ENV["ISOLATION_OUTPUT"], "w") do |file|
+              file.puts [Marshal.dump(test_result)].pack("m")
+            end
+            exit!
+          else
+            Tempfile.open("isolation") do |tmpfile|
+              env = {
+                "ISOLATION_TEST" => self.class.name,
+                "ISOLATION_OUTPUT" => tmpfile.path
+              }
+
+              test_opts = "-n#{self.class.name}##{name}"
+
+              load_path_args = []
+              $-I.each do |p|
+                load_path_args << "-I"
+                load_path_args << File.expand_path(p)
+              end
+
+              child = IO.popen([env, Gem.ruby, *load_path_args, $0, *ORIG_ARGV, test_opts])
+
+              begin
+                Process.wait(child.pid)
+              rescue Errno::ECHILD # The child process may exit before we wait
+                nil
+              end
+
+              return tmpfile.read.unpack1("m")
+            end
+          end
+        end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-run_in_isolation_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/testing/isolation.rb, line 69</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">run_in_isolation</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span>)
-  <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;tempfile&quot;</span>
-
-  <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;ISOLATION_TEST&quot;</span>]
-    <span class="ruby-keyword">yield</span>
-    <span class="ruby-identifier">test_result</span> = <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Result</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Result</span>.<span class="ruby-identifier">from</span>(<span class="ruby-keyword">self</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">dup</span>
-    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;ISOLATION_OUTPUT&quot;</span>], <span class="ruby-string">&quot;w&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
-      <span class="ruby-identifier">file</span>.<span class="ruby-identifier">puts</span> [<span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">test_result</span>)].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;m&quot;</span>)
-    <span class="ruby-keyword">end</span>
-    <span class="ruby-identifier">exit!</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;isolation&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tmpfile</span><span class="ruby-operator">|</span>
-      <span class="ruby-identifier">env</span> = {
-        <span class="ruby-string">&quot;ISOLATION_TEST&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>,
-        <span class="ruby-string">&quot;ISOLATION_OUTPUT&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">tmpfile</span>.<span class="ruby-identifier">path</span>
-      }
-
-      <span class="ruby-identifier">test_opts</span> = <span class="ruby-node">&quot;-n#{self.class.name}##{name}&quot;</span>
-
-      <span class="ruby-identifier">load_path_args</span> = []
-      <span class="ruby-identifier">$-I</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
-        <span class="ruby-identifier">load_path_args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;-I&quot;</span>
-        <span class="ruby-identifier">load_path_args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">p</span>)
-      <span class="ruby-keyword">end</span>
-
-      <span class="ruby-identifier">child</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">popen</span>([<span class="ruby-identifier">env</span>, <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">ruby</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">load_path_args</span>, <span class="ruby-identifier">$0</span>, <span class="ruby-operator">*</span><span class="ruby-constant">ORIG_ARGV</span>, <span class="ruby-identifier">test_opts</span>])
-
-      <span class="ruby-keyword">begin</span>
-        <span class="ruby-constant">Process</span>.<span class="ruby-identifier">wait</span>(<span class="ruby-identifier">child</span>.<span class="ruby-identifier">pid</span>)
-      <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ECHILD</span> <span class="ruby-comment"># The child process may exit before we wait</span>
-        <span class="ruby-keyword">nil</span>
-      <span class="ruby-keyword">end</span>
-
-      <span class="ruby-keyword">return</span> <span class="ruby-identifier">tmpfile</span>.<span class="ruby-identifier">read</span>.<span class="ruby-identifier">unpack1</span>(<span class="ruby-string">&quot;m&quot;</span>)
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/testing/isolation.rb#L69" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -281,7 +282,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

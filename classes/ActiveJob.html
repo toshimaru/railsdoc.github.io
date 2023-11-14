@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -484,22 +485,22 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activejob/lib/active_job/gem_version.rb, line 5
+  def self.gem_version
+    Gem::Version.new VERSION::STRING
+  end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-gem_version_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activejob/lib/active_job/gem_version.rb, line 5</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">gem_version</span>
-  <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span> <span class="ruby-constant">VERSION</span><span class="ruby-operator">::</span><span class="ruby-constant">STRING</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activejob/lib/active_job/gem_version.rb#L5" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-perform_all_later">
@@ -519,43 +520,43 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activejob/lib/active_job/enqueuing.rb, line 16
+    def perform_all_later(*jobs)
+      jobs.flatten!
+      jobs.group_by(&:queue_adapter).each do |queue_adapter, adapter_jobs|
+        instrument_enqueue_all(queue_adapter, adapter_jobs) do
+          if queue_adapter.respond_to?(:enqueue_all)
+            queue_adapter.enqueue_all(adapter_jobs)
+          else
+            adapter_jobs.each do |job|
+              job.successfully_enqueued = false
+              if job.scheduled_at
+                queue_adapter.enqueue_at(job, job._scheduled_at_time.to_f)
+              else
+                queue_adapter.enqueue(job)
+              end
+              job.successfully_enqueued = true
+            rescue EnqueueError => e
+              job.enqueue_error = e
+            end
+            adapter_jobs.count(&:successfully_enqueued?)
+          end
+        end
+      end
+      nil
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-perform_all_later_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activejob/lib/active_job/enqueuing.rb, line 16</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">perform_all_later</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">jobs</span>)
-  <span class="ruby-identifier">jobs</span>.<span class="ruby-identifier">flatten!</span>
-  <span class="ruby-identifier">jobs</span>.<span class="ruby-identifier">group_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:queue_adapter</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">queue_adapter</span>, <span class="ruby-identifier">adapter_jobs</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">instrument_enqueue_all</span>(<span class="ruby-identifier">queue_adapter</span>, <span class="ruby-identifier">adapter_jobs</span>) <span class="ruby-keyword">do</span>
-      <span class="ruby-keyword">if</span> <span class="ruby-identifier">queue_adapter</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:enqueue_all</span>)
-        <span class="ruby-identifier">queue_adapter</span>.<span class="ruby-identifier">enqueue_all</span>(<span class="ruby-identifier">adapter_jobs</span>)
-      <span class="ruby-keyword">else</span>
-        <span class="ruby-identifier">adapter_jobs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">job</span><span class="ruby-operator">|</span>
-          <span class="ruby-identifier">job</span>.<span class="ruby-identifier">successfully_enqueued</span> = <span class="ruby-keyword">false</span>
-          <span class="ruby-keyword">if</span> <span class="ruby-identifier">job</span>.<span class="ruby-identifier">scheduled_at</span>
-            <span class="ruby-identifier">queue_adapter</span>.<span class="ruby-identifier">enqueue_at</span>(<span class="ruby-identifier">job</span>, <span class="ruby-identifier">job</span>.<span class="ruby-identifier">_scheduled_at_time</span>.<span class="ruby-identifier">to_f</span>)
-          <span class="ruby-keyword">else</span>
-            <span class="ruby-identifier">queue_adapter</span>.<span class="ruby-identifier">enqueue</span>(<span class="ruby-identifier">job</span>)
-          <span class="ruby-keyword">end</span>
-          <span class="ruby-identifier">job</span>.<span class="ruby-identifier">successfully_enqueued</span> = <span class="ruby-keyword">true</span>
-        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">EnqueueError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
-          <span class="ruby-identifier">job</span>.<span class="ruby-identifier">enqueue_error</span> = <span class="ruby-identifier">e</span>
-        <span class="ruby-keyword">end</span>
-        <span class="ruby-identifier">adapter_jobs</span>.<span class="ruby-identifier">count</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:successfully_enqueued?</span>)
-      <span class="ruby-keyword">end</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">nil</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activejob/lib/active_job/enqueuing.rb#L16" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-unknown">
@@ -575,21 +576,21 @@ end
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-unknown_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activejob/lib/active_job.rb, line 53</span>
-<span class="ruby-identifier">singleton_class</span>.<span class="ruby-identifier">attr_accessor</span> <span class="ruby-value">:use_big_decimal_serializer</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activejob/lib/active_job.rb, line 53
+  singleton_class.attr_accessor :use_big_decimal_serializer
 </code></pre>
-              </div>
-            </div>
-            
-          </div>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activejob/lib/active_job.rb#L53" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-version">
@@ -609,22 +610,22 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activejob/lib/active_job/version.rb, line 7
+  def self.version
+    gem_version
+  end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-version_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activejob/lib/active_job/version.rb, line 7</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">version</span>
-  <span class="ruby-identifier">gem_version</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activejob/lib/active_job/version.rb#L7" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -645,7 +646,7 @@ end
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

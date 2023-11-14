@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -386,20 +387,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-immutable_strings_by_default-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/model_schema.rb, line 129</span>
-    </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/model_schema.rb#L129" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-implicit_order_column">
@@ -420,20 +411,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-implicit_order_column_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/model_schema.rb, line 113</span>
-    </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/model_schema.rb#L113" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-implicit_order_column-3D">
@@ -454,20 +435,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-implicit_order_column-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/model_schema.rb, line 120</span>
-    </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/model_schema.rb#L120" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-inheritance_column">
@@ -493,20 +464,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-inheritance_column_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/model_schema.rb, line 137</span>
-    </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/model_schema.rb#L137" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-inheritance_column-3D">
@@ -527,44 +488,44 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/model_schema.rb, line 157
+    included do
+      class_attribute :primary_key_prefix_type, instance_writer: false
+      class_attribute :table_name_prefix, instance_writer: false, default: ""
+      class_attribute :table_name_suffix, instance_writer: false, default: ""
+      class_attribute :schema_migrations_table_name, instance_accessor: false, default: "schema_migrations"
+      class_attribute :internal_metadata_table_name, instance_accessor: false, default: "ar_internal_metadata"
+      class_attribute :pluralize_table_names, instance_writer: false, default: true
+      class_attribute :implicit_order_column, instance_accessor: false
+      class_attribute :immutable_strings_by_default, instance_accessor: false
+
+      class_attribute :inheritance_column, instance_accessor: false, default: "type"
+      singleton_class.class_eval do
+        alias_method :_inheritance_column=, :inheritance_column=
+        private :_inheritance_column=
+        alias_method :inheritance_column=, :real_inheritance_column=
+      end
+
+      self.protected_environments = ["production"]
+
+      self.ignored_columns = [].freeze
+
+      delegate :type_for_attribute, :column_for_attribute, to: :class
+
+      initialize_load_schema_monitor
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-inheritance_column-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/model_schema.rb, line 157</span>
-<span class="ruby-identifier">included</span> <span class="ruby-keyword">do</span>
-  <span class="ruby-identifier">class_attribute</span> <span class="ruby-value">:primary_key_prefix_type</span>, <span class="ruby-value">instance_writer:</span> <span class="ruby-keyword">false</span>
-  <span class="ruby-identifier">class_attribute</span> <span class="ruby-value">:table_name_prefix</span>, <span class="ruby-value">instance_writer:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">default:</span> <span class="ruby-string">&quot;&quot;</span>
-  <span class="ruby-identifier">class_attribute</span> <span class="ruby-value">:table_name_suffix</span>, <span class="ruby-value">instance_writer:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">default:</span> <span class="ruby-string">&quot;&quot;</span>
-  <span class="ruby-identifier">class_attribute</span> <span class="ruby-value">:schema_migrations_table_name</span>, <span class="ruby-value">instance_accessor:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">default:</span> <span class="ruby-string">&quot;schema_migrations&quot;</span>
-  <span class="ruby-identifier">class_attribute</span> <span class="ruby-value">:internal_metadata_table_name</span>, <span class="ruby-value">instance_accessor:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">default:</span> <span class="ruby-string">&quot;ar_internal_metadata&quot;</span>
-  <span class="ruby-identifier">class_attribute</span> <span class="ruby-value">:pluralize_table_names</span>, <span class="ruby-value">instance_writer:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">default:</span> <span class="ruby-keyword">true</span>
-  <span class="ruby-identifier">class_attribute</span> <span class="ruby-value">:implicit_order_column</span>, <span class="ruby-value">instance_accessor:</span> <span class="ruby-keyword">false</span>
-  <span class="ruby-identifier">class_attribute</span> <span class="ruby-value">:immutable_strings_by_default</span>, <span class="ruby-value">instance_accessor:</span> <span class="ruby-keyword">false</span>
-
-  <span class="ruby-identifier">class_attribute</span> <span class="ruby-value">:inheritance_column</span>, <span class="ruby-value">instance_accessor:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">default:</span> <span class="ruby-string">&quot;type&quot;</span>
-  <span class="ruby-identifier">singleton_class</span>.<span class="ruby-identifier">class_eval</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-identifier">alias_method</span> <span class="ruby-value">:_inheritance_column=</span>, <span class="ruby-value">:inheritance_column=</span>
-    <span class="ruby-identifier">private</span> <span class="ruby-value">:_inheritance_column=</span>
-    <span class="ruby-identifier">alias_method</span> <span class="ruby-value">:inheritance_column=</span>, <span class="ruby-value">:real_inheritance_column=</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">protected_environments</span> = [<span class="ruby-string">&quot;production&quot;</span>]
-
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ignored_columns</span> = [].<span class="ruby-identifier">freeze</span>
-
-  <span class="ruby-identifier">delegate</span> <span class="ruby-value">:type_for_attribute</span>, <span class="ruby-value">:column_for_attribute</span>, <span class="ruby-value">to:</span> <span class="ruby-value">:class</span>
-
-  <span class="ruby-identifier">initialize_load_schema_monitor</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/model_schema.rb#L157" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-internal_metadata_table_name">
@@ -585,20 +546,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-internal_metadata_table_name_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/model_schema.rb, line 85</span>
-    </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/model_schema.rb#L85" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-internal_metadata_table_name-3D">
@@ -619,20 +570,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-internal_metadata_table_name-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/model_schema.rb, line 91</span>
-    </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/model_schema.rb#L91" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-pluralize_table_names">
@@ -653,20 +594,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-pluralize_table_names_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/model_schema.rb, line 97</span>
-    </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/model_schema.rb#L97" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-pluralize_table_names-3D">
@@ -687,20 +618,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-pluralize_table_names-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/model_schema.rb, line 105</span>
-    </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/model_schema.rb#L105" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-primary_key_prefix_type">
@@ -721,20 +642,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-primary_key_prefix_type_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/model_schema.rb, line 17</span>
-    </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/model_schema.rb#L17" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-primary_key_prefix_type-3D">
@@ -755,20 +666,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-primary_key_prefix_type-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/model_schema.rb, line 27</span>
-    </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/model_schema.rb#L27" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-schema_migrations_table_name">
@@ -789,20 +690,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-schema_migrations_table_name_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/model_schema.rb, line 73</span>
-    </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/model_schema.rb#L73" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-schema_migrations_table_name-3D">
@@ -823,20 +714,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-schema_migrations_table_name-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/model_schema.rb, line 79</span>
-    </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/model_schema.rb#L79" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-table_name_prefix">
@@ -857,20 +738,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-table_name_prefix_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/model_schema.rb, line 37</span>
-    </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/model_schema.rb#L37" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-table_name_prefix-3D">
@@ -893,20 +764,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-table_name_prefix-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/model_schema.rb, line 43</span>
-    </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/model_schema.rb#L43" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-table_name_suffix">
@@ -927,20 +788,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-table_name_suffix_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/model_schema.rb, line 56</span>
-    </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/model_schema.rb#L56" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-table_name_suffix-3D">
@@ -963,20 +814,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-table_name_suffix-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/model_schema.rb, line 62</span>
-    </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/model_schema.rb#L62" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
       
     
@@ -1001,20 +842,10 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-id_value_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/model_schema.rb, line 10</span>
-    </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/model_schema.rb#L10" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
       
     
@@ -1034,7 +865,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -223,40 +224,40 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/core_ext/digest/uuid.rb, line 19
+    def self.uuid_from_hash(hash_class, namespace, name)
+      if hash_class == Digest::MD5 || hash_class == OpenSSL::Digest::MD5
+        version = 3
+      elsif hash_class == Digest::SHA1 || hash_class == OpenSSL::Digest::SHA1
+        version = 5
+      else
+        raise ArgumentError, "Expected OpenSSL::Digest::SHA1 or OpenSSL::Digest::MD5, got #{hash_class.name}."
+      end
+
+      uuid_namespace = pack_uuid_namespace(namespace)
+
+      hash = hash_class.new
+      hash.update(uuid_namespace)
+      hash.update(name)
+
+      ary = hash.digest.unpack("NnnnnN")
+      ary[2] = (ary[2] & 0x0FFF) | (version << 12)
+      ary[3] = (ary[3] & 0x3FFF) | 0x8000
+
+      "%08x-%04x-%04x-%04x-%04x%08x" % ary
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-uuid_from_hash_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/digest/uuid.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">uuid_from_hash</span>(<span class="ruby-identifier">hash_class</span>, <span class="ruby-identifier">namespace</span>, <span class="ruby-identifier">name</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">hash_class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">hash_class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>
-    <span class="ruby-identifier">version</span> = <span class="ruby-value">3</span>
-  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">hash_class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">hash_class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA1</span>
-    <span class="ruby-identifier">version</span> = <span class="ruby-value">5</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Expected OpenSSL::Digest::SHA1 or OpenSSL::Digest::MD5, got #{hash_class.name}.&quot;</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-identifier">uuid_namespace</span> = <span class="ruby-identifier">pack_uuid_namespace</span>(<span class="ruby-identifier">namespace</span>)
-
-  <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">hash_class</span>.<span class="ruby-identifier">new</span>
-  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">uuid_namespace</span>)
-  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">name</span>)
-
-  <span class="ruby-identifier">ary</span> = <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">digest</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;NnnnnN&quot;</span>)
-  <span class="ruby-identifier">ary</span>[<span class="ruby-value">2</span>] = (<span class="ruby-identifier">ary</span>[<span class="ruby-value">2</span>] <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x0FFF</span>) <span class="ruby-operator">|</span> (<span class="ruby-identifier">version</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">12</span>)
-  <span class="ruby-identifier">ary</span>[<span class="ruby-value">3</span>] = (<span class="ruby-identifier">ary</span>[<span class="ruby-value">3</span>] <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x3FFF</span>) <span class="ruby-operator">|</span> <span class="ruby-value">0x8000</span>
-
-  <span class="ruby-string">&quot;%08x-%04x-%04x-%04x-%04x%08x&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">ary</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/core_ext/digest/uuid.rb#L19" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-uuid_v3">
@@ -276,22 +277,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/core_ext/digest/uuid.rb, line 42
+    def self.uuid_v3(uuid_namespace, name)
+      uuid_from_hash(OpenSSL::Digest::MD5, uuid_namespace, name)
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-uuid_v3_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/digest/uuid.rb, line 42</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">uuid_v3</span>(<span class="ruby-identifier">uuid_namespace</span>, <span class="ruby-identifier">name</span>)
-  <span class="ruby-identifier">uuid_from_hash</span>(<span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>, <span class="ruby-identifier">uuid_namespace</span>, <span class="ruby-identifier">name</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/core_ext/digest/uuid.rb#L42" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-uuid_v4">
@@ -311,22 +312,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/core_ext/digest/uuid.rb, line 52
+    def self.uuid_v4
+      SecureRandom.uuid
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-uuid_v4_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/digest/uuid.rb, line 52</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">uuid_v4</span>
-  <span class="ruby-constant">SecureRandom</span>.<span class="ruby-identifier">uuid</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/core_ext/digest/uuid.rb#L52" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-uuid_v5">
@@ -346,22 +347,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/core_ext/digest/uuid.rb, line 47
+    def self.uuid_v5(uuid_namespace, name)
+      uuid_from_hash(OpenSSL::Digest::SHA1, uuid_namespace, name)
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-uuid_v5_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/digest/uuid.rb, line 47</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">uuid_v5</span>(<span class="ruby-identifier">uuid_namespace</span>, <span class="ruby-identifier">name</span>)
-  <span class="ruby-identifier">uuid_from_hash</span>(<span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA1</span>, <span class="ruby-identifier">uuid_namespace</span>, <span class="ruby-identifier">name</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/core_ext/digest/uuid.rb#L47" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -382,7 +383,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

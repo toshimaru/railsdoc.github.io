@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -379,45 +380,45 @@ Product.where(price_in_bitcoins: Money.new(5, &quot;GBP&quot;))
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/attributes.rb, line 208
+      def attribute(name, cast_type = nil, default: NO_DEFAULT_PROVIDED, **options)
+        name = name.to_s
+        name = attribute_aliases[name] || name
+
+        reload_schema_from_cache
+
+        case cast_type
+        when Symbol
+          cast_type = Type.lookup(cast_type, **options, adapter: Type.adapter_name_from(self))
+        when nil
+          if (prev_cast_type, prev_default = attributes_to_define_after_schema_loads[name])
+            default = prev_default if default == NO_DEFAULT_PROVIDED
+          else
+            prev_cast_type = -> subtype { subtype }
+          end
+
+          cast_type = if block_given?
+            -> subtype { yield Proc === prev_cast_type ? prev_cast_type[subtype] : prev_cast_type }
+          else
+            prev_cast_type
+          end
+        end
+
+        self.attributes_to_define_after_schema_loads =
+          attributes_to_define_after_schema_loads.merge(name => [cast_type, default])
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-attribute_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/attributes.rb, line 208</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">attribute</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">cast_type</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-value">default:</span> <span class="ruby-constant">NO_DEFAULT_PROVIDED</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
-  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>
-  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">attribute_aliases</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">name</span>
-
-  <span class="ruby-identifier">reload_schema_from_cache</span>
-
-  <span class="ruby-keyword">case</span> <span class="ruby-identifier">cast_type</span>
-  <span class="ruby-keyword">when</span> <span class="ruby-constant">Symbol</span>
-    <span class="ruby-identifier">cast_type</span> = <span class="ruby-constant">Type</span>.<span class="ruby-identifier">lookup</span>(<span class="ruby-identifier">cast_type</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>, <span class="ruby-value">adapter:</span> <span class="ruby-constant">Type</span>.<span class="ruby-identifier">adapter_name_from</span>(<span class="ruby-keyword">self</span>))
-  <span class="ruby-keyword">when</span> <span class="ruby-keyword">nil</span>
-    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">prev_cast_type</span>, <span class="ruby-identifier">prev_default</span> = <span class="ruby-identifier">attributes_to_define_after_schema_loads</span>[<span class="ruby-identifier">name</span>])
-      <span class="ruby-identifier">default</span> = <span class="ruby-identifier">prev_default</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">default</span> <span class="ruby-operator">==</span> <span class="ruby-constant">NO_DEFAULT_PROVIDED</span>
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">prev_cast_type</span> = <span class="ruby-operator">-&gt;</span> <span class="ruby-identifier">subtype</span> { <span class="ruby-identifier">subtype</span> }
-    <span class="ruby-keyword">end</span>
-
-    <span class="ruby-identifier">cast_type</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
-      <span class="ruby-operator">-&gt;</span> <span class="ruby-identifier">subtype</span> { <span class="ruby-keyword">yield</span> <span class="ruby-constant">Proc</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">prev_cast_type</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">prev_cast_type</span>[<span class="ruby-identifier">subtype</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">prev_cast_type</span> }
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">prev_cast_type</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">attributes_to_define_after_schema_loads</span> =
-    <span class="ruby-identifier">attributes_to_define_after_schema_loads</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">name</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-identifier">cast_type</span>, <span class="ruby-identifier">default</span>])
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attributes.rb#L208" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-define_attribute">
@@ -445,28 +446,28 @@ Product.where(price_in_bitcoins: Money.new(5, &quot;GBP&quot;))
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/attributes.rb, line 253
+      def define_attribute(
+        name,
+        cast_type,
+        default: NO_DEFAULT_PROVIDED,
+        user_provided_default: true
+      )
+        attribute_types[name] = cast_type
+        define_default_attribute(name, default, cast_type, from_user: user_provided_default)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-define_attribute_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/attributes.rb, line 253</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">define_attribute</span>(
-  <span class="ruby-identifier">name</span>,
-  <span class="ruby-identifier">cast_type</span>,
-  <span class="ruby-value">default:</span> <span class="ruby-constant">NO_DEFAULT_PROVIDED</span>,
-  <span class="ruby-value">user_provided_default:</span> <span class="ruby-keyword">true</span>
-)
-  <span class="ruby-identifier">attribute_types</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">cast_type</span>
-  <span class="ruby-identifier">define_default_attribute</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">default</span>, <span class="ruby-identifier">cast_type</span>, <span class="ruby-value">from_user:</span> <span class="ruby-identifier">user_provided_default</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attributes.rb#L253" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -486,7 +487,7 @@ Product.where(price_in_bitcoins: Money.new(5, &quot;GBP&quot;))
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

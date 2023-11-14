@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -312,30 +313,30 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/notifications/instrumenter.rb, line 110
+      def initialize(name, start, ending, transaction_id, payload)
+        @name           = name
+        @payload        = payload.dup
+        @time           = start ? start.to_f * 1_000.0 : start
+        @transaction_id = transaction_id
+        @end            = ending ? ending.to_f * 1_000.0 : ending
+        @cpu_time_start = 0.0
+        @cpu_time_finish = 0.0
+        @allocation_count_start = 0
+        @allocation_count_finish = 0
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/notifications/instrumenter.rb, line 110</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">ending</span>, <span class="ruby-identifier">transaction_id</span>, <span class="ruby-identifier">payload</span>)
-  <span class="ruby-ivar">@name</span>           = <span class="ruby-identifier">name</span>
-  <span class="ruby-ivar">@payload</span>        = <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">dup</span>
-  <span class="ruby-ivar">@time</span>           = <span class="ruby-identifier">start</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">start</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">*</span> <span class="ruby-value">1_000.0</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">start</span>
-  <span class="ruby-ivar">@transaction_id</span> = <span class="ruby-identifier">transaction_id</span>
-  <span class="ruby-ivar">@end</span>            = <span class="ruby-identifier">ending</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">ending</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">*</span> <span class="ruby-value">1_000.0</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">ending</span>
-  <span class="ruby-ivar">@cpu_time_start</span> = <span class="ruby-value">0.0</span>
-  <span class="ruby-ivar">@cpu_time_finish</span> = <span class="ruby-value">0.0</span>
-  <span class="ruby-ivar">@allocation_count_start</span> = <span class="ruby-value">0</span>
-  <span class="ruby-ivar">@allocation_count_finish</span> = <span class="ruby-value">0</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/notifications/instrumenter.rb#L110" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -359,22 +360,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/notifications/instrumenter.rb, line 164
+      def allocations
+        @allocation_count_finish - @allocation_count_start
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-allocations_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/notifications/instrumenter.rb, line 164</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">allocations</span>
-  <span class="ruby-ivar">@allocation_count_finish</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@allocation_count_start</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/notifications/instrumenter.rb#L164" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-cpu_time">
@@ -394,22 +395,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/notifications/instrumenter.rb, line 151
+      def cpu_time
+        @cpu_time_finish - @cpu_time_start
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-cpu_time_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/notifications/instrumenter.rb, line 151</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cpu_time</span>
-  <span class="ruby-ivar">@cpu_time_finish</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@cpu_time_start</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/notifications/instrumenter.rb#L151" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-duration">
@@ -440,22 +441,22 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/notifications/instrumenter.rb, line 197
+      def duration
+        self.end - time
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-duration_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/notifications/instrumenter.rb, line 197</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">duration</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">end</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">time</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/notifications/instrumenter.rb#L197" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-finish-21">
@@ -475,24 +476,24 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/notifications/instrumenter.rb, line 143
+      def finish!
+        @cpu_time_finish = now_cpu
+        @end = now
+        @allocation_count_finish = now_allocations
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-finish-21_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/notifications/instrumenter.rb, line 143</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">finish!</span>
-  <span class="ruby-ivar">@cpu_time_finish</span> = <span class="ruby-identifier">now_cpu</span>
-  <span class="ruby-ivar">@end</span> = <span class="ruby-identifier">now</span>
-  <span class="ruby-ivar">@allocation_count_finish</span> = <span class="ruby-identifier">now_allocations</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/notifications/instrumenter.rb#L143" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-idle_time">
@@ -512,23 +513,23 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/notifications/instrumenter.rb, line 157
+      def idle_time
+        diff = duration - cpu_time
+        diff > 0.0 ? diff : 0.0
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-idle_time_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/notifications/instrumenter.rb, line 157</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">idle_time</span>
-  <span class="ruby-identifier">diff</span> = <span class="ruby-identifier">duration</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">cpu_time</span>
-  <span class="ruby-identifier">diff</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0.0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">diff</span> <span class="ruby-operator">:</span> <span class="ruby-value">0.0</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/notifications/instrumenter.rb#L157" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-record">
@@ -548,31 +549,31 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/notifications/instrumenter.rb, line 122
+      def record
+        start!
+        begin
+          yield payload if block_given?
+        rescue Exception => e
+          payload[:exception] = [e.class.name, e.message]
+          payload[:exception_object] = e
+          raise e
+        ensure
+          finish!
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-record_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/notifications/instrumenter.rb, line 122</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">record</span>
-  <span class="ruby-identifier">start!</span>
-  <span class="ruby-keyword">begin</span>
-    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">payload</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
-  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
-    <span class="ruby-identifier">payload</span>[<span class="ruby-value">:exception</span>] = [<span class="ruby-identifier">e</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>]
-    <span class="ruby-identifier">payload</span>[<span class="ruby-value">:exception_object</span>] = <span class="ruby-identifier">e</span>
-    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
-  <span class="ruby-keyword">ensure</span>
-    <span class="ruby-identifier">finish!</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/notifications/instrumenter.rb#L122" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-start-21">
@@ -592,24 +593,24 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/notifications/instrumenter.rb, line 136
+      def start!
+        @time = now
+        @cpu_time_start = now_cpu
+        @allocation_count_start = now_allocations
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-start-21_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/notifications/instrumenter.rb, line 136</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start!</span>
-  <span class="ruby-ivar">@time</span> = <span class="ruby-identifier">now</span>
-  <span class="ruby-ivar">@cpu_time_start</span> = <span class="ruby-identifier">now_cpu</span>
-  <span class="ruby-ivar">@allocation_count_start</span> = <span class="ruby-identifier">now_allocations</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/notifications/instrumenter.rb#L136" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -629,7 +630,7 @@ end
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

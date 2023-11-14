@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -331,20 +332,20 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/server/base.rb, line 21
+      def self.logger; config.logger; end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-logger_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/server/base.rb, line 21</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">logger</span>; <span class="ruby-identifier">config</span>.<span class="ruby-identifier">logger</span>; <span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/server/base.rb#L21" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-new">
@@ -364,24 +365,24 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/server/base.rb, line 26
+      def initialize(config: self.class.config)
+        @config = config
+        @mutex = Monitor.new
+        @remote_connections = @event_loop = @worker_pool = @pubsub = nil
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/server/base.rb, line 26</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-value">config:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">config</span>)
-  <span class="ruby-ivar">@config</span> = <span class="ruby-identifier">config</span>
-  <span class="ruby-ivar">@mutex</span> = <span class="ruby-constant">Monitor</span>.<span class="ruby-identifier">new</span>
-  <span class="ruby-ivar">@remote_connections</span> = <span class="ruby-ivar">@event_loop</span> = <span class="ruby-ivar">@worker_pool</span> = <span class="ruby-ivar">@pubsub</span> = <span class="ruby-keyword">nil</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/server/base.rb#L26" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -405,24 +406,24 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/server/base.rb, line 33
+      def call(env)
+        return config.health_check_application.call(env) if env["PATH_INFO"] == config.health_check_path
+        setup_heartbeat_timer
+        config.connection_class.call.new(self, env).process
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-call_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/server/base.rb, line 33</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call</span>(<span class="ruby-identifier">env</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">health_check_application</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">env</span>[<span class="ruby-string">&quot;PATH_INFO&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">health_check_path</span>
-  <span class="ruby-identifier">setup_heartbeat_timer</span>
-  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">connection_class</span>.<span class="ruby-identifier">call</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">env</span>).<span class="ruby-identifier">process</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/server/base.rb#L33" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-connection_identifiers">
@@ -442,22 +443,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/server/base.rb, line 90
+      def connection_identifiers
+        config.connection_class.call.identifiers
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-connection_identifiers_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/server/base.rb, line 90</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">connection_identifiers</span>
-  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">connection_class</span>.<span class="ruby-identifier">call</span>.<span class="ruby-identifier">identifiers</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/server/base.rb#L90" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-disconnect">
@@ -477,22 +478,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/server/base.rb, line 40
+      def disconnect(identifiers)
+        remote_connections.where(identifiers).disconnect
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-disconnect_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/server/base.rb, line 40</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">disconnect</span>(<span class="ruby-identifier">identifiers</span>)
-  <span class="ruby-identifier">remote_connections</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">identifiers</span>).<span class="ruby-identifier">disconnect</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/server/base.rb#L40" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-event_loop">
@@ -512,22 +513,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/server/base.rb, line 65
+      def event_loop
+        @event_loop || @mutex.synchronize { @event_loop ||= ActionCable::Connection::StreamEventLoop.new }
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-event_loop_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/server/base.rb, line 65</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">event_loop</span>
-  <span class="ruby-ivar">@event_loop</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@event_loop</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">ActionCable</span><span class="ruby-operator">::</span><span class="ruby-constant">Connection</span><span class="ruby-operator">::</span><span class="ruby-constant">StreamEventLoop</span>.<span class="ruby-identifier">new</span> }
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/server/base.rb#L65" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-pubsub">
@@ -547,22 +548,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/server/base.rb, line 85
+      def pubsub
+        @pubsub || @mutex.synchronize { @pubsub ||= config.pubsub_adapter.new(self) }
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-pubsub_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/server/base.rb, line 85</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pubsub</span>
-  <span class="ruby-ivar">@pubsub</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@pubsub</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">pubsub_adapter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>) }
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/server/base.rb#L85" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-remote_connections">
@@ -582,22 +583,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/server/base.rb, line 61
+      def remote_connections
+        @remote_connections || @mutex.synchronize { @remote_connections ||= RemoteConnections.new(self) }
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-remote_connections_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/server/base.rb, line 61</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remote_connections</span>
-  <span class="ruby-ivar">@remote_connections</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@remote_connections</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">RemoteConnections</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>) }
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/server/base.rb#L61" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-restart">
@@ -617,34 +618,34 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/server/base.rb, line 44
+      def restart
+        connections.each do |connection|
+          connection.close(reason: ActionCable::INTERNAL[:disconnect_reasons][:server_restart])
+        end
+
+        @mutex.synchronize do
+          # Shutdown the worker pool
+          @worker_pool.halt if @worker_pool
+          @worker_pool = nil
+
+          # Shutdown the pub/sub adapter
+          @pubsub.shutdown if @pubsub
+          @pubsub = nil
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-restart_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/server/base.rb, line 44</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">restart</span>
-  <span class="ruby-identifier">connections</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">connection</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">close</span>(<span class="ruby-value">reason:</span> <span class="ruby-constant">ActionCable</span><span class="ruby-operator">::</span><span class="ruby-constant">INTERNAL</span>[<span class="ruby-value">:disconnect_reasons</span>][<span class="ruby-value">:server_restart</span>])
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-comment"># Shutdown the worker pool</span>
-    <span class="ruby-ivar">@worker_pool</span>.<span class="ruby-identifier">halt</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@worker_pool</span>
-    <span class="ruby-ivar">@worker_pool</span> = <span class="ruby-keyword">nil</span>
-
-    <span class="ruby-comment"># Shutdown the pub/sub adapter</span>
-    <span class="ruby-ivar">@pubsub</span>.<span class="ruby-identifier">shutdown</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pubsub</span>
-    <span class="ruby-ivar">@pubsub</span> = <span class="ruby-keyword">nil</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/server/base.rb#L44" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-worker_pool">
@@ -668,22 +669,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/server/base.rb, line 80
+      def worker_pool
+        @worker_pool || @mutex.synchronize { @worker_pool ||= ActionCable::Server::Worker.new(max_size: config.worker_pool_size) }
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-worker_pool_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/server/base.rb, line 80</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">worker_pool</span>
-  <span class="ruby-ivar">@worker_pool</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@worker_pool</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">ActionCable</span><span class="ruby-operator">::</span><span class="ruby-constant">Server</span><span class="ruby-operator">::</span><span class="ruby-constant">Worker</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">max_size:</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">worker_pool_size</span>) }
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/server/base.rb#L80" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -703,7 +704,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

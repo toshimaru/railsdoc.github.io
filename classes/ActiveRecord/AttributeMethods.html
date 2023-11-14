@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -440,22 +441,22 @@ person[:id]              # =&gt; nil
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/attribute_methods.rb, line 412
+    def [](attr_name)
+      read_attribute(attr_name) { |n| missing_attribute(n, caller) }
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-5B-5D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods.rb, line 412</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]</span>(<span class="ruby-identifier">attr_name</span>)
-  <span class="ruby-identifier">read_attribute</span>(<span class="ruby-identifier">attr_name</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">missing_attribute</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">caller</span>) }
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods.rb#L412" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-5B-5D-3D">
@@ -483,22 +484,22 @@ person[:date_of_birth] # =&gt; Date.new(2004, 12, 12)
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/attribute_methods.rb, line 425
+    def []=(attr_name, value)
+      write_attribute(attr_name, value)
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-5B-5D-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods.rb, line 425</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]=</span>(<span class="ruby-identifier">attr_name</span>, <span class="ruby-identifier">value</span>)
-  <span class="ruby-identifier">write_attribute</span>(<span class="ruby-identifier">attr_name</span>, <span class="ruby-identifier">value</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods.rb#L425" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-accessed_fields">
@@ -543,22 +544,22 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/attribute_methods.rb, line 457
+    def accessed_fields
+      @attributes.accessed
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-accessed_fields_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods.rb, line 457</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accessed_fields</span>
-  <span class="ruby-ivar">@attributes</span>.<span class="ruby-identifier">accessed</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods.rb#L457" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-attribute_for_inspect">
@@ -590,25 +591,25 @@ person.attribute_for_inspect(:tag_ids)
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/attribute_methods.rb, line 362
+    def attribute_for_inspect(attr_name)
+      attr_name = attr_name.to_s
+      attr_name = self.class.attribute_aliases[attr_name] || attr_name
+      value = _read_attribute(attr_name)
+      format_for_inspect(attr_name, value)
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-attribute_for_inspect_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods.rb, line 362</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">attribute_for_inspect</span>(<span class="ruby-identifier">attr_name</span>)
-  <span class="ruby-identifier">attr_name</span> = <span class="ruby-identifier">attr_name</span>.<span class="ruby-identifier">to_s</span>
-  <span class="ruby-identifier">attr_name</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">attribute_aliases</span>[<span class="ruby-identifier">attr_name</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">attr_name</span>
-  <span class="ruby-identifier">value</span> = <span class="ruby-identifier">_read_attribute</span>(<span class="ruby-identifier">attr_name</span>)
-  <span class="ruby-identifier">format_for_inspect</span>(<span class="ruby-identifier">attr_name</span>, <span class="ruby-identifier">value</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods.rb#L362" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-attribute_names">
@@ -636,22 +637,22 @@ person.attribute_names
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/attribute_methods.rb, line 331
+    def attribute_names
+      @attributes.keys
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-attribute_names_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods.rb, line 331</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">attribute_names</span>
-  <span class="ruby-ivar">@attributes</span>.<span class="ruby-identifier">keys</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods.rb#L331" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-attribute_present-3F">
@@ -683,25 +684,25 @@ task.attribute_present?(:is_done) # =&gt; true
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/attribute_methods.rb, line 384
+    def attribute_present?(attr_name)
+      attr_name = attr_name.to_s
+      attr_name = self.class.attribute_aliases[attr_name] || attr_name
+      value = _read_attribute(attr_name)
+      !value.nil? && !(value.respond_to?(:empty?) && value.empty?)
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-attribute_present-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods.rb, line 384</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">attribute_present?</span>(<span class="ruby-identifier">attr_name</span>)
-  <span class="ruby-identifier">attr_name</span> = <span class="ruby-identifier">attr_name</span>.<span class="ruby-identifier">to_s</span>
-  <span class="ruby-identifier">attr_name</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">attribute_aliases</span>[<span class="ruby-identifier">attr_name</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">attr_name</span>
-  <span class="ruby-identifier">value</span> = <span class="ruby-identifier">_read_attribute</span>(<span class="ruby-identifier">attr_name</span>)
-  <span class="ruby-operator">!</span><span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:empty?</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">empty?</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods.rb#L384" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-attributes">
@@ -729,22 +730,22 @@ person.attributes
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/attribute_methods.rb, line 343
+    def attributes
+      @attributes.to_hash
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-attributes_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods.rb, line 343</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">attributes</span>
-  <span class="ruby-ivar">@attributes</span>.<span class="ruby-identifier">to_hash</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods.rb#L343" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-has_attribute-3F">
@@ -775,24 +776,24 @@ person.has_attribute?(:nothing)  # =&gt; false
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/attribute_methods.rb, line 313
+    def has_attribute?(attr_name)
+      attr_name = attr_name.to_s
+      attr_name = self.class.attribute_aliases[attr_name] || attr_name
+      @attributes.key?(attr_name)
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-has_attribute-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods.rb, line 313</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">has_attribute?</span>(<span class="ruby-identifier">attr_name</span>)
-  <span class="ruby-identifier">attr_name</span> = <span class="ruby-identifier">attr_name</span>.<span class="ruby-identifier">to_s</span>
-  <span class="ruby-identifier">attr_name</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">attribute_aliases</span>[<span class="ruby-identifier">attr_name</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">attr_name</span>
-  <span class="ruby-ivar">@attributes</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">attr_name</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods.rb#L313" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-respond_to-3F">
@@ -825,34 +826,34 @@ person.respond_to?(:nothing) # =&gt; false
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/attribute_methods.rb, line 286
+    def respond_to?(name, include_private = false)
+      return false unless super
+
+      # If the result is true then check for the select case.
+      # For queries selecting a subset of columns, return false for unselected columns.
+      # We check defined?(@attributes) not to issue warnings if called on objects that
+      # have been allocated but not yet initialized.
+      if defined?(@attributes)
+        if name = self.class.symbol_column_to_string(name.to_sym)
+          return _has_attribute?(name)
+        end
+      end
+
+      true
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-respond_to-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/attribute_methods.rb, line 286</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">respond_to?</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">include_private</span> = <span class="ruby-keyword">false</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">super</span>
-
-  <span class="ruby-comment"># If the result is true then check for the select case.</span>
-  <span class="ruby-comment"># For queries selecting a subset of columns, return false for unselected columns.</span>
-  <span class="ruby-comment"># We check defined?(@attributes) not to issue warnings if called on objects that</span>
-  <span class="ruby-comment"># have been allocated but not yet initialized.</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-ivar">@attributes</span>)
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">symbol_column_to_string</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>)
-      <span class="ruby-keyword">return</span> <span class="ruby-identifier">_has_attribute?</span>(<span class="ruby-identifier">name</span>)
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">true</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods.rb#L286" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -872,7 +873,7 @@ person.respond_to?(:nothing) # =&gt; false
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

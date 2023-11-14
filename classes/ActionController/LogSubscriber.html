@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -281,22 +282,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_controller/log_subscriber.rb, line 45
+    def halted_callback(event)
+      info { "Filter chain halted as #{event.payload[:filter].inspect} rendered or redirected" }
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-halted_callback_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_controller/log_subscriber.rb, line 45</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">halted_callback</span>(<span class="ruby-identifier">event</span>)
-  <span class="ruby-identifier">info</span> { <span class="ruby-node">&quot;Filter chain halted as #{event.payload[:filter].inspect} rendered or redirected&quot;</span> }
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_controller/log_subscriber.rb#L45" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-logger">
@@ -316,22 +317,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_controller/log_subscriber.rb, line 88
+    def logger
+      ActionController::Base.logger
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-logger_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_controller/log_subscriber.rb, line 88</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">logger</span>
-  <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">logger</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_controller/log_subscriber.rb#L88" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-process_action">
@@ -351,38 +352,38 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_controller/log_subscriber.rb, line 24
+    def process_action(event)
+      info do
+        payload = event.payload
+        additions = ActionController::Base.log_process_action(payload)
+        status = payload[:status]
+
+        if status.nil? && (exception_class_name = payload[:exception]&.first)
+          status = ActionDispatch::ExceptionWrapper.status_code_for_exception(exception_class_name)
+        end
+
+        additions << "Allocations: #{event.allocations}"
+
+        message = +"Completed #{status} #{Rack::Utils::HTTP_STATUS_CODES[status]} in #{event.duration.round}ms" \
+                   " (#{additions.join(" | ")})"
+        message << "\n\n" if defined?(Rails.env) && Rails.env.development?
+
+        message
+      end
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-process_action_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_controller/log_subscriber.rb, line 24</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">process_action</span>(<span class="ruby-identifier">event</span>)
-  <span class="ruby-identifier">info</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-identifier">payload</span> = <span class="ruby-identifier">event</span>.<span class="ruby-identifier">payload</span>
-    <span class="ruby-identifier">additions</span> = <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">log_process_action</span>(<span class="ruby-identifier">payload</span>)
-    <span class="ruby-identifier">status</span> = <span class="ruby-identifier">payload</span>[<span class="ruby-value">:status</span>]
-
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">exception_class_name</span> = <span class="ruby-identifier">payload</span>[<span class="ruby-value">:exception</span>]&amp;.<span class="ruby-identifier">first</span>)
-      <span class="ruby-identifier">status</span> = <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">ExceptionWrapper</span>.<span class="ruby-identifier">status_code_for_exception</span>(<span class="ruby-identifier">exception_class_name</span>)
-    <span class="ruby-keyword">end</span>
-
-    <span class="ruby-identifier">additions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;Allocations: #{event.allocations}&quot;</span>
-
-    <span class="ruby-identifier">message</span> = <span class="ruby-node">+&quot;Completed #{status} #{Rack::Utils::HTTP_STATUS_CODES[status]} in #{event.duration.round}ms&quot;</span> \
-               <span class="ruby-node">&quot; (#{additions.join(&quot; | &quot;)})&quot;</span>
-    <span class="ruby-identifier">message</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n\n&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">Rails</span>.<span class="ruby-identifier">env</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">env</span>.<span class="ruby-identifier">development?</span>
-
-    <span class="ruby-identifier">message</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_controller/log_subscriber.rb#L24" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-redirect_to">
@@ -402,22 +403,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_controller/log_subscriber.rb, line 55
+    def redirect_to(event)
+      info { "Redirected to #{event.payload[:location]}" }
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-redirect_to_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_controller/log_subscriber.rb, line 55</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">redirect_to</span>(<span class="ruby-identifier">event</span>)
-  <span class="ruby-identifier">info</span> { <span class="ruby-node">&quot;Redirected to #{event.payload[:location]}&quot;</span> }
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_controller/log_subscriber.rb#L55" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-send_data">
@@ -437,22 +438,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_controller/log_subscriber.rb, line 60
+    def send_data(event)
+      info { "Sent data #{event.payload[:filename]} (#{event.duration.round(1)}ms)" }
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-send_data_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_controller/log_subscriber.rb, line 60</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">send_data</span>(<span class="ruby-identifier">event</span>)
-  <span class="ruby-identifier">info</span> { <span class="ruby-node">&quot;Sent data #{event.payload[:filename]} (#{event.duration.round(1)}ms)&quot;</span> }
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_controller/log_subscriber.rb#L60" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-send_file">
@@ -472,22 +473,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_controller/log_subscriber.rb, line 50
+    def send_file(event)
+      info { "Sent file #{event.payload[:path]} (#{event.duration.round(1)}ms)" }
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-send_file_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_controller/log_subscriber.rb, line 50</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">send_file</span>(<span class="ruby-identifier">event</span>)
-  <span class="ruby-identifier">info</span> { <span class="ruby-node">&quot;Sent file #{event.payload[:path]} (#{event.duration.round(1)}ms)&quot;</span> }
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_controller/log_subscriber.rb#L50" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-start_processing">
@@ -507,34 +508,34 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_controller/log_subscriber.rb, line 7
+    def start_processing(event)
+      return unless logger.info?
+
+      payload = event.payload
+      params = {}
+      payload[:params].each_pair do |k, v|
+        params[k] = v unless INTERNAL_PARAMS.include?(k)
+      end
+      format  = payload[:format]
+      format  = format.to_s.upcase if format.is_a?(Symbol)
+      format  = "*/*" if format.nil?
+
+      info "Processing by #{payload[:controller]}##{payload[:action]} as #{format}"
+      info "  Parameters: #{params.inspect}" unless params.empty?
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-start_processing_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_controller/log_subscriber.rb, line 7</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_processing</span>(<span class="ruby-identifier">event</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info?</span>
-
-  <span class="ruby-identifier">payload</span> = <span class="ruby-identifier">event</span>.<span class="ruby-identifier">payload</span>
-  <span class="ruby-identifier">params</span> = {}
-  <span class="ruby-identifier">payload</span>[<span class="ruby-value">:params</span>].<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">v</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">INTERNAL_PARAMS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">k</span>)
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-identifier">format</span>  = <span class="ruby-identifier">payload</span>[<span class="ruby-value">:format</span>]
-  <span class="ruby-identifier">format</span>  = <span class="ruby-identifier">format</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">upcase</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">format</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
-  <span class="ruby-identifier">format</span>  = <span class="ruby-string">&quot;*/*&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">format</span>.<span class="ruby-identifier">nil?</span>
-
-  <span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Processing by #{payload[:controller]}##{payload[:action]} as #{format}&quot;</span>
-  <span class="ruby-identifier">info</span> <span class="ruby-node">&quot;  Parameters: #{params.inspect}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">empty?</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_controller/log_subscriber.rb#L7" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-unpermitted_parameters">
@@ -554,27 +555,27 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionpack/lib/action_controller/log_subscriber.rb, line 65
+    def unpermitted_parameters(event)
+      debug do
+        unpermitted_keys = event.payload[:keys]
+        display_unpermitted_keys = unpermitted_keys.map { |e| ":#{e}" }.join(", ")
+        context = event.payload[:context].map { |k, v| "#{k}: #{v}" }.join(", ")
+        color("Unpermitted parameter#{'s' if unpermitted_keys.size > 1}: #{display_unpermitted_keys}. Context: { #{context} }", RED)
+      end
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-unpermitted_parameters_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionpack/lib/action_controller/log_subscriber.rb, line 65</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">unpermitted_parameters</span>(<span class="ruby-identifier">event</span>)
-  <span class="ruby-identifier">debug</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-identifier">unpermitted_keys</span> = <span class="ruby-identifier">event</span>.<span class="ruby-identifier">payload</span>[<span class="ruby-value">:keys</span>]
-    <span class="ruby-identifier">display_unpermitted_keys</span> = <span class="ruby-identifier">unpermitted_keys</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;:#{e}&quot;</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;, &quot;</span>)
-    <span class="ruby-identifier">context</span> = <span class="ruby-identifier">event</span>.<span class="ruby-identifier">payload</span>[<span class="ruby-value">:context</span>].<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;#{k}: #{v}&quot;</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;, &quot;</span>)
-    <span class="ruby-identifier">color</span>(<span class="ruby-node">&quot;Unpermitted parameter#{&#39;s&#39; if unpermitted_keys.size &gt; 1}: #{display_unpermitted_keys}. Context: { #{context} }&quot;</span>, <span class="ruby-constant">RED</span>)
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_controller/log_subscriber.rb#L65" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -594,7 +595,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

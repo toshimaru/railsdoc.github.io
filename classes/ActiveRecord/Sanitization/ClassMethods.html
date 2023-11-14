@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -251,7 +252,8 @@
           
 
           
-          </div>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-sanitize_sql_array">
@@ -290,31 +292,31 @@ sanitize_sql_array([&quot;name=&#39;%s&#39; and group_id=&#39;%s&#39;&quot;, &qu
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/sanitization.rb, line 163
+      def sanitize_sql_array(ary)
+        statement, *values = ary
+        if values.first.is_a?(Hash) && /:\w+/.match?(statement)
+          replace_named_bind_variables(statement, values.first)
+        elsif statement.include?("?")
+          replace_bind_variables(statement, values)
+        elsif statement.blank?
+          statement
+        else
+          statement % values.collect { |value| connection.quote_string(value.to_s) }
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-sanitize_sql_array_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/sanitization.rb, line 163</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sanitize_sql_array</span>(<span class="ruby-identifier">ary</span>)
-  <span class="ruby-identifier">statement</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">values</span> = <span class="ruby-identifier">ary</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">values</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-regexp">/:\w+/</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-identifier">statement</span>)
-    <span class="ruby-identifier">replace_named_bind_variables</span>(<span class="ruby-identifier">statement</span>, <span class="ruby-identifier">values</span>.<span class="ruby-identifier">first</span>)
-  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">statement</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;?&quot;</span>)
-    <span class="ruby-identifier">replace_bind_variables</span>(<span class="ruby-identifier">statement</span>, <span class="ruby-identifier">values</span>)
-  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">statement</span>.<span class="ruby-identifier">blank?</span>
-    <span class="ruby-identifier">statement</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">statement</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">values</span>.<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">quote_string</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>) }
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/sanitization.rb#L163" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-sanitize_sql_for_assignment">
@@ -356,26 +358,26 @@ Post.sanitize_sql_for_assignment({ name: nil, group_id: 4 })
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/sanitization.rb, line 68
+      def sanitize_sql_for_assignment(assignments, default_table_name = table_name)
+        case assignments
+        when Array; sanitize_sql_array(assignments)
+        when Hash;  sanitize_sql_hash_for_assignment(assignments, default_table_name)
+        else        assignments
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-sanitize_sql_for_assignment_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/sanitization.rb, line 68</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sanitize_sql_for_assignment</span>(<span class="ruby-identifier">assignments</span>, <span class="ruby-identifier">default_table_name</span> = <span class="ruby-identifier">table_name</span>)
-  <span class="ruby-keyword">case</span> <span class="ruby-identifier">assignments</span>
-  <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>; <span class="ruby-identifier">sanitize_sql_array</span>(<span class="ruby-identifier">assignments</span>)
-  <span class="ruby-keyword">when</span> <span class="ruby-constant">Hash</span>;  <span class="ruby-identifier">sanitize_sql_hash_for_assignment</span>(<span class="ruby-identifier">assignments</span>, <span class="ruby-identifier">default_table_name</span>)
-  <span class="ruby-keyword">else</span>        <span class="ruby-identifier">assignments</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/sanitization.rb#L68" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-sanitize_sql_for_conditions">
@@ -421,27 +423,27 @@ sanitize_sql_for_conditions([&quot;name=&#39;%s&#39; and group_id=&#39;%s&#39;&q
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-sanitize_sql_for_conditions_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/sanitization.rb, line 33</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sanitize_sql_for_conditions</span>(<span class="ruby-identifier">condition</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">condition</span>.<span class="ruby-identifier">blank?</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-  <span class="ruby-keyword">case</span> <span class="ruby-identifier">condition</span>
-  <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>; <span class="ruby-identifier">sanitize_sql_array</span>(<span class="ruby-identifier">condition</span>)
-  <span class="ruby-keyword">else</span>        <span class="ruby-identifier">condition</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File activerecord/lib/active_record/sanitization.rb, line 33
+      def sanitize_sql_for_conditions(condition)
+        return nil if condition.blank?
+
+        case condition
+        when Array; sanitize_sql_array(condition)
+        else        condition
+        end
+      end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/sanitization.rb#L33" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-sanitize_sql_for_order">
@@ -468,37 +470,37 @@ sanitize_sql_for_order(&quot;id ASC&quot;)
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/sanitization.rb, line 84
+      def sanitize_sql_for_order(condition)
+        if condition.is_a?(Array) && condition.first.to_s.include?("?")
+          disallow_raw_sql!(
+            [condition.first],
+            permit: connection.column_name_with_order_matcher
+          )
+
+          # Ensure we aren't dealing with a subclass of String that might
+          # override methods we use (e.g. Arel::Nodes::SqlLiteral).
+          if condition.first.kind_of?(String) && !condition.first.instance_of?(String)
+            condition = [String.new(condition.first), *condition[1..-1]]
+          end
+
+          Arel.sql(sanitize_sql_array(condition))
+        else
+          condition
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-sanitize_sql_for_order_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/sanitization.rb, line 84</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sanitize_sql_for_order</span>(<span class="ruby-identifier">condition</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">condition</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">condition</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;?&quot;</span>)
-    <span class="ruby-identifier">disallow_raw_sql!</span>(
-      [<span class="ruby-identifier">condition</span>.<span class="ruby-identifier">first</span>],
-      <span class="ruby-value">permit:</span> <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">column_name_with_order_matcher</span>
-    )
-
-    <span class="ruby-comment"># Ensure we aren&#39;t dealing with a subclass of String that might</span>
-    <span class="ruby-comment"># override methods we use (e.g. Arel::Nodes::SqlLiteral).</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">condition</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">condition</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">String</span>)
-      <span class="ruby-identifier">condition</span> = [<span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">condition</span>.<span class="ruby-identifier">first</span>), <span class="ruby-operator">*</span><span class="ruby-identifier">condition</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]]
-    <span class="ruby-keyword">end</span>
-
-    <span class="ruby-constant">Arel</span>.<span class="ruby-identifier">sql</span>(<span class="ruby-identifier">sanitize_sql_array</span>(<span class="ruby-identifier">condition</span>))
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">condition</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/sanitization.rb#L84" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-sanitize_sql_hash_for_assignment">
@@ -522,27 +524,27 @@ sanitize_sql_for_order(&quot;id ASC&quot;)
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/sanitization.rb, line 107
+      def sanitize_sql_hash_for_assignment(attrs, table)
+        c = connection
+        attrs.map do |attr, value|
+          type = type_for_attribute(attr)
+          value = type.serialize(type.cast(value))
+          "#{c.quote_table_name_for_assignment(table, attr)} = #{c.quote(value)}"
+        end.join(", ")
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-sanitize_sql_hash_for_assignment_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/sanitization.rb, line 107</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sanitize_sql_hash_for_assignment</span>(<span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">table</span>)
-  <span class="ruby-identifier">c</span> = <span class="ruby-identifier">connection</span>
-  <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">type</span> = <span class="ruby-identifier">type_for_attribute</span>(<span class="ruby-identifier">attr</span>)
-    <span class="ruby-identifier">value</span> = <span class="ruby-identifier">type</span>.<span class="ruby-identifier">serialize</span>(<span class="ruby-identifier">type</span>.<span class="ruby-identifier">cast</span>(<span class="ruby-identifier">value</span>))
-    <span class="ruby-node">&quot;#{c.quote_table_name_for_assignment(table, attr)} = #{c.quote(value)}&quot;</span>
-  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;, &quot;</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/sanitization.rb#L107" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-sanitize_sql_like">
@@ -575,26 +577,26 @@ sanitize_sql_like(&quot;snake_cased_string&quot;, &quot;!&quot;)
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-sanitize_sql_like_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/sanitization.rb, line 131</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sanitize_sql_like</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">escape_character</span> = <span class="ruby-string">&quot;\\&quot;</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">string</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">escape_character</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">escape_character</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;%&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">escape_character</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;_&quot;</span>
-    <span class="ruby-identifier">string</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">escape_character</span>, <span class="ruby-string">&#39;\0\0&#39;</span>)
-  <span class="ruby-keyword">end</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/(?=[%_])/</span>, <span class="ruby-identifier">escape_character</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File activerecord/lib/active_record/sanitization.rb, line 131
+      def sanitize_sql_like(string, escape_character = "\\")
+        if string.include?(escape_character) && escape_character != "%" && escape_character != "_"
+          string = string.gsub(escape_character, '\0\0')
+        end
+
+        string.gsub(/(?=[%_])/, escape_character)
+      end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/sanitization.rb#L131" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -614,7 +616,7 @@ sanitize_sql_like(&quot;snake_cased_string&quot;, &quot;!&quot;)
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

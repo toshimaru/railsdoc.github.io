@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -301,65 +302,65 @@ object.setting?         # =&gt; NoMethodError
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-class_attribute_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/class/attribute.rb, line 85</span>
-  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">class_attribute</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attrs</span>, <span class="ruby-value">instance_accessor:</span> <span class="ruby-keyword">true</span>,
-    <span class="ruby-value">instance_reader:</span> <span class="ruby-identifier">instance_accessor</span>, <span class="ruby-value">instance_writer:</span> <span class="ruby-identifier">instance_accessor</span>, <span class="ruby-value">instance_predicate:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">default:</span> <span class="ruby-keyword">nil</span>)
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-    <span class="ruby-identifier">class_methods</span>, <span class="ruby-identifier">methods</span> = [], []
-    <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
-      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
-        <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;#{name.inspect} is not a symbol nor a string&quot;</span>
-      <span class="ruby-keyword">end</span>
+              <pre><code class="ruby"># File activesupport/lib/active_support/core_ext/class/attribute.rb, line 85
+  def class_attribute(*attrs, instance_accessor: true,
+    instance_reader: instance_accessor, instance_writer: instance_accessor, instance_predicate: true, default: nil)
 
-      <span class="ruby-identifier">class_methods</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">&lt;&lt;~RUBY</span> <span class="ruby-comment"># In case the method exists and is not public</span>
-<span class="ruby-value">        silence_redefinition_of_method def #{name}
+    class_methods, methods = [], []
+    attrs.each do |name|
+      unless name.is_a?(Symbol) || name.is_a?(String)
+        raise TypeError, "#{name.inspect} is not a symbol nor a string"
+      end
+
+      class_methods << <<~RUBY # In case the method exists and is not public
+        silence_redefinition_of_method def #{name}
         end
-</span><span class="ruby-identifier">      RUBY</span>
+      RUBY
 
-      <span class="ruby-identifier">methods</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">&lt;&lt;~RUBY</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">instance_reader</span>
-<span class="ruby-value">        silence_redefinition_of_method def #{name}
+      methods << <<~RUBY if instance_reader
+        silence_redefinition_of_method def #{name}
           defined?(@#{name}) ? @#{name} : self.class.#{name}
         end
-</span><span class="ruby-identifier">      RUBY</span>
+      RUBY
 
-      <span class="ruby-identifier">class_methods</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">&lt;&lt;~RUBY</span>
-<span class="ruby-value">        silence_redefinition_of_method def #{name}=(value)
+      class_methods << <<~RUBY
+        silence_redefinition_of_method def #{name}=(value)
           redefine_method(:#{name}) { value } if singleton_class?
           redefine_singleton_method(:#{name}) { value }
           value
         end
-</span><span class="ruby-identifier">      RUBY</span>
+      RUBY
 
-      <span class="ruby-identifier">methods</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">&lt;&lt;~RUBY</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">instance_writer</span>
-<span class="ruby-value">        silence_redefinition_of_method(:#{name}=)
+      methods << <<~RUBY if instance_writer
+        silence_redefinition_of_method(:#{name}=)
         attr_writer :#{name}
-</span><span class="ruby-identifier">      RUBY</span>
+      RUBY
 
-      <span class="ruby-keyword">if</span> <span class="ruby-identifier">instance_predicate</span>
-        <span class="ruby-identifier">class_methods</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;silence_redefinition_of_method def #{name}?; !!self.#{name}; end&quot;</span>
-        <span class="ruby-keyword">if</span> <span class="ruby-identifier">instance_reader</span>
-          <span class="ruby-identifier">methods</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;silence_redefinition_of_method def #{name}?; !!self.#{name}; end&quot;</span>
-        <span class="ruby-keyword">end</span>
-      <span class="ruby-keyword">end</span>
-    <span class="ruby-keyword">end</span>
+      if instance_predicate
+        class_methods << "silence_redefinition_of_method def #{name}?; !!self.#{name}; end"
+        if instance_reader
+          methods << "silence_redefinition_of_method def #{name}?; !!self.#{name}; end"
+        end
+      end
+    end
 
-    <span class="ruby-identifier">location</span> = <span class="ruby-identifier">caller_locations</span>(<span class="ruby-value">1</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">first</span>
-    <span class="ruby-identifier">class_eval</span>([<span class="ruby-string">&quot;class &lt;&lt; self&quot;</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">class_methods</span>, <span class="ruby-string">&quot;end&quot;</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">methods</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;;&quot;</span>).<span class="ruby-identifier">tr</span>(<span class="ruby-string">&quot;\n&quot;</span>, <span class="ruby-string">&quot;;&quot;</span>), <span class="ruby-identifier">location</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">location</span>.<span class="ruby-identifier">lineno</span>)
+    location = caller_locations(1, 1).first
+    class_eval(["class << self", *class_methods, "end", *methods].join(";").tr("\n", ";"), location.path, location.lineno)
 
-    <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">public_send</span>(<span class="ruby-node">&quot;#{name}=&quot;</span>, <span class="ruby-identifier">default</span>) }
-  <span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+    attrs.each { |name| public_send("#{name}=", default) }
+  end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/core_ext/class/attribute.rb#L85" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-descendants">
@@ -392,22 +393,22 @@ C.descendants # =&gt; [B, A, D]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/core_ext/class/subclasses.rb, line 21
+    def descendants
+      subclasses.concat(subclasses.flat_map(&:descendants))
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-descendants_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/class/subclasses.rb, line 21</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">descendants</span>
-  <span class="ruby-identifier">subclasses</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">subclasses</span>.<span class="ruby-identifier">flat_map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:descendants</span>))
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/core_ext/class/subclasses.rb#L21" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-subclasses">
@@ -434,22 +435,22 @@ Foo.subclasses # =&gt; [Bar]
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/core_ext/class/subclasses.rb, line 38
+    def subclasses
+      descendants.select { |descendant| descendant.superclass == self }
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-subclasses_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/core_ext/class/subclasses.rb, line 38</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">subclasses</span>
-  <span class="ruby-identifier">descendants</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">descendant</span><span class="ruby-operator">|</span> <span class="ruby-identifier">descendant</span>.<span class="ruby-identifier">superclass</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span> }
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/core_ext/class/subclasses.rb#L38" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -469,7 +470,7 @@ Foo.subclasses # =&gt; [Bar]
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -270,21 +271,21 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-cache_timestamp_format_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/integration.rb, line 16</span>
-<span class="ruby-identifier">class_attribute</span> <span class="ruby-value">:cache_timestamp_format</span>, <span class="ruby-value">instance_writer:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">default:</span> <span class="ruby-value">:usec</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/integration.rb, line 16
+      class_attribute :cache_timestamp_format, instance_writer: false, default: :usec
 </code></pre>
-              </div>
-            </div>
-            
-          </div>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/integration.rb#L16" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-cache_versioning">
@@ -306,21 +307,21 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-cache_versioning_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/integration.rb, line 24</span>
-<span class="ruby-identifier">class_attribute</span> <span class="ruby-value">:cache_versioning</span>, <span class="ruby-value">instance_writer:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">default:</span> <span class="ruby-keyword">false</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/integration.rb, line 24
+      class_attribute :cache_versioning, instance_writer: false, default: false
 </code></pre>
-              </div>
-            </div>
-            
-          </div>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/integration.rb#L24" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-collection_cache_versioning">
@@ -342,21 +343,21 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-collection_cache_versioning_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/integration.rb, line 32</span>
-<span class="ruby-identifier">class_attribute</span> <span class="ruby-value">:collection_cache_versioning</span>, <span class="ruby-value">instance_writer:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">default:</span> <span class="ruby-keyword">false</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/integration.rb, line 32
+      class_attribute :collection_cache_versioning, instance_writer: false, default: false
 </code></pre>
-              </div>
-            </div>
-            
-          </div>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/integration.rb#L32" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -390,37 +391,37 @@ Product.find(5).cache_key  # =&gt; &quot;products/5-20071224150000&quot; (update
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-cache_key_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/integration.rb, line 72</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cache_key</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">new_record?</span>
-    <span class="ruby-node">&quot;#{model_name.cache_key}/new&quot;</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">cache_version</span>
-      <span class="ruby-node">&quot;#{model_name.cache_key}/#{id}&quot;</span>
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">timestamp</span> = <span class="ruby-identifier">max_updated_column_timestamp</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-      <span class="ruby-keyword">if</span> <span class="ruby-identifier">timestamp</span>
-        <span class="ruby-identifier">timestamp</span> = <span class="ruby-identifier">timestamp</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_fs</span>(<span class="ruby-identifier">cache_timestamp_format</span>)
-        <span class="ruby-node">&quot;#{model_name.cache_key}/#{id}-#{timestamp}&quot;</span>
-      <span class="ruby-keyword">else</span>
-        <span class="ruby-node">&quot;#{model_name.cache_key}/#{id}&quot;</span>
-      <span class="ruby-keyword">end</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File activerecord/lib/active_record/integration.rb, line 72
+    def cache_key
+      if new_record?
+        "#{model_name.cache_key}/new"
+      else
+        if cache_version
+          "#{model_name.cache_key}/#{id}"
+        else
+          timestamp = max_updated_column_timestamp
+
+          if timestamp
+            timestamp = timestamp.utc.to_fs(cache_timestamp_format)
+            "#{model_name.cache_key}/#{id}-#{timestamp}"
+          else
+            "#{model_name.cache_key}/#{id}"
+          end
+        end
+      end
+    end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/integration.rb#L72" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-cache_key_with_version">
@@ -440,26 +441,26 @@ Product.find(5).cache_key  # =&gt; &quot;products/5-20071224150000&quot; (update
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/integration.rb, line 114
+    def cache_key_with_version
+      if version = cache_version
+        "#{cache_key}-#{version}"
+      else
+        cache_key
+      end
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-cache_key_with_version_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/integration.rb, line 114</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cache_key_with_version</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">version</span> = <span class="ruby-identifier">cache_version</span>
-    <span class="ruby-node">&quot;#{cache_key}-#{version}&quot;</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">cache_key</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/integration.rb#L114" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-cache_version">
@@ -481,34 +482,34 @@ Product.find(5).cache_key  # =&gt; &quot;products/5-20071224150000&quot; (update
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/integration.rb, line 97
+    def cache_version
+      return unless cache_versioning
+
+      if has_attribute?("updated_at")
+        timestamp = updated_at_before_type_cast
+        if can_use_fast_cache_version?(timestamp)
+          raw_timestamp_to_cache_version(timestamp)
+
+        elsif timestamp = updated_at
+          timestamp.utc.to_fs(cache_timestamp_format)
+        end
+      elsif self.class.has_attribute?("updated_at")
+        raise ActiveModel::MissingAttributeError, "missing attribute 'updated_at' for #{self.class}"
+      end
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-cache_version_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/integration.rb, line 97</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cache_version</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">cache_versioning</span>
-
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">has_attribute?</span>(<span class="ruby-string">&quot;updated_at&quot;</span>)
-    <span class="ruby-identifier">timestamp</span> = <span class="ruby-identifier">updated_at_before_type_cast</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">can_use_fast_cache_version?</span>(<span class="ruby-identifier">timestamp</span>)
-      <span class="ruby-identifier">raw_timestamp_to_cache_version</span>(<span class="ruby-identifier">timestamp</span>)
-
-    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">timestamp</span> = <span class="ruby-identifier">updated_at</span>
-      <span class="ruby-identifier">timestamp</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_fs</span>(<span class="ruby-identifier">cache_timestamp_format</span>)
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">has_attribute?</span>(<span class="ruby-string">&quot;updated_at&quot;</span>)
-    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ActiveModel</span><span class="ruby-operator">::</span><span class="ruby-constant">MissingAttributeError</span>, <span class="ruby-node">&quot;missing attribute &#39;updated_at&#39; for #{self.class}&quot;</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/integration.rb#L97" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-to_param">
@@ -546,23 +547,23 @@ user_path(user)  # =&gt; &quot;/users/Phusion&quot;
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/integration.rb, line 57
+    def to_param
+      return unless id
+      Array(id).join(self.class.param_delimiter)
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-to_param_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/integration.rb, line 57</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_param</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">id</span>
-  <span class="ruby-constant">Array</span>(<span class="ruby-identifier">id</span>).<span class="ruby-identifier">join</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">param_delimiter</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/integration.rb#L57" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -582,7 +583,7 @@ user_path(user)  # =&gt; &quot;/users/Phusion&quot;
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

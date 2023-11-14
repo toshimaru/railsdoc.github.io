@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -286,30 +287,30 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/concurrency/share_lock.rb, line 50
+      def initialize
+        super()
+
+        @cv = new_cond
+
+        @sharing = Hash.new(0)
+        @waiting = {}
+        @sleeping = {}
+        @exclusive_thread = nil
+        @exclusive_depth = 0
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/concurrency/share_lock.rb, line 50</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
-  <span class="ruby-keyword">super</span>()
-
-  <span class="ruby-ivar">@cv</span> = <span class="ruby-identifier">new_cond</span>
-
-  <span class="ruby-ivar">@sharing</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)
-  <span class="ruby-ivar">@waiting</span> = {}
-  <span class="ruby-ivar">@sleeping</span> = {}
-  <span class="ruby-ivar">@exclusive_thread</span> = <span class="ruby-keyword">nil</span>
-  <span class="ruby-ivar">@exclusive_depth</span> = <span class="ruby-value">0</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/concurrency/share_lock.rb#L50" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -335,28 +336,28 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/concurrency/share_lock.rb, line 148
+      def exclusive(purpose: nil, compatible: [], after_compatible: [], no_wait: false)
+        if start_exclusive(purpose: purpose, compatible: compatible, no_wait: no_wait)
+          begin
+            yield
+          ensure
+            stop_exclusive(compatible: after_compatible)
+          end
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-exclusive_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/concurrency/share_lock.rb, line 148</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">exclusive</span>(<span class="ruby-value">purpose:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">compatible:</span> [], <span class="ruby-value">after_compatible:</span> [], <span class="ruby-value">no_wait:</span> <span class="ruby-keyword">false</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">start_exclusive</span>(<span class="ruby-value">purpose:</span> <span class="ruby-identifier">purpose</span>, <span class="ruby-value">compatible:</span> <span class="ruby-identifier">compatible</span>, <span class="ruby-value">no_wait:</span> <span class="ruby-identifier">no_wait</span>)
-    <span class="ruby-keyword">begin</span>
-      <span class="ruby-keyword">yield</span>
-    <span class="ruby-keyword">ensure</span>
-      <span class="ruby-identifier">stop_exclusive</span>(<span class="ruby-value">compatible:</span> <span class="ruby-identifier">after_compatible</span>)
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/concurrency/share_lock.rb#L148" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-sharing">
@@ -376,27 +377,27 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/concurrency/share_lock.rb, line 159
+      def sharing
+        start_sharing
+        begin
+          yield
+        ensure
+          stop_sharing
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-sharing_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/concurrency/share_lock.rb, line 159</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sharing</span>
-  <span class="ruby-identifier">start_sharing</span>
-  <span class="ruby-keyword">begin</span>
-    <span class="ruby-keyword">yield</span>
-  <span class="ruby-keyword">ensure</span>
-    <span class="ruby-identifier">stop_sharing</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/concurrency/share_lock.rb#L159" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-start_exclusive">
@@ -420,36 +421,36 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/concurrency/share_lock.rb, line 76
+      def start_exclusive(purpose: nil, compatible: [], no_wait: false)
+        synchronize do
+          unless @exclusive_thread == Thread.current
+            if busy_for_exclusive?(purpose)
+              return false if no_wait
+
+              yield_shares(purpose: purpose, compatible: compatible, block_share: true) do
+                wait_for(:start_exclusive) { busy_for_exclusive?(purpose) }
+              end
+            end
+            @exclusive_thread = Thread.current
+          end
+          @exclusive_depth += 1
+
+          true
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-start_exclusive_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/concurrency/share_lock.rb, line 76</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_exclusive</span>(<span class="ruby-value">purpose:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">compatible:</span> [], <span class="ruby-value">no_wait:</span> <span class="ruby-keyword">false</span>)
-  <span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@exclusive_thread</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
-      <span class="ruby-keyword">if</span> <span class="ruby-identifier">busy_for_exclusive?</span>(<span class="ruby-identifier">purpose</span>)
-        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">no_wait</span>
-
-        <span class="ruby-identifier">yield_shares</span>(<span class="ruby-value">purpose:</span> <span class="ruby-identifier">purpose</span>, <span class="ruby-value">compatible:</span> <span class="ruby-identifier">compatible</span>, <span class="ruby-value">block_share:</span> <span class="ruby-keyword">true</span>) <span class="ruby-keyword">do</span>
-          <span class="ruby-identifier">wait_for</span>(<span class="ruby-value">:start_exclusive</span>) { <span class="ruby-identifier">busy_for_exclusive?</span>(<span class="ruby-identifier">purpose</span>) }
-        <span class="ruby-keyword">end</span>
-      <span class="ruby-keyword">end</span>
-      <span class="ruby-ivar">@exclusive_thread</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
-    <span class="ruby-keyword">end</span>
-    <span class="ruby-ivar">@exclusive_depth</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-
-    <span class="ruby-keyword">true</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/concurrency/share_lock.rb#L76" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-start_sharing">
@@ -469,35 +470,35 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/concurrency/share_lock.rb, line 114
+      def start_sharing
+        synchronize do
+          if @sharing[Thread.current] > 0 || @exclusive_thread == Thread.current
+            # We already hold a lock; nothing to wait for
+          elsif @waiting[Thread.current]
+            # We're nested inside a +yield_shares+ call: we'll resume as
+            # soon as there isn't an exclusive lock in our way
+            wait_for(:start_sharing) { @exclusive_thread }
+          else
+            # This is an initial / outermost share call: any outstanding
+            # requests for an exclusive lock get to go first
+            wait_for(:start_sharing) { busy_for_sharing?(false) }
+          end
+          @sharing[Thread.current] += 1
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-start_sharing_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/concurrency/share_lock.rb, line 114</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_sharing</span>
-  <span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@sharing</span>[<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>] <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@exclusive_thread</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
-      <span class="ruby-comment"># We already hold a lock; nothing to wait for</span>
-    <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@waiting</span>[<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>]
-      <span class="ruby-comment"># We&#39;re nested inside a +yield_shares+ call: we&#39;ll resume as</span>
-      <span class="ruby-comment"># soon as there isn&#39;t an exclusive lock in our way</span>
-      <span class="ruby-identifier">wait_for</span>(<span class="ruby-value">:start_sharing</span>) { <span class="ruby-ivar">@exclusive_thread</span> }
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-comment"># This is an initial / outermost share call: any outstanding</span>
-      <span class="ruby-comment"># requests for an exclusive lock get to go first</span>
-      <span class="ruby-identifier">wait_for</span>(<span class="ruby-value">:start_sharing</span>) { <span class="ruby-identifier">busy_for_sharing?</span>(<span class="ruby-keyword">false</span>) }
-    <span class="ruby-keyword">end</span>
-    <span class="ruby-ivar">@sharing</span>[<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/concurrency/share_lock.rb#L114" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-stop_exclusive">
@@ -517,36 +518,36 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/concurrency/share_lock.rb, line 96
+      def stop_exclusive(compatible: [])
+        synchronize do
+          raise "invalid unlock" if @exclusive_thread != Thread.current
+
+          @exclusive_depth -= 1
+          if @exclusive_depth == 0
+            @exclusive_thread = nil
+
+            if eligible_waiters?(compatible)
+              yield_shares(compatible: compatible, block_share: true) do
+                wait_for(:stop_exclusive) { @exclusive_thread || eligible_waiters?(compatible) }
+              end
+            end
+            @cv.broadcast
+          end
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-stop_exclusive_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/concurrency/share_lock.rb, line 96</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">stop_exclusive</span>(<span class="ruby-value">compatible:</span> [])
-  <span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;invalid unlock&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@exclusive_thread</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
-
-    <span class="ruby-ivar">@exclusive_depth</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@exclusive_depth</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
-      <span class="ruby-ivar">@exclusive_thread</span> = <span class="ruby-keyword">nil</span>
-
-      <span class="ruby-keyword">if</span> <span class="ruby-identifier">eligible_waiters?</span>(<span class="ruby-identifier">compatible</span>)
-        <span class="ruby-identifier">yield_shares</span>(<span class="ruby-value">compatible:</span> <span class="ruby-identifier">compatible</span>, <span class="ruby-value">block_share:</span> <span class="ruby-keyword">true</span>) <span class="ruby-keyword">do</span>
-          <span class="ruby-identifier">wait_for</span>(<span class="ruby-value">:stop_exclusive</span>) { <span class="ruby-ivar">@exclusive_thread</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">eligible_waiters?</span>(<span class="ruby-identifier">compatible</span>) }
-        <span class="ruby-keyword">end</span>
-      <span class="ruby-keyword">end</span>
-      <span class="ruby-ivar">@cv</span>.<span class="ruby-identifier">broadcast</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/concurrency/share_lock.rb#L96" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-stop_sharing">
@@ -566,29 +567,29 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/concurrency/share_lock.rb, line 131
+      def stop_sharing
+        synchronize do
+          if @sharing[Thread.current] > 1
+            @sharing[Thread.current] -= 1
+          else
+            @sharing.delete Thread.current
+            @cv.broadcast
+          end
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-stop_sharing_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/concurrency/share_lock.rb, line 131</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">stop_sharing</span>
-  <span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@sharing</span>[<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>] <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
-      <span class="ruby-ivar">@sharing</span>[<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>] <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-ivar">@sharing</span>.<span class="ruby-identifier">delete</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
-      <span class="ruby-ivar">@cv</span>.<span class="ruby-identifier">broadcast</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/concurrency/share_lock.rb#L131" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-yield_shares">
@@ -608,49 +609,49 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/concurrency/share_lock.rb, line 171
+      def yield_shares(purpose: nil, compatible: [], block_share: false)
+        loose_shares = previous_wait = nil
+        synchronize do
+          if loose_shares = @sharing.delete(Thread.current)
+            if previous_wait = @waiting[Thread.current]
+              purpose = nil unless purpose == previous_wait[0]
+              compatible &= previous_wait[1]
+            end
+            compatible |= [false] unless block_share
+            @waiting[Thread.current] = [purpose, compatible]
+          end
+
+          @cv.broadcast
+        end
+
+        begin
+          yield
+        ensure
+          synchronize do
+            wait_for(:yield_shares) { @exclusive_thread && @exclusive_thread != Thread.current }
+
+            if previous_wait
+              @waiting[Thread.current] = previous_wait
+            else
+              @waiting.delete Thread.current
+            end
+            @sharing[Thread.current] = loose_shares if loose_shares
+          end
+        end
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-yield_shares_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/concurrency/share_lock.rb, line 171</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">yield_shares</span>(<span class="ruby-value">purpose:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">compatible:</span> [], <span class="ruby-value">block_share:</span> <span class="ruby-keyword">false</span>)
-  <span class="ruby-identifier">loose_shares</span> = <span class="ruby-identifier">previous_wait</span> = <span class="ruby-keyword">nil</span>
-  <span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">loose_shares</span> = <span class="ruby-ivar">@sharing</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>)
-      <span class="ruby-keyword">if</span> <span class="ruby-identifier">previous_wait</span> = <span class="ruby-ivar">@waiting</span>[<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>]
-        <span class="ruby-identifier">purpose</span> = <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">purpose</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">previous_wait</span>[<span class="ruby-value">0</span>]
-        <span class="ruby-identifier">compatible</span> <span class="ruby-operator">&amp;=</span> <span class="ruby-identifier">previous_wait</span>[<span class="ruby-value">1</span>]
-      <span class="ruby-keyword">end</span>
-      <span class="ruby-identifier">compatible</span> <span class="ruby-operator">|=</span> [<span class="ruby-keyword">false</span>] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_share</span>
-      <span class="ruby-ivar">@waiting</span>[<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>] = [<span class="ruby-identifier">purpose</span>, <span class="ruby-identifier">compatible</span>]
-    <span class="ruby-keyword">end</span>
-
-    <span class="ruby-ivar">@cv</span>.<span class="ruby-identifier">broadcast</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">begin</span>
-    <span class="ruby-keyword">yield</span>
-  <span class="ruby-keyword">ensure</span>
-    <span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
-      <span class="ruby-identifier">wait_for</span>(<span class="ruby-value">:yield_shares</span>) { <span class="ruby-ivar">@exclusive_thread</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@exclusive_thread</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span> }
-
-      <span class="ruby-keyword">if</span> <span class="ruby-identifier">previous_wait</span>
-        <span class="ruby-ivar">@waiting</span>[<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>] = <span class="ruby-identifier">previous_wait</span>
-      <span class="ruby-keyword">else</span>
-        <span class="ruby-ivar">@waiting</span>.<span class="ruby-identifier">delete</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
-      <span class="ruby-keyword">end</span>
-      <span class="ruby-ivar">@sharing</span>[<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>] = <span class="ruby-identifier">loose_shares</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">loose_shares</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/concurrency/share_lock.rb#L171" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -670,7 +671,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

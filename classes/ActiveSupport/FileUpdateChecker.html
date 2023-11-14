@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -261,34 +262,34 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/file_update_checker.rb, line 44
+    def initialize(files, dirs = {}, &block)
+      unless block
+        raise ArgumentError, "A block is required to initialize a FileUpdateChecker"
+      end
+
+      @files = files.freeze
+      @glob  = compile_glob(dirs)
+      @block = block
+
+      @watched    = nil
+      @updated_at = nil
+
+      @last_watched   = watched
+      @last_update_at = updated_at(@last_watched)
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/file_update_checker.rb, line 44</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">files</span>, <span class="ruby-identifier">dirs</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block</span>
-    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;A block is required to initialize a FileUpdateChecker&quot;</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-ivar">@files</span> = <span class="ruby-identifier">files</span>.<span class="ruby-identifier">freeze</span>
-  <span class="ruby-ivar">@glob</span>  = <span class="ruby-identifier">compile_glob</span>(<span class="ruby-identifier">dirs</span>)
-  <span class="ruby-ivar">@block</span> = <span class="ruby-identifier">block</span>
-
-  <span class="ruby-ivar">@watched</span>    = <span class="ruby-keyword">nil</span>
-  <span class="ruby-ivar">@updated_at</span> = <span class="ruby-keyword">nil</span>
-
-  <span class="ruby-ivar">@last_watched</span>   = <span class="ruby-identifier">watched</span>
-  <span class="ruby-ivar">@last_update_at</span> = <span class="ruby-identifier">updated_at</span>(<span class="ruby-ivar">@last_watched</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/file_update_checker.rb#L44" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -312,27 +313,27 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/file_update_checker.rb, line 82
+    def execute
+      @last_watched   = watched
+      @last_update_at = updated_at(@last_watched)
+      @block.call
+    ensure
+      @watched = nil
+      @updated_at = nil
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-execute_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/file_update_checker.rb, line 82</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">execute</span>
-  <span class="ruby-ivar">@last_watched</span>   = <span class="ruby-identifier">watched</span>
-  <span class="ruby-ivar">@last_update_at</span> = <span class="ruby-identifier">updated_at</span>(<span class="ruby-ivar">@last_watched</span>)
-  <span class="ruby-ivar">@block</span>.<span class="ruby-identifier">call</span>
-<span class="ruby-keyword">ensure</span>
-  <span class="ruby-ivar">@watched</span> = <span class="ruby-keyword">nil</span>
-  <span class="ruby-ivar">@updated_at</span> = <span class="ruby-keyword">nil</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/file_update_checker.rb#L82" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-execute_if_updated">
@@ -352,28 +353,28 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/file_update_checker.rb, line 92
+    def execute_if_updated
+      if updated?
+        yield if block_given?
+        execute
+        true
+      else
+        false
+      end
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-execute_if_updated_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/file_update_checker.rb, line 92</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">execute_if_updated</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">updated?</span>
-    <span class="ruby-keyword">yield</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
-    <span class="ruby-identifier">execute</span>
-    <span class="ruby-keyword">true</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-keyword">false</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/file_update_checker.rb#L92" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-updated-3F">
@@ -393,35 +394,35 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activesupport/lib/active_support/file_update_checker.rb, line 63
+    def updated?
+      current_watched = watched
+      if @last_watched.size != current_watched.size
+        @watched = current_watched
+        true
+      else
+        current_updated_at = updated_at(current_watched)
+        if @last_update_at < current_updated_at
+          @watched    = current_watched
+          @updated_at = current_updated_at
+          true
+        else
+          false
+        end
+      end
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-updated-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activesupport/lib/active_support/file_update_checker.rb, line 63</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">updated?</span>
-  <span class="ruby-identifier">current_watched</span> = <span class="ruby-identifier">watched</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@last_watched</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">current_watched</span>.<span class="ruby-identifier">size</span>
-    <span class="ruby-ivar">@watched</span> = <span class="ruby-identifier">current_watched</span>
-    <span class="ruby-keyword">true</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">current_updated_at</span> = <span class="ruby-identifier">updated_at</span>(<span class="ruby-identifier">current_watched</span>)
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@last_update_at</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">current_updated_at</span>
-      <span class="ruby-ivar">@watched</span>    = <span class="ruby-identifier">current_watched</span>
-      <span class="ruby-ivar">@updated_at</span> = <span class="ruby-identifier">current_updated_at</span>
-      <span class="ruby-keyword">true</span>
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-keyword">false</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/file_update_checker.rb#L63" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -441,7 +442,7 @@ end
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

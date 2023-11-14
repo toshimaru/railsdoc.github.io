@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -247,31 +248,31 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/subscription_adapter/postgresql.rb, line 74
+          def initialize(adapter, event_loop)
+            super()
+
+            @adapter = adapter
+            @event_loop = event_loop
+            @queue = Queue.new
+
+            @thread = Thread.new do
+              Thread.current.abort_on_exception = true
+              listen
+            end
+          end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/subscription_adapter/postgresql.rb, line 74</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">adapter</span>, <span class="ruby-identifier">event_loop</span>)
-  <span class="ruby-keyword">super</span>()
-
-  <span class="ruby-ivar">@adapter</span> = <span class="ruby-identifier">adapter</span>
-  <span class="ruby-ivar">@event_loop</span> = <span class="ruby-identifier">event_loop</span>
-  <span class="ruby-ivar">@queue</span> = <span class="ruby-constant">Queue</span>.<span class="ruby-identifier">new</span>
-
-  <span class="ruby-ivar">@thread</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">abort_on_exception</span> = <span class="ruby-keyword">true</span>
-    <span class="ruby-identifier">listen</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/subscription_adapter/postgresql.rb#L74" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -295,22 +296,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/subscription_adapter/postgresql.rb, line 118
+          def add_channel(channel, on_success)
+            @queue.push([:listen, channel, on_success])
+          end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-add_channel_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/subscription_adapter/postgresql.rb, line 118</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_channel</span>(<span class="ruby-identifier">channel</span>, <span class="ruby-identifier">on_success</span>)
-  <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">push</span>([<span class="ruby-value">:listen</span>, <span class="ruby-identifier">channel</span>, <span class="ruby-identifier">on_success</span>])
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/subscription_adapter/postgresql.rb#L118" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-invoke_callback">
@@ -330,22 +331,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/subscription_adapter/postgresql.rb, line 126
+          def invoke_callback(*)
+            @event_loop.post { super }
+          end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-invoke_callback_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/subscription_adapter/postgresql.rb, line 126</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">invoke_callback</span>(<span class="ruby-operator">*</span>)
-  <span class="ruby-ivar">@event_loop</span>.<span class="ruby-identifier">post</span> { <span class="ruby-keyword">super</span> }
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/subscription_adapter/postgresql.rb#L126" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-listen">
@@ -365,44 +366,44 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/subscription_adapter/postgresql.rb, line 87
+          def listen
+            @adapter.with_subscriptions_connection do |pg_conn|
+              catch :shutdown do
+                loop do
+                  until @queue.empty?
+                    action, channel, callback = @queue.pop(true)
+
+                    case action
+                    when :listen
+                      pg_conn.exec("LISTEN #{pg_conn.escape_identifier channel}")
+                      @event_loop.post(&callback) if callback
+                    when :unlisten
+                      pg_conn.exec("UNLISTEN #{pg_conn.escape_identifier channel}")
+                    when :shutdown
+                      throw :shutdown
+                    end
+                  end
+
+                  pg_conn.wait_for_notify(1) do |chan, pid, message|
+                    broadcast(chan, message)
+                  end
+                end
+              end
+            end
+          end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-listen_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/subscription_adapter/postgresql.rb, line 87</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">listen</span>
-  <span class="ruby-ivar">@adapter</span>.<span class="ruby-identifier">with_subscriptions_connection</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pg_conn</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">catch</span> <span class="ruby-value">:shutdown</span> <span class="ruby-keyword">do</span>
-      <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
-        <span class="ruby-keyword">until</span> <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">empty?</span>
-          <span class="ruby-identifier">action</span>, <span class="ruby-identifier">channel</span>, <span class="ruby-identifier">callback</span> = <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">pop</span>(<span class="ruby-keyword">true</span>)
-
-          <span class="ruby-keyword">case</span> <span class="ruby-identifier">action</span>
-          <span class="ruby-keyword">when</span> <span class="ruby-value">:listen</span>
-            <span class="ruby-identifier">pg_conn</span>.<span class="ruby-identifier">exec</span>(<span class="ruby-node">&quot;LISTEN #{pg_conn.escape_identifier channel}&quot;</span>)
-            <span class="ruby-ivar">@event_loop</span>.<span class="ruby-identifier">post</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">callback</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">callback</span>
-          <span class="ruby-keyword">when</span> <span class="ruby-value">:unlisten</span>
-            <span class="ruby-identifier">pg_conn</span>.<span class="ruby-identifier">exec</span>(<span class="ruby-node">&quot;UNLISTEN #{pg_conn.escape_identifier channel}&quot;</span>)
-          <span class="ruby-keyword">when</span> <span class="ruby-value">:shutdown</span>
-            <span class="ruby-identifier">throw</span> <span class="ruby-value">:shutdown</span>
-          <span class="ruby-keyword">end</span>
-        <span class="ruby-keyword">end</span>
-
-        <span class="ruby-identifier">pg_conn</span>.<span class="ruby-identifier">wait_for_notify</span>(<span class="ruby-value">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">chan</span>, <span class="ruby-identifier">pid</span>, <span class="ruby-identifier">message</span><span class="ruby-operator">|</span>
-          <span class="ruby-identifier">broadcast</span>(<span class="ruby-identifier">chan</span>, <span class="ruby-identifier">message</span>)
-        <span class="ruby-keyword">end</span>
-      <span class="ruby-keyword">end</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/subscription_adapter/postgresql.rb#L87" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-remove_channel">
@@ -422,22 +423,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/subscription_adapter/postgresql.rb, line 122
+          def remove_channel(channel)
+            @queue.push([:unlisten, channel])
+          end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-remove_channel_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/subscription_adapter/postgresql.rb, line 122</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_channel</span>(<span class="ruby-identifier">channel</span>)
-  <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">push</span>([<span class="ruby-value">:unlisten</span>, <span class="ruby-identifier">channel</span>])
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/subscription_adapter/postgresql.rb#L122" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-shutdown">
@@ -457,23 +458,23 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/subscription_adapter/postgresql.rb, line 113
+          def shutdown
+            @queue.push([:shutdown])
+            Thread.pass while @thread.alive?
+          end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-shutdown_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/subscription_adapter/postgresql.rb, line 113</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">shutdown</span>
-  <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">push</span>([<span class="ruby-value">:shutdown</span>])
-  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">pass</span> <span class="ruby-keyword">while</span> <span class="ruby-ivar">@thread</span>.<span class="ruby-identifier">alive?</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/subscription_adapter/postgresql.rb#L113" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -493,7 +494,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

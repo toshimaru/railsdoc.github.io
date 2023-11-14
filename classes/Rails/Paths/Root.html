@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -361,23 +362,23 @@ root[&quot;app/controllers&quot;].existent # =&gt; [&quot;/rails/app/controllers
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File railties/lib/rails/paths.rb, line 54
+      def initialize(path)
+        @path = path
+        @root = {}
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/paths.rb, line 54</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">path</span>)
-  <span class="ruby-ivar">@path</span> = <span class="ruby-identifier">path</span>
-  <span class="ruby-ivar">@root</span> = {}
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/paths.rb#L54" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -401,22 +402,22 @@ root[&quot;app/controllers&quot;].existent # =&gt; [&quot;/rails/app/controllers
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File railties/lib/rails/paths.rb, line 69
+      def [](path)
+        @root[path]
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-5B-5D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/paths.rb, line 69</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]</span>(<span class="ruby-identifier">path</span>)
-  <span class="ruby-ivar">@root</span>[<span class="ruby-identifier">path</span>]
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/paths.rb#L69" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-5B-5D-3D">
@@ -436,23 +437,23 @@ root[&quot;app/controllers&quot;].existent # =&gt; [&quot;/rails/app/controllers
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File railties/lib/rails/paths.rb, line 59
+      def []=(path, value)
+        glob = self[path] ? self[path].glob : nil
+        add(path, with: value, glob: glob)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-5B-5D-3D_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/paths.rb, line 59</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]=</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">value</span>)
-  <span class="ruby-identifier">glob</span> = <span class="ruby-keyword">self</span>[<span class="ruby-identifier">path</span>] <span class="ruby-operator">?</span> <span class="ruby-keyword">self</span>[<span class="ruby-identifier">path</span>].<span class="ruby-identifier">glob</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
-  <span class="ruby-identifier">add</span>(<span class="ruby-identifier">path</span>, <span class="ruby-value">with:</span> <span class="ruby-identifier">value</span>, <span class="ruby-value">glob:</span> <span class="ruby-identifier">glob</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/paths.rb#L59" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-add">
@@ -472,23 +473,23 @@ root[&quot;app/controllers&quot;].existent # =&gt; [&quot;/rails/app/controllers
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File railties/lib/rails/paths.rb, line 64
+      def add(path, options = {})
+        with = Array(options.fetch(:with, path))
+        @root[path] = Path.new(self, path, with, options)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-add_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/paths.rb, line 64</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span> = {})
-  <span class="ruby-identifier">with</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:with</span>, <span class="ruby-identifier">path</span>))
-  <span class="ruby-ivar">@root</span>[<span class="ruby-identifier">path</span>] = <span class="ruby-constant">Path</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">with</span>, <span class="ruby-identifier">options</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/paths.rb#L64" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-all_paths">
@@ -508,22 +509,22 @@ root[&quot;app/controllers&quot;].existent # =&gt; [&quot;/rails/app/controllers
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File railties/lib/rails/paths.rb, line 85
+      def all_paths
+        values.tap(&:uniq!)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-all_paths_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/paths.rb, line 85</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">all_paths</span>
-  <span class="ruby-identifier">values</span>.<span class="ruby-identifier">tap</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:uniq!</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/paths.rb#L85" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-autoload_once">
@@ -543,22 +544,22 @@ root[&quot;app/controllers&quot;].existent # =&gt; [&quot;/rails/app/controllers
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File railties/lib/rails/paths.rb, line 89
+      def autoload_once
+        filter_by(&:autoload_once?)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-autoload_once_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/paths.rb, line 89</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">autoload_once</span>
-  <span class="ruby-identifier">filter_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:autoload_once?</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/paths.rb#L89" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-autoload_paths">
@@ -578,22 +579,22 @@ root[&quot;app/controllers&quot;].existent # =&gt; [&quot;/rails/app/controllers
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File railties/lib/rails/paths.rb, line 97
+      def autoload_paths
+        filter_by(&:autoload?)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-autoload_paths_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/paths.rb, line 97</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">autoload_paths</span>
-  <span class="ruby-identifier">filter_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:autoload?</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/paths.rb#L97" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-eager_load">
@@ -613,22 +614,22 @@ root[&quot;app/controllers&quot;].existent # =&gt; [&quot;/rails/app/controllers
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File railties/lib/rails/paths.rb, line 93
+      def eager_load
+        filter_by(&:eager_load?)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-eager_load_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/paths.rb, line 93</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">eager_load</span>
-  <span class="ruby-identifier">filter_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:eager_load?</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/paths.rb#L93" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-keys">
@@ -648,22 +649,22 @@ root[&quot;app/controllers&quot;].existent # =&gt; [&quot;/rails/app/controllers
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File railties/lib/rails/paths.rb, line 77
+      def keys
+        @root.keys
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-keys_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/paths.rb, line 77</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">keys</span>
-  <span class="ruby-ivar">@root</span>.<span class="ruby-identifier">keys</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/paths.rb#L77" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-load_paths">
@@ -683,22 +684,22 @@ root[&quot;app/controllers&quot;].existent # =&gt; [&quot;/rails/app/controllers
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File railties/lib/rails/paths.rb, line 101
+      def load_paths
+        filter_by(&:load_path?)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-load_paths_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/paths.rb, line 101</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">load_paths</span>
-  <span class="ruby-identifier">filter_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:load_path?</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/paths.rb#L101" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-values">
@@ -718,22 +719,22 @@ root[&quot;app/controllers&quot;].existent # =&gt; [&quot;/rails/app/controllers
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File railties/lib/rails/paths.rb, line 73
+      def values
+        @root.values
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-values_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/paths.rb, line 73</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">values</span>
-  <span class="ruby-ivar">@root</span>.<span class="ruby-identifier">values</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/paths.rb#L73" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-values_at">
@@ -753,22 +754,22 @@ root[&quot;app/controllers&quot;].existent # =&gt; [&quot;/rails/app/controllers
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File railties/lib/rails/paths.rb, line 81
+      def values_at(*list)
+        @root.values_at(*list)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-values_at_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File railties/lib/rails/paths.rb, line 81</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">values_at</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">list</span>)
-  <span class="ruby-ivar">@root</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">list</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/paths.rb#L81" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -788,7 +789,7 @@ root[&quot;app/controllers&quot;].existent # =&gt; [&quot;/rails/app/controllers
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

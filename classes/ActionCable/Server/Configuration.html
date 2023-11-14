@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -338,33 +339,33 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/server/configuration.rb, line 19
+      def initialize
+        @log_tags = []
+
+        @connection_class = -> { ActionCable::Connection::Base }
+        @worker_pool_size = 4
+
+        @disable_request_forgery_protection = false
+        @allow_same_origin_as_host = true
+        @filter_parameters = []
+
+        @health_check_application = ->(env) {
+          [200, { Rack::CONTENT_TYPE => "text/html", "date" => Time.now.httpdate }, []]
+        }
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/server/configuration.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
-  <span class="ruby-ivar">@log_tags</span> = []
-
-  <span class="ruby-ivar">@connection_class</span> = <span class="ruby-operator">-&gt;</span> { <span class="ruby-constant">ActionCable</span><span class="ruby-operator">::</span><span class="ruby-constant">Connection</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span> }
-  <span class="ruby-ivar">@worker_pool_size</span> = <span class="ruby-value">4</span>
-
-  <span class="ruby-ivar">@disable_request_forgery_protection</span> = <span class="ruby-keyword">false</span>
-  <span class="ruby-ivar">@allow_same_origin_as_host</span> = <span class="ruby-keyword">true</span>
-  <span class="ruby-ivar">@filter_parameters</span> = []
-
-  <span class="ruby-ivar">@health_check_application</span> = <span class="ruby-operator">-&gt;</span>(<span class="ruby-identifier">env</span>) {
-    [<span class="ruby-value">200</span>, { <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">CONTENT_TYPE</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;text/html&quot;</span>, <span class="ruby-string">&quot;date&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">httpdate</span> }, []]
-  }
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/server/configuration.rb#L19" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -388,47 +389,47 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/server/configuration.rb, line 37
+      def pubsub_adapter
+        adapter = (cable.fetch("adapter") { "redis" })
+
+        # Require the adapter itself and give useful feedback about
+        #   1. Missing adapter gems and
+        #   2. Adapter gems' missing dependencies.
+        path_to_adapter = "action_cable/subscription_adapter/#{adapter}"
+        begin
+          require path_to_adapter
+        rescue LoadError => e
+          # We couldn't require the adapter itself. Raise an exception that
+          # points out config typos and missing gems.
+          if e.path == path_to_adapter
+            # We can assume that a non-builtin adapter was specified, so it's
+            # either misspelled or missing from Gemfile.
+            raise e.class, "Could not load the '#{adapter}' Action Cable pubsub adapter. Ensure that the adapter is spelled correctly in config/cable.yml and that you've added the necessary adapter gem to your Gemfile.", e.backtrace
+
+          # Bubbled up from the adapter require. Prefix the exception message
+          # with some guidance about how to address it and reraise.
+          else
+            raise e.class, "Error loading the '#{adapter}' Action Cable pubsub adapter. Missing a gem it depends on? #{e.message}", e.backtrace
+          end
+        end
+
+        adapter = adapter.camelize
+        adapter = "PostgreSQL" if adapter == "Postgresql"
+        "ActionCable::SubscriptionAdapter::#{adapter}".constantize
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-pubsub_adapter_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/server/configuration.rb, line 37</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pubsub_adapter</span>
-  <span class="ruby-identifier">adapter</span> = (<span class="ruby-identifier">cable</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;adapter&quot;</span>) { <span class="ruby-string">&quot;redis&quot;</span> })
-
-  <span class="ruby-comment"># Require the adapter itself and give useful feedback about</span>
-  <span class="ruby-comment">#   1. Missing adapter gems and</span>
-  <span class="ruby-comment">#   2. Adapter gems&#39; missing dependencies.</span>
-  <span class="ruby-identifier">path_to_adapter</span> = <span class="ruby-node">&quot;action_cable/subscription_adapter/#{adapter}&quot;</span>
-  <span class="ruby-keyword">begin</span>
-    <span class="ruby-identifier">require</span> <span class="ruby-identifier">path_to_adapter</span>
-  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">LoadError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
-    <span class="ruby-comment"># We couldn&#39;t require the adapter itself. Raise an exception that</span>
-    <span class="ruby-comment"># points out config typos and missing gems.</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">path_to_adapter</span>
-      <span class="ruby-comment"># We can assume that a non-builtin adapter was specified, so it&#39;s</span>
-      <span class="ruby-comment"># either misspelled or missing from Gemfile.</span>
-      <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">class</span>, <span class="ruby-node">&quot;Could not load the &#39;#{adapter}&#39; Action Cable pubsub adapter. Ensure that the adapter is spelled correctly in config/cable.yml and that you&#39;ve added the necessary adapter gem to your Gemfile.&quot;</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">backtrace</span>
-
-    <span class="ruby-comment"># Bubbled up from the adapter require. Prefix the exception message</span>
-    <span class="ruby-comment"># with some guidance about how to address it and reraise.</span>
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">class</span>, <span class="ruby-node">&quot;Error loading the &#39;#{adapter}&#39; Action Cable pubsub adapter. Missing a gem it depends on? #{e.message}&quot;</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">backtrace</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-identifier">adapter</span> = <span class="ruby-identifier">adapter</span>.<span class="ruby-identifier">camelize</span>
-  <span class="ruby-identifier">adapter</span> = <span class="ruby-string">&quot;PostgreSQL&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">adapter</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Postgresql&quot;</span>
-  <span class="ruby-node">&quot;ActionCable::SubscriptionAdapter::#{adapter}&quot;</span>.<span class="ruby-identifier">constantize</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/server/configuration.rb#L37" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -448,7 +449,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

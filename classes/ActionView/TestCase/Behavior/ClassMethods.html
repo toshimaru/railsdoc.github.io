@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -255,24 +256,24 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionview/lib/action_view/test_case.rb, line 162
+        def determine_default_helper_class(name)
+          determine_constant_from_test_name(name) do |constant|
+            Module === constant && !(Class === constant)
+          end
+        end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-determine_default_helper_class_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionview/lib/action_view/test_case.rb, line 162</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">determine_default_helper_class</span>(<span class="ruby-identifier">name</span>)
-  <span class="ruby-identifier">determine_constant_from_test_name</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">constant</span><span class="ruby-operator">|</span>
-    <span class="ruby-constant">Module</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">constant</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span>(<span class="ruby-constant">Class</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">constant</span>)
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/test_case.rb#L162" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-helper_class">
@@ -292,22 +293,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionview/lib/action_view/test_case.rb, line 182
+        def helper_class
+          @helper_class ||= determine_default_helper_class(name)
+        end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-helper_class_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionview/lib/action_view/test_case.rb, line 182</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">helper_class</span>
-  <span class="ruby-ivar">@helper_class</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">determine_default_helper_class</span>(<span class="ruby-identifier">name</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/test_case.rb#L182" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-helper_method">
@@ -327,30 +328,30 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-helper_method_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionview/lib/action_view/test_case.rb, line 168</span>
-        <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">helper_method</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">methods</span>)
-          <span class="ruby-comment"># Almost a duplicate from ActionController::Helpers</span>
-          <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
-            <span class="ruby-identifier">_helpers_for_modification</span>.<span class="ruby-identifier">module_eval</span> <span class="ruby-identifier">&lt;&lt;~end_eval</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
-<span class="ruby-value">              def #{method}(*args, &amp;block)                    # def current_user(*args, &amp;block)
-                _test_case.send(:&#39;#{method}&#39;, *args, &amp;block)  #   _test_case.send(:&#39;current_user&#39;, *args, &amp;block)
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionview/lib/action_view/test_case.rb, line 168
+        def helper_method(*methods)
+          # Almost a duplicate from ActionController::Helpers
+          methods.flatten.each do |method|
+            _helpers_for_modification.module_eval <<~end_eval, __FILE__, __LINE__ + 1
+              def #{method}(*args, &block)                    # def current_user(*args, &block)
+                _test_case.send(:'#{method}', *args, &block)  #   _test_case.send(:'current_user', *args, &block)
               end                                             # end
-              ruby2_keywords(:&#39;#{method}&#39;)
-</span><span class="ruby-identifier">            end_eval</span>
-          <span class="ruby-keyword">end</span>
-        <span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              ruby2_keywords(:'#{method}')
+            end_eval
+          end
+        end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/test_case.rb#L168" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-new">
@@ -370,23 +371,23 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionview/lib/action_view/test_case.rb, line 186
+        def new(*)
+          include_helper_modules!
+          super
+        end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionview/lib/action_view/test_case.rb, line 186</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>(<span class="ruby-operator">*</span>)
-  <span class="ruby-identifier">include_helper_modules!</span>
-  <span class="ruby-keyword">super</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/test_case.rb#L186" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-register_parser">
@@ -477,25 +478,25 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionview/lib/action_view/test_case.rb, line 146
+        def register_parser(format, callable = nil, &block)
+          parser = callable || block || :itself.to_proc
+          content_class.redefine_method(format) do
+            parser.call(to_s)
+          end
+        end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-register_parser_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionview/lib/action_view/test_case.rb, line 146</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">register_parser</span>(<span class="ruby-identifier">format</span>, <span class="ruby-identifier">callable</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-identifier">parser</span> = <span class="ruby-identifier">callable</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">block</span> <span class="ruby-operator">||</span> <span class="ruby-value">:itself</span>.<span class="ruby-identifier">to_proc</span>
-  <span class="ruby-identifier">content_class</span>.<span class="ruby-identifier">redefine_method</span>(<span class="ruby-identifier">format</span>) <span class="ruby-keyword">do</span>
-    <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">to_s</span>)
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/test_case.rb#L146" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-tests">
@@ -515,27 +516,27 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actionview/lib/action_view/test_case.rb, line 153
+        def tests(helper_class)
+          case helper_class
+          when String, Symbol
+            self.helper_class = "#{helper_class.to_s.underscore}_helper".camelize.safe_constantize
+          when Module
+            self.helper_class = helper_class
+          end
+        end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-tests_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actionview/lib/action_view/test_case.rb, line 153</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">tests</span>(<span class="ruby-identifier">helper_class</span>)
-  <span class="ruby-keyword">case</span> <span class="ruby-identifier">helper_class</span>
-  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">Symbol</span>
-    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">helper_class</span> = <span class="ruby-node">&quot;#{helper_class.to_s.underscore}_helper&quot;</span>.<span class="ruby-identifier">camelize</span>.<span class="ruby-identifier">safe_constantize</span>
-  <span class="ruby-keyword">when</span> <span class="ruby-constant">Module</span>
-    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">helper_class</span> = <span class="ruby-identifier">helper_class</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/test_case.rb#L153" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -555,7 +556,7 @@ end
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

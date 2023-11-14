@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -401,22 +402,22 @@ person.errors # =&gt; #&lt;ActiveModel::Errors:0x007fe603816640 @messages={name:
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/validations.rb, line 330
+    def errors
+      @errors ||= Errors.new(self)
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-errors_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations.rb, line 330</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">errors</span>
-  <span class="ruby-ivar">@errors</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Errors</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/validations.rb#L330" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-invalid-3F">
@@ -464,22 +465,22 @@ person.invalid?(:new) # =&gt; true
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/validations.rb, line 402
+    def invalid?(context = nil)
+      !valid?(context)
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-invalid-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations.rb, line 402</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">invalid?</span>(<span class="ruby-identifier">context</span> = <span class="ruby-keyword">nil</span>)
-  <span class="ruby-operator">!</span><span class="ruby-identifier">valid?</span>(<span class="ruby-identifier">context</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/validations.rb#L402" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-valid-3F">
@@ -531,26 +532,26 @@ person.valid?(:new) # =&gt; false
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/validations.rb, line 363
+    def valid?(context = nil)
+      current_context, self.validation_context = validation_context, context
+      errors.clear
+      run_validations!
+    ensure
+      self.validation_context = current_context
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-valid-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations.rb, line 363</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">valid?</span>(<span class="ruby-identifier">context</span> = <span class="ruby-keyword">nil</span>)
-  <span class="ruby-identifier">current_context</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">validation_context</span> = <span class="ruby-identifier">validation_context</span>, <span class="ruby-identifier">context</span>
-  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">clear</span>
-  <span class="ruby-identifier">run_validations!</span>
-<span class="ruby-keyword">ensure</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">validation_context</span> = <span class="ruby-identifier">current_context</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/validations.rb#L363" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-validate">
@@ -574,7 +575,8 @@ person.valid?(:new) # =&gt; false
           
 
           
-          </div>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-validate-21">
@@ -596,22 +598,22 @@ person.valid?(:new) # =&gt; false
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/validations.rb, line 411
+    def validate!(context = nil)
+      valid?(context) || raise_validation_error
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-validate-21_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations.rb, line 411</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validate!</span>(<span class="ruby-identifier">context</span> = <span class="ruby-keyword">nil</span>)
-  <span class="ruby-identifier">valid?</span>(<span class="ruby-identifier">context</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">raise_validation_error</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/validations.rb#L411" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-validates_with">
@@ -661,28 +663,28 @@ end
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-validates_with_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/with.rb, line 144</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validates_with</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">extract_options!</span>
-  <span class="ruby-identifier">options</span>[<span class="ruby-value">:class</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">klass</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">validator</span> = <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-    <span class="ruby-identifier">validator</span>.<span class="ruby-identifier">validate</span>(<span class="ruby-keyword">self</span>)
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File activemodel/lib/active_model/validations/with.rb, line 144
+    def validates_with(*args, &block)
+      options = args.extract_options!
+      options[:class] = self.class
+
+      args.each do |klass|
+        validator = klass.new(options.dup, &block)
+        validator.validate(self)
+      end
+    end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/validations/with.rb#L144" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-validation_context">
@@ -717,20 +719,10 @@ person.valid?(:custom) #=&gt; true
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-validation_context_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations.rb, line 49</span>
-      </code></pre>
-              </div>
-            </div>
-            
-          </div>
+          
+            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/validations.rb#L49" target="_blank" class="github_url">See on GitHub</a>
+          
+        </div>
         
       
       <h2 id="instance-private-methods">Instance Private methods</h2>
@@ -753,22 +745,22 @@ person.valid?(:custom) #=&gt; true
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/validations.rb, line 445
+    def raise_validation_error # :doc:
+      raise(ValidationError.new(self))
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-raise_validation_error_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations.rb, line 445</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_validation_error</span> <span class="ruby-comment"># :doc:</span>
-  <span class="ruby-identifier">raise</span>(<span class="ruby-constant">ValidationError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>))
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/validations.rb#L445" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -788,7 +780,7 @@ person.valid?(:custom) #=&gt; true
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

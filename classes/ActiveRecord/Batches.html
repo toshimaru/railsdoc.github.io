@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -329,31 +330,31 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/relation/batches.rb, line 79
+    def find_each(start: nil, finish: nil, batch_size: 1000, error_on_ignore: nil, order: DEFAULT_ORDER, &block)
+      if block_given?
+        find_in_batches(start: start, finish: finish, batch_size: batch_size, error_on_ignore: error_on_ignore, order: order) do |records|
+          records.each(&block)
+        end
+      else
+        enum_for(:find_each, start: start, finish: finish, batch_size: batch_size, error_on_ignore: error_on_ignore, order: order) do
+          relation = self
+          apply_limits(relation, start, finish, build_batch_orders(order)).size
+        end
+      end
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-find_each_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/relation/batches.rb, line 79</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find_each</span>(<span class="ruby-value">start:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">finish:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">batch_size:</span> <span class="ruby-value">1000</span>, <span class="ruby-value">error_on_ignore:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">order:</span> <span class="ruby-constant">DEFAULT_ORDER</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
-    <span class="ruby-identifier">find_in_batches</span>(<span class="ruby-value">start:</span> <span class="ruby-identifier">start</span>, <span class="ruby-value">finish:</span> <span class="ruby-identifier">finish</span>, <span class="ruby-value">batch_size:</span> <span class="ruby-identifier">batch_size</span>, <span class="ruby-value">error_on_ignore:</span> <span class="ruby-identifier">error_on_ignore</span>, <span class="ruby-value">order:</span> <span class="ruby-identifier">order</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">records</span><span class="ruby-operator">|</span>
-      <span class="ruby-identifier">records</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">enum_for</span>(<span class="ruby-value">:find_each</span>, <span class="ruby-value">start:</span> <span class="ruby-identifier">start</span>, <span class="ruby-value">finish:</span> <span class="ruby-identifier">finish</span>, <span class="ruby-value">batch_size:</span> <span class="ruby-identifier">batch_size</span>, <span class="ruby-value">error_on_ignore:</span> <span class="ruby-identifier">error_on_ignore</span>, <span class="ruby-value">order:</span> <span class="ruby-identifier">order</span>) <span class="ruby-keyword">do</span>
-      <span class="ruby-identifier">relation</span> = <span class="ruby-keyword">self</span>
-      <span class="ruby-identifier">apply_limits</span>(<span class="ruby-identifier">relation</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">finish</span>, <span class="ruby-identifier">build_batch_orders</span>(<span class="ruby-identifier">order</span>)).<span class="ruby-identifier">size</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/batches.rb#L79" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-find_in_batches">
@@ -425,32 +426,32 @@ end
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-find_in_batches_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/relation/batches.rb, line 148</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find_in_batches</span>(<span class="ruby-value">start:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">finish:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">batch_size:</span> <span class="ruby-value">1000</span>, <span class="ruby-value">error_on_ignore:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">order:</span> <span class="ruby-constant">DEFAULT_ORDER</span>)
-  <span class="ruby-identifier">relation</span> = <span class="ruby-keyword">self</span>
-  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
-    <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:find_in_batches</span>, <span class="ruby-value">start:</span> <span class="ruby-identifier">start</span>, <span class="ruby-value">finish:</span> <span class="ruby-identifier">finish</span>, <span class="ruby-value">batch_size:</span> <span class="ruby-identifier">batch_size</span>, <span class="ruby-value">error_on_ignore:</span> <span class="ruby-identifier">error_on_ignore</span>, <span class="ruby-value">order:</span> <span class="ruby-identifier">order</span>) <span class="ruby-keyword">do</span>
-      <span class="ruby-identifier">total</span> = <span class="ruby-identifier">apply_limits</span>(<span class="ruby-identifier">relation</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">finish</span>, <span class="ruby-identifier">build_batch_orders</span>(<span class="ruby-identifier">order</span>)).<span class="ruby-identifier">size</span>
-      (<span class="ruby-identifier">total</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">div</span>(<span class="ruby-identifier">batch_size</span>) <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-  <span class="ruby-identifier">in_batches</span>(<span class="ruby-value">of:</span> <span class="ruby-identifier">batch_size</span>, <span class="ruby-value">start:</span> <span class="ruby-identifier">start</span>, <span class="ruby-value">finish:</span> <span class="ruby-identifier">finish</span>, <span class="ruby-value">load:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">error_on_ignore:</span> <span class="ruby-identifier">error_on_ignore</span>, <span class="ruby-value">order:</span> <span class="ruby-identifier">order</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">batch</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">batch</span>.<span class="ruby-identifier">to_a</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File activerecord/lib/active_record/relation/batches.rb, line 148
+    def find_in_batches(start: nil, finish: nil, batch_size: 1000, error_on_ignore: nil, order: DEFAULT_ORDER)
+      relation = self
+      unless block_given?
+        return to_enum(:find_in_batches, start: start, finish: finish, batch_size: batch_size, error_on_ignore: error_on_ignore, order: order) do
+          total = apply_limits(relation, start, finish, build_batch_orders(order)).size
+          (total - 1).div(batch_size) + 1
+        end
+      end
+
+      in_batches(of: batch_size, start: start, finish: finish, load: true, error_on_ignore: error_on_ignore, order: order) do |batch|
+        yield batch.to_a
+      end
+    end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/batches.rb#L148" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-in_batches">
@@ -543,62 +544,62 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/relation/batches.rb, line 239
+    def in_batches(of: 1000, start: nil, finish: nil, load: false, error_on_ignore: nil, order: DEFAULT_ORDER, use_ranges: nil, &block)
+      unless Array(order).all? { |ord| [:asc, :desc].include?(ord) }
+        raise ArgumentError, ":order must be :asc or :desc or an array consisting of :asc or :desc, got #{order.inspect}"
+      end
+
+      unless block
+        return BatchEnumerator.new(of: of, start: start, finish: finish, relation: self, order: order, use_ranges: use_ranges)
+      end
+
+      if arel.orders.present?
+        act_on_ignored_order(error_on_ignore)
+      end
+
+      batch_limit = of
+
+      if limit_value
+        remaining   = limit_value
+        batch_limit = remaining if remaining < batch_limit
+      end
+
+      if self.loaded?
+        batch_on_loaded_relation(
+          relation: self,
+          start: start,
+          finish: finish,
+          order: order,
+          batch_limit: batch_limit,
+          &block
+        )
+      else
+        batch_on_unloaded_relation(
+          relation: self,
+          start: start,
+          finish: finish,
+          load: load,
+          order: order,
+          use_ranges: use_ranges,
+          remaining: remaining,
+          batch_limit: batch_limit,
+          &block
+        )
+      end
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-in_batches_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/relation/batches.rb, line 239</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">in_batches</span>(<span class="ruby-value">of:</span> <span class="ruby-value">1000</span>, <span class="ruby-value">start:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">finish:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">load:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">error_on_ignore:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">order:</span> <span class="ruby-constant">DEFAULT_ORDER</span>, <span class="ruby-value">use_ranges:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-keyword">unless</span> <span class="ruby-constant">Array</span>(<span class="ruby-identifier">order</span>).<span class="ruby-identifier">all?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">ord</span><span class="ruby-operator">|</span> [<span class="ruby-value">:asc</span>, <span class="ruby-value">:desc</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">ord</span>) }
-    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;:order must be :asc or :desc or an array consisting of :asc or :desc, got #{order.inspect}&quot;</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block</span>
-    <span class="ruby-keyword">return</span> <span class="ruby-constant">BatchEnumerator</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">of:</span> <span class="ruby-identifier">of</span>, <span class="ruby-value">start:</span> <span class="ruby-identifier">start</span>, <span class="ruby-value">finish:</span> <span class="ruby-identifier">finish</span>, <span class="ruby-value">relation:</span> <span class="ruby-keyword">self</span>, <span class="ruby-value">order:</span> <span class="ruby-identifier">order</span>, <span class="ruby-value">use_ranges:</span> <span class="ruby-identifier">use_ranges</span>)
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">arel</span>.<span class="ruby-identifier">orders</span>.<span class="ruby-identifier">present?</span>
-    <span class="ruby-identifier">act_on_ignored_order</span>(<span class="ruby-identifier">error_on_ignore</span>)
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-identifier">batch_limit</span> = <span class="ruby-identifier">of</span>
-
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">limit_value</span>
-    <span class="ruby-identifier">remaining</span>   = <span class="ruby-identifier">limit_value</span>
-    <span class="ruby-identifier">batch_limit</span> = <span class="ruby-identifier">remaining</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">remaining</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">batch_limit</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">loaded?</span>
-    <span class="ruby-identifier">batch_on_loaded_relation</span>(
-      <span class="ruby-value">relation:</span> <span class="ruby-keyword">self</span>,
-      <span class="ruby-value">start:</span> <span class="ruby-identifier">start</span>,
-      <span class="ruby-value">finish:</span> <span class="ruby-identifier">finish</span>,
-      <span class="ruby-value">order:</span> <span class="ruby-identifier">order</span>,
-      <span class="ruby-value">batch_limit:</span> <span class="ruby-identifier">batch_limit</span>,
-      <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
-    )
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">batch_on_unloaded_relation</span>(
-      <span class="ruby-value">relation:</span> <span class="ruby-keyword">self</span>,
-      <span class="ruby-value">start:</span> <span class="ruby-identifier">start</span>,
-      <span class="ruby-value">finish:</span> <span class="ruby-identifier">finish</span>,
-      <span class="ruby-value">load:</span> <span class="ruby-identifier">load</span>,
-      <span class="ruby-value">order:</span> <span class="ruby-identifier">order</span>,
-      <span class="ruby-value">use_ranges:</span> <span class="ruby-identifier">use_ranges</span>,
-      <span class="ruby-value">remaining:</span> <span class="ruby-identifier">remaining</span>,
-      <span class="ruby-value">batch_limit:</span> <span class="ruby-identifier">batch_limit</span>,
-      <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
-    )
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/batches.rb#L239" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -618,7 +619,7 @@ end
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -317,22 +318,22 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/validations/absence.rb, line 28
+      def validates_absence_of(*attr_names)
+        validates_with AbsenceValidator, _merge_attributes(attr_names)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-validates_absence_of_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/absence.rb, line 28</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validates_absence_of</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attr_names</span>)
-  <span class="ruby-identifier">validates_with</span> <span class="ruby-constant">AbsenceValidator</span>, <span class="ruby-identifier">_merge_attributes</span>(<span class="ruby-identifier">attr_names</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/validations/absence.rb#L28" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-validates_acceptance_of">
@@ -369,22 +370,22 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/validations/acceptance.rb, line 108
+      def validates_acceptance_of(*attr_names)
+        validates_with AcceptanceValidator, _merge_attributes(attr_names)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-validates_acceptance_of_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/acceptance.rb, line 108</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validates_acceptance_of</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attr_names</span>)
-  <span class="ruby-identifier">validates_with</span> <span class="ruby-constant">AcceptanceValidator</span>, <span class="ruby-identifier">_merge_attributes</span>(<span class="ruby-identifier">attr_names</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/validations/acceptance.rb#L108" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-validates_comparison_of">
@@ -451,22 +452,22 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/validations/comparison.rb, line 85
+      def validates_comparison_of(*attr_names)
+        validates_with ComparisonValidator, _merge_attributes(attr_names)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-validates_comparison_of_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/comparison.rb, line 85</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validates_comparison_of</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attr_names</span>)
-  <span class="ruby-identifier">validates_with</span> <span class="ruby-constant">ComparisonValidator</span>, <span class="ruby-identifier">_merge_attributes</span>(<span class="ruby-identifier">attr_names</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/validations/comparison.rb#L85" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-validates_confirmation_of">
@@ -514,22 +515,22 @@ View:
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/validations/confirmation.rb, line 75
+      def validates_confirmation_of(*attr_names)
+        validates_with ConfirmationValidator, _merge_attributes(attr_names)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-validates_confirmation_of_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/confirmation.rb, line 75</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validates_confirmation_of</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attr_names</span>)
-  <span class="ruby-identifier">validates_with</span> <span class="ruby-constant">ConfirmationValidator</span>, <span class="ruby-identifier">_merge_attributes</span>(<span class="ruby-identifier">attr_names</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/validations/confirmation.rb#L75" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-validates_exclusion_of">
@@ -570,22 +571,22 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/validations/exclusion.rb, line 44
+      def validates_exclusion_of(*attr_names)
+        validates_with ExclusionValidator, _merge_attributes(attr_names)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-validates_exclusion_of_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/exclusion.rb, line 44</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validates_exclusion_of</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attr_names</span>)
-  <span class="ruby-identifier">validates_with</span> <span class="ruby-constant">ExclusionValidator</span>, <span class="ruby-identifier">_merge_attributes</span>(<span class="ruby-identifier">attr_names</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/validations/exclusion.rb#L44" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-validates_format_of">
@@ -645,22 +646,22 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/validations/format.rb, line 107
+      def validates_format_of(*attr_names)
+        validates_with FormatValidator, _merge_attributes(attr_names)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-validates_format_of_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/format.rb, line 107</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validates_format_of</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attr_names</span>)
-  <span class="ruby-identifier">validates_with</span> <span class="ruby-constant">FormatValidator</span>, <span class="ruby-identifier">_merge_attributes</span>(<span class="ruby-identifier">attr_names</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/validations/format.rb#L107" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-validates_inclusion_of">
@@ -700,22 +701,22 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/validations/inclusion.rb, line 42
+      def validates_inclusion_of(*attr_names)
+        validates_with InclusionValidator, _merge_attributes(attr_names)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-validates_inclusion_of_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/inclusion.rb, line 42</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validates_inclusion_of</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attr_names</span>)
-  <span class="ruby-identifier">validates_with</span> <span class="ruby-constant">InclusionValidator</span>, <span class="ruby-identifier">_merge_attributes</span>(<span class="ruby-identifier">attr_names</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/validations/inclusion.rb#L42" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-validates_length_of">
@@ -786,22 +787,22 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/validations/length.rb, line 123
+      def validates_length_of(*attr_names)
+        validates_with LengthValidator, _merge_attributes(attr_names)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-validates_length_of_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/length.rb, line 123</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validates_length_of</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attr_names</span>)
-  <span class="ruby-identifier">validates_with</span> <span class="ruby-constant">LengthValidator</span>, <span class="ruby-identifier">_merge_attributes</span>(<span class="ruby-identifier">attr_names</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/validations/length.rb#L123" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-validates_numericality_of">
@@ -882,22 +883,22 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/validations/numericality.rb, line 217
+      def validates_numericality_of(*attr_names)
+        validates_with NumericalityValidator, _merge_attributes(attr_names)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-validates_numericality_of_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/numericality.rb, line 217</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validates_numericality_of</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attr_names</span>)
-  <span class="ruby-identifier">validates_with</span> <span class="ruby-constant">NumericalityValidator</span>, <span class="ruby-identifier">_merge_attributes</span>(<span class="ruby-identifier">attr_names</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/validations/numericality.rb#L217" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-validates_presence_of">
@@ -935,22 +936,22 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activemodel/lib/active_model/validations/presence.rb, line 34
+      def validates_presence_of(*attr_names)
+        validates_with PresenceValidator, _merge_attributes(attr_names)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-validates_presence_of_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activemodel/lib/active_model/validations/presence.rb, line 34</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validates_presence_of</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attr_names</span>)
-  <span class="ruby-identifier">validates_with</span> <span class="ruby-constant">PresenceValidator</span>, <span class="ruby-identifier">_merge_attributes</span>(<span class="ruby-identifier">attr_names</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activemodel/lib/active_model/validations/presence.rb#L34" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-validates_size_of">
@@ -974,7 +975,8 @@ end
           
 
           
-          </div>
+          
+        </div>
         
       
     
@@ -994,7 +996,7 @@ end
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

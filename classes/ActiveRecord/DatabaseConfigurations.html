@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -304,22 +305,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/database_configurations.rb, line 73
+    def initialize(configurations = {})
+      @configurations = build_configs(configurations)
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/database_configurations.rb, line 73</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">configurations</span> = {})
-  <span class="ruby-ivar">@configurations</span> = <span class="ruby-identifier">build_configs</span>(<span class="ruby-identifier">configurations</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/database_configurations.rb#L73" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-c-register_db_config_handler">
@@ -358,22 +359,22 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/database_configurations.rb, line 61
+    def self.register_db_config_handler(&block)
+      db_config_handlers << block
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-register_db_config_handler_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/database_configurations.rb, line 61</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">register_db_config_handler</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-identifier">db_config_handlers</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">block</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/database_configurations.rb#L61" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -401,7 +402,8 @@ end
           
 
           
-          </div>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-configs_for">
@@ -434,43 +436,43 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/database_configurations.rb, line 98
+    def configs_for(env_name: nil, name: nil, config_key: nil, include_hidden: false)
+      env_name ||= default_env if name
+      configs = env_with_configs(env_name)
+
+      unless include_hidden
+        configs = configs.select do |db_config|
+          db_config.database_tasks?
+        end
+      end
+
+      if config_key
+        configs = configs.select do |db_config|
+          db_config.configuration_hash.key?(config_key)
+        end
+      end
+
+      if name
+        configs.find do |db_config|
+          db_config.name == name
+        end
+      else
+        configs
+      end
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-configs_for_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/database_configurations.rb, line 98</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">configs_for</span>(<span class="ruby-value">env_name:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">name:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">config_key:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">include_hidden:</span> <span class="ruby-keyword">false</span>)
-  <span class="ruby-identifier">env_name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">default_env</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span>
-  <span class="ruby-identifier">configs</span> = <span class="ruby-identifier">env_with_configs</span>(<span class="ruby-identifier">env_name</span>)
-
-  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">include_hidden</span>
-    <span class="ruby-identifier">configs</span> = <span class="ruby-identifier">configs</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">db_config</span><span class="ruby-operator">|</span>
-      <span class="ruby-identifier">db_config</span>.<span class="ruby-identifier">database_tasks?</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">config_key</span>
-    <span class="ruby-identifier">configs</span> = <span class="ruby-identifier">configs</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">db_config</span><span class="ruby-operator">|</span>
-      <span class="ruby-identifier">db_config</span>.<span class="ruby-identifier">configuration_hash</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">config_key</span>)
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span>
-    <span class="ruby-identifier">configs</span>.<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">db_config</span><span class="ruby-operator">|</span>
-      <span class="ruby-identifier">db_config</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">name</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">configs</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/database_configurations.rb#L98" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-empty-3F">
@@ -494,22 +496,22 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/database_configurations.rb, line 150
+    def empty?
+      configurations.empty?
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-empty-3F_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/database_configurations.rb, line 150</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">empty?</span>
-  <span class="ruby-identifier">configurations</span>.<span class="ruby-identifier">empty?</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/database_configurations.rb#L150" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-find_db_config">
@@ -531,27 +533,27 @@ end
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/database_configurations.rb, line 127
+    def find_db_config(env)
+      env = env.to_s
+      configurations.find do |db_config|
+        db_config.for_current_env? && (db_config.env_name == env || db_config.name == env)
+      end || configurations.find do |db_config|
+        db_config.env_name == env
+      end
+    end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-find_db_config_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File activerecord/lib/active_record/database_configurations.rb, line 127</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find_db_config</span>(<span class="ruby-identifier">env</span>)
-  <span class="ruby-identifier">env</span> = <span class="ruby-identifier">env</span>.<span class="ruby-identifier">to_s</span>
-  <span class="ruby-identifier">configurations</span>.<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">db_config</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">db_config</span>.<span class="ruby-identifier">for_current_env?</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">db_config</span>.<span class="ruby-identifier">env_name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">env</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">db_config</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">env</span>)
-  <span class="ruby-keyword">end</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">configurations</span>.<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">db_config</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">db_config</span>.<span class="ruby-identifier">env_name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">env</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/database_configurations.rb#L127" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -571,7 +573,7 @@ end
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>

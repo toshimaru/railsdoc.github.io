@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="/assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="theme-color" content="#fafafa">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -58,36 +58,37 @@
           </a>
           <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownMenuLink">
             
-              
-              
-              
-                <a class="dropdown-item" href="/">v7.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/7.0/">v7.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.1/">v6.1</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/6.0/">v6.0</a>
-              
-            
-              
-              
-              
-                <a class="dropdown-item" href="/5.2/">v5.2</a>
-              
-            
+    
+    
+    
+        <a class="dropdown-item" href="/">v7.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/7.0/">v7.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.1/">v6.1</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/6.0/">v6.0</a>
+    
+
+    
+    
+    
+        <a class="dropdown-item" href="/5.2/">v5.2</a>
+    
+
+
           </div>
         </div>
       </li>
@@ -256,27 +257,27 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-c-new_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/connection/stream_event_loop.rb, line 8</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
-  <span class="ruby-ivar">@nio</span> = <span class="ruby-ivar">@executor</span> = <span class="ruby-ivar">@thread</span> = <span class="ruby-keyword">nil</span>
-  <span class="ruby-ivar">@map</span> = {}
-  <span class="ruby-ivar">@stopping</span> = <span class="ruby-keyword">false</span>
-  <span class="ruby-ivar">@todo</span> = <span class="ruby-constant">Queue</span>.<span class="ruby-identifier">new</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-  <span class="ruby-ivar">@spawn_mutex</span> = <span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File actioncable/lib/action_cable/connection/stream_event_loop.rb, line 8
+      def initialize
+        @nio = @executor = @thread = nil
+        @map = {}
+        @stopping = false
+        @todo = Queue.new
+
+        @spawn_mutex = Mutex.new
+      end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/connection/stream_event_loop.rb#L8" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -300,26 +301,26 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/connection/stream_event_loop.rb, line 28
+      def attach(io, stream)
+        @todo << lambda do
+          @map[io] = @nio.register(io, :r)
+          @map[io].value = stream
+        end
+        wakeup
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-attach_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/connection/stream_event_loop.rb, line 28</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">attach</span>(<span class="ruby-identifier">io</span>, <span class="ruby-identifier">stream</span>)
-  <span class="ruby-ivar">@todo</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-ivar">@map</span>[<span class="ruby-identifier">io</span>] = <span class="ruby-ivar">@nio</span>.<span class="ruby-identifier">register</span>(<span class="ruby-identifier">io</span>, <span class="ruby-value">:r</span>)
-    <span class="ruby-ivar">@map</span>[<span class="ruby-identifier">io</span>].<span class="ruby-identifier">value</span> = <span class="ruby-identifier">stream</span>
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-identifier">wakeup</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/connection/stream_event_loop.rb#L28" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-detach">
@@ -339,27 +340,27 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/connection/stream_event_loop.rb, line 36
+      def detach(io, stream)
+        @todo << lambda do
+          @nio.deregister io
+          @map.delete io
+          io.close
+        end
+        wakeup
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-detach_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/connection/stream_event_loop.rb, line 36</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">detach</span>(<span class="ruby-identifier">io</span>, <span class="ruby-identifier">stream</span>)
-  <span class="ruby-ivar">@todo</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-ivar">@nio</span>.<span class="ruby-identifier">deregister</span> <span class="ruby-identifier">io</span>
-    <span class="ruby-ivar">@map</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">io</span>
-    <span class="ruby-identifier">io</span>.<span class="ruby-identifier">close</span>
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-identifier">wakeup</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/connection/stream_event_loop.rb#L36" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-post">
@@ -379,25 +380,25 @@
           
 
           
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-post_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/connection/stream_event_loop.rb, line 21</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">post</span>(<span class="ruby-identifier">task</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-identifier">task</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">block</span>
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
 
-  <span class="ruby-identifier">spawn</span>
-  <span class="ruby-ivar">@executor</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">task</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+              <pre><code class="ruby"># File actioncable/lib/action_cable/connection/stream_event_loop.rb, line 21
+      def post(task = nil, &block)
+        task ||= block
+
+        spawn
+        @executor << task
+      end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/connection/stream_event_loop.rb#L21" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-stop">
@@ -417,23 +418,23 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/connection/stream_event_loop.rb, line 54
+      def stop
+        @stopping = true
+        wakeup if @nio
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-stop_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/connection/stream_event_loop.rb, line 54</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">stop</span>
-  <span class="ruby-ivar">@stopping</span> = <span class="ruby-keyword">true</span>
-  <span class="ruby-identifier">wakeup</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@nio</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/connection/stream_event_loop.rb#L54" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-timer">
@@ -453,22 +454,22 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/connection/stream_event_loop.rb, line 17
+      def timer(interval, &block)
+        Concurrent::TimerTask.new(execution_interval: interval, &block).tap(&:execute)
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-timer_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/connection/stream_event_loop.rb, line 17</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">timer</span>(<span class="ruby-identifier">interval</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-constant">Concurrent</span><span class="ruby-operator">::</span><span class="ruby-constant">TimerTask</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">execution_interval:</span> <span class="ruby-identifier">interval</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>).<span class="ruby-identifier">tap</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:execute</span>)
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/connection/stream_event_loop.rb#L17" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
         <div class="method">
           <h3 id="method-i-writes_pending">
@@ -488,27 +489,27 @@
           
 
           
-            
-            <div class="sourcecode">
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File actioncable/lib/action_cable/connection/stream_event_loop.rb, line 45
+      def writes_pending(io)
+        @todo << lambda do
+          if monitor = @map[io]
+            monitor.interests = :rw
+          end
+        end
+        wakeup
+      end</code></pre>
               
-              <p class="source-link">
-                Source:
-                
-              </p>
-              <div id="method-i-writes_pending_source">
-                <pre><code class="ruby"><span class="ruby-comment"># File actioncable/lib/action_cable/connection/stream_event_loop.rb, line 45</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">writes_pending</span>(<span class="ruby-identifier">io</span>)
-  <span class="ruby-ivar">@todo</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">monitor</span> = <span class="ruby-ivar">@map</span>[<span class="ruby-identifier">io</span>]
-      <span class="ruby-identifier">monitor</span>.<span class="ruby-identifier">interests</span> = <span class="ruby-value">:rw</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-identifier">wakeup</span>
-<span class="ruby-keyword">end</span></code></pre>
-              </div>
-            </div>
-            
-          </div>
+                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actioncable/lib/action_cable/connection/stream_event_loop.rb#L45" target="_blank" class="github_url">See on GitHub</a>
+              
+            </details>
+          
+        </div>
         
       
     
@@ -528,7 +529,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="/assets/js/app.js"></script>
   <script src="/assets/js/search.js"></script>
 </body>
