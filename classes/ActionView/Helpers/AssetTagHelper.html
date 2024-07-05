@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>ActionView::Helpers::AssetTagHelper | RailsDoc(β)</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.9.5" />
 <meta property="og:title" content="ActionView::Helpers::AssetTagHelper" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Ruby on Rails API Documentation." />
@@ -165,7 +165,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.1.0</span><br />
+            <span>Ruby on Rails 7.1.3</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -332,7 +332,7 @@ audio_tag(&quot;sound.wav&quot;, &quot;sound.mid&quot;)
         multiple_sources_tag_builder(&quot;audio&quot;, sources)
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/helpers/asset_tag_helper.rb#L581" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/helpers/asset_tag_helper.rb#L581" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -404,7 +404,7 @@ auto_discovery_link_tag(:rss, &quot;http://www.example.com/feed.rss&quot;, {titl
         )
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/helpers/asset_tag_helper.rb#L259" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/helpers/asset_tag_helper.rb#L259" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -462,7 +462,7 @@ favicon_link_tag &#39;myicon.ico&#39;
         }.merge!(options.symbolize_keys))
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/helpers/asset_tag_helper.rb#L300" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/helpers/asset_tag_helper.rb#L300" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -483,7 +483,7 @@ favicon_link_tag &#39;myicon.ico&#39;
 
 <p>You can add HTML attributes using the <code>options</code>. The <code>options</code> supports additional keys for convenience and conformance:</p>
 <ul><li>
-<p><code>:size</code> - Supplied as “{Width}x{Height}” or “{Number}”, so “30x45” becomes width=“30” and height=“45”, and “50” becomes width=“50” and height=“50”. <code>:size</code> will be ignored if the value is not in the correct format.</p>
+<p><code>:size</code> - Supplied as <code>&quot;#{width}x#{height}&quot;</code> or <code>&quot;#{number}&quot;</code>, so <code>&quot;30x45&quot;</code> becomes <code>width=&quot;30&quot; height=&quot;45&quot;</code>, and <code>&quot;50&quot;</code> becomes <code>width=&quot;50&quot; height=&quot;50&quot;</code>. <code>:size</code> will be ignored if the value is not in the correct format.</p>
 </li><li>
 <p><code>:srcset</code> - If supplied as a hash or array of <code>[source, descriptor]</code> pairs, each image path will be expanded before the list is formatted as a string.</p>
 </li></ul>
@@ -558,7 +558,7 @@ image_tag(user.avatar.variant(resize_to_limit: [100, 100]), size: &#39;100&#39;)
         tag(&quot;img&quot;, options)
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/helpers/asset_tag_helper.rb#L418" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/helpers/asset_tag_helper.rb#L418" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -693,7 +693,7 @@ javascript_include_tag &quot;http://www.example.com/xmlhr.js&quot;, defer: true
         sources_tags
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/helpers/asset_tag_helper.rb#L111" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/helpers/asset_tag_helper.rb#L111" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -779,7 +779,7 @@ picture_tag { tag(:source, :srcset =&gt; image_path(&quot;picture-small.webp&quo
         end
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/helpers/asset_tag_helper.rb#L479" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/helpers/asset_tag_helper.rb#L479" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -877,7 +877,7 @@ preload_link_tag(&quot;/media/audio.ogg&quot;, nopush: true)
         link_tag
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/helpers/asset_tag_helper.rb#L343" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/helpers/asset_tag_helper.rb#L343" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -987,7 +987,7 @@ stylesheet_link_tag &quot;random.styles&quot;, &quot;/css/stylish&quot;
         sources_tags
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/helpers/asset_tag_helper.rb#L193" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/helpers/asset_tag_helper.rb#L193" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1010,7 +1010,7 @@ stylesheet_link_tag &quot;random.styles&quot;, &quot;/css/stylish&quot;
 <ul><li>
 <p><code>:poster</code> - Set an image (like a screenshot) to be shown before the video loads. The path is calculated like the <code>src</code> of <code>image_tag</code>.</p>
 </li><li>
-<p><code>:size</code> - Supplied as “{Width}x{Height}” or “{Number}”, so “30x45” becomes width=“30” and height=“45”, and “50” becomes width=“50” and height=“50”. <code>:size</code> will be ignored if the value is not in the correct format.</p>
+<p><code>:size</code> - Supplied as <code>&quot;#{width}x#{height}&quot;</code> or <code>&quot;#{number}&quot;</code>, so <code>&quot;30x45&quot;</code> becomes <code>width=&quot;30&quot; height=&quot;45&quot;</code>, and <code>&quot;50&quot;</code> becomes <code>width=&quot;50&quot; height=&quot;50&quot;</code>. <code>:size</code> will be ignored if the value is not in the correct format.</p>
 </li><li>
 <p><code>:poster_skip_pipeline</code> will bypass the asset pipeline when using the <code>:poster</code> option instead using an asset in the public folder.</p>
 </li></ul>
@@ -1071,7 +1071,7 @@ video_tag([&quot;trailer.ogg&quot;, &quot;trailer.flv&quot;], size: &quot;160x12
         end
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/helpers/asset_tag_helper.rb#L549" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/helpers/asset_tag_helper.rb#L549" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           

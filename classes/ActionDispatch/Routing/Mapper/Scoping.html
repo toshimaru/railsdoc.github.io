@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>ActionDispatch::Routing::Mapper::Scoping | RailsDoc(β)</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.9.5" />
 <meta property="og:title" content="ActionDispatch::Routing::Mapper::Scoping" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Ruby on Rails API Documentation." />
@@ -149,7 +149,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.1.0</span><br />
+            <span>Ruby on Rails 7.1.3</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -354,12 +354,12 @@ end
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 1011
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 1010
         def constraints(constraints = {}, &amp;block)
           scope(constraints: constraints, &amp;block)
         end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/routing/mapper.rb#L1011" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/routing/mapper.rb#L1010" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -394,7 +394,7 @@ end
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 896
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 895
         def controller(controller)
           @scope = @scope.new(controller: controller)
           yield
@@ -402,7 +402,7 @@ end
           @scope = @scope.parent
         end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/routing/mapper.rb#L896" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/routing/mapper.rb#L895" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -439,7 +439,7 @@ end
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 1020
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 1019
         def defaults(defaults = {})
           @scope = @scope.new(defaults: merge_defaults_scope(@scope[:defaults], defaults))
           yield
@@ -447,7 +447,7 @@ end
           @scope = @scope.parent
         end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/routing/mapper.rb#L1020" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/routing/mapper.rb#L1019" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -515,7 +515,7 @@ end
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 941
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 940
         def namespace(path, options = {}, &amp;block)
           path = path.to_s
 
@@ -531,7 +531,7 @@ end
           end
         end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/routing/mapper.rb#L941" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/routing/mapper.rb#L940" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -590,7 +590,7 @@ end
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 837
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 836
         def scope(*args)
           options = args.extract_options!.dup
           scope = {}
@@ -643,7 +643,7 @@ end
           @scope = @scope.parent
         end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/routing/mapper.rb#L837" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/routing/mapper.rb#L836" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           

@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Rails::Application::Configuration | RailsDoc(β)</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.9.5" />
 <meta property="og:title" content="Rails::Application::Configuration" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Ruby on Rails API Documentation." />
@@ -200,6 +200,11 @@
               load_defaults(target_version)
             
           </a></li>
+<li class="toc-entry toc-h3"><a href="#method-i-log_level-3D">
+            
+              log_level=(level)
+            
+          </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-paths">
             
               paths()
@@ -229,7 +234,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.1.0</span><br />
+            <span>Ruby on Rails 7.1.3</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -326,6 +331,10 @@
       
         <li>
           <a href="#method-i-load_defaults">load_defaults</a>
+        </li>
+      
+        <li>
+          <a href="#method-i-log_level-3D">log_level=</a>
         </li>
       
         <li>
@@ -615,7 +624,7 @@
         
           <tr valign='top'>
             <td class='attr-rw'>
-              [RW]
+              [R]
             </td>
             <td class='attr-name'>log_level</td>
             <td class='attr-desc'></td>
@@ -847,7 +856,7 @@
         @dom_testing_default_html_version        = :html4
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L30" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L30" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -881,12 +890,12 @@
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 532
+              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 541
       def annotations
         Rails::SourceAnnotationExtractor::Annotation
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L532" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L541" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -924,7 +933,7 @@
         @debug_exception_response_format ||= :api
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L375" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L375" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -954,7 +963,7 @@
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 464
+              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 473
       def autoload_lib(ignore:)
         lib = root.join(&quot;lib&quot;)
 
@@ -967,7 +976,7 @@
         Rails.autoloaders.main.ignore(ignored_abspaths)
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L464" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L473" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -997,7 +1006,7 @@
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 476
+              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 485
       def autoload_lib_once(ignore:)
         lib = root.join(&quot;lib&quot;)
 
@@ -1010,7 +1019,7 @@
         Rails.autoloaders.once.ignore(ignored_abspaths)
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L476" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L485" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1040,12 +1049,12 @@
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 488
+              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 497
       def colorize_logging
         ActiveSupport::LogSubscriber.colorize_logging
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L488" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L497" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1075,13 +1084,13 @@
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 492
+              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 501
       def colorize_logging=(val)
         ActiveSupport::LogSubscriber.colorize_logging = val
         generators.colorize_logging = val
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L492" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L501" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1111,7 +1120,7 @@
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 537
+              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 546
       def content_security_policy(&amp;block)
         if block_given?
           @content_security_policy = ActionDispatch::ContentSecurityPolicy.new(&amp;block)
@@ -1120,7 +1129,7 @@
         end
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L537" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L546" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1150,7 +1159,7 @@
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 427
+              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 436
       def database_configuration
         path = paths[&quot;config/database&quot;].existent.first
         yaml = Pathname.new(path) if path
@@ -1188,7 +1197,7 @@
         raise e, &quot;Cannot load database configuration:\n#{e.message}&quot;, e.backtrace
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L427" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L436" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1218,12 +1227,12 @@
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 382
+              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 391
       def debug_exception_response_format
         @debug_exception_response_format || :default
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L382" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L391" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1253,7 +1262,7 @@
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 554
+              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 563
       def default_log_file
         path = paths[&quot;log&quot;].first
         unless File.exist? File.dirname path
@@ -1266,7 +1275,7 @@
         f
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L554" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L563" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1302,7 +1311,7 @@
         @enable_dependency_loading
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L357" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L357" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1338,7 +1347,7 @@
         @enable_dependency_loading = value
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L362" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L362" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1373,7 +1382,7 @@
         !cache_classes
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L343" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L343" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1408,7 +1417,7 @@
         self.cache_classes = !value
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L347" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L347" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1447,7 +1456,7 @@
         end
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L367" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L367" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1725,7 +1734,43 @@
         @loaded_config_version = target_version
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L92" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L92" target="_blank" class="github_url">🔎 See on GitHub</a>
+              
+            </details>
+          
+        </div>
+        
+        <div class="method">
+          <h3 id="method-i-log_level-3D">
+            
+              log_level=(level)
+            
+          </h3>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">📝 Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 382
+      def log_level=(level)
+        @log_level = level
+        @broadcast_log_level = level
+      end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L382" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1755,7 +1800,7 @@
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 388
+              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 397
       def paths
         @paths ||= begin
           paths = super
@@ -1772,7 +1817,7 @@
         end
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L388" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L397" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1802,7 +1847,7 @@
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 546
+              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 555
       def permissions_policy(&amp;block)
         if block_given?
           @permissions_policy = ActionDispatch::PermissionsPolicy.new(&amp;block)
@@ -1811,7 +1856,7 @@
         end
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L546" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L555" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1846,7 +1891,7 @@
         enable_reloading
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L339" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L339" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1888,7 +1933,7 @@ config.session_store :my_custom_store
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 512
+              <pre><code class="ruby"># File railties/lib/rails/application/configuration.rb, line 521
       def session_store(new_session_store = nil, **options)
         if new_session_store
           @session_store = new_session_store
@@ -1905,7 +1950,7 @@ config.session_store :my_custom_store
         end
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/railties/lib/rails/application/configuration.rb#L512" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/railties/lib/rails/application/configuration.rb#L521" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           

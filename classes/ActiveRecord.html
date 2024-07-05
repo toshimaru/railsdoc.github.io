@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>ActiveRecord | RailsDoc(β)</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.9.5" />
 <meta property="og:title" content="ActiveRecord" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Ruby on Rails API Documentation." />
@@ -197,7 +197,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.1.0</span><br />
+            <span>Ruby on Rails 7.1.3</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -628,6 +628,8 @@
             
             <li><a href="../files/activerecord/lib/active_record/migration/join_table_rb.html">activerecord/lib/active_record/migration/join_table.rb</a></li>
             
+            <li><a href="../files/activerecord/lib/active_record/migration/pending_migration_connection_rb.html">activerecord/lib/active_record/migration/pending_migration_connection.rb</a></li>
+            
             <li><a href="../files/activerecord/lib/active_record/model_schema_rb.html">activerecord/lib/active_record/model_schema.rb</a></li>
             
             <li><a href="../files/activerecord/lib/active_record/nested_attributes_rb.html">activerecord/lib/active_record/nested_attributes.rb</a></li>
@@ -996,9 +998,9 @@ end
 
 <p>Active Record is an implementation of the object-relational mapping (ORM) <a href="https://www.martinfowler.com/eaaCatalog/activeRecord.html">pattern</a> by the same name described by Martin Fowler:</p>
 
-<pre><code>&quot;An object that wraps a row in a database table or view,
-encapsulates the database access, and adds domain logic on that data.&quot;
-</code></pre>
+<blockquote>
+<p>“An object that wraps a row in a database table or view, encapsulates the database access, and adds domain logic on that data.”</p>
+</blockquote>
 
 <p>Active Record attempts to provide a coherent wrapper as a solution for the inconvenience that is object-relational mapping. The prime directive for this mapping has been to minimize the amount of code needed to build a real-world domain model. This is made possible by relying on a number of conventions that make it easy for Active Record to infer complex relations and structures from a minimal amount of explicit direction.</p>
 
@@ -1237,8 +1239,6 @@ encapsulates the database access, and adds domain logic on that data.&quot;
       
         <li><a href="ActiveRecord/ImmutableRelation.html">ActiveRecord::ImmutableRelation</a></li>
       
-        <li><a href="ActiveRecord/InternalMetadata.html">ActiveRecord::InternalMetadata</a></li>
-      
         <li><a href="ActiveRecord/InvalidForeignKey.html">ActiveRecord::InvalidForeignKey</a></li>
       
         <li><a href="ActiveRecord/IrreversibleMigration.html">ActiveRecord::IrreversibleMigration</a></li>
@@ -1300,8 +1300,6 @@ encapsulates the database access, and adds domain logic on that data.&quot;
         <li><a href="ActiveRecord/SQLWarning.html">ActiveRecord::SQLWarning</a></li>
       
         <li><a href="ActiveRecord/Schema.html">ActiveRecord::Schema</a></li>
-      
-        <li><a href="ActiveRecord/SchemaMigration.html">ActiveRecord::SchemaMigration</a></li>
       
         <li><a href="ActiveRecord/SerializationFailure.html">ActiveRecord::SerializationFailure</a></li>
       
@@ -1698,7 +1696,7 @@ person.assign_attributes(name: &#39;Gorby&#39;)
       end
   end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record.rb#L211" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record.rb#L211" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1737,7 +1735,7 @@ person.assign_attributes(name: &#39;Gorby&#39;)
     @default_timezone = default_timezone
   end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record.rb#L196" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record.rb#L196" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1772,7 +1770,7 @@ person.assign_attributes(name: &#39;Gorby&#39;)
     ConnectionAdapters::PoolConfig.disconnect_all!
   end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record.rb#L476" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record.rb#L476" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1813,7 +1811,7 @@ person.assign_attributes(name: &#39;Gorby&#39;)
     ActiveRecord::Encryption.eager_load!
   end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record.rb#L465" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record.rb#L465" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1848,7 +1846,7 @@ person.assign_attributes(name: &#39;Gorby&#39;)
     Gem::Version.new VERSION::STRING
   end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/gem_version.rb#L5" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/gem_version.rb#L5" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1887,7 +1885,7 @@ person.assign_attributes(name: &#39;Gorby&#39;)
     @global_executor_concurrency = global_executor_concurrency
   end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record.rb#L278" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record.rb#L278" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1926,7 +1924,7 @@ person.assign_attributes(name: &#39;Gorby&#39;)
     MSG
   end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record.rb#L245" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record.rb#L245" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1961,7 +1959,7 @@ person.assign_attributes(name: &#39;Gorby&#39;)
     Marshalling.format_version
   end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record.rb#L457" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record.rb#L457" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1996,7 +1994,7 @@ person.assign_attributes(name: &#39;Gorby&#39;)
     Marshalling.format_version = value
   end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record.rb#L461" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record.rb#L461" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -2034,7 +2032,7 @@ person.assign_attributes(name: &#39;Gorby&#39;)
     MSG
   end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record.rb#L395" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record.rb#L395" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -2072,7 +2070,7 @@ person.assign_attributes(name: &#39;Gorby&#39;)
     MSG
   end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record.rb#L402" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record.rb#L402" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -2106,7 +2104,7 @@ person.assign_attributes(name: &#39;Gorby&#39;)
   singleton_class.attr_accessor :verbose_query_logs
 </code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record.rb#L298" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record.rb#L298" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -2141,7 +2139,7 @@ person.assign_attributes(name: &#39;Gorby&#39;)
     gem_version
   end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/version.rb#L7" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/version.rb#L7" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           

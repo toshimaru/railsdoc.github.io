@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>ActiveRecord::FixtureSet | RailsDoc(β)</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.9.5" />
 <meta property="og:title" content="ActiveRecord::FixtureSet" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Ruby on Rails API Documentation." />
@@ -225,7 +225,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.1.0</span><br />
+            <span>Ruby on Rails 7.1.3</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -503,8 +503,11 @@ reginald:
   id: 1
   name: Reginald the Pirate
   monkey_id: 1
+</code></pre>
 
-### in monkeys.yml
+<p></p>
+
+<pre><code>### in monkeys.yml
 
 george:
   id: 1
@@ -519,8 +522,11 @@ george:
 reginald:
   name: Reginald the Pirate
   monkey: george
+</code></pre>
 
-### in monkeys.yml
+<p></p>
+
+<pre><code>### in monkeys.yml
 
 george:
   name: George the Monkey
@@ -536,8 +542,11 @@ george:
 <pre><code>### in fruit.rb
 
 belongs_to :eater, polymorphic: true
+</code></pre>
 
-### in fruits.yml
+<p></p>
+
+<pre><code>### in fruits.yml
 
 apple:
   id: 1
@@ -563,8 +572,11 @@ apple:
 george:
   id: 1
   name: George the Monkey
+</code></pre>
 
-### in fruits.yml
+<p></p>
+
+<pre><code>### in fruits.yml
 
 apple:
   id: 1
@@ -577,8 +589,11 @@ orange:
 grape:
   id: 3
   name: grape
+</code></pre>
 
-### in fruits_monkeys.yml
+<p></p>
+
+<pre><code>### in fruits_monkeys.yml
 
 apple_george:
   fruit_id: 1
@@ -601,8 +616,11 @@ george:
   id: 1
   name: George the Monkey
   fruits: apple, orange, grape
+</code></pre>
 
-### in fruits.yml
+<p></p>
+
+<pre><code>### in fruits.yml
 
 apple:
   name: apple
@@ -693,8 +711,11 @@ class Book &lt; ApplicationRecord
   self.primary_key = [:author_id, :id]
   belongs_to :author
 end
+</code></pre>
 
-# books.yml
+<p></p>
+
+<pre><code># books.yml
 alices_adventure_in_wonderland:
   author_id: &lt;%= ActiveRecord::FixtureSet.identify(:lewis_carroll) %&gt;
   title: &quot;Alice&#39;s Adventures in Wonderland&quot;
@@ -708,8 +729,11 @@ class BookOrder &lt; ApplicationRecord
   belongs_to :order, query_constraints: [:shop_id, :order_id]
   belongs_to :book, query_constraints: [:author_id, :book_id]
 end
+</code></pre>
 
-# book_orders.yml
+<p></p>
+
+<pre><code># book_orders.yml
 alices_adventure_in_wonderland_in_books:
   author: lewis_carroll
   book_id: &lt;%= ActiveRecord::FixtureSet.composite_identify(
@@ -923,12 +947,12 @@ david:
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 556
+              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 572
       def cache_fixtures(connection, fixtures_map)
         cache_for_connection(connection).update(fixtures_map)
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/fixtures.rb#L556" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/fixtures.rb#L572" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -958,12 +982,12 @@ david:
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 540
+              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 556
       def cache_for_connection(connection)
         @@all_cached_fixtures[connection]
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/fixtures.rb#L540" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/fixtures.rb#L556" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -993,7 +1017,7 @@ david:
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 548
+              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 564
       def cached_fixtures(connection, keys_to_fetch = nil)
         if keys_to_fetch
           cache_for_connection(connection).values_at(*keys_to_fetch)
@@ -1002,7 +1026,7 @@ david:
         end
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/fixtures.rb#L548" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/fixtures.rb#L564" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1037,7 +1061,7 @@ david:
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 615
+              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 631
       def composite_identify(label, key)
         key
           .index_with
@@ -1045,7 +1069,7 @@ david:
           .with_indifferent_access
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/fixtures.rb#L615" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/fixtures.rb#L631" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1075,12 +1099,12 @@ david:
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 623
+              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 639
       def context_class
         @context_class ||= Class.new
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/fixtures.rb#L623" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/fixtures.rb#L639" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1110,7 +1134,7 @@ david:
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 575
+              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 591
       def create_fixtures(fixtures_directories, fixture_set_names, class_names = {}, config = ActiveRecord::Base, &amp;block)
         fixture_set_names = Array(fixture_set_names).map(&amp;:to_s)
         class_names.stringify_keys!
@@ -1134,7 +1158,7 @@ david:
         cached_fixtures(connection.call, fixture_set_names)
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/fixtures.rb#L575" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/fixtures.rb#L591" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1164,12 +1188,12 @@ david:
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 544
+              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 560
       def fixture_is_cached?(connection, table_name)
         cache_for_connection(connection)[table_name]
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/fixtures.rb#L544" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/fixtures.rb#L560" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1201,7 +1225,7 @@ david:
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 601
+              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 617
       def identify(label, column_type = :integer)
         if column_type == :uuid
           Digest::UUID.uuid_v5(Digest::UUID::OID_NAMESPACE, label.to_s)
@@ -1210,7 +1234,7 @@ david:
         end
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/fixtures.rb#L601" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/fixtures.rb#L617" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1240,14 +1264,14 @@ david:
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 569
+              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 585
       def instantiate_all_loaded_fixtures(object, load_instances = true)
         all_loaded_fixtures.each_value do |fixture_set|
           instantiate_fixtures(object, fixture_set, load_instances)
         end
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/fixtures.rb#L569" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/fixtures.rb#L585" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1277,7 +1301,7 @@ david:
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 560
+              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 576
       def instantiate_fixtures(object, fixture_set, load_instances = true)
         return unless load_instances
         fixture_set.each do |fixture_name, fixture|
@@ -1287,7 +1311,7 @@ david:
         end
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/fixtures.rb#L560" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/fixtures.rb#L576" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1317,7 +1341,7 @@ david:
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 693
+              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 709
     def initialize(_, name, class_name, path, config = ActiveRecord::Base)
       @name     = name
       @path     = path
@@ -1329,7 +1353,7 @@ david:
       @table_name = model_class&amp;.table_name || self.class.default_fixture_table_name(name, config)
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/fixtures.rb#L693" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/fixtures.rb#L709" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1359,12 +1383,12 @@ david:
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 536
+              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 552
       def reset_cache
         @@all_cached_fixtures.clear
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/fixtures.rb#L536" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/fixtures.rb#L552" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1398,12 +1422,12 @@ david:
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 704
+              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 720
     def [](x)
       fixtures[x]
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/fixtures.rb#L704" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/fixtures.rb#L720" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1433,12 +1457,12 @@ david:
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 708
+              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 724
     def []=(k, v)
       fixtures[k] = v
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/fixtures.rb#L708" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/fixtures.rb#L724" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1468,12 +1492,12 @@ david:
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 712
+              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 728
     def each(&amp;block)
       fixtures.each(&amp;block)
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/fixtures.rb#L712" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/fixtures.rb#L728" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1503,12 +1527,12 @@ david:
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 716
+              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 732
     def size
       fixtures.size
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/fixtures.rb#L716" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/fixtures.rb#L732" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1538,7 +1562,7 @@ david:
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 722
+              <pre><code class="ruby"># File activerecord/lib/active_record/fixtures.rb, line 738
     def table_rows
       # allow specifying fixtures to be ignored by setting `ignore` in `_fixture` section
       fixtures.except!(*ignored_fixtures)
@@ -1550,7 +1574,7 @@ david:
       ).to_hash
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/fixtures.rb#L722" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/fixtures.rb#L738" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           

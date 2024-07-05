@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>ActiveSupport::MessageVerifiers | RailsDoc(β)</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.9.5" />
 <meta property="og:title" content="ActiveSupport::MessageVerifiers" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Ruby on Rails API Documentation." />
@@ -135,6 +135,12 @@
 
             
           </a></li>
+<li class="toc-entry toc-h3"><a href="#method-i-on_rotation">
+            
+              on_rotation(&amp;callback)
+
+            
+          </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-rotate">
             
               rotate(**options)
@@ -156,7 +162,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.1.0</span><br />
+            <span>Ruby on Rails 7.1.3</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -205,6 +211,10 @@
       
         <li>
           <a href="#method-i-initialize">initialize</a>
+        </li>
+      
+        <li>
+          <a href="#method-i-on_rotation">on_rotation</a>
         </li>
       
         <li>
@@ -277,7 +287,7 @@ verifiers.transitional = true
 
           
           
-            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/message_verifiers.rb#L47" target="_blank" class="github_url">🔎 See on GitHub</a>
+            <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activesupport/lib/active_support/message_verifiers.rb#L47" target="_blank" class="github_url">🔎 See on GitHub</a>
           
         </div>
         
@@ -301,7 +311,7 @@ verifiers.transitional = true
 
           
           
-            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/message_verifiers.rb#L55" target="_blank" class="github_url">🔎 See on GitHub</a>
+            <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activesupport/lib/active_support/message_verifiers.rb#L55" target="_blank" class="github_url">🔎 See on GitHub</a>
           
         </div>
         
@@ -325,7 +335,7 @@ verifiers.transitional = true
 
           
           
-            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/message_verifiers.rb#L113" target="_blank" class="github_url">🔎 See on GitHub</a>
+            <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activesupport/lib/active_support/message_verifiers.rb#L113" target="_blank" class="github_url">🔎 See on GitHub</a>
           
         </div>
         
@@ -356,7 +366,33 @@ verifiers.rotate(base: &quot;...&quot;)
 
           
           
-            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/message_verifiers.rb#L31" target="_blank" class="github_url">🔎 See on GitHub</a>
+            <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activesupport/lib/active_support/message_verifiers.rb#L31" target="_blank" class="github_url">🔎 See on GitHub</a>
+          
+        </div>
+        
+        <div class="method">
+          <h3 id="method-i-on_rotation">
+            
+              on_rotation(&callback)
+
+            
+          </h3>
+
+          
+            <div class="description">
+              <p>Sets a callback to invoke when a message is verified using an option set other than the first.</p>
+
+<p>For example, this callback could log each time it is called, and thus indicate whether old option sets are still in use or can be removed from rotation.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+          
+            <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activesupport/lib/active_support/message_verifiers.rb#L119" target="_blank" class="github_url">🔎 See on GitHub</a>
           
         </div>
         
@@ -411,7 +447,7 @@ verifiers[:baz]
 
           
           
-            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/message_verifiers.rb#L61" target="_blank" class="github_url">🔎 See on GitHub</a>
+            <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activesupport/lib/active_support/message_verifiers.rb#L61" target="_blank" class="github_url">🔎 See on GitHub</a>
           
         </div>
         
@@ -435,7 +471,7 @@ verifiers[:baz]
 
           
           
-            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activesupport/lib/active_support/message_verifiers.rb#L107" target="_blank" class="github_url">🔎 See on GitHub</a>
+            <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activesupport/lib/active_support/message_verifiers.rb#L107" target="_blank" class="github_url">🔎 See on GitHub</a>
           
         </div>
         

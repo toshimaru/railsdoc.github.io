@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>ActionView::Template | RailsDoc(β)</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.9.5" />
 <meta property="og:title" content="ActionView::Template" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Ruby on Rails API Documentation." />
@@ -153,7 +153,7 @@
           </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-render">
             
-              render(view, locals, buffer = nil, add_to_stack: true, &amp;block)
+              render(view, locals, buffer = nil, implicit_locals: [], add_to_stack: true, &amp;block)
             
           </a></li>
 <li class="toc-entry toc-h3"><a href="#method-i-short_identifier">
@@ -209,7 +209,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.1.0</span><br />
+            <span>Ruby on Rails 7.1.3</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -493,7 +493,7 @@
         end
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/template.rb#L171" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/template.rb#L171" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -542,10 +542,11 @@
       @variant           = variant
       @compile_mutex     = Mutex.new
       @strict_locals     = NONE
+      @strict_local_keys = nil
       @type              = nil
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/template.rb#L186" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/template.rb#L186" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -566,7 +567,7 @@
             <div class="description">
               <p>This method is responsible for properly setting the encoding of the source. Until this point, we assume that the source is BINARY data. If no additional information is supplied, we assume the encoding is the same as <code>Encoding.default_external</code>.</p>
 
-<p>The user can also specify the encoding via a comment on the first line of the template (# encoding: NAME-OF-ENCODING). This will work with any template engine, as we process out the encoding comment before passing the source on to the template engine, leaving a blank line in its stead.</p>
+<p>The user can also specify the encoding via a comment on the first line of the template (<code># encoding: NAME-OF-ENCODING</code>). This will work with any template engine, as we process out the encoding comment before passing the source on to the template engine, leaving a blank line in its stead.</p>
             </div>
           
 
@@ -581,7 +582,7 @@
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 290
+              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 297
     def encode!
       source = self.source
 
@@ -618,7 +619,7 @@
       end
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/template.rb#L290" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/template.rb#L297" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -648,12 +649,12 @@
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 269
+              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 276
     def inspect
       &quot;#&lt;#{self.class.name} #{short_identifier} locals=#{locals.inspect}&gt;&quot;
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/template.rb#L269" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/template.rb#L276" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -752,7 +753,7 @@ title                    # =&gt; &quot;Welcome&quot;
       autoload :Types
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/template.rb#L152" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/template.rb#L152" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -782,7 +783,7 @@ title                    # =&gt; &quot;Welcome&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 209
+              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 210
     def locals
       if strict_locals?
         nil
@@ -791,7 +792,7 @@ title                    # =&gt; &quot;Welcome&quot;
       end
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/template.rb#L209" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/template.rb#L210" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -800,7 +801,7 @@ title                    # =&gt; &quot;Welcome&quot;
         <div class="method">
           <h3 id="method-i-render">
             
-              render(view, locals, buffer = nil, add_to_stack: true, &amp;block)
+              render(view, locals, buffer = nil, implicit_locals: [], add_to_stack: true, &amp;block)
             
           </h3>
 
@@ -823,10 +824,16 @@ title                    # =&gt; &quot;Welcome&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 247
-    def render(view, locals, buffer = nil, add_to_stack: true, &amp;block)
+              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 248
+    def render(view, locals, buffer = nil, implicit_locals: [], add_to_stack: true, &amp;block)
       instrument_render_template do
         compile!(view)
+
+        if strict_locals? &amp;&amp; @strict_local_keys &amp;&amp; !implicit_locals.empty?
+          locals_to_ignore = implicit_locals - @strict_local_keys
+          locals.except!(*locals_to_ignore)
+        end
+
         if buffer
           view._run(method_name, self, locals, buffer, add_to_stack: add_to_stack, has_strict_locals: strict_locals?, &amp;block)
           nil
@@ -838,7 +845,7 @@ title                    # =&gt; &quot;Welcome&quot;
       handle_render_error(view, e)
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/template.rb#L247" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/template.rb#L248" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -868,12 +875,12 @@ title                    # =&gt; &quot;Welcome&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 265
+              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 272
     def short_identifier
       @short_identifier ||= defined?(Rails.root) ? identifier.delete_prefix(&quot;#{Rails.root}/&quot;) : identifier
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/template.rb#L265" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/template.rb#L272" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -903,12 +910,12 @@ title                    # =&gt; &quot;Welcome&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 273
+              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 280
     def source
       @source.to_s
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/template.rb#L273" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/template.rb#L280" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -943,7 +950,7 @@ title                    # =&gt; &quot;Welcome&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 335
+              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 342
     def strict_locals!
       if @strict_locals == NONE
         self.source.sub!(STRICT_LOCALS_REGEX, &quot;&quot;)
@@ -957,7 +964,7 @@ title                    # =&gt; &quot;Welcome&quot;
       @strict_locals
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/template.rb#L335" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/template.rb#L342" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -987,12 +994,12 @@ title                    # =&gt; &quot;Welcome&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 349
+              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 356
     def strict_locals?
       strict_locals!
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/template.rb#L349" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/template.rb#L356" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1022,12 +1029,12 @@ title                    # =&gt; &quot;Welcome&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 237
+              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 238
     def supports_streaming?
       handler.respond_to?(:supports_streaming?) &amp;&amp; handler.supports_streaming?
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/template.rb#L237" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/template.rb#L238" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1057,7 +1064,7 @@ title                    # =&gt; &quot;Welcome&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 227
+              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 228
     def translate_location(backtrace_location, spot)
       if handler.respond_to?(:translate_location)
         handler.translate_location(spot, backtrace_location, encode!) || spot
@@ -1066,7 +1073,7 @@ title                    # =&gt; &quot;Welcome&quot;
       end
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/template.rb#L227" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/template.rb#L228" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1096,12 +1103,12 @@ title                    # =&gt; &quot;Welcome&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 261
+              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 268
     def type
       @type ||= Types[format]
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/template.rb#L261" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/template.rb#L268" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1134,12 +1141,12 @@ title                    # =&gt; &quot;Welcome&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 530
+              <pre><code class="ruby"># File actionview/lib/action_view/template.rb, line 544
       def instrument(action, &amp;block) # :doc:
         ActiveSupport::Notifications.instrument(&quot;#{action}.action_view&quot;, instrument_payload, &amp;block)
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionview/lib/action_view/template.rb#L530" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionview/lib/action_view/template.rb#L544" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           

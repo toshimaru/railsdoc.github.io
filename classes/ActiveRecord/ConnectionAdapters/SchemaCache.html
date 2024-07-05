@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>ActiveRecord::ConnectionAdapters::SchemaCache | RailsDoc(β)</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.9.5" />
 <meta property="og:title" content="ActiveRecord::ConnectionAdapters::SchemaCache" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Ruby on Rails API Documentation." />
@@ -112,12 +112,12 @@
 <ul>
 <li class="toc-entry toc-h3"><a href="#method-c-new">
             
-              new()
+              new(connection)
             
           </a></li>
 <li class="toc-entry toc-h3"><a href="#method-c-new">
             
-              new(connection)
+              new()
             
           </a></li>
 </ul>
@@ -203,7 +203,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.1.0</span><br />
+            <span>Ruby on Rails 7.1.3</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -329,6 +329,41 @@
         <div class="method">
           <h3 id="method-c-new">
             
+              new(connection)
+            
+          </h3>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+          
+            <details class="method__source">
+              <summary>
+                <span class="label">📝 Source code</span>
+              </summary>
+
+              <pre><code class="ruby"># File activerecord/lib/active_record/connection_adapters/schema_cache.rb, line 223
+        def new(connection)
+          BoundSchemaReflection.new(SchemaReflection.new(nil), connection)
+        end</code></pre>
+              
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L223" target="_blank" class="github_url">🔎 See on GitHub</a>
+              
+            </details>
+          
+        </div>
+        
+        <div class="method">
+          <h3 id="method-c-new">
+            
               new()
             
           </h3>
@@ -361,42 +396,7 @@
         @version = nil
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L261" target="_blank" class="github_url">🔎 See on GitHub</a>
-              
-            </details>
-          
-        </div>
-        
-        <div class="method">
-          <h3 id="method-c-new">
-            
-              new(connection)
-            
-          </h3>
-
-          
-            <div class="description">
-              
-            </div>
-          
-
-          
-
-          
-
-          
-          
-            <details class="method__source">
-              <summary>
-                <span class="label">📝 Source code</span>
-              </summary>
-
-              <pre><code class="ruby"># File activerecord/lib/active_record/connection_adapters/schema_cache.rb, line 223
-        def new(connection)
-          BoundSchemaReflection.new(SchemaReflection.new(nil), connection)
-        end</code></pre>
-              
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L223" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L261" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -440,7 +440,7 @@
         end
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L325" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L325" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -475,7 +475,7 @@
         @columns.key?(table_name)
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L303" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L303" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -514,7 +514,7 @@
         @indexes.delete name
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L390" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L390" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -555,7 +555,7 @@
         end
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L340" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L340" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -592,7 +592,7 @@
         end
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L352" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L352" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -627,7 +627,7 @@
         @columns_hash.key?(table_name)
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L359" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L359" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -666,7 +666,7 @@
         @data_sources[deep_deduplicate(name)] = connection.data_source_exists?(name)
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L316" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L316" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -707,7 +707,7 @@
         }
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L407" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L407" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -748,7 +748,7 @@
         end
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L363" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L363" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -793,7 +793,7 @@
         end
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L289" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L289" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -832,7 +832,7 @@
         end
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L307" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L307" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -867,7 +867,7 @@
         @version
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L381" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L381" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -902,7 +902,7 @@
         [@columns, @columns_hash, @primary_keys, @data_sources].sum(&amp;:size)
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L385" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L385" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -937,7 +937,7 @@
         @version ||= connection.schema_version
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L377" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/connection_adapters/schema_cache.rb#L377" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           

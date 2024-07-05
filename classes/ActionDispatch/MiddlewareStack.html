@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>ActionDispatch::MiddlewareStack | RailsDoc(β)</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.9.5" />
 <meta property="og:title" content="ActionDispatch::MiddlewareStack" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Ruby on Rails API Documentation." />
@@ -220,7 +220,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.1.0</span><br />
+            <span>Ruby on Rails 7.1.3</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -426,7 +426,7 @@
       yield(self) if block_given?
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/stack.rb#L75" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/middleware/stack.rb#L75" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -465,7 +465,7 @@
       middlewares[i]
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/stack.rb#L92" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/middleware/stack.rb#L92" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -507,7 +507,7 @@
       end
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/stack.rb#L165" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/middleware/stack.rb#L165" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -544,7 +544,7 @@
       middlewares.reject! { |m| m.name == target.name }
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/stack.rb#L130" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/middleware/stack.rb#L130" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -581,7 +581,7 @@
       delete(target) || (raise &quot;No such middleware to remove: #{target.inspect}&quot;)
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/stack.rb#L138" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/middleware/stack.rb#L138" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -616,7 +616,7 @@
       @middlewares.each(&amp;block)
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/stack.rb#L80" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/middleware/stack.rb#L80" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -651,7 +651,7 @@
       self.middlewares = other.middlewares.dup
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/stack.rb#L101" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/middleware/stack.rb#L101" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -691,7 +691,7 @@
       middlewares.insert(index, build_middleware(klass, args, block))
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/stack.rb#L105" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/middleware/stack.rb#L105" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -727,7 +727,7 @@
       insert(index + 1, *args, &amp;block)
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/stack.rb#L113" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/middleware/stack.rb#L113" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -787,7 +787,7 @@
       middlewares.last
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/stack.rb#L88" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/middleware/stack.rb#L88" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -830,7 +830,7 @@
       middlewares.insert(target_index, source_middleware)
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/stack.rb#L142" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/middleware/stack.rb#L142" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -869,7 +869,7 @@
       middlewares.insert(target_index + 1, source_middleware)
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/stack.rb#L152" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/middleware/stack.rb#L152" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -929,7 +929,7 @@
       middlewares.size
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/stack.rb#L84" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/middleware/stack.rb#L84" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -966,7 +966,7 @@
       middlewares.delete_at(index + 1)
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/stack.rb#L119" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/middleware/stack.rb#L119" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1001,7 +1001,7 @@
       middlewares.unshift(build_middleware(klass, args, block))
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/stack.rb#L96" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/middleware/stack.rb#L96" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1036,7 +1036,7 @@
       middlewares.push(build_middleware(klass, args, block))
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/middleware/stack.rb#L160" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/middleware/stack.rb#L160" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           

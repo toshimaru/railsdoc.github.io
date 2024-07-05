@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>ActionDispatch::Response | RailsDoc(β)</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.9.5" />
 <meta property="og:title" content="ActionDispatch::Response" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Ruby on Rails API Documentation." />
@@ -321,7 +321,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.1.0</span><br />
+            <span>Ruby on Rails 7.1.3</span><br />
         
         <div class="type">Class</div>
         <h1>
@@ -753,13 +753,13 @@ headers[&quot;Content-Type&quot;] # =&gt; &quot;application/json&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 155
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 157
     def self.create(status = 200, headers = {}, body = [], default_headers: self.default_headers)
       headers = merge_default_headers(headers, default_headers)
       new status, headers, body
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L155" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L157" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -789,12 +789,12 @@ headers[&quot;Content-Type&quot;] # =&gt; &quot;application/json&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 160
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 162
     def self.merge_default_headers(original, default)
       default.respond_to?(:merge) ? default.merge(original) : original
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L160" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L162" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -824,7 +824,7 @@ headers[&quot;Content-Type&quot;] # =&gt; &quot;application/json&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 167
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 169
     def initialize(status = 200, headers = nil, body = [])
       super()
 
@@ -846,7 +846,7 @@ headers[&quot;Content-Type&quot;] # =&gt; &quot;application/json&quot;
       yield self if block_given?
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L167" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L169" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -880,7 +880,7 @@ headers[&quot;Content-Type&quot;] # =&gt; &quot;application/json&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 380
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 382
     def abort
       if stream.respond_to?(:abort)
         stream.abort
@@ -892,7 +892,7 @@ headers[&quot;Content-Type&quot;] # =&gt; &quot;application/json&quot;
       end
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L380" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L382" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -922,14 +922,14 @@ headers[&quot;Content-Type&quot;] # =&gt; &quot;application/json&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 193
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 195
     def await_commit
       synchronize do
         @cv.wait_until { @committed }
       end
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L193" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L195" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -959,12 +959,12 @@ headers[&quot;Content-Type&quot;] # =&gt; &quot;application/json&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 199
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 201
     def await_sent
       synchronize { @cv.wait_until { @sent } }
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L199" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L201" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -994,12 +994,12 @@ headers[&quot;Content-Type&quot;] # =&gt; &quot;application/json&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 314
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 316
     def body
       @stream.body
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L314" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L316" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1029,7 +1029,7 @@ headers[&quot;Content-Type&quot;] # =&gt; &quot;application/json&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 323
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 325
     def body=(body)
       if body.respond_to?(:to_path)
         @stream = body
@@ -1040,7 +1040,7 @@ headers[&quot;Content-Type&quot;] # =&gt; &quot;application/json&quot;
       end
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L323" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L325" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1070,14 +1070,14 @@ headers[&quot;Content-Type&quot;] # =&gt; &quot;application/json&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 367
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 369
     def body_parts
       parts = []
       @stream.each { |x| parts &lt;&lt; x }
       parts
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L367" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L369" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1107,13 +1107,13 @@ headers[&quot;Content-Type&quot;] # =&gt; &quot;application/json&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 284
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 286
     def charset
       header_info = parsed_content_type_header
       header_info.charset || self.class.default_charset
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L284" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L286" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1147,7 +1147,7 @@ response.charset = nil      # =&gt; &#39;utf-8&#39;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 273
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 275
     def charset=(charset)
       content_type = parsed_content_type_header.mime_type
       if false == charset
@@ -1157,7 +1157,7 @@ response.charset = nil      # =&gt; &#39;utf-8&#39;
       end
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L273" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L275" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1187,12 +1187,12 @@ response.charset = nil      # =&gt; &#39;utf-8&#39;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 376
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 378
     def close
       stream.close if stream.respond_to?(:close)
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L376" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L378" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1222,12 +1222,12 @@ response.charset = nil      # =&gt; &#39;utf-8&#39;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 295
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 297
     def code
       @status.to_s
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L295" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L297" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1257,7 +1257,7 @@ response.charset = nil      # =&gt; &#39;utf-8&#39;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 203
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 205
     def commit!
       synchronize do
         before_committed
@@ -1266,7 +1266,7 @@ response.charset = nil      # =&gt; &#39;utf-8&#39;
       end
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L203" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L205" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1296,10 +1296,10 @@ response.charset = nil      # =&gt; &#39;utf-8&#39;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 227
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 229
     def committed?; synchronize { @committed }; end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L227" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L229" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1329,12 +1329,12 @@ response.charset = nil      # =&gt; &#39;utf-8&#39;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 253
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 255
     def content_type
       super.presence
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L253" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L255" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1369,7 +1369,7 @@ response.charset = nil      # =&gt; &#39;utf-8&#39;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 243
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 245
     def content_type=(content_type)
       return unless content_type
       new_header_info = parse_content_type(content_type.to_s)
@@ -1379,7 +1379,7 @@ response.charset = nil      # =&gt; &#39;utf-8&#39;
       set_content_type new_header_info.mime_type, charset
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L243" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L245" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1412,7 +1412,7 @@ response.charset = nil      # =&gt; &#39;utf-8&#39;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 404
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 406
     def cookies
       cookies = {}
       if header = get_header(SET_COOKIE)
@@ -1427,7 +1427,7 @@ response.charset = nil      # =&gt; &#39;utf-8&#39;
       cookies
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L404" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L406" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1457,10 +1457,10 @@ response.charset = nil      # =&gt; &#39;utf-8&#39;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 191
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 193
     def delete_header(key); @headers.delete key; end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L191" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L193" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1498,7 +1498,7 @@ response.charset = nil      # =&gt; &#39;utf-8&#39;
       x
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L75" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L75" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1528,10 +1528,10 @@ response.charset = nil      # =&gt; &#39;utf-8&#39;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 189
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 191
     def get_header(key);    @headers[key];       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L189" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L191" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1561,10 +1561,10 @@ response.charset = nil      # =&gt; &#39;utf-8&#39;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 188
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 190
     def has_header?(key);   @headers.key? key;   end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L188" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L190" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1594,12 +1594,12 @@ response.charset = nil      # =&gt; &#39;utf-8&#39;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 258
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 260
     def media_type
       parsed_content_type_header.mime_type
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L258" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L260" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1640,12 +1640,12 @@ response.message # =&gt; &quot;Not Found&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 307
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 309
     def message
       Rack::Utils::HTTP_STATUS_CODES[@status]
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L307" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L309" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1700,12 +1700,12 @@ response.message # =&gt; &quot;Not Found&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 363
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 365
     def reset_body!
       @stream = build_buffer(self, [])
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L363" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L365" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1735,12 +1735,12 @@ response.message # =&gt; &quot;Not Found&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 290
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 292
     def response_code
       @status
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L290" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L292" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1770,13 +1770,13 @@ response.message # =&gt; &quot;Not Found&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 358
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 360
     def send_file(path)
       commit!
       @stream = FileBody.new(path)
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L358" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L360" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1806,7 +1806,7 @@ response.message # =&gt; &quot;Not Found&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 211
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 213
     def sending!
       synchronize do
         before_sending
@@ -1815,7 +1815,7 @@ response.message # =&gt; &quot;Not Found&quot;
       end
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L211" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L213" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1845,10 +1845,10 @@ response.message # =&gt; &quot;Not Found&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 226
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 228
     def sending?;   synchronize { @sending };   end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L226" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L228" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1878,14 +1878,14 @@ response.message # =&gt; &quot;Not Found&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 262
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 264
     def sending_file=(v)
       if true == v
         self.charset = false
       end
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L262" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L264" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1915,7 +1915,7 @@ response.message # =&gt; &quot;Not Found&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 219
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 221
     def sent!
       synchronize do
         @sent = true
@@ -1923,7 +1923,7 @@ response.message # =&gt; &quot;Not Found&quot;
       end
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L219" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L221" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1953,10 +1953,10 @@ response.message # =&gt; &quot;Not Found&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 228
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 230
     def sent?;      synchronize { @sent };      end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L228" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L230" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1986,10 +1986,10 @@ response.message # =&gt; &quot;Not Found&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 190
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 192
     def set_header(key, v); @headers[key] = v;   end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L190" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L192" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -2019,12 +2019,12 @@ response.message # =&gt; &quot;Not Found&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 231
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 233
     def status=(status)
       @status = Rack::Utils.status_code(status)
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L231" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L233" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -2086,13 +2086,13 @@ response.message # =&gt; &quot;Not Found&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 395
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 397
     def to_a
       commit!
       rack_response @status, @headers.to_hash
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L395" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L397" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -2122,12 +2122,12 @@ response.message # =&gt; &quot;Not Found&quot;
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 318
+              <pre><code class="ruby"># File actionpack/lib/action_dispatch/http/response.rb, line 320
     def write(string)
       @stream.write string
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/actionpack/lib/action_dispatch/http/response.rb#L318" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/http/response.rb#L320" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           

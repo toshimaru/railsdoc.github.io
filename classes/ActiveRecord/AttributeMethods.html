@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>ActiveRecord::AttributeMethods | RailsDoc(β)</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.9.5" />
 <meta property="og:title" content="ActiveRecord::AttributeMethods" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Ruby on Rails API Documentation." />
@@ -171,7 +171,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.1.0</span><br />
+            <span>Ruby on Rails 7.1.3</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -447,7 +447,7 @@ person[:id]              # =&gt; nil
       read_attribute(attr_name) { |n| missing_attribute(n, caller) }
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods.rb#L412" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/attribute_methods.rb#L412" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -490,7 +490,7 @@ person[:date_of_birth] # =&gt; Date.new(2004, 12, 12)
       write_attribute(attr_name, value)
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods.rb#L425" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/attribute_methods.rb#L425" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -550,7 +550,7 @@ end
       @attributes.accessed
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods.rb#L457" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/attribute_methods.rb#L457" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -600,7 +600,7 @@ person.attribute_for_inspect(:tag_ids)
       format_for_inspect(attr_name, value)
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods.rb#L362" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/attribute_methods.rb#L362" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -643,7 +643,7 @@ person.attribute_names
       @attributes.keys
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods.rb#L331" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/attribute_methods.rb#L331" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -693,7 +693,7 @@ task.attribute_present?(:is_done) # =&gt; true
       !value.nil? &amp;&amp; !(value.respond_to?(:empty?) &amp;&amp; value.empty?)
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods.rb#L384" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/attribute_methods.rb#L384" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -736,7 +736,7 @@ person.attributes
       @attributes.to_hash
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods.rb#L343" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/attribute_methods.rb#L343" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -784,7 +784,7 @@ person.has_attribute?(:nothing)  # =&gt; false
       @attributes.key?(attr_name)
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods.rb#L313" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/attribute_methods.rb#L313" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -844,7 +844,7 @@ person.respond_to?(:nothing) # =&gt; false
       true
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/attribute_methods.rb#L286" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/attribute_methods.rb#L286" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           

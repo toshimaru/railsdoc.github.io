@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>ActiveStorage::Attached::Model | RailsDoc(β)</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.9.5" />
 <meta property="og:title" content="ActiveStorage::Attached::Model" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Ruby on Rails API Documentation." />
@@ -164,7 +164,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.1.0</span><br />
+            <span>Ruby on Rails 7.1.3</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -278,7 +278,7 @@
 
           
           
-            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activestorage/lib/active_storage/attached/model.rb#L13" target="_blank" class="github_url">🔎 See on GitHub</a>
+            <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activestorage/lib/active_storage/attached/model.rb#L13" target="_blank" class="github_url">🔎 See on GitHub</a>
           
         </div>
         
@@ -304,7 +304,7 @@
 
           
           
-            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activestorage/lib/active_storage/attached/model.rb#L20" target="_blank" class="github_url">🔎 See on GitHub</a>
+            <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activestorage/lib/active_storage/attached/model.rb#L20" target="_blank" class="github_url">🔎 See on GitHub</a>
           
         </div>
         
@@ -330,7 +330,7 @@
 
           
           
-            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activestorage/lib/active_storage/attached/model.rb#L27" target="_blank" class="github_url">🔎 See on GitHub</a>
+            <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activestorage/lib/active_storage/attached/model.rb#L27" target="_blank" class="github_url">🔎 See on GitHub</a>
           
         </div>
         
@@ -356,7 +356,7 @@
 
           
           
-            <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activestorage/lib/active_storage/attached/model.rb#L34" target="_blank" class="github_url">🔎 See on GitHub</a>
+            <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activestorage/lib/active_storage/attached/model.rb#L34" target="_blank" class="github_url">🔎 See on GitHub</a>
           
         </div>
         
@@ -416,7 +416,7 @@ end
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activestorage/lib/active_storage/attached/model.rb, line 179
+              <pre><code class="ruby"># File activestorage/lib/active_storage/attached/model.rb, line 182
       def has_many_attached(name, dependent: :purge_later, service: nil, strict_loading: false)
         validate_service_configuration(name, service)
 
@@ -444,7 +444,10 @@ end
 
         scope :&quot;with_attached_#{name}&quot;, -&gt; {
           if ActiveStorage.track_variants
-            includes(&quot;#{name}_attachments&quot;: { blob: { variant_records: { image_attachment: :blob } } })
+            includes(&quot;#{name}_attachments&quot;: { blob: {
+              variant_records: { image_attachment: :blob },
+              preview_image_attachment: { blob: { variant_records: { image_attachment: :blob } } }
+            } })
           else
             includes(&quot;#{name}_attachments&quot;: :blob)
           end
@@ -465,7 +468,7 @@ end
         ActiveRecord::Reflection.add_attachment_reflection(self, name, reflection)
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activestorage/lib/active_storage/attached/model.rb#L179" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activestorage/lib/active_storage/attached/model.rb#L182" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -553,7 +556,10 @@ end
 
         scope :&quot;with_attached_#{name}&quot;, -&gt; {
           if ActiveStorage.track_variants
-            includes(&quot;#{name}_attachment&quot;: { blob: { variant_records: { image_attachment: :blob } } })
+            includes(&quot;#{name}_attachment&quot;: { blob: {
+              variant_records: { image_attachment: :blob },
+              preview_image_attachment: { blob: { variant_records: { image_attachment: :blob } } }
+            } })
           else
             includes(&quot;#{name}_attachment&quot;: :blob)
           end
@@ -574,7 +580,7 @@ end
         ActiveRecord::Reflection.add_attachment_reflection(self, name, reflection)
       end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activestorage/lib/active_storage/attached/model.rb#L94" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activestorage/lib/active_storage/attached/model.rb#L94" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -604,14 +610,14 @@ end
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activestorage/lib/active_storage/attached/model.rb, line 238
+              <pre><code class="ruby"># File activestorage/lib/active_storage/attached/model.rb, line 244
         def validate_global_service_configuration
           if connected? &amp;&amp; ActiveStorage::Blob.table_exists? &amp;&amp; Rails.configuration.active_storage.service.nil?
             raise RuntimeError, &quot;Missing Active Storage service name. Specify Active Storage service name for config.active_storage.service in config/environments/#{Rails.env}.rb&quot;
           end
         end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activestorage/lib/active_storage/attached/model.rb#L238" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activestorage/lib/active_storage/attached/model.rb#L244" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -641,7 +647,7 @@ end
                 <span class="label">📝 Source code</span>
               </summary>
 
-              <pre><code class="ruby"># File activestorage/lib/active_storage/attached/model.rb, line 228
+              <pre><code class="ruby"># File activestorage/lib/active_storage/attached/model.rb, line 234
         def validate_service_configuration(association_name, service)
           if service.present?
             ActiveStorage::Blob.services.fetch(service) do
@@ -652,7 +658,7 @@ end
           end
         end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activestorage/lib/active_storage/attached/model.rb#L228" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activestorage/lib/active_storage/attached/model.rb#L234" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -758,7 +764,10 @@ end
 
         scope :&quot;with_attached_#{name}&quot;, -&gt; {
           if ActiveStorage.track_variants
-            includes(&quot;#{name}_attachment&quot;: { blob: { variant_records: { image_attachment: :blob } } })
+            includes(&quot;#{name}_attachment&quot;: { blob: {
+              variant_records: { image_attachment: :blob },
+              preview_image_attachment: { blob: { variant_records: { image_attachment: :blob } } }
+            } })
           else
             includes(&quot;#{name}_attachment&quot;: :blob)
           end
@@ -845,7 +854,10 @@ end
 
         scope :&quot;with_attached_#{name}&quot;, -&gt; {
           if ActiveStorage.track_variants
-            includes(&quot;#{name}_attachments&quot;: { blob: { variant_records: { image_attachment: :blob } } })
+            includes(&quot;#{name}_attachments&quot;: { blob: {
+              variant_records: { image_attachment: :blob },
+              preview_image_attachment: { blob: { variant_records: { image_attachment: :blob } } }
+            } })
           else
             includes(&quot;#{name}_attachments&quot;: :blob)
           end
@@ -884,7 +896,7 @@ end
         end
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activestorage/lib/active_storage/attached/model.rb#L54" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activestorage/lib/active_storage/attached/model.rb#L54" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           

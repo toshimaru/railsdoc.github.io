@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>ActiveRecord::FinderMethods | RailsDoc(β)</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.9.5" />
 <meta property="og:title" content="ActiveRecord::FinderMethods" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Ruby on Rails API Documentation." />
@@ -260,7 +260,7 @@
         <div class="main">
     <div class="banner">
         
-            <span>Ruby on Rails 7.1.0</span><br />
+            <span>Ruby on Rails 7.1.3</span><br />
         
         <div class="type">Module</div>
         <h1>
@@ -508,7 +508,7 @@ Person.where(name: &#39;Spartacus&#39;, rating: 4).exists?
       skip_query_cache_if_necessary { connection.select_rows(relation.arel, &quot;#{name} Exists?&quot;).size == 1 }
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L349" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L349" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -548,7 +548,7 @@ Person.where([&quot;user_name = :u&quot;, { u: user_name }]).fifth
       find_nth 4
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L263" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L263" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -583,7 +583,7 @@ Person.where([&quot;user_name = :u&quot;, { u: user_name }]).fifth
       fifth || raise_record_not_found_exception!
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L269" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L269" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -694,7 +694,7 @@ Person.where(name: &#39;Spartacus&#39;, rating: 4).pluck(:field1, :field2)
       find_with_ids(*args)
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L90" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L90" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -735,7 +735,7 @@ Post.find_by &quot;published_at &lt; ?&quot;, 2.weeks.ago
       where(arg, *args).take
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L103" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L103" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -770,7 +770,7 @@ Post.find_by &quot;published_at &lt; ?&quot;, 2.weeks.ago
       where(arg, *args).take!
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L109" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L109" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -808,7 +808,7 @@ Post.find_by &quot;published_at &lt; ?&quot;, 2.weeks.ago
       where(arg, *args).sole
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L152" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L152" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -854,7 +854,7 @@ Person.first(3) # returns the first three objects fetched by SELECT * FROM peopl
       end
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L165" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L165" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -889,7 +889,7 @@ Person.first(3) # returns the first three objects fetched by SELECT * FROM peopl
       first || raise_record_not_found_exception!
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L175" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L175" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -929,7 +929,7 @@ Person.where([&quot;user_name = :u&quot;, { u: user_name }]).forty_two
       find_nth 41
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L279" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L279" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -964,7 +964,7 @@ Person.where([&quot;user_name = :u&quot;, { u: user_name }]).forty_two
       forty_two || raise_record_not_found_exception!
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L285" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L285" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1004,7 +1004,7 @@ Person.where([&quot;user_name = :u&quot;, { u: user_name }]).fourth
       find_nth 3
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L247" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L247" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1039,7 +1039,7 @@ Person.where([&quot;user_name = :u&quot;, { u: user_name }]).fourth
       fourth || raise_record_not_found_exception!
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L253" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L253" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1094,7 +1094,7 @@ Person.where([&quot;user_name = :u&quot;, { u: user_name }]).fourth
       end
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L377" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L377" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1150,7 +1150,7 @@ Person.last(3) # returns the last three objects fetched by SELECT * FROM people.
       limit ? result.reverse : result.first
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L194" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L194" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1185,7 +1185,7 @@ Person.last(3) # returns the last three objects fetched by SELECT * FROM people.
       last || raise_record_not_found_exception!
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L205" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L205" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1250,7 +1250,7 @@ Person.where([&quot;user_name = :u&quot;, { u: user_name }]).second
       find_nth 1
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L215" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L215" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1285,7 +1285,7 @@ Person.where([&quot;user_name = :u&quot;, { u: user_name }]).second
       second || raise_record_not_found_exception!
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L221" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L221" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1325,7 +1325,7 @@ Person.where([&quot;user_name = :u&quot;, { u: user_name }]).second_to_last
       find_nth_from_last 2
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L311" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L311" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1360,7 +1360,7 @@ Person.where([&quot;user_name = :u&quot;, { u: user_name }]).second_to_last
       second_to_last || raise_record_not_found_exception!
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L317" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L317" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1406,7 +1406,7 @@ Person.where([&quot;user_name = :u&quot;, { u: user_name }]).second_to_last
       end
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L135" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L135" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1446,7 +1446,7 @@ Person.where([&quot;name LIKE &#39;%?&#39;&quot;, name]).take
       limit ? find_take_with_limit(limit) : find_take
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L120" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L120" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1481,7 +1481,7 @@ Person.where([&quot;name LIKE &#39;%?&#39;&quot;, name]).take
       take || raise_record_not_found_exception!
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L126" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L126" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1521,7 +1521,7 @@ Person.where([&quot;user_name = :u&quot;, { u: user_name }]).third
       find_nth 2
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L231" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L231" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1556,7 +1556,7 @@ Person.where([&quot;user_name = :u&quot;, { u: user_name }]).third
       third || raise_record_not_found_exception!
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L237" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L237" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1596,7 +1596,7 @@ Person.where([&quot;user_name = :u&quot;, { u: user_name }]).third_to_last
       find_nth_from_last 3
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L295" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L295" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
@@ -1631,7 +1631,7 @@ Person.where([&quot;user_name = :u&quot;, { u: user_name }]).third_to_last
       third_to_last || raise_record_not_found_exception!
     end</code></pre>
               
-                <a href="https://github.com/rails/rails/blob/d39db5d1891f7509cde2efc425c9d69bbb77e670/activerecord/lib/active_record/relation/finder_methods.rb#L301" target="_blank" class="github_url">🔎 See on GitHub</a>
+                <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/activerecord/lib/active_record/relation/finder_methods.rb#L301" target="_blank" class="github_url">🔎 See on GitHub</a>
               
             </details>
           
